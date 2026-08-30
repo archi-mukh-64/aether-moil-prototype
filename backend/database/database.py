@@ -139,54 +139,54 @@ def log_decision(
     dgms_compliance_code: Optional[str] = "DGMS-2026-COMPLIANT"
 ) -> Dict[str, Any]:
     conn = get_db_connection()
-    cursor = conn.cursor()
-    ts = datetime.now(timezone.utc).isoformat()
-    
-    placeholder = "%s" if is_postgres(conn) else "?"
-    
-    if is_postgres(conn):
-        cursor.execute(f"""
-        INSERT INTO audit_decisions (
-            id, timestamp, mine_id, scenario_type, severity,
-            detected_signal, prediction_summary, recommended_action_id, recommended_action_title,
-            operator_decision, operator_name, operator_role, operator_notes,
-            realized_impact, dgms_compliance_code
-        ) VALUES ({placeholder}, {placeholder}, {placeholder}, {placeholder}, {placeholder}, {placeholder}, {placeholder}, {placeholder}, {placeholder}, {placeholder}, {placeholder}, {placeholder}, {placeholder}, {placeholder}, {placeholder})
-        ON CONFLICT (id) DO UPDATE SET
-            operator_decision = EXCLUDED.operator_decision,
-            operator_name = EXCLUDED.operator_name,
-            operator_notes = EXCLUDED.operator_notes;
-        """, (
-            decision_id, ts, mine_id, scenario_type, severity,
-            detected_signal, prediction_summary, action_id, action_title,
-            operator_decision, operator_name, operator_role, operator_notes,
-            realized_impact, dgms_compliance_code
-        ))
-    else:
-        cursor.execute(f"""
-        INSERT OR REPLACE INTO audit_decisions (
-            id, timestamp, mine_id, scenario_type, severity,
-            detected_signal, prediction_summary, recommended_action_id, recommended_action_title,
-            operator_decision, operator_name, operator_role, operator_notes,
-            realized_impact, dgms_compliance_code
-        ) VALUES ({placeholder}, {placeholder}, {placeholder}, {placeholder}, {placeholder}, {placeholder}, {placeholder}, {placeholder}, {placeholder}, {placeholder}, {placeholder}, {placeholder}, {placeholder}, {placeholder}, {placeholder})
-        """, (
-            decision_id, ts, mine_id, scenario_type, severity,
-            detected_signal, prediction_summary, action_id, action_title,
-            operator_decision, operator_name, operator_role, operator_notes,
-            realized_impact, dgms_compliance_code
-        ))
+    try:
+        cursor = conn.cursor()
+        ts = datetime.now(timezone.utc).isoformat()
+        placeholder = "%s" if is_postgres(conn) else "?"
         
-    conn.commit()
-    conn.close()
-    
-    return {
-        "id": decision_id,
-        "timestamp": ts,
-        "status": "RECORDED",
-        "mine_id": mine_id,
-        "operator_decision": operator_decision
-    }
+        if is_postgres(conn):
+            cursor.execute(f"""
+            INSERT INTO audit_decisions (
+                id, timestamp, mine_id, scenario_type, severity,
+                detected_signal, prediction_summary, recommended_action_id, recommended_action_title,
+                operator_decision, operator_name, operator_role, operator_notes,
+                realized_impact, dgms_compliance_code
+            ) VALUES ({placeholder}, {placeholder}, {placeholder}, {placeholder}, {placeholder}, {placeholder}, {placeholder}, {placeholder}, {placeholder}, {placeholder}, {placeholder}, {placeholder}, {placeholder}, {placeholder}, {placeholder})
+            ON CONFLICT (id) DO UPDATE SET
+                operator_decision = EXCLUDED.operator_decision,
+                operator_name = EXCLUDED.operator_name,
+                operator_notes = EXCLUDED.operator_notes;
+            """, (
+                decision_id, ts, mine_id, scenario_type, severity,
+                detected_signal, prediction_summary, action_id, action_title,
+                operator_decision, operator_name, operator_role, operator_notes,
+                realized_impact, dgms_compliance_code
+            ))
+        else:
+            cursor.execute(f"""
+            INSERT OR REPLACE INTO audit_decisions (
+                id, timestamp, mine_id, scenario_type, severity,
+                detected_signal, prediction_summary, recommended_action_id, recommended_action_title,
+                operator_decision, operator_name, operator_role, operator_notes,
+                realized_impact, dgms_compliance_code
+            ) VALUES ({placeholder}, {placeholder}, {placeholder}, {placeholder}, {placeholder}, {placeholder}, {placeholder}, {placeholder}, {placeholder}, {placeholder}, {placeholder}, {placeholder}, {placeholder}, {placeholder}, {placeholder})
+            """, (
+                decision_id, ts, mine_id, scenario_type, severity,
+                detected_signal, prediction_summary, action_id, action_title,
+                operator_decision, operator_name, operator_role, operator_notes,
+                realized_impact, dgms_compliance_code
+            ))
+            
+        conn.commit()
+        return {
+            "id": decision_id,
+            "timestamp": ts,
+            "status": "RECORDED",
+            "mine_id": mine_id,
+            "operator_decision": operator_decision
+        }
+    finally:
+        conn.close()
 
 def record_feedback(
     mine_id: str,
@@ -200,58 +200,63 @@ def record_feedback(
     model_version: Optional[str] = "1.0.0"
 ) -> Dict[str, Any]:
     conn = get_db_connection()
-    cursor = conn.cursor()
-    ts = datetime.now(timezone.utc).isoformat()
-    placeholder = "%s" if is_postgres(conn) else "?"
-    
-    cursor.execute(f"""
-    INSERT INTO operator_feedback (
-        timestamp, mine_id, prediction_type, model_version,
-        predicted_value, actual_observed_value, operator_rating,
-        operator_comment, operator_name, shift_id
-    ) VALUES ({placeholder}, {placeholder}, {placeholder}, {placeholder}, {placeholder}, {placeholder}, {placeholder}, {placeholder}, {placeholder}, {placeholder})
-    """, (
-        ts, mine_id, prediction_type, model_version,
-        predicted_value, actual_observed_value, operator_rating,
-        operator_comment, operator_name, shift_id
-    ))
-    conn.commit()
-    inserted_id = cursor.lastrowid if not is_postgres(conn) else 1
-    conn.close()
-    
-    return {
-        "id": inserted_id,
-        "timestamp": ts,
-        "status": "FEEDBACK_STORED",
-        "mine_id": mine_id
-    }
+    try:
+        cursor = conn.cursor()
+        ts = datetime.now(timezone.utc).isoformat()
+        placeholder = "%s" if is_postgres(conn) else "?"
+        
+        cursor.execute(f"""
+        INSERT INTO operator_feedback (
+            timestamp, mine_id, prediction_type, model_version,
+            predicted_value, actual_observed_value, operator_rating,
+            operator_comment, operator_name, shift_id
+        ) VALUES ({placeholder}, {placeholder}, {placeholder}, {placeholder}, {placeholder}, {placeholder}, {placeholder}, {placeholder}, {placeholder}, {placeholder})
+        """, (
+            ts, mine_id, prediction_type, model_version,
+            predicted_value, actual_observed_value, operator_rating,
+            operator_comment, operator_name, shift_id
+        ))
+        conn.commit()
+        inserted_id = cursor.lastrowid if not is_postgres(conn) else 1
+        return {
+            "id": inserted_id,
+            "timestamp": ts,
+            "status": "FEEDBACK_STORED",
+            "mine_id": mine_id
+        }
+    finally:
+        conn.close()
 
 def get_recent_audit_decisions(limit: int = 50) -> List[Dict[str, Any]]:
     conn = get_db_connection()
-    cursor = conn.cursor()
-    placeholder = "%s" if is_postgres(conn) else "?"
-    cursor.execute(f"SELECT * FROM audit_decisions ORDER BY timestamp DESC LIMIT {placeholder}", (limit,))
-    
-    if is_postgres(conn):
-        columns = [desc[0] for desc in cursor.description]
-        rows = [dict(zip(columns, row)) for row in cursor.fetchall()]
-    else:
-        rows = [dict(r) for r in cursor.fetchall()]
+    try:
+        cursor = conn.cursor()
+        placeholder = "%s" if is_postgres(conn) else "?"
+        cursor.execute(f"SELECT * FROM audit_decisions ORDER BY timestamp DESC LIMIT {placeholder}", (limit,))
         
-    conn.close()
-    return rows
+        if is_postgres(conn):
+            columns = [desc[0] for desc in cursor.description]
+            rows = [dict(zip(columns, row)) for row in cursor.fetchall()]
+        else:
+            rows = [dict(r) for r in cursor.fetchall()]
+            
+        return rows
+    finally:
+        conn.close()
 
 def get_recent_feedback(limit: int = 50) -> List[Dict[str, Any]]:
     conn = get_db_connection()
-    cursor = conn.cursor()
-    placeholder = "%s" if is_postgres(conn) else "?"
-    cursor.execute(f"SELECT * FROM operator_feedback ORDER BY timestamp DESC LIMIT {placeholder}", (limit,))
-    
-    if is_postgres(conn):
-        columns = [desc[0] for desc in cursor.description]
-        rows = [dict(zip(columns, row)) for row in cursor.fetchall()]
-    else:
-        rows = [dict(r) for r in cursor.fetchall()]
+    try:
+        cursor = conn.cursor()
+        placeholder = "%s" if is_postgres(conn) else "?"
+        cursor.execute(f"SELECT * FROM operator_feedback ORDER BY timestamp DESC LIMIT {placeholder}", (limit,))
         
-    conn.close()
-    return rows
+        if is_postgres(conn):
+            columns = [desc[0] for desc in cursor.description]
+            rows = [dict(zip(columns, row)) for row in cursor.fetchall()]
+        else:
+            rows = [dict(r) for r in cursor.fetchall()]
+            
+        return rows
+    finally:
+        conn.close()

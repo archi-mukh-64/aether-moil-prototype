@@ -3,7 +3,12 @@
  * Handles HTTP requests, abort timeouts, JSON parsing, structured error interception, and request tracing.
  */
 
-const API_BASE_URL = (typeof import.meta !== 'undefined' && import.meta.env && import.meta.env.VITE_API_BASE_URL) ? import.meta.env.VITE_API_BASE_URL : '/api';
+const RAW_API_BASE_URL = (typeof import.meta !== 'undefined' && import.meta.env && import.meta.env.VITE_API_BASE_URL) 
+  ? import.meta.env.VITE_API_BASE_URL 
+  : '/api';
+
+// Normalize by stripping any trailing slash
+const API_BASE_URL = RAW_API_BASE_URL.replace(/\/+$/, '');
 const FALLBACK_API_BASE_URL = 'http://127.0.0.1:8000/api';
 const DEFAULT_TIMEOUT_MS = 8000;
 
@@ -51,8 +56,8 @@ async function request(endpoint, options = {}) {
     try {
       response = await fetch(url, fetchOptions);
     } catch (primaryFetchErr) {
-      // If relative /api failed due to direct file loading or offline proxy, try direct backend URL
-      if (url.startsWith('/api')) {
+      // In local development only, if relative /api failed due to direct file preview, try direct backend URL
+      if (typeof import.meta !== 'undefined' && import.meta.env?.DEV && url.startsWith('/api')) {
         url = `${FALLBACK_API_BASE_URL}${cleanEndpoint}`;
         response = await fetch(url, fetchOptions);
       } else {

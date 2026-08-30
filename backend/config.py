@@ -24,13 +24,17 @@ class Settings(BaseModel):
             "http://127.0.0.1:3000",
             "http://localhost:8000",
             "http://127.0.0.1:8000",
+            "https://moil-aether-backend.onrender.com",
         ]
         if raw:
-            custom = [origin.strip() for origin in raw.split(",") if origin.strip()]
+            custom = [origin.strip().rstrip('/') for origin in raw.split(",") if origin.strip()]
             return list(set(defaults + custom))
-        if self.environment == "development":
-            return defaults + ["*"]
         return defaults
+
+    @property
+    def allow_origin_regex(self) -> str:
+        # Allows Vercel preview deployments (e.g. https://*-archi-mukh-64.vercel.app)
+        return r"https://.*\.vercel\.app"
     
     # Database configuration (PostgreSQL / Supabase with SQLite fallback)
     database_url: str = os.getenv("DATABASE_URL", "")
