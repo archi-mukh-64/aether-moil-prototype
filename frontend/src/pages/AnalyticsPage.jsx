@@ -2,6 +2,7 @@ import React, { useState, useMemo } from 'react';
 import { useApp } from '../context/AppContext.jsx';
 import { MOIL_MINE_REGISTRY, OFFICIAL_MOIL_MINES, getMineAnalytics } from '../services/mineRegistry.js';
 import { ErrorBoundary } from '../components/common/ErrorBoundary.jsx';
+import { AetherSectionHeader, AetherStatusBadge } from '../components/design-system/index.js';
 import { 
   ResponsiveContainer, 
   AreaChart, 
@@ -345,54 +346,33 @@ const AnalyticsPageContent = () => {
   const isScenarioActive = !!activeScenario;
 
   return (
-    <div className="py-8 command-container space-y-8 font-sans text-zinc-100">
+    <div className="space-y-6 font-sans">
       
       {/* 1. Header & Asset Selector Strip */}
-      <div className="flex flex-col md:flex-row md:items-start justify-between gap-6 pb-6 border-b border-obsidian-800">
-        <div>
-          <div className="flex flex-wrap items-center gap-2 mb-3">
-            <span className="badge-telemetry font-mono text-[10px]">
-              <BarChart3 className="w-3.5 h-3.5 text-telemetry-400" />
-              <span>MINING INTELLIGENCE ANALYTICS CENTER // {currentMine.name.toUpperCase()}</span>
-            </span>
-            <span className="badge-manganese text-[10px] font-mono">
-              {currentMine.district?.toUpperCase()} • {currentMine.state?.toUpperCase()}
-            </span>
-            <span className="px-2.5 py-0.5 rounded bg-obsidian-900 border border-obsidian-750 text-[10px] font-mono text-zinc-400">
-              {currentMine.coordinatesDMS || currentMine.coordinates}
-            </span>
-          </div>
-
-          <h1 className="font-display text-4xl sm:text-5xl font-extrabold text-white">
-            {currentMine.name} Analytics
-          </h1>
-          <p className="text-sm font-mono text-zinc-400 mt-2 max-w-3xl leading-relaxed">
-            Multi-dimensional operations intelligence, loss attribution waterfalls, shift analytics, bottleneck diagnosis, vibration FFT harmonics, risk matrices, and Earth Observation for <strong className="text-white">{currentMine.name}</strong>.
-          </p>
-        </div>
-
-        {/* 10-Mine Carousel Switcher */}
-        <div className="flex flex-col items-start md:items-end gap-2 self-start md:self-auto">
-          <span className="text-[10px] font-mono uppercase text-zinc-500 tracking-wider">
-            Switch MOIL Asset:
-          </span>
-          <div className="flex items-center gap-1.5 overflow-x-auto max-w-lg p-1.5 rounded-xl bg-obsidian-900 border border-obsidian-750 no-scrollbar">
+      <AetherSectionHeader
+        title={`${currentMine.name} — Predictive Shift & Bottleneck Analytics`}
+        subtitle="Multi-dimensional operations intelligence, loss attribution waterfalls, shift analytics, bottleneck diagnosis, vibration FFT harmonics, and risk matrices."
+        badge={`${currentMine.district?.toUpperCase()} • ${currentMine.state?.toUpperCase()}`}
+        accent="#6366F1"
+        icon={BarChart3}
+        actions={
+          <div className="flex items-center gap-1.5 overflow-x-auto max-w-lg p-1 rounded-xl bg-[#F8FAFC] border border-[#E2E8F0] no-scrollbar">
             {mineList.map((m) => (
               <button
                 key={m.id}
                 onClick={() => setSelectedMineId(m.id)}
-                className={`px-3 py-1.5 rounded-lg text-xs font-mono font-bold transition-all whitespace-nowrap ${
+                className={`px-2.5 py-1 rounded-lg text-xs font-mono font-bold transition-all whitespace-nowrap ${
                   selectedMineId === m.id
-                    ? 'bg-manganese-500 text-obsidian-950 shadow-md scale-105'
-                    : 'text-zinc-400 hover:text-zinc-200 hover:bg-obsidian-800'
+                    ? 'bg-[#6366F1] text-white shadow-xs'
+                    : 'text-[#64748B] hover:text-[#172033] hover:bg-slate-100'
                 }`}
               >
                 {m.shortName || m.name}
               </button>
             ))}
           </div>
-        </div>
-      </div>
+        }
+      />
 
       {/* 2. EXECUTIVE AI-GENERATED OPERATIONAL INSIGHTS BANNER */}
       <div className="p-4 rounded-2xl bg-gradient-to-r from-obsidian-950 via-[#0d1c30] to-obsidian-950 border border-sky-500/40 shadow-xl space-y-2.5 font-mono text-xs">

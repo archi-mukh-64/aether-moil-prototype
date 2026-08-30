@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import { motion, AnimatePresence } from 'framer-motion';
 import { useApp } from '../../context/AppContext.jsx';
+import { AetherLogo } from '../design-system/AetherLogo.jsx';
 import { 
   Layers, 
   Radio, 
@@ -18,222 +20,353 @@ import {
   Sparkles,
   Truck,
   Globe2,
-  FileText
+  FileText,
+  LineChart,
+  ShieldAlert,
+  Server,
+  Database,
+  Info,
+  CheckCircle2,
+  X
 } from 'lucide-react';
 
+/**
+ * AETHER Responsive Industrial Sidebar
+ * Bloomberg / Command Center aesthetic tailored for national-level MOIL operations.
+ */
 export const Sidebar = ({ isCollapsed, setIsCollapsed, isMobileOpen, setIsMobileOpen }) => {
   const location = useLocation();
   const { lang, t, setIsReportModalOpen } = useApp();
+  const [hoveredItem, setHoveredItem] = useState(null);
+  const [aboutModalOpen, setAboutModalOpen] = useState(false);
+  const [sourcesModalOpen, setSourcesModalOpen] = useState(false);
 
-  // Collapsible category accordions state (default open)
-  const [openSections, setOpenSections] = useState({
-    COMMAND: true,
-    INTELLIGENCE: true,
-    FLEET: true,
-    OPERATIONS: true,
-    SYSTEM: true
-  });
-
-  const toggleSection = (sec) => {
-    setOpenSections(prev => ({ ...prev, [sec]: !prev[sec] }));
-  };
-
-  const navCategories = [
+  // Grouped Navigation Schema strictly adhering to prompt specification
+  const navSections = [
     {
-      id: 'COMMAND',
-      label: lang === 'hi' ? 'कमांड' : lang === 'mr' ? 'कमांड' : 'COMMAND',
-      zoneColor: '#FFB000', // Amber
+      id: 'NATIONAL',
+      title: 'NATIONAL INTELLIGENCE',
+      accent: '#F59E0B', // Amber
       items: [
-        { name: t?.nav?.overview || 'National Overview', path: '/', icon: Layers, exact: true, iconColor: '#FFB000' },
-        { name: t?.nav?.commandCenter || 'Command Center', path: '/command-center', icon: Radio, iconColor: '#FFB000' }
+        { name: t?.nav?.overview || 'Overview', path: '/', icon: Layers, exact: true, accent: '#F59E0B' },
+        { name: t?.nav?.commandCenter || 'Mine Command Center', path: '/command-center', icon: Radio, accent: '#0284C7' }
       ]
     },
     {
       id: 'INTELLIGENCE',
-      label: lang === 'hi' ? 'खुफिया तंत्र' : lang === 'mr' ? 'गुप्तवार्ता' : 'INTELLIGENCE',
-      zoneColor: '#21D4C5', // Cyan
+      title: 'INTELLIGENCE',
+      accent: '#0891B2', // Cyan
       items: [
-        { name: t?.nav?.reserveRadar || 'Reserve Radar', path: '/reserve-radar', icon: Compass, iconColor: '#21D4C5' },
-        { name: t?.nav?.alertEngine || 'Alert Engine', path: '/alert-engine', icon: Activity, iconColor: '#FF5A67' },
-        { name: t?.nav?.analytics || 'Analytics', path: '/analytics', icon: BarChart3, iconColor: '#8B7CFF' }
+        { name: t?.nav?.alertEngine || 'Risk & Threats', path: '/alert-engine', icon: ShieldAlert, accent: '#DC2626' },
+        { name: t?.nav?.analytics || 'Predictive Analytics', path: '/analytics', icon: LineChart, accent: '#6366F1' },
+        { name: t?.nav?.reserveRadar || 'Reserve Intelligence', path: '/reserve-radar', icon: Compass, accent: '#0D9488' },
+        { name: t?.nav?.equipment || 'Fleet Intelligence', path: '/equipment', icon: Cpu, accent: '#EA580C' }
       ]
     },
     {
-      id: 'FLEET',
-      label: lang === 'hi' ? 'फ्लीट एवं स्काडा' : lang === 'mr' ? 'फ्लीट व स्काडा' : 'FLEET & SCADA',
-      zoneColor: '#22C55E', // Green
+      id: 'SIMULATION',
+      title: 'SIMULATION',
+      accent: '#8B5CF6', // Purple
       items: [
-        { name: t?.nav?.equipment || 'Equipment Intelligence', path: '/equipment', icon: Cpu, iconColor: '#22C55E' }
+        { name: t?.nav?.scenarioLab || 'Scenario Lab', path: '/scenario-lab', icon: FlaskConical, accent: '#8B5CF6' }
       ]
     },
     {
-      id: 'OPERATIONS',
-      label: lang === 'hi' ? 'परिचालन' : lang === 'mr' ? 'ऑपरेशन्स' : 'OPERATIONS',
-      zoneColor: '#FFB020', // Orange / Amber
+      id: 'COMPLIANCE',
+      title: 'COMPLIANCE',
+      accent: '#10B981', // Emerald
       items: [
-        { name: t?.nav?.scenarioLab || 'Scenario Lab', path: '/scenario-lab', icon: FlaskConical, iconColor: '#FFB020' },
-        { name: t?.nav?.protocol || 'Protocols', path: '/protocol', icon: ShieldCheck, iconColor: '#22C55E' }
+        { name: t?.nav?.protocol || 'Statutory Protocols', path: '/protocol', icon: ShieldCheck, accent: '#10B981' },
+        { name: t?.nav?.decisionLog || 'Decision & Audit Log', path: '/decision-log', icon: Terminal, accent: '#4F46E5' },
+        { name: t?.nav?.reports || 'Reports & Handover', path: '/reports', icon: FileText, accent: '#2563EB' }
       ]
     },
     {
       id: 'SYSTEM',
-      label: lang === 'hi' ? 'प्रणाली' : lang === 'mr' ? 'प्रणाली' : 'SYSTEM',
-      zoneColor: '#8B7CFF', // Violet
+      title: 'SYSTEM',
+      accent: '#64748B', // Slate
       items: [
-        { name: t?.nav?.decisionLog || 'Decision Log', path: '/decision-log', icon: Terminal, iconColor: '#8B7CFF' }
+        { 
+          name: 'Data Sources & GEE', 
+          action: () => setSourcesModalOpen(true), 
+          icon: Database, 
+          accent: '#0891B2' 
+        },
+        { 
+          name: 'About AETHER', 
+          action: () => setAboutModalOpen(true), 
+          icon: Info, 
+          accent: '#F59E0B' 
+        }
       ]
     }
   ];
 
+  const isActiveRoute = (item) => {
+    if (!item.path) return false;
+    if (item.exact) return location.pathname === item.path;
+    return location.pathname.startsWith(item.path);
+  };
+
   return (
     <>
-      {/* Mobile Backdrop */}
+      {/* Mobile Drawer Overlay */}
       {isMobileOpen && (
         <div 
           onClick={() => setIsMobileOpen(false)}
-          className="fixed inset-0 bg-[#0B0F14]/80 backdrop-blur-sm z-40 lg:hidden"
+          className="fixed inset-0 bg-[#0F172A]/60 backdrop-blur-xs z-40 lg:hidden transition-opacity"
         />
       )}
 
       {/* Sidebar Container */}
       <aside
-        className={`fixed lg:sticky top-0 left-0 h-screen bg-[#10151C] border-r border-[#222D3A] z-50 flex flex-col justify-between transition-all duration-300 select-none shadow-2xl ${
-          isCollapsed ? 'w-16' : 'w-64'
-        } ${isMobileOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'}`}
+        className={`fixed lg:sticky top-0 left-0 h-screen bg-[#FFFFFF] border-r border-[#E2E8F0] z-50 flex flex-col justify-between transition-all duration-300 select-none shadow-sm ${
+          isCollapsed ? 'w-18' : 'w-64'
+        } ${
+          isMobileOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'
+        }`}
       >
-        {/* Top Brand Banner */}
-        <div className="p-3.5 border-b border-[#222D3A] flex items-center justify-between gap-2">
-          {!isCollapsed && (
-            <Link to="/" className="flex items-center gap-2.5 group">
-              <div className="w-8 h-8 rounded-xl bg-[#151B23] border border-amber-500/40 flex items-center justify-center text-amber-400 group-hover:border-amber-400 transition-colors shadow">
-                <svg viewBox="0 0 32 32" className="w-4 h-4">
-                  <polygon points="16,3 28,9 28,23 16,29 4,23 4,9" fill="none" stroke="#FFB000" strokeWidth="2" />
-                  <circle cx="16" cy="16" r="3" fill="#FFB000" />
-                </svg>
-              </div>
-              <div className="flex flex-col">
-                <span className="font-extrabold text-sm text-white tracking-wider font-sans leading-none">
-                  AETHER
-                </span>
-                <span className="text-[8px] font-mono text-slate-400 uppercase tracking-widest mt-1">
-                  MOIL INTELLIGENCE
-                </span>
-              </div>
+        {/* Top Header & Logo Area */}
+        <div>
+          <div className="h-16 px-4 border-b border-[#E2E8F0] flex items-center justify-between bg-[#F8FAFC]">
+            <Link 
+              to="/" 
+              onClick={() => setIsMobileOpen(false)}
+              className="flex items-center gap-2 overflow-hidden"
+            >
+              <AetherLogo size={isCollapsed ? 'sm' : 'md'} showText={!isCollapsed} />
             </Link>
-          )}
 
-          {isCollapsed && (
-            <Link to="/" className="mx-auto w-8 h-8 rounded-xl bg-[#151B23] border border-amber-500/40 flex items-center justify-center text-amber-400">
-              <svg viewBox="0 0 32 32" className="w-4 h-4">
-                <polygon points="16,3 28,9 28,23 16,29 4,23 4,9" fill="none" stroke="#FFB000" strokeWidth="2" />
-                <circle cx="16" cy="16" r="3" fill="#FFB000" />
-              </svg>
-            </Link>
-          )}
+            {/* Collapse / Expand Toggle Button */}
+            <button
+              onClick={() => setIsCollapsed(!isCollapsed)}
+              className="hidden lg:flex p-1.5 rounded-lg text-[#64748B] hover:text-[#172033] hover:bg-[#F1F5F9] transition-colors"
+              title={isCollapsed ? 'Expand Sidebar (Ctrl+B)' : 'Collapse Sidebar (Ctrl+B)'}
+            >
+              {isCollapsed ? <PanelLeftOpen className="w-4 h-4" /> : <PanelLeftClose className="w-4 h-4" />}
+            </button>
 
-          {/* Collapse Toggle Button */}
-          <button
-            onClick={() => setIsCollapsed(!isCollapsed)}
-            className="p-1.5 rounded-lg bg-[#151B23] hover:bg-[#1A232E] text-slate-400 hover:text-white border border-[#222D3A] transition-colors cursor-pointer hidden lg:flex items-center justify-center"
-            title={isCollapsed ? 'Expand Sidebar' : 'Collapse Sidebar'}
-          >
-            {isCollapsed ? <PanelLeftOpen className="w-4 h-4" /> : <PanelLeftClose className="w-4 h-4" />}
-          </button>
-        </div>
+            {/* Mobile Close Button */}
+            <button
+              onClick={() => setIsMobileOpen(false)}
+              className="lg:hidden p-1.5 rounded-lg text-slate-500 hover:text-slate-800"
+            >
+              <X className="w-5 h-5" />
+            </button>
+          </div>
 
-        {/* Middle Navigation Links Accordion */}
-        <div className="flex-1 overflow-y-auto px-2.5 py-3.5 space-y-4 no-scrollbar font-sans">
-          {navCategories.map((cat) => {
-            const isOpen = openSections[cat.id] !== false;
-
-            return (
-              <div key={cat.id} className="space-y-1">
-                {/* Category Header */}
+          {/* Navigation Items List */}
+          <nav className="p-3 space-y-4 overflow-y-auto max-h-[calc(100vh-230px)] font-sans">
+            {navSections.map((sec) => (
+              <div key={sec.id} className="space-y-1">
+                {/* Section Title Header */}
                 {!isCollapsed && (
-                  <button
-                    onClick={() => toggleSection(cat.id)}
-                    className="w-full px-2 py-1 flex items-center justify-between text-[10px] font-mono font-bold tracking-widest text-slate-400 uppercase hover:text-slate-200 transition-colors cursor-pointer"
-                  >
-                    <span className="flex items-center gap-1.5">
-                      <span className="w-1.5 h-1.5 rounded-full" style={{ backgroundColor: cat.zoneColor }} />
-                      <span>{cat.label}</span>
-                    </span>
-                    <ChevronDown className={`w-3 h-3 transition-transform ${isOpen ? '' : '-rotate-90'}`} />
-                  </button>
-                )}
-
-                {/* Submodule Items */}
-                {(isOpen || isCollapsed) && (
-                  <div className="space-y-0.5">
-                    {cat.items.map((item) => {
-                      const isActive = item.exact 
-                        ? location.pathname === item.path 
-                        : (location.pathname === item.path || (item.path !== '/' && location.pathname.startsWith(item.path)));
-                      const Icon = item.icon;
-
-                      return (
-                        <Link
-                          key={item.path}
-                          to={item.path}
-                          onClick={() => setIsMobileOpen(false)}
-                          title={isCollapsed ? item.name : undefined}
-                          className={`w-full flex items-center gap-3 px-3 py-2 rounded-xl text-xs font-medium transition-all duration-150 relative group ${
-                            isActive
-                              ? 'bg-[#1A232E] text-white font-bold border shadow-sm'
-                              : 'text-slate-400 hover:text-white hover:bg-[#151B23] border border-transparent'
-                          }`}
-                          style={{
-                            borderColor: isActive ? `${cat.zoneColor}50` : 'transparent'
-                          }}
-                        >
-                          <Icon 
-                            className="w-4 h-4 flex-shrink-0 transition-colors" 
-                            style={{ 
-                              color: isActive ? cat.zoneColor : item.iconColor 
-                            }} 
-                          />
-
-                          {!isCollapsed && (
-                            <span className="truncate tracking-wide">
-                              {item.name}
-                            </span>
-                          )}
-
-                          {/* Active Indicator Pip */}
-                          {isActive && (
-                            <span 
-                              className="absolute right-2.5 w-1.5 h-1.5 rounded-full shadow-sm" 
-                              style={{ 
-                                backgroundColor: cat.zoneColor,
-                                boxShadow: `0 0 8px ${cat.zoneColor}`
-                              }} 
-                            />
-                          )}
-                        </Link>
-                      );
-                    })}
+                  <div className="px-3 py-1 flex items-center justify-between text-[10px] font-mono font-bold tracking-wider text-[#94A3B8] uppercase">
+                    <span>{sec.title}</span>
                   </div>
                 )}
+
+                {/* Section Items */}
+                <div className="space-y-0.5">
+                  {sec.items.map((item) => {
+                    const active = isActiveRoute(item);
+                    const Icon = item.icon;
+
+                    const itemContent = (
+                      <div
+                        onMouseEnter={() => setHoveredItem(item.name)}
+                        onMouseLeave={() => setHoveredItem(null)}
+                        className={`group relative flex items-center gap-3 px-3 py-2 rounded-xl text-xs font-semibold transition-all duration-150 ${
+                          active
+                            ? 'bg-[#F0F4F8] text-[#172033] shadow-xs'
+                            : 'text-[#64748B] hover:text-[#172033] hover:bg-[#F8FAFC]'
+                        } ${isCollapsed ? 'justify-center px-2' : ''}`}
+                      >
+                        {/* Active Accent Bar */}
+                        {active && (
+                          <motion.div
+                            layoutId="activeNavIndicator"
+                            style={{ backgroundColor: item.accent || sec.accent }}
+                            className="absolute left-0 top-1.5 bottom-1.5 w-1 rounded-r-full"
+                          />
+                        )}
+
+                        {/* Icon */}
+                        <Icon 
+                          className={`w-4 h-4 shrink-0 transition-transform group-hover:scale-110 ${
+                            active ? 'text-[#172033]' : 'text-[#64748B] group-hover:text-[#172033]'
+                          }`} 
+                        />
+
+                        {/* Label */}
+                        {!isCollapsed && (
+                          <span className="truncate">
+                            {item.name}
+                          </span>
+                        )}
+
+                        {/* Tooltip on Collapsed Mode */}
+                        {isCollapsed && hoveredItem === item.name && (
+                          <div className="absolute left-full ml-3 px-2.5 py-1 rounded-lg bg-[#172033] text-white text-xs font-semibold whitespace-nowrap shadow-lg z-50 pointer-events-none animate-in fade-in zoom-in-95 duration-150">
+                            {item.name}
+                          </div>
+                        )}
+                      </div>
+                    );
+
+                    if (item.action) {
+                      return (
+                        <button
+                          key={item.name}
+                          onClick={() => {
+                            item.action();
+                            setIsMobileOpen(false);
+                          }}
+                          className="w-full text-left cursor-pointer"
+                        >
+                          {itemContent}
+                        </button>
+                      );
+                    }
+
+                    return (
+                      <Link
+                        key={item.name}
+                        to={item.path}
+                        onClick={() => setIsMobileOpen(false)}
+                      >
+                        {itemContent}
+                      </Link>
+                    );
+                  })}
+                </div>
               </div>
-            );
-          })}
+            ))}
+          </nav>
         </div>
 
-        {/* Bottom Quick Tools */}
-        <div className="p-3 border-t border-[#222D3A] space-y-2">
-          <Link
-            to="/reports"
-            onClick={() => setIsMobileOpen(false)}
-            className={`w-full py-2 rounded-xl bg-amber-500 hover:bg-amber-400 text-[#0B0F14] font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 shadow-md hover:shadow-glow-amber transition-all cursor-pointer ${
-              isCollapsed ? 'px-2' : 'px-3'
-            }`}
-            title="Executive PDF/PPTX Reports Hub"
-          >
-            <FileText className="w-4 h-4" />
-            {!isCollapsed && <span>{lang === 'hi' ? 'कार्यकारी रिपोर्ट' : lang === 'mr' ? 'कार्यकारी अहवाल' : 'Reports Hub'}</span>}
-          </Link>
+        {/* Bottom System Operational Status Box */}
+        <div className="p-3 border-t border-[#E2E8F0] bg-[#F8FAFC]">
+          {!isCollapsed ? (
+            <div className="p-3 rounded-xl bg-white border border-[#E2E8F0] shadow-xs space-y-2 text-[11px] font-mono">
+              <div className="flex items-center justify-between text-[#16A34A] font-bold">
+                <span className="flex items-center gap-1.5">
+                  <span className="relative flex h-2 w-2">
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
+                    <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500" />
+                  </span>
+                  SYSTEM OPERATIONAL
+                </span>
+                <span className="text-[10px] text-[#64748B]">v1.0</span>
+              </div>
+
+              <div className="space-y-1 text-[10px] text-[#64748B] pt-1 border-t border-[#F1F5F9]">
+                <div className="flex items-center justify-between">
+                  <span>API GATEWAY</span>
+                  <strong className="text-emerald-700">ONLINE</strong>
+                </div>
+                <div className="flex items-center justify-between">
+                  <span>DATABASE</span>
+                  <strong className="text-emerald-700">ONLINE</strong>
+                </div>
+                <div className="flex items-center justify-between">
+                  <span>ML ENGINE</span>
+                  <strong className="text-emerald-700">ONLINE</strong>
+                </div>
+              </div>
+
+              <div className="text-[9.5px] text-[#94A3B8] text-center pt-1 border-t border-[#F1F5F9]">
+                MOIL Limited • SIH 2026
+              </div>
+            </div>
+          ) : (
+            <div className="flex flex-col items-center justify-center p-2 rounded-lg bg-emerald-50 border border-emerald-200 text-emerald-700" title="System Operational">
+              <CheckCircle2 className="w-4 h-4" />
+            </div>
+          )}
         </div>
       </aside>
+
+      {/* About AETHER Modal */}
+      {aboutModalOpen && (
+        <div className="fixed inset-0 z-50 bg-[#0F172A]/70 backdrop-blur-xs flex items-center justify-center p-4">
+          <div className="bg-white border border-[#CBD5E1] rounded-2xl p-6 max-w-md w-full shadow-2xl space-y-4 text-[#172033]">
+            <div className="flex items-center justify-between pb-3 border-b border-[#E2E8F0]">
+              <AetherLogo size="sm" />
+              <button 
+                onClick={() => setAboutModalOpen(false)}
+                className="p-1 rounded-lg text-slate-400 hover:text-slate-700"
+              >
+                <X className="w-4 h-4" />
+              </button>
+            </div>
+
+            <div className="space-y-2 text-xs text-[#475569] leading-relaxed">
+              <p>
+                <strong>AETHER</strong> is an industrial-grade intelligence platform built for <strong>MOIL Limited</strong> (Manganese Ore India Limited, Ministry of Steel, Govt. of India).
+              </p>
+              <p>
+                It fuses <strong>Sentinel-2 Level-2A remote sensing</strong>, <strong>Sausar Group manganese geology</strong>, <strong>SCADA telemetry</strong>, and <strong>TreeSHAP prescriptive AI</strong> for zero-deficit production management.
+              </p>
+            </div>
+
+            <div className="p-3 rounded-xl bg-[#F8FAFC] border border-[#E2E8F0] text-[11px] font-mono text-[#64748B] space-y-1">
+              <div>Release: <strong>AETHER Production v1.0</strong></div>
+              <div>Stack: <strong>React 18 + Vite + FastAPI + Supabase</strong></div>
+              <div>Geospatial: <strong>Zero-Key OpenStreetMap Architecture</strong></div>
+            </div>
+
+            <button
+              onClick={() => setAboutModalOpen(false)}
+              className="w-full py-2 bg-[#172033] hover:bg-[#1E293B] text-white rounded-xl text-xs font-bold font-mono transition-colors"
+            >
+              CLOSE
+            </button>
+          </div>
+        </div>
+      )}
+
+      {/* Data Sources Modal */}
+      {sourcesModalOpen && (
+        <div className="fixed inset-0 z-50 bg-[#0F172A]/70 backdrop-blur-xs flex items-center justify-center p-4">
+          <div className="bg-white border border-[#CBD5E1] rounded-2xl p-6 max-w-lg w-full shadow-2xl space-y-4 text-[#172033]">
+            <div className="flex items-center justify-between pb-3 border-b border-[#E2E8F0]">
+              <div className="flex items-center gap-2">
+                <Database className="w-4 h-4 text-cyan-600" />
+                <h3 className="font-bold text-sm font-display">AETHER Verified Data Sources</h3>
+              </div>
+              <button 
+                onClick={() => setSourcesModalOpen(false)}
+                className="p-1 rounded-lg text-slate-400 hover:text-slate-700"
+              >
+                <X className="w-4 h-4" />
+              </button>
+            </div>
+
+            <div className="space-y-2.5 text-xs text-[#475569]">
+              <div className="p-2.5 rounded-lg bg-[#F8FAFC] border border-[#E2E8F0]">
+                <div className="font-bold text-[#172033]">1. Earth Observation Remote Sensing</div>
+                <div className="text-[11px] text-[#64748B]">Copernicus Sentinel-2 MSI Level-2A &amp; Landsat 8/9 OLI spectral reflectance.</div>
+              </div>
+              <div className="p-2.5 rounded-lg bg-[#F8FAFC] border border-[#E2E8F0]">
+                <div className="font-bold text-[#172033]">2. MOIL Official SCADA Telemetry</div>
+                <div className="text-[11px] text-[#64748B]">Real-time vibration, shaft hoist speeds, sump discharge, and crusher metrics.</div>
+              </div>
+              <div className="p-2.5 rounded-lg bg-[#F8FAFC] border border-[#E2E8F0]">
+                <div className="font-bold text-[#172033]">3. Sausar Group Geological Horizons</div>
+                <div className="text-[11px] text-[#64748B]">Precambrian metamorphic stratigraphy, UNFC-111 reserve blocks, and core assays.</div>
+              </div>
+            </div>
+
+            <button
+              onClick={() => setSourcesModalOpen(false)}
+              className="w-full py-2 bg-[#172033] hover:bg-[#1E293B] text-white rounded-xl text-xs font-bold font-mono transition-colors"
+            >
+              CONFIRM
+            </button>
+          </div>
+        </div>
+      )}
     </>
   );
 };

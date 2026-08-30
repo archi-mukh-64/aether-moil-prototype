@@ -14,9 +14,19 @@ import {
   ShieldAlert, 
   RotateCcw,
   Sparkles,
-  Layers
+  Layers,
+  FileText,
+  SlidersHorizontal,
+  Flame,
+  Radio
 } from 'lucide-react';
+import { AetherStatusBadge } from '../design-system/AetherStatusBadge.jsx';
 
+/**
+ * AETHER Industrial Command Bar (AppHeader)
+ * Precision topbar with active mine selector, trilingual language switcher,
+ * live scenario context, real-time clock, and quick executive actions.
+ */
 export const AppHeader = ({ onMobileMenuToggle }) => {
   const { 
     lang, 
@@ -27,7 +37,10 @@ export const AppHeader = ({ onMobileMenuToggle }) => {
     runScenario, 
     resetBaseline, 
     apiConnected, 
-    t 
+    t,
+    setIsComparisonModalOpen,
+    setIsCommandDrawerOpen,
+    setIsReportModalOpen
   } = useApp();
 
   const [isMineDropdownOpen, setIsMineDropdownOpen] = useState(false);
@@ -71,126 +84,94 @@ export const AppHeader = ({ onMobileMenuToggle }) => {
   const isMaharashtra = activeMine?.state?.toLowerCase().includes('maharashtra');
   const languages = isMaharashtra
     ? [
-        { code: 'en', label: 'English' },
-        { code: 'hi', label: 'हिन्दी' },
-        { code: 'mr', label: 'मराठी' }
+        { code: 'en', label: 'English', short: 'EN' },
+        { code: 'hi', label: 'हिन्दी', short: 'HI' },
+        { code: 'mr', label: 'मराठी', short: 'MR' }
       ]
     : [
-        { code: 'en', label: 'English' },
-        { code: 'hi', label: 'हिन्दी' }
+        { code: 'en', label: 'English', short: 'EN' },
+        { code: 'hi', label: 'हिन्दी', short: 'HI' }
       ];
 
-  const mineAccentColors = {
-    'balaghat': '#FFB000',      // Industrial Amber
-    'tirodi': '#FFB020',        // Warning Orange
-    'ukwa': '#22C55E',          // Forest Green
-    'munsar': '#F0445E',        // Critical Coral
-    'kandri': '#21D4C5',        // Cyan Teal
-    'gumgaon': '#19C3D1',       // Cyan Intel
-    'chikla': '#8B7CFF',        // Violet AI
-    'dongri-buzurg': '#FFC247', // Gold
-    'ramtek': '#34D399',        // Spring Green
-    'bhandara': '#8E9EAE'       // Slate Bronze
-  };
-
-  const currentAccent = mineAccentColors[activeMine.id] || '#FFB000';
+  const currentLangObj = languages.find(l => l.code === lang) || languages[0];
 
   return (
-    <header className="w-full bg-[#10151C]/95 backdrop-blur-xl border-b border-[#222D3A] sticky top-0 z-40 select-none shadow-md font-sans">
-      <div className="w-full px-4 sm:px-6 lg:px-8 py-2.5 flex items-center justify-between gap-4">
+    <header className="w-full bg-[#FFFFFF] border-b border-[#E2E8F0] sticky top-0 z-40 select-none shadow-xs font-sans">
+      <div className="w-full px-4 sm:px-6 py-2.5 flex items-center justify-between gap-3">
         
-        {/* Left Section: Mobile Toggle, Brand & Global Mine Selector */}
-        <div className="flex items-center gap-4">
-          {/* Mobile Menu Hamburger */}
+        {/* LEFT SECTION: Mobile Toggle & Active Mine Asset Switcher */}
+        <div className="flex items-center gap-3">
+          {/* Mobile Hamburger */}
           <button
             onClick={onMobileMenuToggle}
-            className="p-2 rounded-xl bg-[#151B23] border border-[#222D3A] text-slate-300 hover:text-white lg:hidden cursor-pointer"
+            className="lg:hidden p-2 rounded-lg bg-slate-100 hover:bg-slate-200 text-[#172033]"
+            aria-label="Open Mobile Menu"
           >
             <Menu className="w-5 h-5" />
           </button>
 
-          {/* AETHER Brand Mark & Subtitle */}
-          <Link to="/" className="hidden sm:flex items-center gap-2.5 group">
-            <div className="w-8 h-8 rounded-xl bg-[#151B23] border border-amber-500/40 flex items-center justify-center text-amber-400 group-hover:border-amber-400 transition-colors shadow">
-              <svg viewBox="0 0 32 32" className="w-4 h-4">
-                <polygon points="16,3 28,9 28,23 16,29 4,23 4,9" fill="none" stroke="#FFB000" strokeWidth="2" />
-                <circle cx="16" cy="16" r="3" fill="#FFB000" />
-              </svg>
-            </div>
-            <div className="flex flex-col">
-              <div className="flex items-center gap-1.5">
-                <span className="font-extrabold text-sm text-white tracking-wider font-sans leading-none">
-                  AETHER
-                </span>
-                <span className="text-[8px] font-mono font-bold px-1.5 py-0.2 rounded bg-amber-500/15 text-amber-400 border border-amber-500/30 uppercase">
-                  MOIL PLATFORM
-                </span>
-              </div>
-              <span className="text-[8px] font-mono text-slate-400 uppercase tracking-widest mt-0.5">
-                {t?.subtitle || 'NATIONAL MINING INTELLIGENCE'}
-              </span>
-            </div>
-          </Link>
-
-          <div className="w-[1px] h-6 bg-[#222D3A] hidden sm:block" />
-
-          {/* ACTIVE GLOBAL MINE SELECTOR */}
+          {/* Active Mine Selector Dropdown */}
           <div className="relative" ref={mineDropdownRef}>
             <button
               onClick={() => setIsMineDropdownOpen(!isMineDropdownOpen)}
-              className="flex items-center gap-3 px-3.5 py-1.5 rounded-xl bg-[#151B23] hover:bg-[#1A232E] border border-[#222D3A] hover:border-[#2D3A4B] text-white text-xs font-bold transition-all shadow-card-subtle group cursor-pointer"
-              style={{ borderLeft: `3.5px solid ${currentAccent}` }}
+              className="flex items-center gap-2.5 px-3.5 py-1.5 rounded-xl bg-[#F8FAFC] hover:bg-[#F1F5F9] border border-[#E2E8F0] text-left transition-all duration-150 shadow-xs group"
             >
-              <div className="flex flex-col text-left">
-                <span className="text-[8px] font-mono text-slate-400 uppercase tracking-wider">
-                  {t?.common?.active_mine || 'ACTIVE SECTOR MINE'}
-                </span>
-                <span className="font-bold text-xs text-slate-100 flex items-center gap-1.5">
-                  <span className="w-1.5 h-1.5 rounded-full" style={{ backgroundColor: currentAccent }} />
-                  <span>{activeMine.name}</span>
-                </span>
+              <div className="p-1 rounded-md bg-amber-500/10 border border-amber-500/20 text-amber-600">
+                <MapPin className="w-3.5 h-3.5" />
               </div>
-              <ChevronDown className={`w-3.5 h-3.5 text-slate-400 group-hover:text-white transition-transform ${isMineDropdownOpen ? 'rotate-180' : ''}`} />
+
+              <div className="flex flex-col">
+                <span className="text-[9px] font-mono font-bold text-[#94A3B8] uppercase leading-none">
+                  ACTIVE MOIL ASSET
+                </span>
+                <div className="flex items-center gap-1.5 mt-0.5">
+                  <span className="text-xs sm:text-sm font-bold text-[#172033] font-display truncate max-w-[140px] sm:max-w-[200px]">
+                    {activeMine?.name || 'Balaghat Mine'}
+                  </span>
+                  <span className="text-[10px] font-mono font-semibold text-[#64748B]">
+                    ({activeMine?.state?.includes('Madhya') ? 'MP' : 'MH'})
+                  </span>
+                </div>
+              </div>
+
+              <ChevronDown className={`w-3.5 h-3.5 text-[#64748B] transition-transform duration-200 ml-1 ${isMineDropdownOpen ? 'rotate-180' : ''}`} />
             </button>
 
-            {/* Dropdown Menu of 10 Canonical MOIL Mines */}
+            {/* Mine Dropdown Menu */}
             {isMineDropdownOpen && (
-              <div className="absolute left-0 mt-2 w-72 rounded-2xl bg-[#10151C] border border-[#222D3A] shadow-2xl p-2 z-[100] backdrop-blur-xl animate-in fade-in slide-in-from-top-2 duration-150 font-sans">
-                <div className="px-3 py-1.5 text-[10px] font-bold uppercase tracking-wider text-slate-400 border-b border-[#222D3A] flex items-center justify-between">
-                  <span>{lang === 'hi' ? '10 प्रामाणिक मॉयल खदानें' : lang === 'mr' ? '10 अधिकृत मॉयल खाणी' : '10 CANONICAL MOIL MINES'}</span>
-                  <span className="text-amber-400 font-mono text-[9px]">{lang === 'hi' ? 'मध्य क्षेत्र' : lang === 'mr' ? 'मध्य पट्टा' : 'CENTRAL BELT'}</span>
+              <div className="absolute left-0 mt-1.5 w-80 bg-white border border-[#CBD5E1] rounded-2xl shadow-xl z-50 p-2 space-y-1 animate-in fade-in zoom-in-95 duration-150">
+                <div className="px-3 py-2 text-[10px] font-mono font-bold uppercase tracking-wider text-[#64748B] border-b border-[#F1F5F9] flex justify-between items-center">
+                  <span>SELECT FROM 10 CANONICAL ASSETS</span>
+                  <span className="text-amber-600 font-bold">MOIL PSU</span>
                 </div>
 
-                <div className="mt-1 space-y-1 max-h-80 overflow-y-auto pr-1 no-scrollbar">
-                  {OFFICIAL_MOIL_MINES.map((m) => {
-                    const isSelected = m.id === activeMine.id;
-                    const accent = mineAccentColors[m.id] || '#FFB000';
-
+                <div className="max-h-72 overflow-y-auto space-y-1 py-1">
+                  {OFFICIAL_MOIL_MINES.map((mine) => {
+                    const isSelected = (mine.id === activeMine.id);
                     return (
                       <button
-                        key={m.id}
+                        key={mine.id}
                         onClick={() => {
-                          setSelectedMineId(m.id);
+                          setSelectedMineId(mine.id);
                           setIsMineDropdownOpen(false);
                         }}
-                        className={`w-full text-left p-2.5 rounded-xl text-xs transition-all flex items-center justify-between cursor-pointer ${
-                          isSelected
-                            ? 'bg-[#1A232E] text-white font-bold border border-amber-500/40 shadow-sm'
-                            : 'text-slate-300 hover:bg-[#151B23] hover:text-white'
+                        className={`w-full flex items-center justify-between p-2.5 rounded-xl text-left transition-all ${
+                          isSelected 
+                            ? 'bg-amber-50 border border-amber-300 text-[#172033]' 
+                            : 'hover:bg-slate-50 text-[#334155]'
                         }`}
-                        style={{ borderLeft: isSelected ? `3px solid ${accent}` : '3px solid transparent' }}
                       >
-                        <div>
-                          <div className="flex items-center gap-1.5">
-                            <span className="w-2 h-2 rounded-full" style={{ backgroundColor: accent }} />
-                            <strong className="text-slate-100">{m.name}</strong>
+                        <div className="space-y-0.5 truncate">
+                          <div className="font-bold text-xs flex items-center gap-1.5 truncate">
+                            <span>{mine.name}</span>
+                            {isSelected && <Check className="w-3.5 h-3.5 text-amber-600" />}
                           </div>
-                          <div className="text-[10px] text-slate-400 font-mono mt-0.5 ml-3.5">
-                            {m.district}, {m.state} • {m.mineType}
+                          <div className="text-[10px] font-mono text-[#64748B]">
+                            {mine.district}, {mine.state} • <strong className="text-amber-700">{mine.baseGradeNum}% Mn</strong>
                           </div>
                         </div>
 
-                        {isSelected && <Check className="w-4 h-4 text-amber-400" />}
+                        <AetherStatusBadge status={mine.status} size="sm" pulse={false} />
                       </button>
                     );
                   })}
@@ -198,95 +179,67 @@ export const AppHeader = ({ onMobileMenuToggle }) => {
               </div>
             )}
           </div>
-
-          {/* Active Mine Location & GPS Pill */}
-          <div className="hidden xl:flex items-center gap-3 px-3 py-1.5 rounded-xl bg-[#151B23] border border-[#222D3A] font-mono text-xs text-slate-300">
-            <div>
-              <span className="text-slate-400 text-[8px] block uppercase">{lang === 'hi' ? 'स्थान' : lang === 'mr' ? 'स्थान' : 'LOCATION'}</span>
-              <strong className="text-slate-200 text-[11px]">{activeMine.district}, {activeMine.state}</strong>
-            </div>
-            <div className="w-[1px] h-5 bg-[#222D3A]" />
-            <div>
-              <span className="text-slate-400 text-[8px] block uppercase">{lang === 'hi' ? 'निर्देशांक' : lang === 'mr' ? 'अक्षांश-रेखांश' : 'COORDINATES'}</span>
-              <strong className="text-cyan-300 text-[10px]">{activeMine.coordinatesDMS}</strong>
-            </div>
-            <div className="w-[1px] h-5 bg-[#222D3A]" />
-            <div>
-              <span className="text-slate-400 text-[8px] block uppercase">{lang === 'hi' ? 'स्थिति' : lang === 'mr' ? 'स्थिती' : 'STATUS'}</span>
-              <span className="text-emerald-400 font-bold text-[10px] flex items-center gap-1">
-                <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-                <span>{t?.common?.optimal || 'OPTIMAL'}</span>
-              </span>
-            </div>
-          </div>
         </div>
 
-        {/* Right Section: Operational Scenarios + Multilingual Selector + Live Clock */}
-        <div className="flex items-center gap-2.5 font-mono text-xs">
-          
-          {/* Quick Scenario Stress Triggers */}
-          <div className="hidden lg:flex items-center gap-1.5">
-            <button
-              onClick={() => runScenario('MONSOON', 'HIGH', '24 HOURS')}
-              className={`px-3 py-1.5 rounded-xl text-[11px] font-bold transition-all flex items-center gap-1 cursor-pointer ${
-                activeScenario?.scenarioId === 'MONSOON'
-                  ? 'bg-orange-500 text-white shadow-md'
-                  : 'bg-[#151B23] border border-[#222D3A] text-slate-300 hover:border-orange-500/40 hover:text-white'
-              }`}
-            >
-              <Activity className="w-3.5 h-3.5 text-cyan-400" />
-              <span>{lang === 'hi' ? 'भारी मानसून' : lang === 'mr' ? 'मुसळधार मान्सून' : 'Monsoon Shock'}</span>
-            </button>
-
-            <button
-              onClick={() => runScenario('CRUSHER', 'HIGH', '24 HOURS')}
-              className={`px-3 py-1.5 rounded-xl text-[11px] font-bold transition-all flex items-center gap-1 cursor-pointer ${
-                activeScenario?.scenarioId === 'CRUSHER'
-                  ? 'bg-coral-500 text-white shadow-md'
-                  : 'bg-[#151B23] border border-[#222D3A] text-slate-300 hover:border-coral-500/40 hover:text-white'
-              }`}
-            >
-              <Activity className="w-3.5 h-3.5 text-coral-400" />
-              <span>{lang === 'hi' ? 'क्रशर जाम' : lang === 'mr' ? 'क्रशर बिघाड' : 'Crusher Seizure'}</span>
-            </button>
-
-            <button
-              onClick={() => runScenario('MULTI_RISK', 'HIGH', '24 HOURS')}
-              className={`px-3 py-1.5 rounded-xl text-[11px] font-bold transition-all flex items-center gap-1 cursor-pointer ${
-                activeScenario?.scenarioId === 'MULTI_RISK'
-                  ? 'bg-coral-600 text-white shadow-md'
-                  : 'bg-[#151B23] border border-[#222D3A] text-slate-300 hover:border-coral-500/40 hover:text-white'
-              }`}
-            >
-              <ShieldAlert className="w-3.5 h-3.5 text-amber-400" />
-              <span>{lang === 'hi' ? 'बहु-जोखिम' : lang === 'mr' ? 'मल्टी-रिस्क' : 'Multi-Risk'}</span>
-            </button>
-
-            {activeScenario && (
+        {/* CENTER SECTION: Active Stress Scenario Pill */}
+        <div className="hidden md:flex items-center gap-2">
+          {activeScenario && activeScenario.scenarioId !== 'BASELINE' ? (
+            <div className="flex items-center gap-2 px-3 py-1 rounded-full bg-red-50 border border-red-200 text-red-700 text-xs font-mono font-bold animate-pulse">
+              <Flame className="w-3.5 h-3.5 text-red-600" />
+              <span>STRESS SCENARIO: {activeScenario.name || activeScenario.scenarioId}</span>
               <button
                 onClick={resetBaseline}
-                className="px-2.5 py-1.5 rounded-xl bg-[#1A232E] hover:bg-[#222D3A] border border-[#2D3A4B] text-slate-200 hover:text-white text-[11px] flex items-center gap-1 transition-all cursor-pointer"
-                title="Reset to Normal Baseline Operations"
+                className="ml-1 p-0.5 rounded hover:bg-red-200 text-red-800 transition-colors"
+                title="Reset to Normal Baseline"
               >
-                <RotateCcw className="w-3 h-3 text-emerald-400" />
-                <span>{lang === 'hi' ? 'रीसेट' : lang === 'mr' ? 'रीसेट' : 'Reset'}</span>
+                <RotateCcw className="w-3 h-3" />
               </button>
-            )}
+            </div>
+          ) : (
+            <div className="flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-700 text-xs font-mono font-semibold">
+              <span className="w-2 h-2 rounded-full bg-emerald-500" />
+              <span>BASELINE NOMINAL OPERATIONS</span>
+            </div>
+          )}
+        </div>
+
+        {/* RIGHT SECTION: Language, Real-time Clock & Action Hub */}
+        <div className="flex items-center gap-2 sm:gap-3">
+          
+          {/* Quick Actions (Comparison & Scenario) */}
+          <div className="hidden sm:flex items-center gap-1.5">
+            <button
+              onClick={() => setIsComparisonModalOpen(true)}
+              className="p-2 rounded-xl bg-[#F8FAFC] hover:bg-[#F1F5F9] border border-[#E2E8F0] text-[#334155] text-xs font-semibold transition-colors flex items-center gap-1.5 shadow-xs"
+              title="Compare MOIL Mines Matrix"
+            >
+              <Layers className="w-3.5 h-3.5 text-[#0891B2]" />
+              <span className="hidden xl:inline">Compare Mines</span>
+            </button>
+
+            <button
+              onClick={() => setIsCommandDrawerOpen(true)}
+              className="p-2 rounded-xl bg-amber-50 hover:bg-amber-100 border border-amber-200 text-amber-900 text-xs font-bold transition-colors flex items-center gap-1.5 shadow-xs"
+              title="Inject Scenario Shock"
+            >
+              <Sparkles className="w-3.5 h-3.5 text-amber-600" />
+              <span className="hidden xl:inline">Scenario Lab</span>
+            </button>
           </div>
 
-          {/* Multilingual Selector */}
+          {/* Trilingual Language Selector */}
           <div className="relative" ref={langDropdownRef}>
             <button
               onClick={() => setIsLangDropdownOpen(!isLangDropdownOpen)}
-              className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-[#151B23] hover:bg-[#1A232E] border border-[#222D3A] text-slate-200 text-xs font-bold transition-all cursor-pointer"
+              className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-xl bg-[#F8FAFC] hover:bg-[#F1F5F9] border border-[#E2E8F0] text-xs font-mono font-bold text-[#172033] shadow-xs"
             >
-              <Globe2 className="w-3.5 h-3.5 text-amber-400" />
-              <span className="uppercase">{lang}</span>
-              <ChevronDown className="w-3 h-3 text-slate-400" />
+              <Globe2 className="w-3.5 h-3.5 text-[#0891B2]" />
+              <span>{currentLangObj.short}</span>
+              <ChevronDown className="w-3 h-3 text-[#64748B]" />
             </button>
 
             {isLangDropdownOpen && (
-              <div className="absolute right-0 mt-2 w-32 rounded-xl bg-[#10151C] border border-[#222D3A] shadow-2xl p-1 z-[100] backdrop-blur-xl">
+              <div className="absolute right-0 mt-1.5 w-32 bg-white border border-[#CBD5E1] rounded-xl shadow-lg z-50 p-1 space-y-0.5 animate-in fade-in zoom-in-95 duration-150">
                 {languages.map((l) => (
                   <button
                     key={l.code}
@@ -294,23 +247,21 @@ export const AppHeader = ({ onMobileMenuToggle }) => {
                       setLang(l.code);
                       setIsLangDropdownOpen(false);
                     }}
-                    className={`w-full text-left px-3 py-1.5 rounded-lg text-xs font-medium flex items-center justify-between cursor-pointer ${
-                      lang === l.code
-                        ? 'bg-amber-500/20 text-amber-300 font-bold'
-                        : 'text-slate-300 hover:bg-[#151B23] hover:text-white'
+                    className={`w-full flex items-center justify-between px-2.5 py-1.5 rounded-lg text-xs font-medium ${
+                      lang === l.code ? 'bg-amber-50 text-amber-900 font-bold' : 'text-[#334155] hover:bg-slate-50'
                     }`}
                   >
                     <span>{l.label}</span>
-                    {lang === l.code && <Check className="w-3.5 h-3.5 text-amber-400" />}
+                    {lang === l.code && <Check className="w-3 h-3 text-amber-600" />}
                   </button>
                 ))}
               </div>
             )}
           </div>
 
-          {/* Live System Time */}
-          <div className="hidden sm:flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-[#151B23] border border-[#222D3A] text-slate-300 text-[11px] font-mono">
-            <Clock className="w-3 h-3 text-slate-400" />
+          {/* Real-time IST Clock Pill */}
+          <div className="hidden lg:flex items-center gap-1.5 px-2.5 py-1.5 rounded-xl bg-[#F8FAFC] border border-[#E2E8F0] font-mono text-xs text-[#475569] shadow-xs">
+            <Clock className="w-3.5 h-3.5 text-[#64748B]" />
             <span>{siteTime}</span>
           </div>
 

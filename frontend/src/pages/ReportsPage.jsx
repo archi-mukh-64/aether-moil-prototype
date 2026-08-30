@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import { useApp } from '../context/AppContext.jsx';
 import { reportApi } from '../services/api/reportApi.js';
-import { SectionHeader } from '../components/design/SectionHeader.jsx';
-import { IntelligencePanel } from '../components/design/IntelligencePanel.jsx';
-import { OperationalPanel } from '../components/design/OperationalPanel.jsx';
-import { MetricTile } from '../components/design/MetricTile.jsx';
+import { 
+  AetherSectionHeader, 
+  AetherKpiCard, 
+  AetherStatusBadge 
+} from '../components/design-system/index.js';
 import { 
   FileText, 
   Download, 
@@ -76,61 +77,75 @@ export const ReportsPage = () => {
   };
 
   return (
-    <div className="space-y-6 animate-in fade-in duration-300 pb-16 font-sans">
+    <div className="space-y-6 font-sans">
+      
       {/* Top Section Header */}
-      <SectionHeader
+      <AetherSectionHeader
         title={lang === 'hi' ? 'कार्यकारी रिपोर्टिंग एवं प्रस्तुति हब' : lang === 'mr' ? 'कार्यकारी अहवाल व सादरीकरण केंद्र' : 'Executive Reporting & Presentation Hub'}
         subtitle={lang === 'hi' ? 'डीजीएमएस वैधानिक अनुपालन, बहुभाषी राष्ट्रीय रिपोर्ट (पीडीएफ/पीपीटीएक्स) एवं खदान मूल्यांकन' : lang === 'mr' ? 'डीजीएमएस वैधानिक अनुपालन, बहुभाषिक राष्ट्रीय अहवाल (पीडीएफ/पीपीटीएक्स) व खाण मूल्यमापन' : 'DGMS Statutory Audits, Multilingual National Intelligence Decks & SCADA Telemetry Reports'}
-        badgeText="AUTHORITATIVE / DGMS COMPLIANT"
-        badgeVariant="amber"
+        badge="AUTHORITATIVE / DGMS COMPLIANT"
+        accent="#2563EB"
+        icon={FileText}
       />
 
       {/* Top Summary Metrics */}
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-        <MetricTile
+        <AetherKpiCard
           title={lang === 'hi' ? 'निगरानी की जा रही खदानें' : lang === 'mr' ? 'निरीक्षण केलेल्या खाणी' : 'Assets Monitored'}
           value="10 Mines"
-          subtext="100% MOIL Manganese Corridor"
-          variant="amber"
+          subtitle="100% MOIL Manganese Corridor"
+          accent="amber"
           icon={Layers}
+          status="OPTIMAL"
         />
-        <MetricTile
+        <AetherKpiCard
           title={lang === 'hi' ? 'रिपोर्ट प्रारूप' : lang === 'mr' ? 'अहवाल स्वरूप' : 'Export Engines'}
           value="PDF + PPTX"
-          subtext="Vector PDF & 16:9 Presentation"
-          variant="cyan"
+          subtitle="Vector PDF & 16:9 Presentation"
+          accent="cyan"
           icon={FileText}
+          status="OPTIMAL"
         />
-        <MetricTile
+        <AetherKpiCard
           title={lang === 'hi' ? 'समर्थित भाषाएँ' : lang === 'mr' ? 'समर्थित भाषा' : 'Multilingual Ready'}
           value="EN / HI / MR"
-          subtext="Native Devanagari Unicode"
-          variant="green"
+          subtitle="Native Devanagari Unicode"
+          accent="emerald"
           icon={Globe2}
+          status="OPTIMAL"
         />
-        <MetricTile
+        <AetherKpiCard
           title={lang === 'hi' ? 'डीजीएमएस अनुपालन' : lang === 'mr' ? 'डीजीएमएस अनुपालन' : 'Statutory Compliance'}
           value="DGMS-2026"
-          subtext="Immutable Chain-of-Custody"
-          variant="violet"
+          subtitle="Immutable Chain-of-Custody"
+          accent="indigo"
           icon={ShieldCheck}
+          status="OPTIMAL"
         />
       </div>
 
       {/* Main Generator Console */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
+        
         {/* Left Column: Generator Parameters */}
         <div className="lg:col-span-7 space-y-6">
-          <IntelligencePanel
-            title={lang === 'hi' ? 'रिपोर्ट विन्यास एवं उत्पादन' : lang === 'mr' ? 'अहवाल संरचना व निर्मिती' : 'Report Configuration & Generation'}
-            badgeText="SYNTHESIS ENGINE"
-            variant="amber"
-            icon={Sparkles}
-          >
+          <div className="bg-white border border-[#E2E8F0] rounded-xl p-5 shadow-xs space-y-5">
+            <div className="flex items-center justify-between pb-3 border-b border-[#E2E8F0]">
+              <div className="flex items-center gap-2">
+                <Sparkles className="w-4 h-4 text-blue-600" />
+                <h3 className="font-bold text-sm text-[#172033] font-display">
+                  {lang === 'hi' ? 'रिपोर्ट विन्यास एवं उत्पादन' : lang === 'mr' ? 'अहवाल संरचना व निर्मिती' : 'Report Configuration & Synthesis'}
+                </h3>
+              </div>
+              <span className="px-2 py-0.5 rounded text-[10px] font-mono font-bold bg-blue-50 text-blue-800 border border-blue-200">
+                DYNAMIC COMPILER
+              </span>
+            </div>
+
             <div className="space-y-5 text-xs font-mono">
               {/* 1. Format Selection */}
               <div>
-                <label className="text-[11px] font-bold text-slate-300 uppercase tracking-wider block mb-2">
+                <label className="text-[11px] font-bold text-[#475569] uppercase tracking-wider block mb-2">
                   1. {lang === 'hi' ? 'निर्यात प्रारूप चुनें' : lang === 'mr' ? 'निर्यात स्वरूप निवडा' : 'Select Export Format'}
                 </label>
                 <div className="grid grid-cols-2 gap-3">
@@ -139,20 +154,20 @@ export const ReportsPage = () => {
                     onClick={() => setReportFormat('PDF')}
                     className={`p-3.5 rounded-xl border flex items-center justify-between transition-all cursor-pointer ${
                       reportFormat === 'PDF'
-                        ? 'bg-[#1A232E] border-amber-500 text-white shadow-md'
-                        : 'bg-[#0B0F14] border-[#222D3A] text-slate-400 hover:border-slate-600'
+                        ? 'bg-blue-50 border-blue-500 text-[#172033] shadow-xs'
+                        : 'bg-[#F8FAFC] border-[#E2E8F0] text-[#64748B] hover:border-slate-300'
                     }`}
                   >
                     <div className="flex items-center gap-3">
-                      <div className="p-2 rounded-lg bg-rose-500/10 border border-rose-500/30 text-rose-400">
+                      <div className="p-2 rounded-lg bg-red-50 text-red-600 border border-red-200">
                         <FileText className="w-5 h-5" />
                       </div>
                       <div className="text-left">
-                        <div className="font-bold text-sm text-white">PDF Vector Report</div>
-                        <div className="text-[10px] text-slate-400 font-sans">Print-ready A4 executive document</div>
+                        <div className="font-bold text-sm text-[#172033]">PDF Vector Report</div>
+                        <div className="text-[10px] text-[#64748B] font-sans">Print-ready A4 executive dossier</div>
                       </div>
                     </div>
-                    {reportFormat === 'PDF' && <CheckCircle2 className="w-5 h-5 text-amber-400" />}
+                    {reportFormat === 'PDF' && <CheckCircle2 className="w-5 h-5 text-blue-600" />}
                   </button>
 
                   <button
@@ -160,33 +175,33 @@ export const ReportsPage = () => {
                     onClick={() => setReportFormat('PPTX')}
                     className={`p-3.5 rounded-xl border flex items-center justify-between transition-all cursor-pointer ${
                       reportFormat === 'PPTX'
-                        ? 'bg-[#1A232E] border-amber-500 text-white shadow-md'
-                        : 'bg-[#0B0F14] border-[#222D3A] text-slate-400 hover:border-slate-600'
+                        ? 'bg-blue-50 border-blue-500 text-[#172033] shadow-xs'
+                        : 'bg-[#F8FAFC] border-[#E2E8F0] text-[#64748B] hover:border-slate-300'
                     }`}
                   >
                     <div className="flex items-center gap-3">
-                      <div className="p-2 rounded-lg bg-orange-500/10 border border-orange-500/30 text-orange-400">
+                      <div className="p-2 rounded-lg bg-amber-50 text-amber-600 border border-amber-200">
                         <Presentation className="w-5 h-5" />
                       </div>
                       <div className="text-left">
-                        <div className="font-bold text-sm text-white">PowerPoint (.pptx)</div>
-                        <div className="text-[10px] text-slate-400 font-sans">16:9 widescreen executive deck</div>
+                        <div className="font-bold text-sm text-[#172033]">PowerPoint (.pptx)</div>
+                        <div className="text-[10px] text-[#64748B] font-sans">16:9 widescreen executive deck</div>
                       </div>
                     </div>
-                    {reportFormat === 'PPTX' && <CheckCircle2 className="w-5 h-5 text-amber-400" />}
+                    {reportFormat === 'PPTX' && <CheckCircle2 className="w-5 h-5 text-blue-600" />}
                   </button>
                 </div>
               </div>
 
               {/* 2. Scope Selection */}
               <div>
-                <label className="text-[11px] font-bold text-slate-300 uppercase tracking-wider block mb-2">
+                <label className="text-[11px] font-bold text-[#475569] uppercase tracking-wider block mb-2">
                   2. {lang === 'hi' ? 'रिपोर्ट दायरा चुनें' : lang === 'mr' ? 'अहवाल व्याप्ती निवडा' : 'Select Scope'}
                 </label>
                 <div className="grid grid-cols-3 gap-3">
                   {[
-                    { id: 'NATIONAL', title: 'National (10 Mines)', desc: 'Complete multi-mine synthesis' },
-                    { id: 'MINE', title: `${activeMine.shortName || 'Balaghat'} Mine`, desc: 'Deep dive single asset SCADA' },
+                    { id: 'NATIONAL', title: 'National (10 Mines)', desc: 'Multi-mine aggregate synthesis' },
+                    { id: 'MINE', title: `${activeMine.shortName || 'Balaghat'} Mine`, desc: 'Deep-dive SCADA telemetry' },
                     { id: 'SCENARIO', title: 'Scenario Matrix', desc: '40 stress permutations' }
                   ].map(s => (
                     <button
@@ -195,12 +210,12 @@ export const ReportsPage = () => {
                       onClick={() => setReportScope(s.id)}
                       className={`p-3 rounded-xl border text-left transition-all cursor-pointer ${
                         reportScope === s.id
-                          ? 'bg-[#1A232E] border-amber-500 text-white shadow'
-                          : 'bg-[#0B0F14] border-[#222D3A] text-slate-400 hover:border-slate-600'
+                          ? 'bg-blue-50 border-blue-500 text-[#172033] shadow-xs'
+                          : 'bg-[#F8FAFC] border-[#E2E8F0] text-[#64748B] hover:border-slate-300'
                       }`}
                     >
-                      <div className="font-bold text-xs text-slate-200">{s.title}</div>
-                      <div className="text-[10px] text-slate-400 font-sans mt-0.5">{s.desc}</div>
+                      <div className="font-bold text-xs text-[#172033]">{s.title}</div>
+                      <div className="text-[10px] text-[#64748B] font-sans mt-0.5">{s.desc}</div>
                     </button>
                   ))}
                 </div>
@@ -208,12 +223,12 @@ export const ReportsPage = () => {
 
               {/* 3. Language Selection */}
               <div>
-                <label className="text-[11px] font-bold text-slate-300 uppercase tracking-wider block mb-2">
+                <label className="text-[11px] font-bold text-[#475569] uppercase tracking-wider block mb-2">
                   3. {lang === 'hi' ? 'दस्तावेज़ भाषा / भाषा' : lang === 'mr' ? 'दस्तऐवज भाषा / भाषा' : 'Document Language'}
                 </label>
                 <div className="grid grid-cols-3 gap-3">
                   {[
-                    { code: 'en', label: 'English', sub: 'Latin Characters' },
+                    { code: 'en', label: 'English', sub: 'Latin Standard' },
                     { code: 'hi', label: 'हिन्दी (Hindi)', sub: 'देवनागरी लिपि' },
                     { code: 'mr', label: 'मराठी (Marathi)', sub: 'देवनागरी लिपी' }
                   ].map(l => (
@@ -223,12 +238,12 @@ export const ReportsPage = () => {
                       onClick={() => setSelectedLanguage(l.code)}
                       className={`p-2.5 rounded-xl border text-left transition-all cursor-pointer ${
                         selectedLanguage === l.code
-                          ? 'bg-[#1A232E] border-cyan-500 text-cyan-300 font-bold'
-                          : 'bg-[#0B0F14] border-[#222D3A] text-slate-400 hover:border-slate-600'
+                          ? 'bg-cyan-50 border-cyan-500 text-cyan-900 font-bold'
+                          : 'bg-[#F8FAFC] border-[#E2E8F0] text-[#64748B] hover:border-slate-300'
                       }`}
                     >
                       <div className="font-bold text-xs">{l.label}</div>
-                      <div className="text-[10px] text-slate-400 font-sans mt-0.5">{l.sub}</div>
+                      <div className="text-[10px] text-[#64748B] font-sans mt-0.5">{l.sub}</div>
                     </button>
                   ))}
                 </div>
@@ -236,93 +251,95 @@ export const ReportsPage = () => {
 
               {/* Progress Bar */}
               {isGenerating && (
-                <div className="p-4 rounded-xl bg-amber-500/10 border border-amber-500/30 space-y-2">
-                  <div className="flex items-center gap-2 text-amber-400 font-bold">
-                    <Loader2 className="w-4 h-4 animate-spin" />
+                <div className="p-4 rounded-xl bg-blue-50 border border-blue-200 space-y-2">
+                  <div className="flex items-center gap-2 text-blue-700 font-bold">
+                    <Loader2 className="w-4 h-4 animate-spin text-blue-600" />
                     <span>SYNTHESIZING AUTHORITATIVE DOCUMENT...</span>
                   </div>
-                  <div className="text-[11px] text-slate-300 font-sans">
+                  <div className="text-[11px] text-[#475569] font-sans">
                     {steps[progressStep]}
                   </div>
-                  <div className="w-full h-2 bg-[#0B0F14] rounded-full overflow-hidden border border-[#222D3A]">
+                  <div className="w-full h-2 bg-slate-200 rounded-full overflow-hidden">
                     <div 
-                      className="h-full bg-amber-500 transition-all duration-300 shadow-glow-amber"
+                      className="h-full bg-blue-600 transition-all duration-300"
                       style={{ width: `${((progressStep + 1) / steps.length) * 100}%` }}
                     />
                   </div>
                 </div>
               )}
 
-              {/* Download Action Button */}
-              <div className="pt-2">
-                <button
-                  onClick={handleDownload}
-                  disabled={isGenerating}
-                  className="w-full py-3 rounded-xl bg-amber-500 hover:bg-amber-400 text-[#0B0F14] font-extrabold text-sm uppercase tracking-wider flex items-center justify-center gap-3 shadow-lg hover:shadow-glow-amber transition-all cursor-pointer disabled:opacity-50"
-                >
-                  <Download className="w-5 h-5" />
-                  <span>{isGenerating ? 'Generating Artifact...' : 'Generate & Download Report'}</span>
-                </button>
-              </div>
+              {/* Action Button */}
+              <button
+                type="button"
+                onClick={handleDownload}
+                disabled={isGenerating}
+                className="w-full py-3 px-4 rounded-xl bg-[#172033] hover:bg-[#1E293B] text-white font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 transition-all shadow-sm disabled:opacity-50 cursor-pointer"
+              >
+                {isGenerating ? (
+                  <>
+                    <Loader2 className="w-4 h-4 animate-spin text-amber-400" />
+                    <span>SYNTHESIZING {reportFormat}...</span>
+                  </>
+                ) : (
+                  <>
+                    <Download className="w-4 h-4 text-amber-400" />
+                    <span>DOWNLOAD {reportFormat} DOSSIER ({selectedLanguage.toUpperCase()})</span>
+                  </>
+                )}
+              </button>
 
-              {lastDownloaded && !isGenerating && (
-                <div className="p-3 rounded-xl bg-emerald-950/60 border border-emerald-500/40 flex items-center gap-2 text-emerald-300">
-                  <CheckCircle2 className="w-5 h-5 text-emerald-400 flex-shrink-0" />
-                  <div className="text-xs font-sans">
-                    Downloaded: <span className="font-mono font-bold text-white">{lastDownloaded}</span>
-                  </div>
+              {lastDownloaded && (
+                <div className="p-3 rounded-lg bg-emerald-50 border border-emerald-200 text-emerald-800 text-xs font-mono flex items-center justify-between">
+                  <span className="flex items-center gap-1.5">
+                    <CheckCircle2 className="w-4 h-4 text-emerald-600" />
+                    Downloaded: <strong>{lastDownloaded}</strong>
+                  </span>
+                  <span className="text-[10px] text-emerald-600 font-bold">VERIFIED</span>
                 </div>
               )}
 
             </div>
-          </IntelligencePanel>
+          </div>
         </div>
 
-        {/* Right Column: Report Specifications & Audit Info */}
+        {/* Right Column: Statutory Document Preview Specification */}
         <div className="lg:col-span-5 space-y-6">
-          <OperationalPanel
-            title={lang === 'hi' ? 'दस्तावेज़ विनिर्देश एवं सत्यापन' : lang === 'mr' ? 'दस्तऐवज तपशील व पडताळणी' : 'Document Specifications & Audit Standards'}
-            badgeText="DGMS VERIFIED"
-            variant="cyan"
-            icon={ShieldCheck}
-          >
-            <div className="space-y-4 text-xs font-sans text-slate-300">
-              <div className="p-3 rounded-xl bg-[#0B0F14] border border-[#222D3A] space-y-2">
-                <div className="flex items-center gap-2 font-bold text-white text-xs">
-                  <Database className="w-4 h-4 text-cyan-400" />
-                  <span>Included Data Modules</span>
-                </div>
-                <ul className="list-disc list-inside space-y-1 text-[11px] text-slate-400">
-                  <li>10-Mine Production targets vs actual achievement</li>
-                  <li>40-Permutation scenario shortfall risk forecasts</li>
-                  <li>UNFC 111 / 122 geological reserves & grade distribution</li>
-                  <li>Komatsu fleet health, vibration RMS & RUL hours</li>
-                  <li>Copernicus Sentinel-2 NDVI & NDWI satellite indices</li>
-                  <li>DGMS statutory dispatch authorizations & audit ledger</li>
-                </ul>
+          <div className="bg-white border border-[#E2E8F0] rounded-xl p-5 shadow-xs space-y-4">
+            <div className="pb-3 border-b border-[#E2E8F0]">
+              <h3 className="font-bold text-sm text-[#172033] font-display">
+                Report Structure &amp; Table of Contents
+              </h3>
+              <p className="text-xs text-[#64748B]">
+                Automated document sections included in export
+              </p>
+            </div>
+
+            <div className="space-y-3 text-xs font-mono text-[#475569]">
+              <div className="p-3 rounded-lg bg-[#F8FAFC] border border-[#E2E8F0] space-y-1">
+                <div className="font-bold text-[#172033]">Section 1: Executive Overview &amp; National Target Status</div>
+                <div className="text-[11px] text-[#64748B]">Aggregated 10-mine daily tonnage, 14-day shortfall trajectory, and DGMS priority index.</div>
               </div>
 
-              <div className="p-3 rounded-xl bg-[#0B0F14] border border-[#222D3A] space-y-1">
-                <div className="text-[10px] font-mono uppercase tracking-wider text-slate-400 font-bold">
-                  Typography & Font Engine
-                </div>
-                <div className="text-xs text-slate-200">
-                  ReportLab 4.1.0 with Nirmala UI / Noto Sans Devanagari Unicode TrueType engine.
-                </div>
+              <div className="p-3 rounded-lg bg-[#F8FAFC] border border-[#E2E8F0] space-y-1">
+                <div className="font-bold text-[#172033]">Section 2: Earth Observation &amp; UNFC Reserve Radar</div>
+                <div className="text-[11px] text-[#64748B]">Sentinel-2 SWIR mineral alterations, Dynamic World land-cover classification, and drill targets.</div>
               </div>
 
-              <div className="p-3 rounded-xl bg-[#0B0F14] border border-[#222D3A] space-y-1">
-                <div className="text-[10px] font-mono uppercase tracking-wider text-slate-400 font-bold">
-                  Corporate Seal & Metadata
-                </div>
-                <div className="text-xs text-slate-200">
-                  Authoritative Ministry of Steel & MOIL Limited digital verification watermark.
-                </div>
+              <div className="p-3 rounded-lg bg-[#F8FAFC] border border-[#E2E8F0] space-y-1">
+                <div className="font-bold text-[#172033]">Section 3: Fleet SCADA Diagnostics &amp; Thermodynamics</div>
+                <div className="text-[11px] text-[#64748B]">LHD loaders, heavy dumpers, and primary crushers vibration FFT spectra and predictive RUL.</div>
+              </div>
+
+              <div className="p-3 rounded-lg bg-[#F8FAFC] border border-[#E2E8F0] space-y-1">
+                <div className="font-bold text-[#172033]">Section 4: DGMS Statutory Decision Ledger &amp; Sign-off</div>
+                <div className="text-[11px] text-[#64748B]">Cryptographic audit trail of shift engineer mitigations and digital approvals.</div>
               </div>
             </div>
-          </OperationalPanel>
+          </div>
         </div>
+
       </div>
+
     </div>
   );
 };

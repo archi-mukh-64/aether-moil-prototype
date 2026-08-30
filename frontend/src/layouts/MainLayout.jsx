@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Outlet } from 'react-router-dom';
 import { Sidebar } from '../components/layout/Sidebar.jsx';
 import { AppHeader } from '../components/layout/AppHeader.jsx';
@@ -10,6 +10,7 @@ import { MineComparisonModal } from '../components/modals/MineComparisonModal.js
 import { ExecutiveCommandModal } from '../components/modals/ExecutiveCommandModal.jsx';
 import { ReportModal } from '../components/modals/ReportModal.jsx';
 import { ErrorBoundary } from '../components/common/ErrorBoundary.jsx';
+import { AetherLoadingScreen } from '../components/design-system/AetherLoadingScreen.jsx';
 import { useKeyboardShortcuts } from '../hooks/useKeyboardShortcuts.js';
 import { useApp } from '../context/AppContext.jsx';
 
@@ -19,6 +20,20 @@ export const MainLayout = () => {
 
   const [isSidebarCollapsed, setIsSidebarCollapsed] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [showBootScreen, setShowBootScreen] = useState(false);
+
+  // Check if session has already seen the boot screen
+  useEffect(() => {
+    const hasBooted = sessionStorage.getItem('aether_booted');
+    if (!hasBooted) {
+      setShowBootScreen(true);
+    }
+  }, []);
+
+  const handleBootComplete = () => {
+    sessionStorage.setItem('aether_booted', 'true');
+    setShowBootScreen(false);
+  };
 
   const { 
     isComparisonModalOpen, 
@@ -30,8 +45,13 @@ export const MainLayout = () => {
   } = useApp();
 
   return (
-    <div className="min-h-screen flex bg-obsidian-950 text-zinc-100 selection:bg-manganese-500/30 selection:text-manganese-200">
+    <div className="min-h-screen flex bg-[#F5F7FA] text-[#172033] font-sans selection:bg-amber-500/30 selection:text-amber-900">
       
+      {/* Optional Boot Initialization Screen */}
+      {showBootScreen && (
+        <AetherLoadingScreen onComplete={handleBootComplete} />
+      )}
+
       {/* 1. Collapsible Categorized Sidebar */}
       <Sidebar 
         isCollapsed={isSidebarCollapsed} 
@@ -46,7 +66,7 @@ export const MainLayout = () => {
         <AppHeader onMobileMenuToggle={() => setIsMobileMenuOpen(true)} />
 
         {/* Viewport Outlet */}
-        <main className="flex-1 w-full relative">
+        <main className="flex-1 w-full relative p-4 sm:p-6 lg:p-8 max-w-[1720px] mx-auto space-y-6">
           <ErrorBoundary title="SYSTEM VIEWPORT RECOVERY">
             <Outlet />
           </ErrorBoundary>

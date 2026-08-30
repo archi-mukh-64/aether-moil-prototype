@@ -30,6 +30,7 @@ import {
 } from 'lucide-react';
 import { EquipmentIcon } from '../components/GeospatialTwin/EquipmentIcons.jsx';
 import { ErrorBoundary } from '../components/common/ErrorBoundary.jsx';
+import { AetherSectionHeader, AetherStatusBadge } from '../components/design-system/index.js';
 
 export const EquipmentPage = () => {
   return (
@@ -512,46 +513,39 @@ const EquipmentContent = () => {
   }, [scenarioType]);
 
   return (
-    <div className="py-4 px-3 sm:px-6 lg:px-8 max-w-[1920px] mx-auto space-y-4 font-mono text-zinc-100 select-none">
+    <div className="space-y-6 font-sans">
       
-      {/* 1. TOP HEADER & KOMATSU FLEET TELEMETRY RIBBON */}
-      <div className="flex flex-col md:flex-row md:items-center justify-between gap-3 pb-3 border-b border-[#18263c]">
-        <div>
-          <div className="flex items-center gap-2 text-[10px] font-bold tracking-widest text-amber-400 uppercase">
-            <Truck className="w-3.5 h-3.5" />
-            <span>{t?.fleet?.title || 'INTELLIGENT FLEET COMMAND & SCADA DIAGNOSTICS'}</span>
+      {/* 1. TOP HEADER & FLEET TELEMETRY RIBBON */}
+      <AetherSectionHeader
+        title={`${activeMine.name} — Fleet SCADA & Machine Telemetry`}
+        subtitle={`Real-time payload, engine thermodynamics, hydraulic health, and predictive RUL for ${activeMine.name}.`}
+        badge={activeMine.mineType?.toUpperCase()}
+        accent="#EA580C"
+        icon={Truck}
+        actions={
+          <div className="flex items-center p-1 rounded-xl bg-[#F8FAFC] border border-[#E2E8F0] text-xs flex-wrap gap-1">
+            {[
+              { id: 'FLEET_ROSTER', label: t?.fleet?.fleetRoster || 'Fleet Roster' },
+              { id: 'CYCLE_MONITOR', label: t?.fleet?.loadHaulCycles || 'Load & Haul Cycles' },
+              { id: 'MAINTENANCE_RUL', label: t?.fleet?.predictiveRul || 'Predictive RUL' },
+              { id: 'ANALYTICS', label: t?.fleet?.fleetRankings || 'Fleet Rankings' },
+              { id: 'COMPARISON', label: 'Machine Comparison' }
+            ].map(tab => (
+              <button
+                key={tab.id}
+                onClick={() => setFleetTab(tab.id)}
+                className={`px-3 py-1.5 rounded-lg font-bold font-mono transition-all ${
+                  fleetTab === tab.id
+                    ? 'bg-[#EA580C] text-white shadow-xs'
+                    : 'text-[#64748B] hover:text-[#172033] hover:bg-slate-100'
+                }`}
+              >
+                {tab.label}
+              </button>
+            ))}
           </div>
-          <h1 className="text-xl sm:text-2xl font-bold tracking-tight text-white flex items-center gap-2">
-            {activeMine.name} Mobile Fleet Command
-          </h1>
-          <p className="text-xs text-zinc-400 mt-0.5">
-            Real-time payload, engine thermodynamics, hydraulic health, and predictive RUL for {activeMine.name}.
-          </p>
-        </div>
-
-        {/* Fleet Navigation Tabs */}
-        <div className="flex items-center p-1 rounded-xl bg-[#090e17] border border-[#18263c] text-xs flex-wrap gap-1">
-          {[
-            { id: 'FLEET_ROSTER', label: t?.fleet?.fleetRoster || 'Fleet Roster' },
-            { id: 'CYCLE_MONITOR', label: t?.fleet?.loadHaulCycles || 'Load & Haul Cycles' },
-            { id: 'MAINTENANCE_RUL', label: t?.fleet?.predictiveRul || 'Predictive RUL' },
-            { id: 'ANALYTICS', label: t?.fleet?.fleetRankings || 'Fleet Rankings' },
-            { id: 'COMPARISON', label: 'Machine Comparison' }
-          ].map(tab => (
-            <button
-              key={tab.id}
-              onClick={() => setFleetTab(tab.id)}
-              className={`px-3 py-1.5 rounded-lg font-bold transition-all ${
-                fleetTab === tab.id
-                  ? 'bg-amber-500/20 text-amber-300 border border-amber-500/50 shadow'
-                  : 'text-zinc-400 hover:text-white'
-              }`}
-            >
-              {tab.label}
-            </button>
-          ))}
-        </div>
-      </div>
+        }
+      />
 
       {/* 2. FLEET OVERVIEW AGGREGATE KPI CARDS */}
       <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-2 sm:gap-3">

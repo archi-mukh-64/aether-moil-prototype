@@ -2,7 +2,7 @@ import React from 'react';
 import { useApp } from '../context/AppContext.jsx';
 import { ForecastPreview } from '../components/ForecastPreview.jsx';
 import { RiskCenterPreview } from '../components/RiskCenterPreview.jsx';
-import { SectionHeader } from '../components/design/SectionHeader.jsx';
+import { AetherSectionHeader, AetherStatusBadge } from '../components/design-system/index.js';
 import { ErrorBoundary } from '../components/common/ErrorBoundary.jsx';
 import { 
   AlertTriangle, 
@@ -11,7 +11,8 @@ import {
   Globe2,
   Layers,
   BrainCircuit,
-  Activity
+  Activity,
+  ShieldAlert
 } from 'lucide-react';
 
 export const AlertEnginePage = () => {
@@ -40,52 +41,48 @@ const AlertEngineContent = () => {
   };
 
   return (
-    <div className="py-6 px-4 sm:px-6 lg:px-8 max-w-[1920px] mx-auto space-y-6 font-sans">
+    <div className="space-y-6 font-sans">
       
       {/* 1. TOP ALERT ENGINE HEADER */}
-      <SectionHeader
-        category={ae?.predictiveBadge || 'AI EARLY WARNING & SHAP EXPLAINABILITY'}
-        categoryColor="#FF5A67"
-        badge="AETHER-FORECAST v3.4"
-        badgeColor="#8B7CFF"
-        title={ae?.title || 'Shortfall Alert Engine & Anomaly Detector'}
+      <AetherSectionHeader
+        title={ae?.title || 'Shortfall Alert Engine & Threat Matrix'}
         subtitle={`Predicting manganese production shortfalls up to 14 days in advance with transparent TreeSHAP root-cause attribution and Earth Observation remote sensing for ${currentMine.name}.`}
+        badge="AETHER-FORECAST v3.4"
+        accent="#DC2626"
+        icon={ShieldAlert}
         actions={
           <div className="flex items-center gap-2 font-mono text-xs">
-            <span className="px-3 py-1.5 rounded-xl bg-[#151B23] border border-violet-500/30 text-violet-400 font-bold flex items-center gap-1.5 shadow-glow-violet">
-              <BrainCircuit className="w-3.5 h-3.5" />
-              <span>MULTI-PHYSICS + ML</span>
+            <span className="px-3 py-1.5 rounded-xl bg-red-50 border border-red-200 text-red-700 font-bold flex items-center gap-1.5 shadow-xs">
+              <BrainCircuit className="w-3.5 h-3.5 text-red-600" />
+              <span>MULTI-PHYSICS + ML SHAP</span>
             </span>
           </div>
         }
       />
 
       {/* 2. EARTH OBSERVATION MULTI-SOURCE RISK ALERT BANNER */}
-      <div className="p-4 rounded-2xl bg-[#151B23] border border-amber-500/40 shadow-card-subtle flex flex-wrap items-center justify-between gap-4 font-mono text-xs text-slate-200 relative overflow-hidden">
-        <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-coral-500 via-amber-400 to-cyan-400 opacity-90" />
-
+      <div className="p-4 rounded-xl bg-white border border-[#CBD5E1] shadow-xs flex flex-wrap items-center justify-between gap-4 font-mono text-xs text-[#172033]">
         <div className="flex items-center gap-3">
-          <div className="p-2 rounded-xl bg-amber-500/15 border border-amber-500/30 text-amber-400">
+          <div className="p-2 rounded-lg bg-amber-50 border border-amber-200 text-amber-600">
             <Globe2 className="w-5 h-5" />
           </div>
           <div>
-            <div className="text-[10px] text-amber-400 font-bold uppercase tracking-wider">
+            <div className="text-[10px] text-amber-700 font-bold uppercase tracking-wider font-mono">
               {lang === 'hi' ? 'पृथ्वी अवलोकन चेतावनी स्रोत // सेंटीनेल-2 एवं स्काडा सहसंबंध' : lang === 'mr' ? 'पृथ्वी निरीक्षण इशारा स्रोत // सेंटिनेल-2 व स्काडा सहसंबंध' : 'EARTH OBSERVATION ALERT SOURCE // SENTINEL-2 & SCADA CORRELATION'}
             </div>
-            <div className="text-sm font-bold text-white mt-0.5 font-sans">
+            <div className="text-sm font-bold text-[#172033] mt-0.5 font-display">
               {lang === 'hi' ? 'बहु-स्रोत जोखिम संलयन: उपग्रह नमी विसंगति + स्काडा प्रवाह चेतावनी' : lang === 'mr' ? 'बहु-स्रोत जोखीम एकत्रीकरण: उपग्रह आर्द्रता विसंगती + स्काडा प्रवाह इशारा' : 'Multi-Source Risk Fusion: Satellite Moisture Anomaly + SCADA Flow Alert'}
             </div>
           </div>
         </div>
 
         <div className="flex items-center gap-3 text-[11px]">
-          <div className="px-3 py-1.5 rounded-xl bg-[#1A232E] border border-[#222D3A]">
-            <span className="text-slate-400">{lang === 'hi' ? 'सक्रिय खान: ' : lang === 'mr' ? 'सक्रिय खाण: ' : 'ACTIVE MINE: '}</span>
-            <strong className="text-amber-300">{currentMine.name} ({currentMine.productionTarget?.toLocaleString()} TPD)</strong>
+          <div className="px-3 py-1.5 rounded-lg bg-[#F8FAFC] border border-[#E2E8F0]">
+            <span className="text-[#64748B]">{lang === 'hi' ? 'सक्रिय खान: ' : lang === 'mr' ? 'सक्रिय खाण: ' : 'ACTIVE MINE: '}</span>
+            <strong className="text-[#172033]">{currentMine.name} ({currentMine.productionTarget?.toLocaleString()} TPD)</strong>
           </div>
-          <div className="px-3 py-1.5 rounded-xl bg-[#1A232E] border border-[#222D3A]">
-            <span className="text-slate-400">{lang === 'hi' ? 'स्थिति: ' : lang === 'mr' ? 'स्थिती: ' : 'STATUS: '}</span>
-            <strong className="text-emerald-400">{lang === 'hi' ? 'लाइव सिमुलेशन सक्रिय' : lang === 'mr' ? 'थेट सिम्युलेशन सक्रिय' : 'LIVE SIMULATION ENGAGED'}</strong>
+          <div className="px-3 py-1.5 rounded-lg bg-emerald-50 border border-emerald-200 text-emerald-700 font-bold">
+            <span>LIVE SIMULATION ENGAGED</span>
           </div>
         </div>
       </div>

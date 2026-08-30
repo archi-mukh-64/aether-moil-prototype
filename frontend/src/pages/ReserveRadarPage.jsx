@@ -58,6 +58,7 @@ import {
   Info
 } from 'lucide-react';
 import { ErrorBoundary } from '../components/common/ErrorBoundary.jsx';
+import { AetherSectionHeader, AetherStatusBadge } from '../components/design-system/index.js';
 
 export const ReserveRadarPage = () => {
   return (
@@ -400,38 +401,17 @@ const ReserveRadarContent = () => {
   const activeEnvScene = envTemporalData[timeMachineYear] || envTemporalData[2026];
 
   return (
-    <div className="py-8 command-container space-y-8 font-sans text-zinc-100">
+    <div className="space-y-6 font-sans">
       
       {/* 1. Header & Mine Selector Strip */}
-      <div className="flex flex-col md:flex-row md:items-start justify-between gap-6 pb-6 border-b border-obsidian-800">
-        <div>
-          <div className="flex flex-wrap items-center gap-2 mb-3">
-            <span className="badge-radar font-mono text-[10px]">
-              <Radar className="w-3.5 h-3.5 text-radar-400 animate-pulse" />
-              <span>AI EARTH INTELLIGENCE &amp; RESERVE RADAR // {currentMine.name.toUpperCase()}</span>
-            </span>
-            <span className="badge-manganese text-[10px] font-mono">
-              {currentMine.district?.toUpperCase()} • {currentMine.state?.toUpperCase()}
-            </span>
-            <span className="px-2.5 py-0.5 rounded bg-obsidian-900 border border-obsidian-750 text-[10px] font-mono text-zinc-400">
-              {currentMine.coordinatesDMS || currentMine.coordinates}
-            </span>
-          </div>
-
-          <h1 className="font-display text-4xl sm:text-5xl font-extrabold text-white">
-            {currentMine.name} Reserve Intelligence
-          </h1>
-          <p className="text-sm font-mono text-zinc-400 mt-2 max-w-3xl leading-relaxed">
-            Multi-spectral satellite remote sensing, Dynamic World land-cover classification, geological prospectivity modeling, and UNFC reserve intelligence for <strong className="text-white">{currentMine.name}</strong>.
-          </p>
-        </div>
-
-        {/* 10-Mine Switcher Strip */}
-        <div className="flex flex-col items-start md:items-end gap-2 self-start md:self-auto">
-          <span className="text-[10px] font-mono uppercase text-zinc-500 tracking-wider">
-            Switch MOIL Asset:
-          </span>
-          <div className="flex items-center gap-1.5 overflow-x-auto max-w-lg p-1.5 rounded-xl bg-obsidian-900 border border-obsidian-750 no-scrollbar">
+      <AetherSectionHeader
+        title={`${currentMine.name} — Reserve Intelligence & Radar`}
+        subtitle="Multi-spectral satellite remote sensing, Dynamic World land-cover classification, geological prospectivity modeling, and UNFC reserve intelligence."
+        badge={`${currentMine.district?.toUpperCase()} • ${currentMine.state?.toUpperCase()}`}
+        accent="#0D9488"
+        icon={Compass}
+        actions={
+          <div className="flex items-center gap-1.5 overflow-x-auto max-w-lg p-1 rounded-xl bg-[#F8FAFC] border border-[#E2E8F0] no-scrollbar">
             {mineList.map((m) => (
               <button
                 key={m.id}
@@ -441,18 +421,18 @@ const ReserveRadarContent = () => {
                   setActiveTargetId('TARGET-01');
                   setSelectedBlockId('B-17');
                 }}
-                className={`px-3 py-1.5 rounded-lg text-xs font-mono font-bold transition-all whitespace-nowrap ${
+                className={`px-2.5 py-1 rounded-lg text-xs font-mono font-bold transition-all whitespace-nowrap ${
                   selectedMineId === m.id
-                    ? 'bg-manganese-500 text-obsidian-950 shadow-md scale-105'
-                    : 'text-zinc-400 hover:text-zinc-200 hover:bg-obsidian-800'
+                    ? 'bg-[#0D9488] text-white shadow-xs'
+                    : 'text-[#64748B] hover:text-[#172033] hover:bg-slate-100'
                 }`}
               >
                 {m.shortName || m.name}
               </button>
             ))}
           </div>
-        </div>
-      </div>
+        }
+      />
 
       {/* 2. SATELLITE TO UNFC RESERVE INTELLIGENCE PIPELINE BANNER */}
       <div className="p-4 rounded-2xl bg-gradient-to-r from-obsidian-950 via-[#0a1526] to-obsidian-950 border border-sky-500/40 shadow-xl space-y-3 font-mono text-xs">

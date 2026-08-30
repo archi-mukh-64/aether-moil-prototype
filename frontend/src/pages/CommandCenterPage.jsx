@@ -7,9 +7,9 @@ import { HourlyProductionChart } from '../components/workspace/HourlyProductionC
 import { CommandEventStream } from '../components/workspace/CommandEventStream.jsx';
 import { ScenarioLab } from '../components/scenario/ScenarioLab.jsx';
 import { BeforeAfterDelta } from '../components/BeforeAfterDelta.jsx';
-import { SectionHeader } from '../components/design/SectionHeader.jsx';
+import { AetherSectionHeader, AetherStatusBadge } from '../components/design-system/index.js';
 import { ErrorBoundary } from '../components/common/ErrorBoundary.jsx';
-import { Radio, Activity } from 'lucide-react';
+import { Radio, Activity, Cpu } from 'lucide-react';
 
 export const CommandCenterPage = () => {
   return (
@@ -32,20 +32,19 @@ const CommandCenterContent = () => {
   };
 
   return (
-    <div className="py-6 px-4 sm:px-6 lg:px-8 max-w-[1920px] mx-auto space-y-6 font-sans">
+    <div className="space-y-6 font-sans">
       
       {/* 1. TOP SINGLE-MINE COCKPIT HEADER */}
-      <SectionHeader
-        category={`${currentMine.district.toUpperCase()}, ${currentMine.state.toUpperCase()} • ${currentMine.coordinatesDMS}`}
-        categoryColor="#FFB000"
-        badge="ACTIVE OPERATIONAL COCKPIT"
-        badgeColor="#21D4C5"
-        title={`${currentMine.name} — Real-Time Command Center`}
+      <AetherSectionHeader
+        title={`${currentMine.name} — Real-Time Command Cockpit`}
         subtitle="High-frequency pithead SCADA telemetry, multi-physics digital twin simulation, and hourly extraction tracking for active shift operations."
+        badge={`${currentMine.district.toUpperCase()}, ${currentMine.state.toUpperCase()}`}
+        accent="#0284C7"
+        icon={Radio}
         actions={
           <div className="flex items-center gap-2 font-mono text-xs">
-            <span className="px-3 py-1.5 rounded-xl bg-[#151B23] border border-cyan-500/30 text-cyan-400 font-bold flex items-center gap-1.5 shadow-glow-cyan">
-              <span className="w-2 h-2 rounded-full bg-cyan-400 animate-pulse" />
+            <span className="px-3 py-1.5 rounded-xl bg-cyan-50 border border-cyan-300 text-cyan-800 font-bold flex items-center gap-1.5 shadow-xs">
+              <span className="w-2 h-2 rounded-full bg-cyan-600 animate-pulse" />
               <span>SCADA STREAM: 100 Hz LIVE</span>
             </span>
           </div>
@@ -56,29 +55,33 @@ const CommandCenterContent = () => {
       {activeScenario && <BeforeAfterDelta />}
 
       {/* 3. PRIMARY 3-COLUMN INDUSTRIAL COCKPIT WORKSPACE */}
-      <div className="flex flex-col lg:flex-row gap-4 items-start w-full font-mono">
+      <div className="flex flex-col lg:flex-row gap-5 items-start w-full font-mono">
         
-        {/* LEFT COLUMN: Production Target Gauge, Key Performance & Risk Rail (approx 290px) */}
-        <LeftKpiRail />
+        {/* LEFT COLUMN: Production Target Gauge, Key Performance & Risk Rail */}
+        <div className="w-full lg:w-[320px] shrink-0">
+          <LeftKpiRail />
+        </div>
 
-        {/* CENTER COLUMN: Geospatial Digital Twin (2D / 3D) + Hourly Shift Chart (Flexible 1fr) */}
-        <div className="flex-1 min-w-0 w-full flex flex-col gap-4">
+        {/* CENTER COLUMN: Geospatial Digital Twin (2D / 3D) + Hourly Shift Chart */}
+        <div className="flex-1 min-w-0 w-full flex flex-col gap-5">
           <DigitalTwinContainer />
           <HourlyProductionChart />
         </div>
 
-        {/* RIGHT COLUMN: Live SCADA Telemetry & Sparklines Rail (approx 270px) */}
-        <RightTelemetryRail />
+        {/* RIGHT COLUMN: Live SCADA Telemetry & Sparklines Rail */}
+        <div className="w-full lg:w-[300px] shrink-0">
+          <RightTelemetryRail />
+        </div>
 
       </div>
 
       {/* 4. REAL-TIME INCIDENT EVENT STREAM & OPERATIONAL TIMELINE */}
-      <div className="pt-2 border-t border-[#222D3A]">
+      <div className="pt-3 border-t border-[#E2E8F0]">
         <CommandEventStream />
       </div>
 
       {/* 5. OPERATIONAL SCENARIO STRESS LAB DRAWER */}
-      <div className="pt-2 border-t border-[#222D3A]">
+      <div className="pt-3 border-t border-[#E2E8F0]">
         <ScenarioLab />
       </div>
 

@@ -2,6 +2,7 @@ import React, { useState, useMemo, useEffect } from 'react';
 import { useApp } from '../context/AppContext.jsx';
 import { OFFICIAL_MOIL_MINES } from '../services/mineRegistry.js';
 import { ErrorBoundary } from '../components/common/ErrorBoundary.jsx';
+import { AetherSectionHeader, AetherStatusBadge } from '../components/design-system/index.js';
 import { StaticEngineeringMap } from '../components/scenario/StaticEngineeringMap.jsx';
 import { 
   SCENARIO_KEYS, 
@@ -153,41 +154,34 @@ const ScenarioLabPageContent = () => {
   };
 
   return (
-    <div className="min-h-screen bg-[#040711] text-zinc-100 p-4 sm:p-6 lg:p-8 font-mono space-y-6">
+    <div className="space-y-6 font-sans">
       
       {/* 1. TOP HEADER & BREADCRUMB */}
-      <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 pb-4 border-b border-[#1b2a41]">
-        <div>
-          <div className="flex items-center gap-2 text-xs text-amber-400 font-semibold uppercase tracking-wider mb-1">
-            <FlaskConical className="w-4 h-4" />
-            <span>{sc?.headerBadge || 'OPERATIONAL SCENARIO INTELLIGENCE CENTRE // DECISION SUPPORT'}</span>
+      <AetherSectionHeader
+        title={sc?.title || 'Operational Scenario Simulation Lab'}
+        subtitle="Simulate pit inundation, crusher breakdowns, haulage bottlenecks, and grade deviations to evaluate recovery trajectories."
+        badge={sc?.engineBadge || 'DETERMINISTIC CAUSAL ENGINE'}
+        accent="#8B5CF6"
+        icon={FlaskConical}
+        actions={
+          <div className="flex items-center gap-2">
+            <button
+              onClick={() => setIsMultiScenarioOpen(!isMultiScenarioOpen)}
+              className="flex items-center gap-1.5 px-3 py-2 rounded-xl bg-purple-50 border border-purple-200 text-purple-800 text-xs font-bold font-mono hover:bg-purple-100 transition shadow-xs"
+            >
+              <Layers className="w-3.5 h-3.5 text-purple-600" />
+              <span>{isMultiScenarioOpen ? (comm?.closeMatrix || 'CLOSE MATRIX') : (comm?.multiMatrix || 'MULTI-SCENARIO MATRIX')}</span>
+            </button>
+            <button 
+              onClick={() => window.print()}
+              className="flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-amber-500 text-slate-950 text-xs font-bold font-mono hover:bg-amber-400 shadow-xs transition"
+            >
+              <Download className="w-3.5 h-3.5" />
+              <span>{comm?.exportPdf || 'EXPORT DOSSIER (PDF)'}</span>
+            </button>
           </div>
-          <h1 className="text-2xl sm:text-3xl font-black tracking-tight text-white flex items-center gap-3">
-            {sc?.title || 'AETHER SCENARIO LAB'}
-            <span className="text-xs px-2.5 py-1 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-500/40">
-              {sc?.engineBadge || 'DETERMINISTIC CAUSAL ENGINE'}
-            </span>
-          </h1>
-        </div>
-
-        {/* Global Export Bar */}
-        <div className="flex items-center gap-2">
-          <button
-            onClick={() => setIsMultiScenarioOpen(!isMultiScenarioOpen)}
-            className="flex items-center gap-1.5 px-3 py-2 rounded-xl bg-[#101b2d] border border-[#223755] text-zinc-300 text-xs font-bold hover:bg-[#182942] hover:text-white transition"
-          >
-            <Layers className="w-3.5 h-3.5 text-amber-400" />
-            <span>{isMultiScenarioOpen ? (comm?.closeMatrix || 'CLOSE MATRIX') : (comm?.multiMatrix || 'MULTI-SCENARIO MATRIX')}</span>
-          </button>
-          <button 
-            onClick={() => window.print()}
-            className="flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-amber-500 text-obsidian-950 text-xs font-bold hover:bg-amber-400 shadow-lg shadow-amber-500/20 transition"
-          >
-            <Download className="w-3.5 h-3.5" />
-            <span>{comm?.exportPdf || 'EXPORT DOSSIER (PDF)'}</span>
-          </button>
-        </div>
-      </div>
+        }
+      />
 
       {/* 2. TOP CONTROL BAR */}
       <div className="p-4 rounded-3xl bg-[#080d1a] border border-[#1b2a41] shadow-2xl space-y-4">

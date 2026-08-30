@@ -4,159 +4,146 @@
 
 @layer base {
   :root {
-    color-scheme: dark;
+    color-scheme: light;
     --font-display: 'Space Grotesk', sans-serif;
     --font-sans: 'Inter', sans-serif;
     --font-mono: 'JetBrains Mono', monospace;
 
-    /* Semantic Design Tokens */
-    --bg-primary: #0B0F14;
-    --bg-secondary: #10151C;
-    --surface-card: #151B23;
-    --surface-elevated: #1A232E;
-    --border-subtle: #222D3A;
-    --border-hover: #2D3A4B;
+    /* Semantic Light Industrial Design Tokens */
+    --bg-primary: #F5F7FA;
+    --bg-secondary: #F0F4F8;
+    --surface-card: #FFFFFF;
+    --surface-elevated: #FFFFFF;
+    --border-subtle: #E2E8F0;
+    --border-hover: #CBD5E1;
 
-    --accent-command: #F5A400;     /* Amber */
-    --accent-intelligence: #21D4C5; /* Cyan */
-    --accent-health: #22C55E;       /* Emerald */
-    --accent-warning: #FFB020;      /* Orange */
-    --accent-critical: #F0445E;     /* Coral Red */
-    --accent-ai: #8B7CFF;           /* Violet */
+    --accent-command: #F59E0B;     /* Amber */
+    --accent-intelligence: #0891B2; /* Cyan */
+    --accent-health: #16A34A;       /* Emerald */
+    --accent-warning: #D97706;      /* Orange */
+    --accent-critical: #DC2626;     /* Red */
+    --accent-ai: #6366F1;           /* Indigo */
   }
   
   body {
-    @apply bg-[#0B0F14] text-slate-100 font-sans tracking-tight overflow-x-hidden min-h-screen;
+    @apply bg-[#F5F7FA] text-[#172033] font-sans tracking-tight overflow-x-hidden min-h-screen;
     background-image: 
-      radial-gradient(circle at 10% 0%, rgba(245, 164, 0, 0.04) 0%, transparent 40%),
-      radial-gradient(circle at 90% 0%, rgba(33, 212, 197, 0.04) 0%, transparent 40%),
-      radial-gradient(circle at 50% 50%, rgba(139, 124, 255, 0.02) 0%, transparent 50%),
-      linear-gradient(180deg, #0B0F14 0%, #0E131A 50%, #0B0F14 100%);
+      radial-gradient(circle at 10% 0%, rgba(245, 158, 11, 0.03) 0%, transparent 40%),
+      radial-gradient(circle at 90% 0%, rgba(8, 145, 178, 0.03) 0%, transparent 40%),
+      linear-gradient(180deg, #F5F7FA 0%, #FFFFFF 50%, #F5F7FA 100%);
     background-attachment: fixed;
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
   }
 
-  /* Custom Sleek Industrial Scrollbar */
+  /* Custom Clean Industrial Scrollbar */
   ::-webkit-scrollbar {
     width: 6px;
     height: 6px;
   }
   ::-webkit-scrollbar-track {
-    background: #0B0F14;
+    background: #F1F5F9;
   }
   ::-webkit-scrollbar-thumb {
-    background: #222D3A;
+    background: #CBD5E1;
     border-radius: 3px;
   }
   ::-webkit-scrollbar-thumb:hover {
-    background: #F5A400;
+    background: #94A3B8;
   }
 }
 
 @layer components {
   /* Precision Neutral Technical Panels & Cards */
   .panel-surface {
-    @apply bg-[#151B23]/95 backdrop-blur-xl border border-[#222D3A] rounded-2xl transition-all duration-200 shadow-card-subtle;
+    @apply bg-white border border-[#E2E8F0] rounded-xl transition-all duration-200 shadow-sm;
   }
 
   .panel-surface-hover {
-    @apply panel-surface hover:border-[#2D3A4B] hover:bg-[#1A232E] hover:shadow-card-elevated;
+    @apply panel-surface hover:border-[#CBD5E1] hover:shadow-md;
   }
 
   .card-command {
-    @apply bg-[#151B23]/95 border border-[#222D3A] rounded-2xl p-5 sm:p-6 transition-all duration-200 shadow-card-subtle;
+    @apply bg-white border border-[#E2E8F0] rounded-xl p-5 sm:p-6 transition-all duration-200 shadow-sm;
   }
 
   .card-command-hover {
-    @apply card-command hover:border-[#2D3A4B] hover:bg-[#1A232E] hover:shadow-card-elevated;
+    @apply card-command hover:border-[#CBD5E1] hover:shadow-md;
   }
 
   /* Container wrapper for widescreen command center */
   .command-container {
-    @apply w-full max-w-[1680px] mx-auto px-4 sm:px-6 lg:px-8 xl:px-10;
+    @apply w-full max-w-[1680px] mx-auto px-4 sm:px-6 lg:px-8;
   }
 
   /* Standardized Multi-Color Industrial Buttons */
   .btn-command-primary {
-    @apply px-4 py-2.5 rounded-xl bg-amber-600 hover:bg-amber-500 text-[#0B0F14] font-bold text-xs uppercase tracking-wider transition-all duration-150 inline-flex items-center justify-center gap-2 shadow-md hover:shadow-glow-amber active:scale-[0.98] disabled:opacity-50 cursor-pointer;
+    @apply px-4 py-2.5 rounded-xl bg-amber-500 hover:bg-amber-600 text-[#0F172A] font-bold text-xs uppercase tracking-wider transition-all duration-150 inline-flex items-center justify-center gap-2 shadow-sm active:scale-[0.98] disabled:opacity-50 cursor-pointer;
   }
 
   .btn-command-secondary {
-    @apply px-4 py-2.5 rounded-xl bg-[#1A232E] hover:bg-[#222D3A] border border-[#2D3A4B] text-slate-100 font-bold text-xs uppercase tracking-wider transition-all duration-150 inline-flex items-center justify-center gap-2 shadow-sm active:scale-[0.98] disabled:opacity-50 cursor-pointer;
+    @apply px-4 py-2.5 rounded-xl bg-white hover:bg-slate-50 border border-[#CBD5E1] text-[#1E293B] font-bold text-xs uppercase tracking-wider transition-all duration-150 inline-flex items-center justify-center gap-2 shadow-sm active:scale-[0.98] disabled:opacity-50 cursor-pointer;
   }
 
   .btn-command-intelligence {
-    @apply px-4 py-2.5 rounded-xl bg-[#10151C] hover:bg-cyan-500/10 border border-cyan-500/50 text-cyan-400 font-bold text-xs uppercase tracking-wider transition-all duration-150 inline-flex items-center justify-center gap-2 shadow-sm hover:shadow-glow-cyan active:scale-[0.98] cursor-pointer;
+    @apply px-4 py-2.5 rounded-xl bg-cyan-50 hover:bg-cyan-100 border border-cyan-300 text-cyan-800 font-bold text-xs uppercase tracking-wider transition-all duration-150 inline-flex items-center justify-center gap-2 shadow-sm active:scale-[0.98] cursor-pointer;
   }
 
   .btn-command-ai {
-    @apply px-4 py-2.5 rounded-xl bg-[#10151C] hover:bg-violet-500/10 border border-violet-500/50 text-violet-400 font-bold text-xs uppercase tracking-wider transition-all duration-150 inline-flex items-center justify-center gap-2 shadow-sm hover:shadow-glow-violet active:scale-[0.98] cursor-pointer;
+    @apply px-4 py-2.5 rounded-xl bg-indigo-50 hover:bg-indigo-100 border border-indigo-300 text-indigo-800 font-bold text-xs uppercase tracking-wider transition-all duration-150 inline-flex items-center justify-center gap-2 shadow-sm active:scale-[0.98] cursor-pointer;
   }
 
   .btn-command-danger {
-    @apply px-4 py-2.5 rounded-xl bg-coral-500 hover:bg-coral-400 text-white font-bold text-xs uppercase tracking-wider transition-all duration-150 inline-flex items-center justify-center gap-2 shadow-md hover:shadow-glow-red active:scale-[0.98] disabled:opacity-50 cursor-pointer;
+    @apply px-4 py-2.5 rounded-xl bg-red-600 hover:bg-red-700 text-white font-bold text-xs uppercase tracking-wider transition-all duration-150 inline-flex items-center justify-center gap-2 shadow-sm active:scale-[0.98] disabled:opacity-50 cursor-pointer;
   }
 
   .btn-command-success {
-    @apply px-4 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-[#0B0F14] font-bold text-xs uppercase tracking-wider transition-all duration-150 inline-flex items-center justify-center gap-2 shadow-md hover:shadow-glow-green active:scale-[0.98] cursor-pointer;
+    @apply px-4 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs uppercase tracking-wider transition-all duration-150 inline-flex items-center justify-center gap-2 shadow-sm active:scale-[0.98] cursor-pointer;
   }
 
   .btn-command-ghost {
-    @apply px-3 py-2 rounded-xl text-slate-400 hover:text-white hover:bg-[#1A232E] transition-colors text-xs font-semibold inline-flex items-center gap-1.5 cursor-pointer;
+    @apply px-3 py-2 rounded-xl text-[#64748B] hover:text-[#172033] hover:bg-slate-100 transition-colors text-xs font-semibold inline-flex items-center gap-1.5 cursor-pointer;
   }
 
   /* Semantic Status Badges & Pills */
   .badge-command {
-    @apply inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-[11px] font-mono font-semibold bg-amber-500/15 text-amber-400 border border-amber-500/30 tracking-wide;
+    @apply inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-[11px] font-mono font-semibold bg-amber-50 text-amber-800 border border-amber-200 tracking-wide;
   }
 
   .badge-intelligence {
-    @apply inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-[11px] font-mono font-semibold bg-cyan-500/15 text-cyan-400 border border-cyan-500/30 tracking-wide;
+    @apply inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-[11px] font-mono font-semibold bg-cyan-50 text-cyan-800 border border-cyan-200 tracking-wide;
   }
 
   .badge-health {
-    @apply inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-[11px] font-mono font-semibold bg-emerald-500/15 text-emerald-400 border border-emerald-500/30 tracking-wide;
+    @apply inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-[11px] font-mono font-semibold bg-emerald-50 text-emerald-800 border border-emerald-200 tracking-wide;
   }
 
   .badge-warning {
-    @apply inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-[11px] font-mono font-semibold bg-orange-500/15 text-orange-400 border border-orange-500/30 tracking-wide;
+    @apply inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-[11px] font-mono font-semibold bg-amber-50 text-amber-800 border border-amber-200 tracking-wide;
   }
 
   .badge-critical {
-    @apply inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-[11px] font-mono font-semibold bg-coral-500/15 text-coral-400 border border-coral-500/30 tracking-wide;
-  }
-
-  .badge-ai {
-    @apply inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-[11px] font-mono font-semibold bg-violet-500/15 text-violet-400 border border-violet-500/30 tracking-wide;
-  }
-
-  .badge-telemetry {
-    @apply inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-[11px] font-mono font-semibold bg-emerald-500/15 text-emerald-400 border border-emerald-500/30 tracking-wide;
+    @apply inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-[11px] font-mono font-semibold bg-red-50 text-red-800 border border-red-200 tracking-wide;
   }
 
   .badge-manganese {
-    @apply inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-[11px] font-mono font-semibold bg-amber-500/15 text-amber-400 border border-amber-500/30 tracking-wide;
+    @apply inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-[11px] font-mono font-semibold bg-amber-500/10 text-amber-800 border border-amber-500/30 tracking-wide;
   }
 
-  .badge-hazard {
-    @apply inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-[11px] font-mono font-semibold bg-coral-500/15 text-coral-400 border border-coral-500/30 tracking-wide;
+  /* Industrial Data Tables */
+  .table-industrial {
+    @apply w-full text-left text-xs font-sans;
   }
 
-  .badge-radar {
-    @apply inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-[11px] font-mono font-semibold bg-cyan-500/15 text-cyan-400 border border-cyan-500/30 tracking-wide;
+  .table-industrial th {
+    @apply px-4 py-3 bg-[#F8FAFC] text-[#475569] font-mono font-bold text-[11px] uppercase tracking-wider border-b border-[#E2E8F0] sticky top-0 z-10;
   }
 
-  .badge-neutral {
-    @apply inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-[11px] font-mono font-medium bg-[#1A232E] text-slate-300 border border-[#222D3A] tracking-wide;
+  .table-industrial td {
+    @apply px-4 py-3.5 border-b border-[#F1F5F9] text-[#1E293B] font-medium transition-colors;
   }
 
-  /* Utilities for hiding scrollbars while retaining scroll ability */
-  .no-scrollbar::-webkit-scrollbar {
-    display: none;
-  }
-  .no-scrollbar {
-    -ms-overflow-style: none;
-    scrollbar-width: none;
+  .table-industrial tr:hover td {
+    @apply bg-[#F8FAFC];
   }
 }

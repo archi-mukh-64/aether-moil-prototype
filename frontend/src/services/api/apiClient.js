@@ -9,7 +9,9 @@ const RAW_API_BASE_URL = (typeof import.meta !== 'undefined' && import.meta.env 
 
 // Normalize by stripping any trailing slash
 const API_BASE_URL = RAW_API_BASE_URL.replace(/\/+$/, '');
-const FALLBACK_API_BASE_URL = 'http://127.0.0.1:8000/api';
+const FALLBACK_API_BASE_URL = (typeof import.meta !== 'undefined' && import.meta.env && import.meta.env.DEV)
+  ? 'http://127.0.0.1:8000/api'
+  : '/api';
 const DEFAULT_TIMEOUT_MS = 8000;
 
 export class APIError extends Error {
