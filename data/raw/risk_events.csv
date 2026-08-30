@@ -1,0 +1,251 @@
+timestamp,mine_id,event_type,severity,rainfall,equipment_health,production_impact,detected,actual_outcome
+2025-01-15 08:30:00,balaghat,MONSOON,MEDIUM,72.5,83.2,-247 T Deficit,1,Auxiliary pumps engaged; sump protected
+2025-01-16 22:30:00,dongri-buzurg,CRUSHER_FAILURE,MEDIUM,2.3,56.8,-182 T Deficit,1,Throughput throttled to 70%; bearing saved
+2025-01-18 12:30:00,gumgaon,EQUIPMENT_FAILURE,LOW,1.2,71.2,-77 T Deficit,0,Normal cycle
+2025-01-20 02:30:00,tirodi,PRODUCTION_SHORTFALL,CRITICAL,31.0,85.6,-464 T Deficit,1,Stockpile blend ratio updated to 55:45
+2025-01-21 16:30:00,ukwa,MULTI_RISK,LOW,41.4,60.3,-203 T Deficit,1,Coordinated multi-vector mitigation protocol activated
+2025-01-23 06:30:00,balaghat,MONSOON,HIGH,59.9,73.3,-380 T Deficit,1,Auxiliary pumps engaged; sump protected
+2025-01-24 20:30:00,dongri-buzurg,CRUSHER_FAILURE,LOW,4.6,65.2,-98 T Deficit,1,Throughput throttled to 70%; bearing saved
+2025-01-26 10:30:00,gumgaon,EQUIPMENT_FAILURE,MEDIUM,8.6,63.8,-143 T Deficit,1,Dumpers diverted to short-haul staging
+2025-01-28 00:30:00,tirodi,PRODUCTION_SHORTFALL,MEDIUM,31.4,77.1,-208 T Deficit,1,Stockpile blend ratio updated to 55:45
+2025-01-29 14:30:00,ukwa,MULTI_RISK,MEDIUM,55.3,53.7,-377 T Deficit,1,Coordinated multi-vector mitigation protocol activated
+2025-01-31 04:30:00,balaghat,MONSOON,MEDIUM,65.0,73.6,-247 T Deficit,1,Auxiliary pumps engaged; sump protected
+2025-02-01 18:30:00,dongri-buzurg,CRUSHER_FAILURE,MEDIUM,8.9,56.8,-182 T Deficit,1,Throughput throttled to 70%; bearing saved
+2025-02-03 08:30:00,gumgaon,EQUIPMENT_FAILURE,LOW,12.2,71.2,-77 T Deficit,0,Normal cycle
+2025-02-04 22:30:00,tirodi,PRODUCTION_SHORTFALL,LOW,12.3,89.2,-112 T Deficit,0,Target met within margin
+2025-02-06 12:30:00,ukwa,MULTI_RISK,CRITICAL,158.7,36.1,-841 T Deficit,1,Coordinated multi-vector mitigation protocol activated
+2025-02-08 02:30:00,balaghat,MONSOON,MEDIUM,33.7,82.3,-247 T Deficit,0,Minor ponding in ditch
+2025-02-09 16:30:00,dongri-buzurg,CRUSHER_FAILURE,MEDIUM,1.8,56.8,-182 T Deficit,1,Throughput throttled to 70%; bearing saved
+2025-02-11 06:30:00,gumgaon,EQUIPMENT_FAILURE,MEDIUM,0.7,63.8,-143 T Deficit,1,Dumpers diverted to short-haul staging
+2025-02-12 20:30:00,tirodi,PRODUCTION_SHORTFALL,CRITICAL,19.1,84.9,-464 T Deficit,1,Stockpile blend ratio updated to 55:45
+2025-02-14 10:30:00,ukwa,MULTI_RISK,MEDIUM,60.8,53.7,-377 T Deficit,1,Coordinated multi-vector mitigation protocol activated
+2025-02-16 00:30:00,balaghat,MONSOON,MEDIUM,37.7,87.5,-247 T Deficit,0,Minor ponding in ditch
+2025-02-17 14:30:00,dongri-buzurg,CRUSHER_FAILURE,HIGH,14.1,47.0,-280 T Deficit,1,Throughput throttled to 70%; bearing saved
+2025-02-19 04:30:00,gumgaon,EQUIPMENT_FAILURE,CRITICAL,12.0,43.8,-319 T Deficit,1,Dumpers diverted to short-haul staging
+2025-02-20 18:30:00,tirodi,PRODUCTION_SHORTFALL,CRITICAL,13.1,77.9,-464 T Deficit,1,Stockpile blend ratio updated to 55:45
+2025-02-22 08:30:00,ukwa,MULTI_RISK,LOW,29.0,60.3,-203 T Deficit,1,Coordinated multi-vector mitigation protocol activated
+2025-02-23 22:30:00,balaghat,MONSOON,MEDIUM,41.6,84.9,-247 T Deficit,0,Minor ponding in ditch
+2025-02-25 12:30:00,dongri-buzurg,CRUSHER_FAILURE,MEDIUM,4.2,56.8,-182 T Deficit,1,Throughput throttled to 70%; bearing saved
+2025-02-27 02:30:00,gumgaon,EQUIPMENT_FAILURE,MEDIUM,2.8,63.8,-143 T Deficit,1,Dumpers diverted to short-haul staging
+2025-02-28 16:30:00,tirodi,PRODUCTION_SHORTFALL,HIGH,12.6,89.8,-320 T Deficit,1,Stockpile blend ratio updated to 55:45
+2025-03-02 06:30:00,ukwa,MULTI_RISK,HIGH,75.9,46.0,-580 T Deficit,1,Coordinated multi-vector mitigation protocol activated
+2025-03-03 20:30:00,balaghat,MONSOON,LOW,35.7,82.7,-133 T Deficit,0,Minor ponding in ditch
+2025-03-05 10:30:00,dongri-buzurg,CRUSHER_FAILURE,HIGH,11.6,47.0,-280 T Deficit,1,Throughput throttled to 70%; bearing saved
+2025-03-07 00:30:00,gumgaon,EQUIPMENT_FAILURE,LOW,7.2,71.2,-77 T Deficit,0,Normal cycle
+2025-03-08 14:30:00,tirodi,PRODUCTION_SHORTFALL,LOW,40.2,84.3,-112 T Deficit,0,Target met within margin
+2025-03-10 04:30:00,ukwa,MULTI_RISK,MEDIUM,44.5,53.7,-377 T Deficit,1,Coordinated multi-vector mitigation protocol activated
+2025-03-11 18:30:00,balaghat,MONSOON,MEDIUM,44.0,83.1,-247 T Deficit,0,Minor ponding in ditch
+2025-03-13 08:30:00,dongri-buzurg,CRUSHER_FAILURE,HIGH,13.3,47.0,-280 T Deficit,1,Throughput throttled to 70%; bearing saved
+2025-03-14 22:30:00,gumgaon,EQUIPMENT_FAILURE,MEDIUM,2.4,63.8,-143 T Deficit,1,Dumpers diverted to short-haul staging
+2025-03-16 12:30:00,tirodi,PRODUCTION_SHORTFALL,HIGH,36.6,83.4,-320 T Deficit,1,Stockpile blend ratio updated to 55:45
+2025-03-18 02:30:00,ukwa,MULTI_RISK,HIGH,92.2,46.0,-580 T Deficit,1,Coordinated multi-vector mitigation protocol activated
+2025-03-19 16:30:00,balaghat,MONSOON,MEDIUM,48.7,70.5,-247 T Deficit,0,Minor ponding in ditch
+2025-03-21 06:30:00,dongri-buzurg,CRUSHER_FAILURE,LOW,0.5,65.2,-98 T Deficit,1,Throughput throttled to 70%; bearing saved
+2025-03-22 20:30:00,gumgaon,EQUIPMENT_FAILURE,HIGH,6.3,55.0,-220 T Deficit,1,Dumpers diverted to short-haul staging
+2025-03-24 10:30:00,tirodi,PRODUCTION_SHORTFALL,MEDIUM,41.8,78.7,-208 T Deficit,1,Stockpile blend ratio updated to 55:45
+2025-03-26 00:30:00,ukwa,MULTI_RISK,MEDIUM,69.3,53.7,-377 T Deficit,1,Coordinated multi-vector mitigation protocol activated
+2025-03-27 14:30:00,balaghat,MONSOON,LOW,17.6,75.2,-133 T Deficit,0,Minor ponding in ditch
+2025-03-29 04:30:00,dongri-buzurg,CRUSHER_FAILURE,LOW,13.9,65.2,-98 T Deficit,1,Throughput throttled to 70%; bearing saved
+2025-03-30 18:30:00,gumgaon,EQUIPMENT_FAILURE,HIGH,12.7,55.0,-220 T Deficit,1,Dumpers diverted to short-haul staging
+2025-04-01 08:30:00,tirodi,PRODUCTION_SHORTFALL,CRITICAL,38.1,77.8,-464 T Deficit,1,Stockpile blend ratio updated to 55:45
+2025-04-02 22:30:00,ukwa,MULTI_RISK,CRITICAL,137.3,36.1,-841 T Deficit,1,Coordinated multi-vector mitigation protocol activated
+2025-04-04 12:30:00,balaghat,MONSOON,HIGH,107.7,75.7,-380 T Deficit,1,Auxiliary pumps engaged; sump protected
+2025-04-06 02:30:00,dongri-buzurg,CRUSHER_FAILURE,LOW,3.4,65.2,-98 T Deficit,1,Throughput throttled to 70%; bearing saved
+2025-04-07 16:30:00,gumgaon,EQUIPMENT_FAILURE,MEDIUM,16.4,63.8,-143 T Deficit,1,Dumpers diverted to short-haul staging
+2025-04-09 06:30:00,tirodi,PRODUCTION_SHORTFALL,CRITICAL,10.2,82.7,-464 T Deficit,1,Stockpile blend ratio updated to 55:45
+2025-04-10 20:30:00,ukwa,MULTI_RISK,MEDIUM,50.2,53.7,-377 T Deficit,1,Coordinated multi-vector mitigation protocol activated
+2025-04-12 10:30:00,balaghat,MONSOON,LOW,24.0,87.0,-133 T Deficit,0,Minor ponding in ditch
+2025-04-14 00:30:00,dongri-buzurg,CRUSHER_FAILURE,MEDIUM,7.8,56.8,-182 T Deficit,1,Throughput throttled to 70%; bearing saved
+2025-04-15 14:30:00,gumgaon,EQUIPMENT_FAILURE,HIGH,7.3,55.0,-220 T Deficit,1,Dumpers diverted to short-haul staging
+2025-04-17 04:30:00,tirodi,PRODUCTION_SHORTFALL,CRITICAL,43.7,78.8,-464 T Deficit,1,Stockpile blend ratio updated to 55:45
+2025-04-18 18:30:00,ukwa,MULTI_RISK,MEDIUM,53.0,53.7,-377 T Deficit,1,Coordinated multi-vector mitigation protocol activated
+2025-04-20 08:30:00,balaghat,MONSOON,MEDIUM,30.9,81.0,-247 T Deficit,0,Minor ponding in ditch
+2025-04-21 22:30:00,dongri-buzurg,CRUSHER_FAILURE,MEDIUM,0.8,56.8,-182 T Deficit,1,Throughput throttled to 70%; bearing saved
+2025-04-23 12:30:00,gumgaon,EQUIPMENT_FAILURE,MEDIUM,18.2,63.8,-143 T Deficit,1,Dumpers diverted to short-haul staging
+2025-04-25 02:30:00,tirodi,PRODUCTION_SHORTFALL,LOW,15.1,82.3,-112 T Deficit,0,Target met within margin
+2025-04-26 16:30:00,ukwa,MULTI_RISK,CRITICAL,113.6,36.1,-841 T Deficit,1,Coordinated multi-vector mitigation protocol activated
+2025-04-28 06:30:00,balaghat,MONSOON,HIGH,98.3,74.3,-380 T Deficit,1,Auxiliary pumps engaged; sump protected
+2025-04-29 20:30:00,dongri-buzurg,CRUSHER_FAILURE,HIGH,5.5,47.0,-280 T Deficit,1,Throughput throttled to 70%; bearing saved
+2025-05-01 10:30:00,gumgaon,EQUIPMENT_FAILURE,HIGH,12.7,55.0,-220 T Deficit,1,Dumpers diverted to short-haul staging
+2025-05-03 00:30:00,tirodi,PRODUCTION_SHORTFALL,MEDIUM,13.2,87.5,-208 T Deficit,1,Stockpile blend ratio updated to 55:45
+2025-05-04 14:30:00,ukwa,MULTI_RISK,MEDIUM,48.9,53.7,-377 T Deficit,1,Coordinated multi-vector mitigation protocol activated
+2025-05-06 04:30:00,balaghat,MONSOON,LOW,30.2,82.2,-133 T Deficit,0,Minor ponding in ditch
+2025-05-07 18:30:00,dongri-buzurg,CRUSHER_FAILURE,LOW,7.7,65.2,-98 T Deficit,1,Throughput throttled to 70%; bearing saved
+2025-05-09 08:30:00,gumgaon,EQUIPMENT_FAILURE,LOW,12.9,71.2,-77 T Deficit,0,Normal cycle
+2025-05-10 22:30:00,tirodi,PRODUCTION_SHORTFALL,LOW,34.2,80.8,-112 T Deficit,0,Target met within margin
+2025-05-12 12:30:00,ukwa,MULTI_RISK,CRITICAL,105.2,36.1,-841 T Deficit,1,Coordinated multi-vector mitigation protocol activated
+2025-05-14 02:30:00,balaghat,MONSOON,MEDIUM,34.4,86.6,-247 T Deficit,0,Minor ponding in ditch
+2025-05-15 16:30:00,dongri-buzurg,CRUSHER_FAILURE,CRITICAL,3.9,35.0,-406 T Deficit,1,Throughput throttled to 70%; bearing saved
+2025-05-17 06:30:00,gumgaon,EQUIPMENT_FAILURE,HIGH,16.3,55.0,-220 T Deficit,1,Dumpers diverted to short-haul staging
+2025-05-18 20:30:00,tirodi,PRODUCTION_SHORTFALL,MEDIUM,28.5,78.6,-208 T Deficit,1,Stockpile blend ratio updated to 55:45
+2025-05-20 10:30:00,ukwa,MULTI_RISK,LOW,40.0,60.3,-203 T Deficit,1,Coordinated multi-vector mitigation protocol activated
+2025-05-22 00:30:00,balaghat,MONSOON,CRITICAL,129.5,76.1,-551 T Deficit,1,Auxiliary pumps engaged; sump protected
+2025-05-23 14:30:00,dongri-buzurg,CRUSHER_FAILURE,MEDIUM,10.9,56.8,-182 T Deficit,1,Throughput throttled to 70%; bearing saved
+2025-05-25 04:30:00,gumgaon,EQUIPMENT_FAILURE,CRITICAL,17.7,43.8,-319 T Deficit,1,Dumpers diverted to short-haul staging
+2025-05-26 18:30:00,tirodi,PRODUCTION_SHORTFALL,HIGH,32.5,76.3,-320 T Deficit,1,Stockpile blend ratio updated to 55:45
+2025-05-28 08:30:00,ukwa,MULTI_RISK,LOW,40.0,60.3,-203 T Deficit,1,Coordinated multi-vector mitigation protocol activated
+2025-05-29 22:30:00,balaghat,MONSOON,HIGH,45.6,71.8,-380 T Deficit,0,Minor ponding in ditch
+2025-05-31 12:30:00,dongri-buzurg,CRUSHER_FAILURE,HIGH,0.1,47.0,-280 T Deficit,1,Throughput throttled to 70%; bearing saved
+2025-06-02 02:30:00,gumgaon,EQUIPMENT_FAILURE,LOW,11.0,71.2,-77 T Deficit,0,Normal cycle
+2025-06-03 16:30:00,tirodi,PRODUCTION_SHORTFALL,HIGH,32.8,78.4,-320 T Deficit,1,Stockpile blend ratio updated to 55:45
+2025-06-05 06:30:00,ukwa,MULTI_RISK,HIGH,78.0,46.0,-580 T Deficit,1,Coordinated multi-vector mitigation protocol activated
+2025-06-06 20:30:00,balaghat,MONSOON,MEDIUM,63.2,81.7,-247 T Deficit,1,Auxiliary pumps engaged; sump protected
+2025-06-08 10:30:00,dongri-buzurg,CRUSHER_FAILURE,HIGH,9.9,47.0,-280 T Deficit,1,Throughput throttled to 70%; bearing saved
+2025-06-10 00:30:00,gumgaon,EQUIPMENT_FAILURE,MEDIUM,1.9,63.8,-143 T Deficit,1,Dumpers diverted to short-haul staging
+2025-06-11 14:30:00,tirodi,PRODUCTION_SHORTFALL,MEDIUM,19.3,78.7,-208 T Deficit,1,Stockpile blend ratio updated to 55:45
+2025-06-13 04:30:00,ukwa,MULTI_RISK,CRITICAL,125.6,36.1,-841 T Deficit,1,Coordinated multi-vector mitigation protocol activated
+2025-06-14 18:30:00,balaghat,MONSOON,CRITICAL,129.3,84.3,-551 T Deficit,1,Auxiliary pumps engaged; sump protected
+2025-06-16 08:30:00,dongri-buzurg,CRUSHER_FAILURE,MEDIUM,8.7,56.8,-182 T Deficit,1,Throughput throttled to 70%; bearing saved
+2025-06-17 22:30:00,gumgaon,EQUIPMENT_FAILURE,MEDIUM,3.9,63.8,-143 T Deficit,1,Dumpers diverted to short-haul staging
+2025-06-19 12:30:00,tirodi,PRODUCTION_SHORTFALL,HIGH,19.8,75.4,-320 T Deficit,1,Stockpile blend ratio updated to 55:45
+2025-06-21 02:30:00,ukwa,MULTI_RISK,HIGH,74.7,46.0,-580 T Deficit,1,Coordinated multi-vector mitigation protocol activated
+2025-06-22 16:30:00,balaghat,MONSOON,CRITICAL,162.1,86.5,-551 T Deficit,1,Auxiliary pumps engaged; sump protected
+2025-06-24 06:30:00,dongri-buzurg,CRUSHER_FAILURE,MEDIUM,0.2,56.8,-182 T Deficit,1,Throughput throttled to 70%; bearing saved
+2025-06-25 20:30:00,gumgaon,EQUIPMENT_FAILURE,CRITICAL,8.6,43.8,-319 T Deficit,1,Dumpers diverted to short-haul staging
+2025-06-27 10:30:00,tirodi,PRODUCTION_SHORTFALL,CRITICAL,43.7,87.8,-464 T Deficit,1,Stockpile blend ratio updated to 55:45
+2025-06-29 00:30:00,ukwa,MULTI_RISK,MEDIUM,56.0,53.7,-377 T Deficit,1,Coordinated multi-vector mitigation protocol activated
+2025-06-30 14:30:00,balaghat,MONSOON,CRITICAL,97.4,73.1,-551 T Deficit,1,Auxiliary pumps engaged; sump protected
+2025-07-02 04:30:00,dongri-buzurg,CRUSHER_FAILURE,MEDIUM,14.0,56.8,-182 T Deficit,1,Throughput throttled to 70%; bearing saved
+2025-07-03 18:30:00,gumgaon,EQUIPMENT_FAILURE,HIGH,11.4,55.0,-220 T Deficit,1,Dumpers diverted to short-haul staging
+2025-07-05 08:30:00,tirodi,PRODUCTION_SHORTFALL,LOW,31.5,89.9,-112 T Deficit,0,Target met within margin
+2025-07-06 22:30:00,ukwa,MULTI_RISK,LOW,32.7,60.3,-203 T Deficit,1,Coordinated multi-vector mitigation protocol activated
+2025-07-08 12:30:00,balaghat,MONSOON,CRITICAL,140.4,82.5,-551 T Deficit,1,Auxiliary pumps engaged; sump protected
+2025-07-10 02:30:00,dongri-buzurg,CRUSHER_FAILURE,HIGH,5.4,47.0,-280 T Deficit,1,Throughput throttled to 70%; bearing saved
+2025-07-11 16:30:00,gumgaon,EQUIPMENT_FAILURE,MEDIUM,16.2,63.8,-143 T Deficit,1,Dumpers diverted to short-haul staging
+2025-07-13 06:30:00,tirodi,PRODUCTION_SHORTFALL,HIGH,40.3,88.7,-320 T Deficit,1,Stockpile blend ratio updated to 55:45
+2025-07-14 20:30:00,ukwa,MULTI_RISK,MEDIUM,60.2,53.7,-377 T Deficit,1,Coordinated multi-vector mitigation protocol activated
+2025-07-16 10:30:00,balaghat,MONSOON,HIGH,90.5,82.6,-380 T Deficit,1,Auxiliary pumps engaged; sump protected
+2025-07-18 00:30:00,dongri-buzurg,CRUSHER_FAILURE,HIGH,13.4,47.0,-280 T Deficit,1,Throughput throttled to 70%; bearing saved
+2025-07-19 14:30:00,gumgaon,EQUIPMENT_FAILURE,MEDIUM,7.5,63.8,-143 T Deficit,1,Dumpers diverted to short-haul staging
+2025-07-21 04:30:00,tirodi,PRODUCTION_SHORTFALL,LOW,30.2,75.5,-112 T Deficit,0,Target met within margin
+2025-07-22 18:30:00,ukwa,MULTI_RISK,MEDIUM,61.6,53.7,-377 T Deficit,1,Coordinated multi-vector mitigation protocol activated
+2025-07-24 08:30:00,balaghat,MONSOON,MEDIUM,56.1,70.5,-247 T Deficit,1,Auxiliary pumps engaged; sump protected
+2025-07-25 22:30:00,dongri-buzurg,CRUSHER_FAILURE,LOW,12.3,65.2,-98 T Deficit,1,Throughput throttled to 70%; bearing saved
+2025-07-27 12:30:00,gumgaon,EQUIPMENT_FAILURE,MEDIUM,2.5,63.8,-143 T Deficit,1,Dumpers diverted to short-haul staging
+2025-07-29 02:30:00,tirodi,PRODUCTION_SHORTFALL,MEDIUM,36.9,78.2,-208 T Deficit,1,Stockpile blend ratio updated to 55:45
+2025-07-30 16:30:00,ukwa,MULTI_RISK,HIGH,69.7,46.0,-580 T Deficit,1,Coordinated multi-vector mitigation protocol activated
+2025-08-01 06:30:00,balaghat,MONSOON,LOW,28.8,79.7,-133 T Deficit,0,Minor ponding in ditch
+2025-08-02 20:30:00,dongri-buzurg,CRUSHER_FAILURE,HIGH,10.9,47.0,-280 T Deficit,1,Throughput throttled to 70%; bearing saved
+2025-08-04 10:30:00,gumgaon,EQUIPMENT_FAILURE,CRITICAL,10.3,43.8,-319 T Deficit,1,Dumpers diverted to short-haul staging
+2025-08-06 00:30:00,tirodi,PRODUCTION_SHORTFALL,MEDIUM,37.8,79.1,-208 T Deficit,1,Stockpile blend ratio updated to 55:45
+2025-08-07 14:30:00,ukwa,MULTI_RISK,MEDIUM,45.1,53.7,-377 T Deficit,1,Coordinated multi-vector mitigation protocol activated
+2025-08-09 04:30:00,balaghat,MONSOON,LOW,39.3,85.0,-133 T Deficit,0,Minor ponding in ditch
+2025-08-10 18:30:00,dongri-buzurg,CRUSHER_FAILURE,HIGH,6.1,47.0,-280 T Deficit,1,Throughput throttled to 70%; bearing saved
+2025-08-12 08:30:00,gumgaon,EQUIPMENT_FAILURE,LOW,3.1,71.2,-77 T Deficit,0,Normal cycle
+2025-08-13 22:30:00,tirodi,PRODUCTION_SHORTFALL,MEDIUM,29.2,85.7,-208 T Deficit,1,Stockpile blend ratio updated to 55:45
+2025-08-15 12:30:00,ukwa,MULTI_RISK,HIGH,80.4,46.0,-580 T Deficit,1,Coordinated multi-vector mitigation protocol activated
+2025-08-17 02:30:00,balaghat,MONSOON,CRITICAL,140.1,80.0,-551 T Deficit,1,Auxiliary pumps engaged; sump protected
+2025-08-18 16:30:00,dongri-buzurg,CRUSHER_FAILURE,HIGH,6.3,47.0,-280 T Deficit,1,Throughput throttled to 70%; bearing saved
+2025-08-20 06:30:00,gumgaon,EQUIPMENT_FAILURE,LOW,7.1,71.2,-77 T Deficit,0,Normal cycle
+2025-08-21 20:30:00,tirodi,PRODUCTION_SHORTFALL,HIGH,10.5,76.7,-320 T Deficit,1,Stockpile blend ratio updated to 55:45
+2025-08-23 10:30:00,ukwa,MULTI_RISK,LOW,23.5,60.3,-203 T Deficit,1,Coordinated multi-vector mitigation protocol activated
+2025-08-25 00:30:00,balaghat,MONSOON,CRITICAL,136.7,78.5,-551 T Deficit,1,Auxiliary pumps engaged; sump protected
+2025-08-26 14:30:00,dongri-buzurg,CRUSHER_FAILURE,LOW,7.4,65.2,-98 T Deficit,1,Throughput throttled to 70%; bearing saved
+2025-08-28 04:30:00,gumgaon,EQUIPMENT_FAILURE,MEDIUM,3.5,63.8,-143 T Deficit,1,Dumpers diverted to short-haul staging
+2025-08-29 18:30:00,tirodi,PRODUCTION_SHORTFALL,MEDIUM,23.9,84.2,-208 T Deficit,1,Stockpile blend ratio updated to 55:45
+2025-08-31 08:30:00,ukwa,MULTI_RISK,HIGH,67.5,46.0,-580 T Deficit,1,Coordinated multi-vector mitigation protocol activated
+2025-09-01 22:30:00,balaghat,MONSOON,MEDIUM,57.7,79.1,-247 T Deficit,1,Auxiliary pumps engaged; sump protected
+2025-09-03 12:30:00,dongri-buzurg,CRUSHER_FAILURE,CRITICAL,9.9,35.0,-406 T Deficit,1,Throughput throttled to 70%; bearing saved
+2025-09-05 02:30:00,gumgaon,EQUIPMENT_FAILURE,LOW,1.4,71.2,-77 T Deficit,0,Normal cycle
+2025-09-06 16:30:00,tirodi,PRODUCTION_SHORTFALL,HIGH,10.9,83.8,-320 T Deficit,1,Stockpile blend ratio updated to 55:45
+2025-09-08 06:30:00,ukwa,MULTI_RISK,CRITICAL,140.1,36.1,-841 T Deficit,1,Coordinated multi-vector mitigation protocol activated
+2025-09-09 20:30:00,balaghat,MONSOON,MEDIUM,58.5,78.2,-247 T Deficit,1,Auxiliary pumps engaged; sump protected
+2025-09-11 10:30:00,dongri-buzurg,CRUSHER_FAILURE,MEDIUM,14.1,56.8,-182 T Deficit,1,Throughput throttled to 70%; bearing saved
+2025-09-13 00:30:00,gumgaon,EQUIPMENT_FAILURE,MEDIUM,19.2,63.8,-143 T Deficit,1,Dumpers diverted to short-haul staging
+2025-09-14 14:30:00,tirodi,PRODUCTION_SHORTFALL,CRITICAL,16.9,76.0,-464 T Deficit,1,Stockpile blend ratio updated to 55:45
+2025-09-16 04:30:00,ukwa,MULTI_RISK,LOW,23.1,60.3,-203 T Deficit,1,Coordinated multi-vector mitigation protocol activated
+2025-09-17 18:30:00,balaghat,MONSOON,LOW,32.5,71.3,-133 T Deficit,0,Minor ponding in ditch
+2025-09-19 08:30:00,dongri-buzurg,CRUSHER_FAILURE,MEDIUM,12.7,56.8,-182 T Deficit,1,Throughput throttled to 70%; bearing saved
+2025-09-20 22:30:00,gumgaon,EQUIPMENT_FAILURE,LOW,16.3,71.2,-77 T Deficit,0,Normal cycle
+2025-09-22 12:30:00,tirodi,PRODUCTION_SHORTFALL,MEDIUM,14.1,85.5,-208 T Deficit,1,Stockpile blend ratio updated to 55:45
+2025-09-24 02:30:00,ukwa,MULTI_RISK,HIGH,113.3,46.0,-580 T Deficit,1,Coordinated multi-vector mitigation protocol activated
+2025-09-25 16:30:00,balaghat,MONSOON,HIGH,101.2,75.1,-380 T Deficit,1,Auxiliary pumps engaged; sump protected
+2025-09-27 06:30:00,dongri-buzurg,CRUSHER_FAILURE,LOW,11.3,65.2,-98 T Deficit,1,Throughput throttled to 70%; bearing saved
+2025-09-28 20:30:00,gumgaon,EQUIPMENT_FAILURE,HIGH,19.8,55.0,-220 T Deficit,1,Dumpers diverted to short-haul staging
+2025-09-30 10:30:00,tirodi,PRODUCTION_SHORTFALL,MEDIUM,23.0,86.6,-208 T Deficit,1,Stockpile blend ratio updated to 55:45
+2025-10-02 00:30:00,ukwa,MULTI_RISK,MEDIUM,75.5,53.7,-377 T Deficit,1,Coordinated multi-vector mitigation protocol activated
+2025-10-03 14:30:00,balaghat,MONSOON,CRITICAL,108.8,83.5,-551 T Deficit,1,Auxiliary pumps engaged; sump protected
+2025-10-05 04:30:00,dongri-buzurg,CRUSHER_FAILURE,HIGH,1.5,47.0,-280 T Deficit,1,Throughput throttled to 70%; bearing saved
+2025-10-06 18:30:00,gumgaon,EQUIPMENT_FAILURE,CRITICAL,10.1,43.8,-319 T Deficit,1,Dumpers diverted to short-haul staging
+2025-10-08 08:30:00,tirodi,PRODUCTION_SHORTFALL,HIGH,21.2,88.4,-320 T Deficit,1,Stockpile blend ratio updated to 55:45
+2025-10-09 22:30:00,ukwa,MULTI_RISK,MEDIUM,42.6,53.7,-377 T Deficit,1,Coordinated multi-vector mitigation protocol activated
+2025-10-11 12:30:00,balaghat,MONSOON,CRITICAL,74.5,75.7,-551 T Deficit,1,Auxiliary pumps engaged; sump protected
+2025-10-13 02:30:00,dongri-buzurg,CRUSHER_FAILURE,CRITICAL,14.3,35.0,-406 T Deficit,1,Throughput throttled to 70%; bearing saved
+2025-10-14 16:30:00,gumgaon,EQUIPMENT_FAILURE,MEDIUM,12.6,63.8,-143 T Deficit,1,Dumpers diverted to short-haul staging
+2025-10-16 06:30:00,tirodi,PRODUCTION_SHORTFALL,MEDIUM,20.3,79.9,-208 T Deficit,1,Stockpile blend ratio updated to 55:45
+2025-10-17 20:30:00,ukwa,MULTI_RISK,HIGH,106.4,46.0,-580 T Deficit,1,Coordinated multi-vector mitigation protocol activated
+2025-10-19 10:30:00,balaghat,MONSOON,HIGH,100.3,71.6,-380 T Deficit,1,Auxiliary pumps engaged; sump protected
+2025-10-21 00:30:00,dongri-buzurg,CRUSHER_FAILURE,MEDIUM,0.9,56.8,-182 T Deficit,1,Throughput throttled to 70%; bearing saved
+2025-10-22 14:30:00,gumgaon,EQUIPMENT_FAILURE,MEDIUM,8.8,63.8,-143 T Deficit,1,Dumpers diverted to short-haul staging
+2025-10-24 04:30:00,tirodi,PRODUCTION_SHORTFALL,CRITICAL,22.3,76.8,-464 T Deficit,1,Stockpile blend ratio updated to 55:45
+2025-10-25 18:30:00,ukwa,MULTI_RISK,LOW,37.4,60.3,-203 T Deficit,1,Coordinated multi-vector mitigation protocol activated
+2025-10-27 08:30:00,balaghat,MONSOON,HIGH,52.1,71.5,-380 T Deficit,1,Auxiliary pumps engaged; sump protected
+2025-10-28 22:30:00,dongri-buzurg,CRUSHER_FAILURE,HIGH,1.1,47.0,-280 T Deficit,1,Throughput throttled to 70%; bearing saved
+2025-10-30 12:30:00,gumgaon,EQUIPMENT_FAILURE,HIGH,14.1,55.0,-220 T Deficit,1,Dumpers diverted to short-haul staging
+2025-11-01 02:30:00,tirodi,PRODUCTION_SHORTFALL,LOW,13.0,89.8,-112 T Deficit,0,Target met within margin
+2025-11-02 16:30:00,ukwa,MULTI_RISK,MEDIUM,55.5,53.7,-377 T Deficit,1,Coordinated multi-vector mitigation protocol activated
+2025-11-04 06:30:00,balaghat,MONSOON,HIGH,111.3,87.7,-380 T Deficit,1,Auxiliary pumps engaged; sump protected
+2025-11-05 20:30:00,dongri-buzurg,CRUSHER_FAILURE,HIGH,5.6,47.0,-280 T Deficit,1,Throughput throttled to 70%; bearing saved
+2025-11-07 10:30:00,gumgaon,EQUIPMENT_FAILURE,LOW,15.5,71.2,-77 T Deficit,0,Normal cycle
+2025-11-09 00:30:00,tirodi,PRODUCTION_SHORTFALL,MEDIUM,24.8,88.6,-208 T Deficit,1,Stockpile blend ratio updated to 55:45
+2025-11-10 14:30:00,ukwa,MULTI_RISK,LOW,32.2,60.3,-203 T Deficit,1,Coordinated multi-vector mitigation protocol activated
+2025-11-12 04:30:00,balaghat,MONSOON,LOW,27.2,71.0,-133 T Deficit,0,Minor ponding in ditch
+2025-11-13 18:30:00,dongri-buzurg,CRUSHER_FAILURE,LOW,1.8,65.2,-98 T Deficit,1,Throughput throttled to 70%; bearing saved
+2025-11-15 08:30:00,gumgaon,EQUIPMENT_FAILURE,HIGH,14.9,55.0,-220 T Deficit,1,Dumpers diverted to short-haul staging
+2025-11-16 22:30:00,tirodi,PRODUCTION_SHORTFALL,MEDIUM,43.7,80.6,-208 T Deficit,1,Stockpile blend ratio updated to 55:45
+2025-11-18 12:30:00,ukwa,MULTI_RISK,MEDIUM,73.3,53.7,-377 T Deficit,1,Coordinated multi-vector mitigation protocol activated
+2025-11-20 02:30:00,balaghat,MONSOON,LOW,39.3,70.2,-133 T Deficit,0,Minor ponding in ditch
+2025-11-21 16:30:00,dongri-buzurg,CRUSHER_FAILURE,CRITICAL,0.6,35.0,-406 T Deficit,1,Throughput throttled to 70%; bearing saved
+2025-11-23 06:30:00,gumgaon,EQUIPMENT_FAILURE,CRITICAL,10.6,43.8,-319 T Deficit,1,Dumpers diverted to short-haul staging
+2025-11-24 20:30:00,tirodi,PRODUCTION_SHORTFALL,CRITICAL,12.6,83.3,-464 T Deficit,1,Stockpile blend ratio updated to 55:45
+2025-11-26 10:30:00,ukwa,MULTI_RISK,CRITICAL,136.0,36.1,-841 T Deficit,1,Coordinated multi-vector mitigation protocol activated
+2025-11-28 00:30:00,balaghat,MONSOON,HIGH,93.7,78.2,-380 T Deficit,1,Auxiliary pumps engaged; sump protected
+2025-11-29 14:30:00,dongri-buzurg,CRUSHER_FAILURE,HIGH,8.8,47.0,-280 T Deficit,1,Throughput throttled to 70%; bearing saved
+2025-12-01 04:30:00,gumgaon,EQUIPMENT_FAILURE,CRITICAL,0.9,43.8,-319 T Deficit,1,Dumpers diverted to short-haul staging
+2025-12-02 18:30:00,tirodi,PRODUCTION_SHORTFALL,MEDIUM,43.3,88.4,-208 T Deficit,1,Stockpile blend ratio updated to 55:45
+2025-12-04 08:30:00,ukwa,MULTI_RISK,MEDIUM,64.4,53.7,-377 T Deficit,1,Coordinated multi-vector mitigation protocol activated
+2025-12-05 22:30:00,balaghat,MONSOON,MEDIUM,37.8,78.3,-247 T Deficit,0,Minor ponding in ditch
+2025-12-07 12:30:00,dongri-buzurg,CRUSHER_FAILURE,MEDIUM,8.8,56.8,-182 T Deficit,1,Throughput throttled to 70%; bearing saved
+2025-12-09 02:30:00,gumgaon,EQUIPMENT_FAILURE,LOW,19.5,71.2,-77 T Deficit,0,Normal cycle
+2025-12-10 16:30:00,tirodi,PRODUCTION_SHORTFALL,CRITICAL,34.4,83.0,-464 T Deficit,1,Stockpile blend ratio updated to 55:45
+2025-12-12 06:30:00,ukwa,MULTI_RISK,MEDIUM,71.3,53.7,-377 T Deficit,1,Coordinated multi-vector mitigation protocol activated
+2025-12-13 20:30:00,balaghat,MONSOON,HIGH,56.4,86.4,-380 T Deficit,1,Auxiliary pumps engaged; sump protected
+2025-12-15 10:30:00,dongri-buzurg,CRUSHER_FAILURE,HIGH,14.2,47.0,-280 T Deficit,1,Throughput throttled to 70%; bearing saved
+2025-12-17 00:30:00,gumgaon,EQUIPMENT_FAILURE,HIGH,12.3,55.0,-220 T Deficit,1,Dumpers diverted to short-haul staging
+2025-12-18 14:30:00,tirodi,PRODUCTION_SHORTFALL,MEDIUM,42.6,88.0,-208 T Deficit,1,Stockpile blend ratio updated to 55:45
+2025-12-20 04:30:00,ukwa,MULTI_RISK,LOW,23.3,60.3,-203 T Deficit,1,Coordinated multi-vector mitigation protocol activated
+2025-12-21 18:30:00,balaghat,MONSOON,MEDIUM,66.1,87.8,-247 T Deficit,1,Auxiliary pumps engaged; sump protected
+2025-12-23 08:30:00,dongri-buzurg,CRUSHER_FAILURE,LOW,8.9,65.2,-98 T Deficit,1,Throughput throttled to 70%; bearing saved
+2025-12-24 22:30:00,gumgaon,EQUIPMENT_FAILURE,MEDIUM,19.4,63.8,-143 T Deficit,1,Dumpers diverted to short-haul staging
+2025-12-26 12:30:00,tirodi,PRODUCTION_SHORTFALL,HIGH,39.3,82.0,-320 T Deficit,1,Stockpile blend ratio updated to 55:45
+2025-12-28 02:30:00,ukwa,MULTI_RISK,MEDIUM,52.0,53.7,-377 T Deficit,1,Coordinated multi-vector mitigation protocol activated
+2025-12-29 16:30:00,balaghat,MONSOON,LOW,36.9,84.6,-133 T Deficit,0,Minor ponding in ditch
+2025-12-31 06:30:00,dongri-buzurg,CRUSHER_FAILURE,CRITICAL,14.9,35.0,-406 T Deficit,1,Throughput throttled to 70%; bearing saved
+2026-01-01 20:30:00,gumgaon,EQUIPMENT_FAILURE,MEDIUM,15.4,63.8,-143 T Deficit,1,Dumpers diverted to short-haul staging
+2026-01-03 10:30:00,tirodi,PRODUCTION_SHORTFALL,CRITICAL,39.7,78.7,-464 T Deficit,1,Stockpile blend ratio updated to 55:45
+2026-01-05 00:30:00,ukwa,MULTI_RISK,MEDIUM,46.9,53.7,-377 T Deficit,1,Coordinated multi-vector mitigation protocol activated
+2026-01-06 14:30:00,balaghat,MONSOON,CRITICAL,126.8,74.1,-551 T Deficit,1,Auxiliary pumps engaged; sump protected
+2026-01-08 04:30:00,dongri-buzurg,CRUSHER_FAILURE,HIGH,9.3,47.0,-280 T Deficit,1,Throughput throttled to 70%; bearing saved
+2026-01-09 18:30:00,gumgaon,EQUIPMENT_FAILURE,MEDIUM,2.3,63.8,-143 T Deficit,1,Dumpers diverted to short-haul staging
+2026-01-11 08:30:00,tirodi,PRODUCTION_SHORTFALL,HIGH,28.2,86.6,-320 T Deficit,1,Stockpile blend ratio updated to 55:45
+2026-01-12 22:30:00,ukwa,MULTI_RISK,MEDIUM,72.7,53.7,-377 T Deficit,1,Coordinated multi-vector mitigation protocol activated
+2026-01-14 12:30:00,balaghat,MONSOON,MEDIUM,54.8,85.8,-247 T Deficit,1,Auxiliary pumps engaged; sump protected
+2026-01-16 02:30:00,dongri-buzurg,CRUSHER_FAILURE,MEDIUM,2.0,56.8,-182 T Deficit,1,Throughput throttled to 70%; bearing saved
+2026-01-17 16:30:00,gumgaon,EQUIPMENT_FAILURE,LOW,15.1,71.2,-77 T Deficit,0,Normal cycle
+2026-01-19 06:30:00,tirodi,PRODUCTION_SHORTFALL,HIGH,34.6,78.2,-320 T Deficit,1,Stockpile blend ratio updated to 55:45
+2026-01-20 20:30:00,ukwa,MULTI_RISK,LOW,23.0,60.3,-203 T Deficit,1,Coordinated multi-vector mitigation protocol activated
+2026-01-22 10:30:00,balaghat,MONSOON,MEDIUM,56.1,77.1,-247 T Deficit,1,Auxiliary pumps engaged; sump protected
+2026-01-24 00:30:00,dongri-buzurg,CRUSHER_FAILURE,MEDIUM,13.6,56.8,-182 T Deficit,1,Throughput throttled to 70%; bearing saved
+2026-01-25 14:30:00,gumgaon,EQUIPMENT_FAILURE,MEDIUM,10.3,63.8,-143 T Deficit,1,Dumpers diverted to short-haul staging
+2026-01-27 04:30:00,tirodi,PRODUCTION_SHORTFALL,HIGH,23.9,84.3,-320 T Deficit,1,Stockpile blend ratio updated to 55:45
+2026-01-28 18:30:00,ukwa,MULTI_RISK,CRITICAL,170.0,36.1,-841 T Deficit,1,Coordinated multi-vector mitigation protocol activated
+2026-01-30 08:30:00,balaghat,MONSOON,LOW,38.5,78.9,-133 T Deficit,0,Minor ponding in ditch
+2026-01-31 22:30:00,dongri-buzurg,CRUSHER_FAILURE,MEDIUM,6.9,56.8,-182 T Deficit,1,Throughput throttled to 70%; bearing saved
+2026-02-02 12:30:00,gumgaon,EQUIPMENT_FAILURE,CRITICAL,9.9,43.8,-319 T Deficit,1,Dumpers diverted to short-haul staging
+2026-02-04 02:30:00,tirodi,PRODUCTION_SHORTFALL,MEDIUM,32.2,78.6,-208 T Deficit,1,Stockpile blend ratio updated to 55:45
+2026-02-05 16:30:00,ukwa,MULTI_RISK,LOW,25.2,60.3,-203 T Deficit,1,Coordinated multi-vector mitigation protocol activated
+2026-02-07 06:30:00,balaghat,MONSOON,LOW,19.5,72.5,-133 T Deficit,0,Minor ponding in ditch
+2026-02-08 20:30:00,dongri-buzurg,CRUSHER_FAILURE,HIGH,2.7,47.0,-280 T Deficit,1,Throughput throttled to 70%; bearing saved
+2026-02-10 10:30:00,gumgaon,EQUIPMENT_FAILURE,MEDIUM,17.9,63.8,-143 T Deficit,1,Dumpers diverted to short-haul staging
+2026-02-12 00:30:00,tirodi,PRODUCTION_SHORTFALL,MEDIUM,33.4,77.6,-208 T Deficit,1,Stockpile blend ratio updated to 55:45
+2026-02-13 14:30:00,ukwa,MULTI_RISK,LOW,23.5,60.3,-203 T Deficit,1,Coordinated multi-vector mitigation protocol activated

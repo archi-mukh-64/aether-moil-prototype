@@ -1,0 +1,12 @@
+{
+  "model_type": "GradientBoostingClassifier",
+  "accuracy": 0.996,
+  "roc_auc": 0.9998,
+  "feature_importances": {
+    "rainfall_mm": 0.8995,
+    "crusher_vibration_mms": 0.0664,
+    "sump_inflow_m3h": 0.0173,
+    "fleet_availability_pct": 0.0155,
+    "grade_mn_pct": 0.0014
+  }
+}

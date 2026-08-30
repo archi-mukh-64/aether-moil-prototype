@@ -1,0 +1,601 @@
+mine_id,sample_id,x,y,elevation,depth_m,lithology,mn_grade,fe_grade,density,geological_confidence
+balaghat,GEO-BAL-0001,80.19872,21.81146,177.8,140,Gondite Manganese Reef Horizon,45.6,4.8,3.44,0.97
+balaghat,GEO-BAL-0002,80.19144,21.79012,102.8,216,Gondite Manganese Reef Horizon,43.3,4.8,3.61,0.93
+balaghat,GEO-BAL-0003,80.17894,21.80786,160.1,159,Gondite Manganese Reef Horizon,47.7,5.1,3.72,0.96
+balaghat,GEO-BAL-0004,80.18563,21.80727,239.2,81,Mansar Quartz-Mica Schist,24.4,5.8,2.83,0.87
+balaghat,GEO-BAL-0005,80.19445,21.79864,-17.4,338,Tirodi Crystalline Gneiss Basement,18.4,8.5,2.65,0.67
+balaghat,GEO-BAL-0006,80.19748,21.79726,291.5,26,Surface Lateritic Overburden,18.9,8.1,2.62,0.68
+balaghat,GEO-BAL-0007,80.19345,21.81768,-18.6,339,Tirodi Crystalline Gneiss Basement,20.3,10.2,2.64,0.63
+balaghat,GEO-BAL-0008,80.17996,21.80116,291.5,30,Surface Lateritic Overburden,17.0,7.6,2.51,0.73
+balaghat,GEO-BAL-0009,80.19427,21.79174,259.2,62,Mansar Quartz-Mica Schist,25.9,7.0,3.11,0.76
+balaghat,GEO-BAL-0010,80.17368,21.81539,182.0,135,Gondite Manganese Reef Horizon,45.5,4.6,3.62,0.91
+balaghat,GEO-BAL-0011,80.18933,21.81612,58.9,259,Hydrothermal Manganiferous Breccia,28.4,7.4,3.38,0.78
+balaghat,GEO-BAL-0012,80.18501,21.80518,46.2,273,Hydrothermal Manganiferous Breccia,28.1,6.0,3.02,0.8
+balaghat,GEO-BAL-0013,80.18546,21.81673,198.9,120,Gondite Manganese Reef Horizon,39.7,5.8,3.56,0.89
+balaghat,GEO-BAL-0014,80.17504,21.81739,209.0,112,Gondite Manganese Reef Horizon,41.7,6.0,3.96,0.9
+balaghat,GEO-BAL-0015,80.18638,21.81372,5.4,314,Tirodi Crystalline Gneiss Basement,20.0,7.4,2.69,0.66
+balaghat,GEO-BAL-0016,80.19602,21.78971,25.7,289,Hydrothermal Manganiferous Breccia,28.5,6.3,3.06,0.75
+balaghat,GEO-BAL-0017,80.1799,21.80506,-11.9,330,Tirodi Crystalline Gneiss Basement,20.9,10.4,2.98,0.64
+balaghat,GEO-BAL-0018,80.17923,21.79805,139.2,181,Gondite Manganese Reef Horizon,49.1,5.4,3.44,0.91
+balaghat,GEO-BAL-0019,80.17739,21.79385,1.7,319,Tirodi Crystalline Gneiss Basement,19.2,7.8,2.87,0.71
+balaghat,GEO-BAL-0020,80.19205,21.80053,228.8,94,Mansar Quartz-Mica Schist,27.0,6.6,2.84,0.86
+balaghat,GEO-BAL-0021,80.1758,21.79072,201.4,122,Gondite Manganese Reef Horizon,42.8,4.5,3.76,0.9
+balaghat,GEO-BAL-0022,80.17543,21.81023,90.2,231,Hydrothermal Manganiferous Breccia,30.3,6.1,3.17,0.72
+balaghat,GEO-BAL-0023,80.19652,21.79724,-1.9,324,Tirodi Crystalline Gneiss Basement,19.8,8.9,2.81,0.64
+balaghat,GEO-BAL-0024,80.19712,21.81651,271.1,46,Mansar Quartz-Mica Schist,26.2,6.2,3.09,0.87
+balaghat,GEO-BAL-0025,80.1936,21.80876,8.5,312,Tirodi Crystalline Gneiss Basement,20.2,7.0,2.64,0.7
+balaghat,GEO-BAL-0026,80.17502,21.80596,306.1,16,Surface Lateritic Overburden,19.2,7.2,2.68,0.69
+balaghat,GEO-BAL-0027,80.19259,21.80899,196.8,124,Gondite Manganese Reef Horizon,43.2,5.5,3.47,0.92
+balaghat,GEO-BAL-0028,80.17752,21.81869,218.8,103,Mansar Quartz-Mica Schist,25.5,6.8,3.12,0.82
+balaghat,GEO-BAL-0029,80.18498,21.79536,110.1,208,Gondite Manganese Reef Horizon,46.8,4.5,3.85,0.9
+balaghat,GEO-BAL-0030,80.19882,21.81695,-10.2,330,Tirodi Crystalline Gneiss Basement,20.1,10.4,2.99,0.73
+balaghat,GEO-BAL-0031,80.18175,21.81503,205.1,113,Gondite Manganese Reef Horizon,39.9,5.4,4.06,0.95
+balaghat,GEO-BAL-0032,80.17312,21.80795,117.1,205,Gondite Manganese Reef Horizon,46.2,5.8,3.89,0.95
+balaghat,GEO-BAL-0033,80.17901,21.81378,185.6,135,Gondite Manganese Reef Horizon,44.5,6.1,3.76,0.93
+balaghat,GEO-BAL-0034,80.1897,21.81056,38.5,282,Hydrothermal Manganiferous Breccia,28.3,6.5,3.19,0.71
+balaghat,GEO-BAL-0035,80.17128,21.80347,108.4,208,Gondite Manganese Reef Horizon,46.0,5.5,3.42,0.88
+balaghat,GEO-BAL-0036,80.18101,21.79331,33.1,290,Hydrothermal Manganiferous Breccia,28.2,6.3,3.31,0.71
+balaghat,GEO-BAL-0037,80.18614,21.80572,290.7,32,Surface Lateritic Overburden,18.6,9.4,2.61,0.7
+balaghat,GEO-BAL-0038,80.17832,21.80267,37.5,281,Hydrothermal Manganiferous Breccia,30.1,6.2,3.08,0.74
+balaghat,GEO-BAL-0039,80.19164,21.80931,122.8,198,Gondite Manganese Reef Horizon,49.5,5.5,3.69,0.9
+balaghat,GEO-BAL-0040,80.19294,21.78993,185.5,134,Gondite Manganese Reef Horizon,46.2,4.7,3.74,0.93
+balaghat,GEO-BAL-0041,80.18322,21.80146,250.1,73,Mansar Quartz-Mica Schist,26.5,5.6,2.95,0.83
+balaghat,GEO-BAL-0042,80.19589,21.80926,136.6,183,Gondite Manganese Reef Horizon,49.5,5.5,4.06,0.94
+balaghat,GEO-BAL-0043,80.1895,21.80325,176.4,145,Gondite Manganese Reef Horizon,46.3,5.2,4.07,0.97
+balaghat,GEO-BAL-0044,80.17228,21.79252,239.0,80,Mansar Quartz-Mica Schist,25.3,6.1,3.14,0.75
+balaghat,GEO-BAL-0045,80.17866,21.79304,34.9,287,Hydrothermal Manganiferous Breccia,29.8,7.7,3.37,0.82
+balaghat,GEO-BAL-0046,80.17552,21.81202,207.4,109,Mansar Quartz-Mica Schist,24.7,7.1,2.94,0.87
+balaghat,GEO-BAL-0047,80.18307,21.81203,17.2,302,Tirodi Crystalline Gneiss Basement,19.5,10.2,2.8,0.72
+balaghat,GEO-BAL-0048,80.19707,21.80118,197.5,122,Gondite Manganese Reef Horizon,41.0,6.1,4.07,0.94
+balaghat,GEO-BAL-0049,80.18365,21.7983,96.4,226,Hydrothermal Manganiferous Breccia,29.7,7.5,3.4,0.82
+balaghat,GEO-BAL-0050,80.18503,21.79123,270.8,45,Mansar Quartz-Mica Schist,26.9,7.3,2.94,0.77
+balaghat,GEO-BAL-0051,80.19305,21.80805,257.1,62,Mansar Quartz-Mica Schist,25.1,7.1,3.08,0.76
+balaghat,GEO-BAL-0052,80.1998,21.80073,279.3,43,Surface Lateritic Overburden,17.0,9.3,2.79,0.76
+balaghat,GEO-BAL-0053,80.17271,21.81281,174.9,141,Gondite Manganese Reef Horizon,47.3,6.0,3.48,0.93
+balaghat,GEO-BAL-0054,80.18426,21.79119,304.5,18,Surface Lateritic Overburden,18.5,8.3,2.78,0.71
+balaghat,GEO-BAL-0055,80.19626,21.79621,210.1,110,Gondite Manganese Reef Horizon,41.3,6.2,3.45,0.94
+balaghat,GEO-BAL-0056,80.18589,21.80838,-19.9,339,Tirodi Crystalline Gneiss Basement,21.4,9.2,2.83,0.74
+balaghat,GEO-BAL-0057,80.17863,21.81801,289.8,30,Surface Lateritic Overburden,18.8,8.4,2.51,0.68
+balaghat,GEO-BAL-0058,80.1808,21.80701,146.2,170,Gondite Manganese Reef Horizon,50.1,5.9,3.88,0.9
+balaghat,GEO-BAL-0059,80.19488,21.81799,1.5,320,Tirodi Crystalline Gneiss Basement,21.0,8.5,2.97,0.73
+balaghat,GEO-BAL-0060,80.17099,21.80079,290.6,30,Surface Lateritic Overburden,16.3,7.6,2.79,0.78
+balaghat,GEO-BAL-0061,80.18426,21.80194,24.8,295,Tirodi Crystalline Gneiss Basement,19.2,10.0,2.93,0.75
+balaghat,GEO-BAL-0062,80.18686,21.81257,-28.6,348,Tirodi Crystalline Gneiss Basement,17.3,7.5,2.98,0.69
+balaghat,GEO-BAL-0063,80.19035,21.80804,227.3,91,Mansar Quartz-Mica Schist,24.9,6.8,3.01,0.85
+balaghat,GEO-BAL-0064,80.19577,21.80606,133.1,189,Gondite Manganese Reef Horizon,49.1,5.2,3.49,0.88
+balaghat,GEO-BAL-0065,80.18881,21.81062,52.1,267,Hydrothermal Manganiferous Breccia,27.9,5.8,3.18,0.79
+balaghat,GEO-BAL-0066,80.18332,21.81662,174.4,146,Gondite Manganese Reef Horizon,43.8,5.8,3.68,0.94
+balaghat,GEO-BAL-0067,80.19869,21.79391,17.0,303,Tirodi Crystalline Gneiss Basement,20.2,7.9,2.78,0.75
+balaghat,GEO-BAL-0068,80.18006,21.8085,139.8,180,Gondite Manganese Reef Horizon,49.6,4.7,3.49,0.9
+balaghat,GEO-BAL-0069,80.18943,21.79496,260.5,61,Mansar Quartz-Mica Schist,24.5,6.4,3.07,0.77
+balaghat,GEO-BAL-0070,80.17143,21.79457,239.4,79,Mansar Quartz-Mica Schist,24.3,5.7,2.85,0.81
+balaghat,GEO-BAL-0071,80.18113,21.8046,235.8,84,Mansar Quartz-Mica Schist,25.1,7.1,3.05,0.76
+balaghat,GEO-BAL-0072,80.19783,21.79133,14.7,307,Tirodi Crystalline Gneiss Basement,18.5,9.6,2.67,0.63
+balaghat,GEO-BAL-0073,80.18474,21.80805,179.7,139,Gondite Manganese Reef Horizon,42.3,5.8,3.43,0.91
+balaghat,GEO-BAL-0074,80.19706,21.80485,65.1,253,Hydrothermal Manganiferous Breccia,28.9,6.8,3.27,0.74
+balaghat,GEO-BAL-0075,80.18152,21.7901,212.9,105,Mansar Quartz-Mica Schist,25.1,6.2,2.85,0.87
+balaghat,GEO-BAL-0076,80.19057,21.81318,105.3,213,Gondite Manganese Reef Horizon,44.6,5.4,3.81,0.95
+balaghat,GEO-BAL-0077,80.17403,21.79801,163.8,159,Gondite Manganese Reef Horizon,47.0,5.5,3.65,0.98
+balaghat,GEO-BAL-0078,80.17732,21.79255,102.1,217,Gondite Manganese Reef Horizon,43.0,4.8,3.53,0.91
+balaghat,GEO-BAL-0079,80.1971,21.79191,242.0,73,Mansar Quartz-Mica Schist,25.7,7.5,2.84,0.8
+balaghat,GEO-BAL-0080,80.19617,21.81401,-20.4,339,Tirodi Crystalline Gneiss Basement,18.6,9.3,2.97,0.68
+balaghat,GEO-BAL-0081,80.1786,21.81258,112.9,206,Gondite Manganese Reef Horizon,44.8,5.2,3.76,0.9
+balaghat,GEO-BAL-0082,80.18852,21.79816,264.7,53,Mansar Quartz-Mica Schist,25.1,6.5,3.01,0.76
+balaghat,GEO-BAL-0083,80.17423,21.7914,191.8,127,Gondite Manganese Reef Horizon,43.5,5.7,3.93,0.94
+balaghat,GEO-BAL-0084,80.18256,21.79997,148.3,172,Gondite Manganese Reef Horizon,49.8,4.8,3.45,0.95
+balaghat,GEO-BAL-0085,80.19545,21.79369,111.8,207,Gondite Manganese Reef Horizon,46.5,4.8,3.51,0.96
+balaghat,GEO-BAL-0086,80.18589,21.80026,82.5,237,Hydrothermal Manganiferous Breccia,31.0,7.6,3.22,0.76
+balaghat,GEO-BAL-0087,80.17924,21.81193,147.8,169,Gondite Manganese Reef Horizon,49.6,6.0,3.67,0.93
+balaghat,GEO-BAL-0088,80.18893,21.79301,2.3,318,Tirodi Crystalline Gneiss Basement,19.9,8.2,2.66,0.72
+balaghat,GEO-BAL-0089,80.1862,21.81632,97.0,222,Hydrothermal Manganiferous Breccia,32.1,6.5,3.12,0.81
+balaghat,GEO-BAL-0090,80.1873,21.81237,293.3,26,Surface Lateritic Overburden,18.6,9.0,2.44,0.78
+balaghat,GEO-BAL-0091,80.18212,21.81342,262.1,57,Mansar Quartz-Mica Schist,24.2,6.9,3.09,0.83
+balaghat,GEO-BAL-0092,80.18648,21.79705,70.9,247,Hydrothermal Manganiferous Breccia,28.5,7.8,3.29,0.76
+balaghat,GEO-BAL-0093,80.19862,21.7941,151.4,169,Gondite Manganese Reef Horizon,52.0,5.5,3.41,0.97
+balaghat,GEO-BAL-0094,80.18715,21.8104,-6.6,327,Tirodi Crystalline Gneiss Basement,19.7,7.5,2.83,0.69
+balaghat,GEO-BAL-0095,80.19229,21.81753,162.8,157,Gondite Manganese Reef Horizon,49.3,4.7,4.09,0.96
+balaghat,GEO-BAL-0096,80.19783,21.8156,269.1,56,Mansar Quartz-Mica Schist,25.5,6.3,2.82,0.79
+balaghat,GEO-BAL-0097,80.17034,21.7995,38.7,283,Hydrothermal Manganiferous Breccia,25.3,7.8,3.17,0.75
+balaghat,GEO-BAL-0098,80.18377,21.79624,55.7,262,Hydrothermal Manganiferous Breccia,28.2,6.2,3.25,0.76
+balaghat,GEO-BAL-0099,80.18107,21.80692,-3.0,321,Tirodi Crystalline Gneiss Basement,19.8,10.4,2.66,0.66
+balaghat,GEO-BAL-0100,80.20011,21.80457,275.6,43,Surface Lateritic Overburden,17.8,8.7,2.48,0.78
+balaghat,GEO-BAL-0101,80.17592,21.7906,242.1,83,Mansar Quartz-Mica Schist,23.7,5.6,3.11,0.81
+balaghat,GEO-BAL-0102,80.18342,21.80152,127.6,190,Gondite Manganese Reef Horizon,49.0,4.8,4.0,0.97
+balaghat,GEO-BAL-0103,80.17832,21.80882,179.3,140,Gondite Manganese Reef Horizon,45.1,4.8,3.9,0.95
+balaghat,GEO-BAL-0104,80.17686,21.79643,296.2,24,Surface Lateritic Overburden,17.4,7.0,2.66,0.69
+balaghat,GEO-BAL-0105,80.1775,21.81117,272.5,48,Mansar Quartz-Mica Schist,25.1,6.3,3.07,0.78
+balaghat,GEO-BAL-0106,80.19709,21.78989,203.7,113,Gondite Manganese Reef Horizon,42.6,6.0,3.97,0.91
+balaghat,GEO-BAL-0107,80.18159,21.80721,220.5,101,Mansar Quartz-Mica Schist,24.0,6.3,3.02,0.81
+balaghat,GEO-BAL-0108,80.19865,21.81241,208.9,113,Gondite Manganese Reef Horizon,40.4,5.9,3.7,0.88
+balaghat,GEO-BAL-0109,80.18645,21.8085,213.8,105,Mansar Quartz-Mica Schist,25.4,7.2,3.19,0.82
+balaghat,GEO-BAL-0110,80.17837,21.79005,244.7,72,Mansar Quartz-Mica Schist,25.6,6.6,3.06,0.86
+balaghat,GEO-BAL-0111,80.17053,21.79361,239.2,84,Mansar Quartz-Mica Schist,27.0,6.8,2.87,0.87
+balaghat,GEO-BAL-0112,80.18169,21.80507,164.3,155,Gondite Manganese Reef Horizon,48.3,5.5,3.57,0.92
+balaghat,GEO-BAL-0113,80.18087,21.81107,210.1,111,Gondite Manganese Reef Horizon,38.1,5.3,3.86,0.97
+balaghat,GEO-BAL-0114,80.17665,21.79044,61.2,260,Hydrothermal Manganiferous Breccia,26.7,5.9,3.25,0.79
+balaghat,GEO-BAL-0115,80.19333,21.7927,194.4,126,Gondite Manganese Reef Horizon,42.1,5.3,3.88,0.92
+balaghat,GEO-BAL-0116,80.19477,21.81348,220.8,97,Mansar Quartz-Mica Schist,26.6,6.7,2.94,0.76
+balaghat,GEO-BAL-0117,80.1743,21.81801,-4.6,322,Tirodi Crystalline Gneiss Basement,18.9,8.9,2.95,0.71
+balaghat,GEO-BAL-0118,80.18996,21.81027,34.1,285,Hydrothermal Manganiferous Breccia,28.8,6.9,3.11,0.85
+balaghat,GEO-BAL-0119,80.17138,21.81067,-9.4,331,Tirodi Crystalline Gneiss Basement,19.4,7.1,2.88,0.64
+balaghat,GEO-BAL-0120,80.19933,21.81783,-1.7,324,Tirodi Crystalline Gneiss Basement,19.1,10.0,2.73,0.72
+dongri-buzurg,GEO-DON-0001,79.72429,21.5351,350.9,27,Surface Lateritic Overburden,22.2,8.7,2.43,0.7
+dongri-buzurg,GEO-DON-0002,79.73012,21.53776,186.7,195,Gondite Manganese Reef Horizon,40.0,5.5,3.56,0.88
+dongri-buzurg,GEO-DON-0003,79.70704,21.55444,75.4,306,Tirodi Crystalline Gneiss Basement,19.3,9.8,3.0,0.65
+dongri-buzurg,GEO-DON-0004,79.71846,21.5426,109.8,272,Hydrothermal Manganiferous Breccia,28.4,8.0,3.38,0.76
+dongri-buzurg,GEO-DON-0005,79.72853,21.53536,223.4,156,Gondite Manganese Reef Horizon,39.1,5.0,3.61,0.9
+dongri-buzurg,GEO-DON-0006,79.70694,21.55783,347.1,29,Surface Lateritic Overburden,19.4,8.5,2.49,0.79
+dongri-buzurg,GEO-DON-0007,79.70908,21.54073,106.6,278,Hydrothermal Manganiferous Breccia,27.2,6.2,3.5,0.73
+dongri-buzurg,GEO-DON-0008,79.72589,21.54643,46.9,330,Tirodi Crystalline Gneiss Basement,19.3,7.6,2.69,0.63
+dongri-buzurg,GEO-DON-0009,79.7169,21.52994,103.3,276,Hydrothermal Manganiferous Breccia,26.6,7.5,3.35,0.72
+dongri-buzurg,GEO-DON-0010,79.71313,21.53491,96.7,288,Hydrothermal Manganiferous Breccia,29.1,7.1,3.05,0.83
+dongri-buzurg,GEO-DON-0011,79.71029,21.55486,278.1,103,Mansar Quartz-Mica Schist,30.4,6.6,2.83,0.8
+dongri-buzurg,GEO-DON-0012,79.71419,21.5499,239.3,139,Gondite Manganese Reef Horizon,41.0,4.9,3.88,0.89
+dongri-buzurg,GEO-DON-0013,79.72125,21.54262,82.4,300,Tirodi Crystalline Gneiss Basement,19.6,8.2,2.87,0.68
+dongri-buzurg,GEO-DON-0014,79.73276,21.55212,277.9,104,Mansar Quartz-Mica Schist,29.5,7.2,3.08,0.86
+dongri-buzurg,GEO-DON-0015,79.7268,21.54676,130.7,248,Hydrothermal Manganiferous Breccia,28.6,7.7,3.44,0.7
+dongri-buzurg,GEO-DON-0016,79.71027,21.53825,87.6,291,Tirodi Crystalline Gneiss Basement,19.8,9.9,2.93,0.68
+dongri-buzurg,GEO-DON-0017,79.71501,21.54671,363.0,17,Surface Lateritic Overburden,19.9,7.3,2.65,0.73
+dongri-buzurg,GEO-DON-0018,79.70961,21.55103,105.1,276,Hydrothermal Manganiferous Breccia,28.1,6.6,3.32,0.84
+dongri-buzurg,GEO-DON-0019,79.73452,21.54884,330.6,49,Mansar Quartz-Mica Schist,31.3,6.9,2.83,0.83
+dongri-buzurg,GEO-DON-0020,79.72503,21.52957,250.7,130,Gondite Manganese Reef Horizon,41.3,4.5,3.42,0.91
+dongri-buzurg,GEO-DON-0021,79.72951,21.5487,198.6,178,Gondite Manganese Reef Horizon,39.2,6.2,3.7,0.93
+dongri-buzurg,GEO-DON-0022,79.73024,21.54901,313.2,69,Mansar Quartz-Mica Schist,34.1,6.0,3.18,0.77
+dongri-buzurg,GEO-DON-0023,79.73471,21.54079,218.5,159,Gondite Manganese Reef Horizon,42.0,5.0,4.09,0.92
+dongri-buzurg,GEO-DON-0024,79.7133,21.53459,66.1,314,Tirodi Crystalline Gneiss Basement,18.9,8.3,2.95,0.67
+dongri-buzurg,GEO-DON-0025,79.71197,21.55426,42.4,339,Tirodi Crystalline Gneiss Basement,20.1,10.0,2.9,0.69
+dongri-buzurg,GEO-DON-0026,79.70738,21.55583,324.5,58,Mansar Quartz-Mica Schist,33.0,6.5,2.85,0.77
+dongri-buzurg,GEO-DON-0027,79.71931,21.53422,134.5,244,Hydrothermal Manganiferous Breccia,28.0,7.1,3.13,0.82
+dongri-buzurg,GEO-DON-0028,79.72006,21.52855,261.7,118,Gondite Manganese Reef Horizon,42.8,5.3,3.82,0.91
+dongri-buzurg,GEO-DON-0029,79.7322,21.5516,133.0,247,Hydrothermal Manganiferous Breccia,27.3,6.0,3.12,0.85
+dongri-buzurg,GEO-DON-0030,79.72137,21.54674,319.0,62,Mansar Quartz-Mica Schist,34.7,5.5,2.93,0.82
+dongri-buzurg,GEO-DON-0031,79.71692,21.5292,335.6,44,Surface Lateritic Overburden,21.3,6.9,2.63,0.75
+dongri-buzurg,GEO-DON-0032,79.7124,21.53322,97.6,283,Hydrothermal Manganiferous Breccia,27.0,7.4,3.02,0.84
+dongri-buzurg,GEO-DON-0033,79.72264,21.54947,348.8,32,Surface Lateritic Overburden,22.0,8.9,2.54,0.77
+dongri-buzurg,GEO-DON-0034,79.73324,21.54463,338.6,41,Surface Lateritic Overburden,23.5,8.4,2.61,0.76
+dongri-buzurg,GEO-DON-0035,79.70821,21.53561,335.9,42,Surface Lateritic Overburden,21.4,8.9,2.66,0.72
+dongri-buzurg,GEO-DON-0036,79.72798,21.53505,176.7,201,Gondite Manganese Reef Horizon,40.3,5.7,3.45,0.88
+dongri-buzurg,GEO-DON-0037,79.72028,21.55425,280.9,101,Mansar Quartz-Mica Schist,30.5,6.4,2.94,0.8
+dongri-buzurg,GEO-DON-0038,79.7076,21.55421,31.9,345,Tirodi Crystalline Gneiss Basement,21.6,9.5,2.79,0.73
+dongri-buzurg,GEO-DON-0039,79.71905,21.5365,65.6,316,Tirodi Crystalline Gneiss Basement,19.4,7.7,2.85,0.69
+dongri-buzurg,GEO-DON-0040,79.71035,21.54967,120.6,260,Hydrothermal Manganiferous Breccia,27.7,6.9,3.12,0.83
+dongri-buzurg,GEO-DON-0041,79.72184,21.53898,213.7,164,Gondite Manganese Reef Horizon,40.2,5.2,4.08,0.91
+dongri-buzurg,GEO-DON-0042,79.71616,21.5514,141.9,235,Hydrothermal Manganiferous Breccia,27.7,6.0,3.08,0.78
+dongri-buzurg,GEO-DON-0043,79.73127,21.54113,254.3,127,Gondite Manganese Reef Horizon,40.6,5.7,3.52,0.9
+dongri-buzurg,GEO-DON-0044,79.72849,21.54811,355.4,27,Surface Lateritic Overburden,20.6,8.9,2.63,0.78
+dongri-buzurg,GEO-DON-0045,79.70976,21.53629,297.1,83,Mansar Quartz-Mica Schist,30.8,7.4,2.82,0.77
+dongri-buzurg,GEO-DON-0046,79.73442,21.53768,212.8,166,Gondite Manganese Reef Horizon,39.8,4.8,4.09,0.98
+dongri-buzurg,GEO-DON-0047,79.73495,21.54737,363.7,16,Surface Lateritic Overburden,21.0,8.0,2.6,0.75
+dongri-buzurg,GEO-DON-0048,79.7073,21.53744,317.1,61,Mansar Quartz-Mica Schist,33.3,6.8,3.19,0.76
+dongri-buzurg,GEO-DON-0049,79.71971,21.55424,141.1,240,Hydrothermal Manganiferous Breccia,26.9,7.6,3.47,0.8
+dongri-buzurg,GEO-DON-0050,79.72494,21.55427,198.1,181,Gondite Manganese Reef Horizon,39.7,6.1,3.88,0.95
+dongri-buzurg,GEO-DON-0051,79.72617,21.54002,291.5,87,Mansar Quartz-Mica Schist,31.5,6.8,3.2,0.76
+dongri-buzurg,GEO-DON-0052,79.71861,21.55432,38.7,342,Tirodi Crystalline Gneiss Basement,20.9,9.6,2.95,0.66
+dongri-buzurg,GEO-DON-0053,79.72643,21.55244,257.4,124,Gondite Manganese Reef Horizon,43.4,5.2,3.97,0.89
+dongri-buzurg,GEO-DON-0054,79.70657,21.53794,180.4,197,Gondite Manganese Reef Horizon,37.6,5.7,3.67,0.92
+dongri-buzurg,GEO-DON-0055,79.7176,21.53502,286.3,94,Mansar Quartz-Mica Schist,29.5,6.8,3.05,0.81
+dongri-buzurg,GEO-DON-0056,79.7323,21.54377,237.1,142,Gondite Manganese Reef Horizon,40.7,5.1,3.67,0.92
+dongri-buzurg,GEO-DON-0057,79.72241,21.54644,172.4,209,Gondite Manganese Reef Horizon,40.3,5.7,4.07,0.88
+dongri-buzurg,GEO-DON-0058,79.70663,21.54762,299.5,80,Mansar Quartz-Mica Schist,32.4,7.4,2.82,0.87
+dongri-buzurg,GEO-DON-0059,79.70944,21.54278,246.3,132,Gondite Manganese Reef Horizon,40.5,5.0,3.96,0.93
+dongri-buzurg,GEO-DON-0060,79.72471,21.54968,259.8,119,Gondite Manganese Reef Horizon,41.6,4.7,3.53,0.95
+dongri-buzurg,GEO-DON-0061,79.72215,21.54947,305.3,75,Mansar Quartz-Mica Schist,31.1,6.0,3.19,0.81
+dongri-buzurg,GEO-DON-0062,79.72291,21.5295,95.9,285,Hydrothermal Manganiferous Breccia,28.2,7.1,3.41,0.83
+dongri-buzurg,GEO-DON-0063,79.71276,21.54653,291.3,91,Mansar Quartz-Mica Schist,30.4,7.3,2.94,0.78
+dongri-buzurg,GEO-DON-0064,79.71464,21.55288,107.6,276,Hydrothermal Manganiferous Breccia,27.0,6.0,3.31,0.77
+dongri-buzurg,GEO-DON-0065,79.71144,21.55031,168.3,211,Gondite Manganese Reef Horizon,40.1,4.7,3.42,0.94
+dongri-buzurg,GEO-DON-0066,79.7228,21.53516,164.9,218,Gondite Manganese Reef Horizon,37.6,5.3,4.09,0.89
+dongri-buzurg,GEO-DON-0067,79.71853,21.54105,135.0,247,Hydrothermal Manganiferous Breccia,29.3,8.0,3.06,0.72
+dongri-buzurg,GEO-DON-0068,79.72375,21.53642,120.8,257,Hydrothermal Manganiferous Breccia,27.1,6.6,3.03,0.78
+dongri-buzurg,GEO-DON-0069,79.73041,21.53521,345.1,37,Surface Lateritic Overburden,21.7,8.5,2.61,0.7
+dongri-buzurg,GEO-DON-0070,79.72648,21.55802,255.4,126,Gondite Manganese Reef Horizon,44.7,5.7,3.73,0.89
+dongri-buzurg,GEO-DON-0071,79.73513,21.53346,175.0,203,Gondite Manganese Reef Horizon,40.4,5.4,3.47,0.93
+dongri-buzurg,GEO-DON-0072,79.71683,21.54815,110.9,268,Hydrothermal Manganiferous Breccia,26.3,6.1,3.5,0.84
+dongri-buzurg,GEO-DON-0073,79.73166,21.54383,183.5,195,Gondite Manganese Reef Horizon,39.9,5.8,3.49,0.96
+dongri-buzurg,GEO-DON-0074,79.72766,21.52928,101.9,276,Hydrothermal Manganiferous Breccia,26.9,6.6,3.04,0.84
+dongri-buzurg,GEO-DON-0075,79.71557,21.54011,184.3,200,Gondite Manganese Reef Horizon,38.3,5.4,4.04,0.93
+dongri-buzurg,GEO-DON-0076,79.73194,21.53446,32.1,347,Tirodi Crystalline Gneiss Basement,20.6,10.1,2.95,0.72
+dongri-buzurg,GEO-DON-0077,79.71554,21.53063,98.6,279,Hydrothermal Manganiferous Breccia,27.6,7.3,3.17,0.85
+dongri-buzurg,GEO-DON-0078,79.73107,21.53218,155.9,229,Hydrothermal Manganiferous Breccia,27.6,7.5,3.09,0.78
+dongri-buzurg,GEO-DON-0079,79.71079,21.53923,233.0,148,Gondite Manganese Reef Horizon,40.5,5.2,3.62,0.93
+dongri-buzurg,GEO-DON-0080,79.70957,21.54742,219.1,162,Gondite Manganese Reef Horizon,38.3,5.6,3.51,0.89
+dongri-buzurg,GEO-DON-0081,79.72019,21.52994,102.9,276,Hydrothermal Manganiferous Breccia,27.5,6.1,3.15,0.72
+dongri-buzurg,GEO-DON-0082,79.70827,21.54348,130.9,246,Hydrothermal Manganiferous Breccia,29.1,7.2,3.26,0.76
+dongri-buzurg,GEO-DON-0083,79.733,21.54169,321.0,58,Mansar Quartz-Mica Schist,31.0,6.3,3.13,0.85
+dongri-buzurg,GEO-DON-0084,79.70673,21.54068,107.2,272,Hydrothermal Manganiferous Breccia,28.0,6.4,3.38,0.72
+dongri-buzurg,GEO-DON-0085,79.71286,21.52856,184.0,194,Gondite Manganese Reef Horizon,39.6,5.4,3.72,0.96
+dongri-buzurg,GEO-DON-0086,79.72105,21.5327,335.3,47,Mansar Quartz-Mica Schist,30.6,6.5,2.95,0.8
+dongri-buzurg,GEO-DON-0087,79.72995,21.55496,214.3,168,Gondite Manganese Reef Horizon,38.4,5.2,3.58,0.96
+dongri-buzurg,GEO-DON-0088,79.73345,21.54204,355.8,27,Surface Lateritic Overburden,22.1,9.2,2.65,0.74
+dongri-buzurg,GEO-DON-0089,79.72195,21.53271,343.2,37,Surface Lateritic Overburden,23.7,8.5,2.42,0.66
+dongri-buzurg,GEO-DON-0090,79.70856,21.53034,124.4,254,Hydrothermal Manganiferous Breccia,29.6,6.5,3.17,0.82
+dongri-buzurg,GEO-DON-0091,79.71196,21.53342,144.6,236,Hydrothermal Manganiferous Breccia,27.2,7.5,3.13,0.7
+dongri-buzurg,GEO-DON-0092,79.73544,21.53706,339.2,42,Surface Lateritic Overburden,23.6,7.6,2.48,0.67
+dongri-buzurg,GEO-DON-0093,79.72964,21.54752,157.8,221,Hydrothermal Manganiferous Breccia,28.0,7.9,3.4,0.74
+dongri-buzurg,GEO-DON-0094,79.72446,21.54567,38.5,343,Tirodi Crystalline Gneiss Basement,19.9,9.3,2.65,0.65
+dongri-buzurg,GEO-DON-0095,79.71314,21.53937,51.5,325,Tirodi Crystalline Gneiss Basement,16.9,9.1,2.98,0.64
+dongri-buzurg,GEO-DON-0096,79.71232,21.55481,322.3,55,Mansar Quartz-Mica Schist,33.3,7.1,3.14,0.86
+dongri-buzurg,GEO-DON-0097,79.71397,21.55085,60.4,322,Tirodi Crystalline Gneiss Basement,19.0,9.5,2.91,0.7
+dongri-buzurg,GEO-DON-0098,79.72275,21.55774,305.8,74,Mansar Quartz-Mica Schist,32.2,7.0,3.13,0.78
+dongri-buzurg,GEO-DON-0099,79.73162,21.55018,200.6,184,Gondite Manganese Reef Horizon,40.9,5.4,3.61,0.94
+dongri-buzurg,GEO-DON-0100,79.7326,21.54729,133.8,245,Hydrothermal Manganiferous Breccia,28.6,6.8,3.0,0.74
+dongri-buzurg,GEO-DON-0101,79.73615,21.53118,124.6,258,Hydrothermal Manganiferous Breccia,27.5,6.2,3.28,0.81
+dongri-buzurg,GEO-DON-0102,79.71204,21.53886,159.6,221,Hydrothermal Manganiferous Breccia,29.7,5.8,3.38,0.71
+dongri-buzurg,GEO-DON-0103,79.71247,21.55694,113.1,264,Hydrothermal Manganiferous Breccia,26.7,6.1,3.15,0.83
+dongri-buzurg,GEO-DON-0104,79.71745,21.54166,33.2,348,Tirodi Crystalline Gneiss Basement,19.6,9.1,2.76,0.66
+dongri-buzurg,GEO-DON-0105,79.7065,21.54679,134.3,248,Hydrothermal Manganiferous Breccia,27.3,6.0,3.29,0.77
+dongri-buzurg,GEO-DON-0106,79.70835,21.5456,153.7,230,Hydrothermal Manganiferous Breccia,30.3,7.1,3.34,0.82
+dongri-buzurg,GEO-DON-0107,79.73115,21.54315,277.2,105,Mansar Quartz-Mica Schist,28.1,6.9,3.12,0.82
+dongri-buzurg,GEO-DON-0108,79.71082,21.53805,216.3,162,Gondite Manganese Reef Horizon,39.7,4.9,3.82,0.95
+dongri-buzurg,GEO-DON-0109,79.73439,21.54748,34.7,349,Tirodi Crystalline Gneiss Basement,17.9,9.7,2.65,0.66
+dongri-buzurg,GEO-DON-0110,79.71791,21.54536,81.5,296,Tirodi Crystalline Gneiss Basement,19.6,8.3,2.73,0.6
+dongri-buzurg,GEO-DON-0111,79.73135,21.53639,353.2,23,Surface Lateritic Overburden,20.5,9.3,2.5,0.71
+dongri-buzurg,GEO-DON-0112,79.73166,21.53378,72.6,307,Tirodi Crystalline Gneiss Basement,20.9,8.7,2.65,0.61
+dongri-buzurg,GEO-DON-0113,79.72129,21.54131,123.8,258,Hydrothermal Manganiferous Breccia,28.9,6.1,3.31,0.72
+dongri-buzurg,GEO-DON-0114,79.72611,21.5569,112.0,266,Hydrothermal Manganiferous Breccia,26.9,6.3,3.45,0.74
+dongri-buzurg,GEO-DON-0115,79.72918,21.54169,272.9,106,Mansar Quartz-Mica Schist,28.7,5.6,3.16,0.77
+dongri-buzurg,GEO-DON-0116,79.71873,21.53862,187.5,193,Gondite Manganese Reef Horizon,39.7,5.5,4.06,0.89
+dongri-buzurg,GEO-DON-0117,79.7142,21.55012,222.8,155,Gondite Manganese Reef Horizon,40.8,5.5,3.72,0.98
+dongri-buzurg,GEO-DON-0118,79.71689,21.53162,161.1,218,Gondite Manganese Reef Horizon,39.0,4.9,4.0,0.94
+dongri-buzurg,GEO-DON-0119,79.70984,21.554,189.4,190,Gondite Manganese Reef Horizon,39.8,5.7,3.78,0.89
+dongri-buzurg,GEO-DON-0120,79.72094,21.53317,211.1,168,Gondite Manganese Reef Horizon,42.2,5.2,3.86,0.93
+gumgaon,GEO-GUM-0001,79.01238,21.39419,253.7,35,Surface Lateritic Overburden,17.7,8.9,2.48,0.69
+gumgaon,GEO-GUM-0002,79.00691,21.3927,217.1,70,Mansar Quartz-Mica Schist,26.8,7.3,3.15,0.86
+gumgaon,GEO-GUM-0003,79.01054,21.39955,195.9,94,Mansar Quartz-Mica Schist,28.5,7.3,3.02,0.81
+gumgaon,GEO-GUM-0004,79.0167,21.39466,242.6,50,Mansar Quartz-Mica Schist,24.7,7.4,2.88,0.82
+gumgaon,GEO-GUM-0005,79.02079,21.38733,181.4,111,Gondite Manganese Reef Horizon,43.1,5.2,4.04,0.93
+gumgaon,GEO-GUM-0006,79.01788,21.3938,224.7,67,Mansar Quartz-Mica Schist,25.9,7.3,2.91,0.88
+gumgaon,GEO-GUM-0007,79.00306,21.37553,228.6,62,Mansar Quartz-Mica Schist,26.9,5.8,2.98,0.83
+gumgaon,GEO-GUM-0008,79.02347,21.39411,249.0,42,Surface Lateritic Overburden,17.9,7.8,2.79,0.75
+gumgaon,GEO-GUM-0009,79.00198,21.39646,60.6,227,Hydrothermal Manganiferous Breccia,27.9,5.8,3.28,0.78
+gumgaon,GEO-GUM-0010,79.02371,21.37238,33.4,255,Hydrothermal Manganiferous Breccia,28.7,7.7,3.41,0.78
+gumgaon,GEO-GUM-0011,79.00643,21.38414,37.7,252,Hydrothermal Manganiferous Breccia,29.6,6.6,3.25,0.82
+gumgaon,GEO-GUM-0012,79.00221,21.39136,161.9,127,Gondite Manganese Reef Horizon,43.4,5.1,3.72,0.95
+gumgaon,GEO-GUM-0013,79.01563,21.38057,56.8,233,Hydrothermal Manganiferous Breccia,29.6,8.0,3.32,0.72
+gumgaon,GEO-GUM-0014,79.00675,21.39059,48.2,241,Hydrothermal Manganiferous Breccia,28.7,7.6,3.14,0.8
+gumgaon,GEO-GUM-0015,79.01238,21.37916,45.1,247,Hydrothermal Manganiferous Breccia,26.5,7.9,3.44,0.81
+gumgaon,GEO-GUM-0016,79.01695,21.37781,11.5,279,Hydrothermal Manganiferous Breccia,28.8,7.0,3.06,0.77
+gumgaon,GEO-GUM-0017,79.02294,21.3864,121.5,169,Gondite Manganese Reef Horizon,39.1,4.7,3.7,0.88
+gumgaon,GEO-GUM-0018,79.02454,21.3784,27.1,262,Hydrothermal Manganiferous Breccia,28.9,7.8,3.38,0.82
+gumgaon,GEO-GUM-0019,79.02588,21.3918,270.8,21,Surface Lateritic Overburden,17.0,7.3,2.75,0.67
+gumgaon,GEO-GUM-0020,79.01322,21.3729,36.2,250,Hydrothermal Manganiferous Breccia,27.7,7.1,3.15,0.74
+gumgaon,GEO-GUM-0021,78.99844,21.39709,27.9,263,Hydrothermal Manganiferous Breccia,29.1,7.1,3.45,0.73
+gumgaon,GEO-GUM-0022,79.00419,21.39384,249.2,41,Surface Lateritic Overburden,17.3,9.5,2.74,0.73
+gumgaon,GEO-GUM-0023,79.02194,21.38797,254.5,36,Surface Lateritic Overburden,18.5,9.0,2.75,0.74
+gumgaon,GEO-GUM-0024,79.00991,21.37951,104.9,188,Gondite Manganese Reef Horizon,35.7,5.5,4.02,0.92
+gumgaon,GEO-GUM-0025,79.01594,21.38775,70.0,218,Gondite Manganese Reef Horizon,34.9,5.4,3.47,0.92
+gumgaon,GEO-GUM-0026,79.01657,21.39852,115.0,178,Gondite Manganese Reef Horizon,38.3,5.4,3.84,0.89
+gumgaon,GEO-GUM-0027,79.00786,21.38417,189.6,100,Mansar Quartz-Mica Schist,27.7,5.9,3.04,0.79
+gumgaon,GEO-GUM-0028,79.0125,21.37017,208.2,84,Mansar Quartz-Mica Schist,27.4,6.6,3.01,0.79
+gumgaon,GEO-GUM-0029,79.00891,21.37261,-38.8,327,Tirodi Crystalline Gneiss Basement,19.5,8.2,2.8,0.73
+gumgaon,GEO-GUM-0030,79.01807,21.39978,109.2,180,Gondite Manganese Reef Horizon,36.5,5.2,3.7,0.92
+gumgaon,GEO-GUM-0031,79.01842,21.38824,-27.2,319,Tirodi Crystalline Gneiss Basement,18.5,10.3,2.93,0.6
+gumgaon,GEO-GUM-0032,78.99853,21.37773,62.3,228,Hydrothermal Manganiferous Breccia,27.5,7.3,3.06,0.76
+gumgaon,GEO-GUM-0033,79.00807,21.37363,126.0,167,Gondite Manganese Reef Horizon,38.9,4.6,3.46,0.92
+gumgaon,GEO-GUM-0034,79.01706,21.39036,-37.6,330,Tirodi Crystalline Gneiss Basement,17.1,7.0,2.85,0.74
+gumgaon,GEO-GUM-0035,79.02321,21.39172,70.1,220,Gondite Manganese Reef Horizon,33.0,4.7,3.41,0.92
+gumgaon,GEO-GUM-0036,79.01158,21.38732,173.1,113,Gondite Manganese Reef Horizon,43.6,5.7,3.86,0.96
+gumgaon,GEO-GUM-0037,79.0099,21.39019,42.1,246,Hydrothermal Manganiferous Breccia,26.7,7.5,3.22,0.82
+gumgaon,GEO-GUM-0038,79.02273,21.3975,-3.6,290,Hydrothermal Manganiferous Breccia,27.2,7.1,3.19,0.79
+gumgaon,GEO-GUM-0039,79.01765,21.38124,38.5,251,Hydrothermal Manganiferous Breccia,26.6,6.1,3.45,0.75
+gumgaon,GEO-GUM-0040,78.99776,21.38937,221.2,66,Mansar Quartz-Mica Schist,27.8,5.6,2.96,0.79
+gumgaon,GEO-GUM-0041,79.01517,21.38094,52.8,241,Hydrothermal Manganiferous Breccia,27.5,6.1,3.24,0.7
+gumgaon,GEO-GUM-0042,79.02592,21.38153,103.8,184,Gondite Manganese Reef Horizon,36.3,4.5,3.93,0.93
+gumgaon,GEO-GUM-0043,79.024,21.37348,178.8,111,Gondite Manganese Reef Horizon,42.8,6.0,3.82,0.96
+gumgaon,GEO-GUM-0044,79.00565,21.39883,-57.1,344,Tirodi Crystalline Gneiss Basement,17.4,8.2,2.82,0.62
+gumgaon,GEO-GUM-0045,79.01325,21.39286,89.6,200,Gondite Manganese Reef Horizon,36.4,5.0,3.58,0.9
+gumgaon,GEO-GUM-0046,79.00727,21.37811,256.1,34,Surface Lateritic Overburden,18.3,7.5,2.63,0.67
+gumgaon,GEO-GUM-0047,79.01579,21.38467,127.6,163,Gondite Manganese Reef Horizon,41.3,5.5,3.83,0.9
+gumgaon,GEO-GUM-0048,78.99818,21.38427,140.0,147,Gondite Manganese Reef Horizon,43.0,6.1,4.04,0.95
+gumgaon,GEO-GUM-0049,79.0231,21.37392,96.3,193,Gondite Manganese Reef Horizon,35.9,5.9,3.59,0.97
+gumgaon,GEO-GUM-0050,79.00146,21.38388,-41.0,331,Tirodi Crystalline Gneiss Basement,19.7,10.0,2.84,0.66
+gumgaon,GEO-GUM-0051,79.0031,21.39285,180.5,110,Gondite Manganese Reef Horizon,39.4,5.3,3.8,0.97
+gumgaon,GEO-GUM-0052,79.00923,21.39483,-52.2,343,Tirodi Crystalline Gneiss Basement,21.0,10.3,2.68,0.62
+gumgaon,GEO-GUM-0053,79.01017,21.39541,-11.3,301,Tirodi Crystalline Gneiss Basement,20.4,8.8,2.85,0.74
+gumgaon,GEO-GUM-0054,79.01131,21.39063,270.9,21,Surface Lateritic Overburden,19.0,6.9,2.52,0.7
+gumgaon,GEO-GUM-0055,79.00536,21.37632,4.9,284,Hydrothermal Manganiferous Breccia,29.0,5.8,3.37,0.83
+gumgaon,GEO-GUM-0056,79.00129,21.3926,28.4,263,Hydrothermal Manganiferous Breccia,29.4,7.5,3.42,0.79
+gumgaon,GEO-GUM-0057,79.01163,21.37233,242.7,44,Surface Lateritic Overburden,16.0,6.7,2.54,0.67
+gumgaon,GEO-GUM-0058,79.02543,21.37217,5.1,285,Hydrothermal Manganiferous Breccia,28.7,6.5,3.04,0.78
+gumgaon,GEO-GUM-0059,79.01821,21.37151,8.7,281,Hydrothermal Manganiferous Breccia,27.1,6.4,3.12,0.74
+gumgaon,GEO-GUM-0060,79.02488,21.38215,5.4,284,Hydrothermal Manganiferous Breccia,28.8,6.8,3.11,0.8
+gumgaon,GEO-GUM-0061,79.0151,21.38073,-53.7,342,Tirodi Crystalline Gneiss Basement,19.6,10.1,2.8,0.67
+gumgaon,GEO-GUM-0062,79.01574,21.37215,76.8,211,Gondite Manganese Reef Horizon,35.1,5.7,3.98,0.96
+gumgaon,GEO-GUM-0063,79.01261,21.37429,88.5,200,Gondite Manganese Reef Horizon,36.0,5.3,3.6,0.89
+gumgaon,GEO-GUM-0064,78.99863,21.39246,63.7,225,Hydrothermal Manganiferous Breccia,28.3,6.4,3.35,0.71
+gumgaon,GEO-GUM-0065,78.99711,21.3774,-7.7,296,Tirodi Crystalline Gneiss Basement,20.6,7.4,2.74,0.64
+gumgaon,GEO-GUM-0066,79.0064,21.39367,-7.3,297,Tirodi Crystalline Gneiss Basement,20.3,10.2,2.75,0.74
+gumgaon,GEO-GUM-0067,79.01761,21.38481,249.1,44,Surface Lateritic Overburden,16.3,8.6,2.4,0.68
+gumgaon,GEO-GUM-0068,79.01699,21.39898,34.9,253,Hydrothermal Manganiferous Breccia,29.3,6.0,3.39,0.8
+gumgaon,GEO-GUM-0069,79.0078,21.3987,253.3,31,Surface Lateritic Overburden,17.7,7.9,2.48,0.71
+gumgaon,GEO-GUM-0070,78.99857,21.39303,154.5,138,Gondite Manganese Reef Horizon,43.2,5.9,3.55,0.95
+gumgaon,GEO-GUM-0071,79.0234,21.37647,118.9,173,Gondite Manganese Reef Horizon,40.4,5.0,3.5,0.95
+gumgaon,GEO-GUM-0072,79.00647,21.38934,31.1,262,Hydrothermal Manganiferous Breccia,27.1,6.2,3.45,0.74
+gumgaon,GEO-GUM-0073,78.99874,21.37335,148.5,138,Gondite Manganese Reef Horizon,43.8,5.9,3.41,0.92
+gumgaon,GEO-GUM-0074,78.99758,21.37373,161.6,128,Gondite Manganese Reef Horizon,40.7,5.2,3.77,0.94
+gumgaon,GEO-GUM-0075,79.01092,21.3989,276.0,18,Surface Lateritic Overburden,17.9,7.4,2.71,0.77
+gumgaon,GEO-GUM-0076,79.02628,21.37377,100.5,189,Gondite Manganese Reef Horizon,36.3,5.0,3.41,0.91
+gumgaon,GEO-GUM-0077,79.01254,21.38044,18.0,274,Hydrothermal Manganiferous Breccia,26.4,7.9,3.42,0.7
+gumgaon,GEO-GUM-0078,79.0205,21.39341,-30.5,316,Tirodi Crystalline Gneiss Basement,18.1,8.1,2.63,0.63
+gumgaon,GEO-GUM-0079,79.01152,21.39242,191.6,97,Mansar Quartz-Mica Schist,29.8,7.4,3.18,0.85
+gumgaon,GEO-GUM-0080,79.01333,21.39888,-57.4,347,Tirodi Crystalline Gneiss Basement,18.4,7.8,2.68,0.62
+gumgaon,GEO-GUM-0081,79.02044,21.38735,67.7,223,Hydrothermal Manganiferous Breccia,27.8,7.2,3.19,0.8
+gumgaon,GEO-GUM-0082,79.00736,21.39752,187.5,102,Mansar Quartz-Mica Schist,28.3,7.3,3.08,0.76
+gumgaon,GEO-GUM-0083,78.99724,21.38893,223.8,64,Mansar Quartz-Mica Schist,26.0,7.4,3.01,0.78
+gumgaon,GEO-GUM-0084,79.01739,21.37229,109.7,182,Gondite Manganese Reef Horizon,36.2,5.3,3.78,0.92
+gumgaon,GEO-GUM-0085,79.00197,21.38337,261.9,29,Surface Lateritic Overburden,18.1,7.2,2.78,0.68
+gumgaon,GEO-GUM-0086,79.02684,21.39135,-42.9,333,Tirodi Crystalline Gneiss Basement,19.6,7.9,2.77,0.69
+gumgaon,GEO-GUM-0087,79.01567,21.39944,252.1,39,Surface Lateritic Overburden,17.1,9.2,2.78,0.79
+gumgaon,GEO-GUM-0088,79.02632,21.39272,100.8,189,Gondite Manganese Reef Horizon,34.5,5.7,3.57,0.94
+gumgaon,GEO-GUM-0089,79.00188,21.38695,52.0,238,Hydrothermal Manganiferous Breccia,30.0,5.8,3.0,0.75
+gumgaon,GEO-GUM-0090,79.00386,21.38903,-36.4,325,Tirodi Crystalline Gneiss Basement,17.9,10.0,2.89,0.61
+gumgaon,GEO-GUM-0091,78.99788,21.38443,130.4,158,Gondite Manganese Reef Horizon,41.5,5.0,3.68,0.97
+gumgaon,GEO-GUM-0092,78.99835,21.39283,-59.7,347,Tirodi Crystalline Gneiss Basement,17.3,9.6,2.97,0.74
+gumgaon,GEO-GUM-0093,79.00771,21.39363,82.8,208,Gondite Manganese Reef Horizon,32.5,5.1,3.86,0.9
+gumgaon,GEO-GUM-0094,79.02455,21.37305,207.9,79,Mansar Quartz-Mica Schist,27.6,5.6,2.81,0.77
+gumgaon,GEO-GUM-0095,79.00547,21.39851,-18.1,305,Tirodi Crystalline Gneiss Basement,21.6,9.0,2.81,0.71
+gumgaon,GEO-GUM-0096,79.00759,21.39682,183.8,109,Mansar Quartz-Mica Schist,30.8,6.5,3.0,0.78
+gumgaon,GEO-GUM-0097,79.00258,21.37995,76.3,213,Gondite Manganese Reef Horizon,34.6,4.6,3.45,0.97
+gumgaon,GEO-GUM-0098,79.00928,21.39433,105.0,184,Gondite Manganese Reef Horizon,37.8,5.7,3.94,0.95
+gumgaon,GEO-GUM-0099,79.02328,21.38617,223.9,65,Mansar Quartz-Mica Schist,24.2,5.6,2.85,0.85
+gumgaon,GEO-GUM-0100,79.0095,21.38568,273.5,15,Surface Lateritic Overburden,16.4,7.4,2.49,0.65
+gumgaon,GEO-GUM-0101,79.02601,21.37673,33.4,259,Hydrothermal Manganiferous Breccia,29.0,7.7,3.21,0.75
+gumgaon,GEO-GUM-0102,79.01838,21.3945,166.1,123,Gondite Manganese Reef Horizon,42.3,6.0,3.96,0.98
+gumgaon,GEO-GUM-0103,79.0088,21.38772,21.8,267,Hydrothermal Manganiferous Breccia,28.3,7.0,3.35,0.73
+gumgaon,GEO-GUM-0104,79.01451,21.39857,10.8,276,Hydrothermal Manganiferous Breccia,29.0,7.4,3.38,0.72
+gumgaon,GEO-GUM-0105,79.01227,21.38108,105.2,187,Gondite Manganese Reef Horizon,37.5,5.3,4.04,0.95
+gumgaon,GEO-GUM-0106,79.02285,21.37822,29.9,259,Hydrothermal Manganiferous Breccia,28.7,6.6,3.17,0.85
+gumgaon,GEO-GUM-0107,79.01804,21.39181,-9.7,301,Tirodi Crystalline Gneiss Basement,19.3,8.7,2.75,0.62
+gumgaon,GEO-GUM-0108,79.01903,21.38153,11.9,278,Hydrothermal Manganiferous Breccia,28.5,6.3,3.35,0.82
+gumgaon,GEO-GUM-0109,79.02601,21.37155,95.6,198,Gondite Manganese Reef Horizon,35.1,6.0,3.53,0.96
+gumgaon,GEO-GUM-0110,79.0089,21.37395,87.8,200,Gondite Manganese Reef Horizon,33.7,6.0,3.87,0.96
+gumgaon,GEO-GUM-0111,79.01575,21.38715,192.1,98,Mansar Quartz-Mica Schist,29.2,6.1,2.92,0.8
+gumgaon,GEO-GUM-0112,79.00702,21.39198,65.6,223,Hydrothermal Manganiferous Breccia,28.1,7.5,3.14,0.76
+gumgaon,GEO-GUM-0113,79.00697,21.3717,47.1,244,Hydrothermal Manganiferous Breccia,27.9,7.2,3.34,0.79
+gumgaon,GEO-GUM-0114,79.00955,21.39253,208.4,81,Mansar Quartz-Mica Schist,27.1,6.1,2.97,0.88
+gumgaon,GEO-GUM-0115,79.01256,21.37538,256.0,37,Surface Lateritic Overburden,17.0,8.6,2.57,0.7
+gumgaon,GEO-GUM-0116,79.00493,21.37616,138.5,148,Gondite Manganese Reef Horizon,42.5,5.0,3.86,0.98
+gumgaon,GEO-GUM-0117,78.99931,21.37227,72.8,217,Gondite Manganese Reef Horizon,34.2,4.7,3.82,0.94
+gumgaon,GEO-GUM-0118,79.00502,21.37045,60.4,232,Hydrothermal Manganiferous Breccia,29.4,7.1,3.16,0.74
+gumgaon,GEO-GUM-0119,79.02298,21.3984,74.6,215,Gondite Manganese Reef Horizon,34.4,5.5,3.89,0.95
+gumgaon,GEO-GUM-0120,78.99746,21.38749,138.3,151,Gondite Manganese Reef Horizon,40.3,6.1,3.68,0.96
+tirodi,GEO-TIR-0001,79.71117,21.70231,260.3,78,Mansar Quartz-Mica Schist,31.5,7.0,3.17,0.81
+tirodi,GEO-TIR-0002,79.70403,21.6947,239.0,101,Mansar Quartz-Mica Schist,32.3,6.7,3.06,0.78
+tirodi,GEO-TIR-0003,79.69374,21.67898,86.7,254,Hydrothermal Manganiferous Breccia,28.7,5.8,3.12,0.73
+tirodi,GEO-TIR-0004,79.69843,21.67488,238.4,105,Mansar Quartz-Mica Schist,31.9,6.7,3.07,0.76
+tirodi,GEO-TIR-0005,79.71615,21.69715,4.2,333,Tirodi Crystalline Gneiss Basement,19.4,9.2,2.9,0.71
+tirodi,GEO-TIR-0006,79.69305,21.68413,151.3,189,Gondite Manganese Reef Horizon,32.7,5.4,3.59,0.92
+tirodi,GEO-TIR-0007,79.71099,21.69662,30.3,314,Tirodi Crystalline Gneiss Basement,18.3,7.9,2.88,0.66
+tirodi,GEO-TIR-0008,79.71048,21.70109,176.0,163,Gondite Manganese Reef Horizon,30.9,4.5,3.61,0.93
+tirodi,GEO-TIR-0009,79.70573,21.70081,307.5,33,Surface Lateritic Overburden,18.3,7.7,2.66,0.69
+tirodi,GEO-TIR-0010,79.69581,21.67511,273.1,68,Mansar Quartz-Mica Schist,29.3,7.3,3.13,0.84
+tirodi,GEO-TIR-0011,79.69968,21.68229,289.2,51,Mansar Quartz-Mica Schist,26.4,6.6,2.94,0.8
+tirodi,GEO-TIR-0012,79.71468,21.68223,45.7,292,Tirodi Crystalline Gneiss Basement,17.6,8.8,2.98,0.73
+tirodi,GEO-TIR-0013,79.70278,21.6896,288.2,49,Mansar Quartz-Mica Schist,28.1,7.2,3.07,0.86
+tirodi,GEO-TIR-0014,79.71345,21.68618,35.8,302,Tirodi Crystalline Gneiss Basement,19.6,9.4,2.67,0.7
+tirodi,GEO-TIR-0015,79.69453,21.67796,249.2,91,Mansar Quartz-Mica Schist,34.6,5.8,2.83,0.75
+tirodi,GEO-TIR-0016,79.71773,21.68025,268.4,70,Mansar Quartz-Mica Schist,30.5,5.9,3.01,0.83
+tirodi,GEO-TIR-0017,79.69273,21.68473,241.5,97,Mansar Quartz-Mica Schist,31.7,7.4,3.05,0.82
+tirodi,GEO-TIR-0018,79.70387,21.68923,188.2,154,Gondite Manganese Reef Horizon,35.2,4.8,3.75,0.92
+tirodi,GEO-TIR-0019,79.70994,21.68898,34.5,306,Tirodi Crystalline Gneiss Basement,18.1,7.4,2.73,0.62
+tirodi,GEO-TIR-0020,79.69719,21.68476,93.7,246,Hydrothermal Manganiferous Breccia,28.2,6.9,3.21,0.7
+tirodi,GEO-TIR-0021,79.69307,21.68723,64.1,280,Hydrothermal Manganiferous Breccia,29.2,7.3,3.13,0.7
+tirodi,GEO-TIR-0022,79.70707,21.69808,83.7,257,Hydrothermal Manganiferous Breccia,28.4,6.9,3.17,0.82
+tirodi,GEO-TIR-0023,79.6965,21.69865,173.8,166,Gondite Manganese Reef Horizon,34.1,4.6,3.67,0.96
+tirodi,GEO-TIR-0024,79.6971,21.67501,22.4,317,Tirodi Crystalline Gneiss Basement,20.3,8.9,2.99,0.61
+tirodi,GEO-TIR-0025,79.69322,21.68426,107.4,232,Hydrothermal Manganiferous Breccia,29.6,8.0,3.28,0.75
+tirodi,GEO-TIR-0026,79.70152,21.68418,251.6,88,Mansar Quartz-Mica Schist,31.7,6.4,3.09,0.84
+tirodi,GEO-TIR-0027,79.69125,21.67953,87.6,252,Hydrothermal Manganiferous Breccia,30.5,5.8,3.4,0.82
+tirodi,GEO-TIR-0028,79.69299,21.696,144.8,198,Gondite Manganese Reef Horizon,32.2,5.8,3.96,0.93
+tirodi,GEO-TIR-0029,79.71113,21.69161,276.6,62,Mansar Quartz-Mica Schist,30.4,5.9,3.16,0.85
+tirodi,GEO-TIR-0030,79.71376,21.69091,22.6,319,Tirodi Crystalline Gneiss Basement,19.6,9.0,2.85,0.62
+tirodi,GEO-TIR-0031,79.71249,21.68113,165.7,173,Gondite Manganese Reef Horizon,31.2,4.9,3.55,0.92
+tirodi,GEO-TIR-0032,79.70621,21.67864,21.4,319,Tirodi Crystalline Gneiss Basement,18.6,8.3,2.93,0.7
+tirodi,GEO-TIR-0033,79.69916,21.69377,59.2,281,Hydrothermal Manganiferous Breccia,27.9,7.2,3.16,0.74
+tirodi,GEO-TIR-0034,79.71184,21.67956,258.9,78,Mansar Quartz-Mica Schist,32.4,6.8,3.13,0.85
+tirodi,GEO-TIR-0035,79.69663,21.67565,69.1,269,Hydrothermal Manganiferous Breccia,29.7,6.8,3.02,0.74
+tirodi,GEO-TIR-0036,79.71738,21.6803,312.9,26,Surface Lateritic Overburden,18.5,8.5,2.53,0.78
+tirodi,GEO-TIR-0037,79.70076,21.70003,27.1,312,Tirodi Crystalline Gneiss Basement,20.0,9.0,2.63,0.61
+tirodi,GEO-TIR-0038,79.7008,21.69545,-8.3,349,Tirodi Crystalline Gneiss Basement,19.6,10.5,2.7,0.61
+tirodi,GEO-TIR-0039,79.6949,21.67367,190.4,152,Gondite Manganese Reef Horizon,33.5,5.5,3.62,0.95
+tirodi,GEO-TIR-0040,79.69143,21.69593,250.7,92,Mansar Quartz-Mica Schist,33.3,5.6,3.13,0.83
+tirodi,GEO-TIR-0041,79.70974,21.69893,140.3,203,Gondite Manganese Reef Horizon,33.7,6.2,3.93,0.92
+tirodi,GEO-TIR-0042,79.70268,21.67987,90.4,251,Hydrothermal Manganiferous Breccia,28.2,7.8,3.17,0.78
+tirodi,GEO-TIR-0043,79.72087,21.70243,257.2,85,Mansar Quartz-Mica Schist,32.9,6.9,3.04,0.76
+tirodi,GEO-TIR-0044,79.71124,21.69333,174.1,167,Gondite Manganese Reef Horizon,32.6,4.8,3.75,0.95
+tirodi,GEO-TIR-0045,79.71046,21.68126,92.8,248,Hydrothermal Manganiferous Breccia,26.8,7.1,3.09,0.81
+tirodi,GEO-TIR-0046,79.71103,21.69812,174.0,167,Gondite Manganese Reef Horizon,34.4,5.7,3.99,0.96
+tirodi,GEO-TIR-0047,79.70708,21.68765,1.8,336,Tirodi Crystalline Gneiss Basement,18.8,9.0,2.71,0.74
+tirodi,GEO-TIR-0048,79.70879,21.68365,128.4,210,Gondite Manganese Reef Horizon,31.4,5.5,4.02,0.97
+tirodi,GEO-TIR-0049,79.69734,21.69889,104.7,235,Hydrothermal Manganiferous Breccia,28.3,7.4,3.14,0.82
+tirodi,GEO-TIR-0050,79.6919,21.69992,-8.4,349,Tirodi Crystalline Gneiss Basement,19.3,8.6,2.94,0.61
+tirodi,GEO-TIR-0051,79.69301,21.70226,213.7,127,Gondite Manganese Reef Horizon,38.4,6.1,3.46,0.92
+tirodi,GEO-TIR-0052,79.69732,21.67988,298.5,38,Surface Lateritic Overburden,18.8,6.8,2.47,0.67
+tirodi,GEO-TIR-0053,79.71378,21.70203,-3.4,340,Tirodi Crystalline Gneiss Basement,18.6,9.8,2.73,0.64
+tirodi,GEO-TIR-0054,79.69489,21.68069,250.7,92,Mansar Quartz-Mica Schist,31.2,5.6,2.88,0.86
+tirodi,GEO-TIR-0055,79.70128,21.69894,272.2,64,Mansar Quartz-Mica Schist,29.9,6.6,3.12,0.77
+tirodi,GEO-TIR-0056,79.70617,21.67732,128.1,209,Gondite Manganese Reef Horizon,32.5,5.3,3.46,0.93
+tirodi,GEO-TIR-0057,79.71567,21.67471,220.6,117,Gondite Manganese Reef Horizon,36.8,5.7,3.8,0.95
+tirodi,GEO-TIR-0058,79.71687,21.68242,67.4,275,Hydrothermal Manganiferous Breccia,28.2,8.0,3.44,0.76
+tirodi,GEO-TIR-0059,79.70568,21.69525,253.4,80,Mansar Quartz-Mica Schist,30.1,7.2,2.94,0.86
+tirodi,GEO-TIR-0060,79.70085,21.68662,188.0,151,Gondite Manganese Reef Horizon,34.7,4.8,4.07,0.9
+tirodi,GEO-TIR-0061,79.70838,21.68769,132.5,205,Gondite Manganese Reef Horizon,32.4,5.4,3.66,0.95
+tirodi,GEO-TIR-0062,79.70813,21.67856,276.2,62,Mansar Quartz-Mica Schist,29.0,5.9,3.13,0.79
+tirodi,GEO-TIR-0063,79.7201,21.69014,14.3,325,Tirodi Crystalline Gneiss Basement,18.0,9.8,2.75,0.61
+tirodi,GEO-TIR-0064,79.71635,21.69688,140.0,201,Gondite Manganese Reef Horizon,30.5,4.9,3.55,0.97
+tirodi,GEO-TIR-0065,79.6989,21.67302,242.6,98,Mansar Quartz-Mica Schist,33.0,6.8,3.1,0.77
+tirodi,GEO-TIR-0066,79.70154,21.67581,173.7,168,Gondite Manganese Reef Horizon,32.7,4.6,3.6,0.9
+tirodi,GEO-TIR-0067,79.71825,21.68704,249.2,94,Mansar Quartz-Mica Schist,32.3,5.8,2.99,0.81
+tirodi,GEO-TIR-0068,79.72099,21.69608,128.3,214,Gondite Manganese Reef Horizon,31.1,4.8,3.42,0.9
+tirodi,GEO-TIR-0069,79.70632,21.69145,211.0,129,Gondite Manganese Reef Horizon,38.8,5.4,3.44,0.88
+tirodi,GEO-TIR-0070,79.70415,21.69818,137.9,199,Gondite Manganese Reef Horizon,31.3,4.6,3.91,0.89
+tirodi,GEO-TIR-0071,79.69943,21.6782,124.4,218,Gondite Manganese Reef Horizon,31.0,5.2,3.93,0.89
+tirodi,GEO-TIR-0072,79.69811,21.69332,68.5,273,Hydrothermal Manganiferous Breccia,28.1,6.7,3.03,0.7
+tirodi,GEO-TIR-0073,79.70674,21.69626,47.6,291,Tirodi Crystalline Gneiss Basement,17.8,7.1,2.98,0.7
+tirodi,GEO-TIR-0074,79.69896,21.69134,10.7,327,Tirodi Crystalline Gneiss Basement,20.6,10.0,2.98,0.73
+tirodi,GEO-TIR-0075,79.69932,21.68145,80.0,262,Hydrothermal Manganiferous Breccia,29.2,7.2,3.5,0.75
+tirodi,GEO-TIR-0076,79.69337,21.68628,210.4,128,Gondite Manganese Reef Horizon,36.4,5.9,4.05,0.9
+tirodi,GEO-TIR-0077,79.71886,21.67485,198.8,139,Gondite Manganese Reef Horizon,36.4,6.1,3.71,0.93
+tirodi,GEO-TIR-0078,79.70513,21.69286,244.6,97,Mansar Quartz-Mica Schist,33.5,6.7,3.16,0.86
+tirodi,GEO-TIR-0079,79.69267,21.67321,73.3,268,Hydrothermal Manganiferous Breccia,26.7,6.7,3.2,0.83
+tirodi,GEO-TIR-0080,79.71828,21.68242,22.8,315,Tirodi Crystalline Gneiss Basement,20.3,7.7,2.67,0.65
+tirodi,GEO-TIR-0081,79.71593,21.6766,181.5,159,Gondite Manganese Reef Horizon,35.5,5.0,3.74,0.91
+tirodi,GEO-TIR-0082,79.70402,21.67793,126.2,214,Gondite Manganese Reef Horizon,30.3,6.0,3.64,0.95
+tirodi,GEO-TIR-0083,79.71895,21.69763,108.8,235,Hydrothermal Manganiferous Breccia,29.0,7.8,3.2,0.75
+tirodi,GEO-TIR-0084,79.7158,21.69703,322.4,18,Surface Lateritic Overburden,17.0,7.9,2.45,0.8
+tirodi,GEO-TIR-0085,79.69302,21.69085,254.8,86,Mansar Quartz-Mica Schist,34.8,5.7,2.87,0.82
+tirodi,GEO-TIR-0086,79.71915,21.69756,225.9,114,Gondite Manganese Reef Horizon,40.6,5.1,3.44,0.89
+tirodi,GEO-TIR-0087,79.70474,21.6798,91.2,246,Hydrothermal Manganiferous Breccia,28.8,7.1,3.18,0.82
+tirodi,GEO-TIR-0088,79.70532,21.68352,53.3,289,Hydrothermal Manganiferous Breccia,27.4,6.5,3.1,0.71
+tirodi,GEO-TIR-0089,79.70546,21.69823,167.9,171,Gondite Manganese Reef Horizon,30.9,5.9,3.98,0.92
+tirodi,GEO-TIR-0090,79.7001,21.70098,172.7,168,Gondite Manganese Reef Horizon,35.0,4.6,3.73,0.92
+tirodi,GEO-TIR-0091,79.71069,21.70213,274.4,69,Mansar Quartz-Mica Schist,31.3,5.6,2.97,0.77
+tirodi,GEO-TIR-0092,79.71915,21.69285,119.6,220,Gondite Manganese Reef Horizon,30.8,5.4,3.68,0.96
+tirodi,GEO-TIR-0093,79.70935,21.6842,52.1,287,Hydrothermal Manganiferous Breccia,27.7,6.6,3.21,0.8
+tirodi,GEO-TIR-0094,79.6931,21.68486,104.2,235,Hydrothermal Manganiferous Breccia,27.6,7.6,3.02,0.76
+tirodi,GEO-TIR-0095,79.71738,21.68971,269.0,71,Mansar Quartz-Mica Schist,29.1,7.0,3.18,0.78
+tirodi,GEO-TIR-0096,79.71903,21.70049,31.7,311,Tirodi Crystalline Gneiss Basement,20.9,8.4,2.9,0.68
+tirodi,GEO-TIR-0097,79.70385,21.69494,98.4,241,Hydrothermal Manganiferous Breccia,28.3,7.6,3.27,0.83
+tirodi,GEO-TIR-0098,79.70237,21.70045,182.3,159,Gondite Manganese Reef Horizon,32.9,5.3,3.76,0.91
+tirodi,GEO-TIR-0099,79.70076,21.67418,137.0,206,Gondite Manganese Reef Horizon,30.8,5.1,3.87,0.96
+tirodi,GEO-TIR-0100,79.70301,21.6965,8.1,332,Tirodi Crystalline Gneiss Basement,18.8,9.3,2.88,0.62
+tirodi,GEO-TIR-0101,79.69644,21.69168,9.6,329,Tirodi Crystalline Gneiss Basement,18.0,8.9,2.77,0.62
+tirodi,GEO-TIR-0102,79.70354,21.69572,266.3,72,Mansar Quartz-Mica Schist,30.8,5.5,3.06,0.83
+tirodi,GEO-TIR-0103,79.69801,21.67371,270.3,69,Mansar Quartz-Mica Schist,30.1,7.2,3.17,0.8
+tirodi,GEO-TIR-0104,79.69218,21.69022,308.3,31,Surface Lateritic Overburden,18.6,8.2,2.4,0.77
+tirodi,GEO-TIR-0105,79.69221,21.69065,223.7,117,Gondite Manganese Reef Horizon,39.5,5.4,3.59,0.95
+tirodi,GEO-TIR-0106,79.71813,21.68424,233.7,105,Mansar Quartz-Mica Schist,32.3,6.4,3.13,0.85
+tirodi,GEO-TIR-0107,79.69778,21.69752,246.0,90,Mansar Quartz-Mica Schist,31.7,7.2,2.83,0.78
+tirodi,GEO-TIR-0108,79.69254,21.68778,69.1,267,Hydrothermal Manganiferous Breccia,27.2,6.7,3.26,0.72
+tirodi,GEO-TIR-0109,79.71516,21.6958,133.7,206,Gondite Manganese Reef Horizon,31.4,5.0,3.65,0.92
+tirodi,GEO-TIR-0110,79.6927,21.67404,101.1,242,Hydrothermal Manganiferous Breccia,27.0,6.2,3.32,0.74
+tirodi,GEO-TIR-0111,79.71787,21.68192,28.1,311,Tirodi Crystalline Gneiss Basement,17.5,7.8,2.87,0.72
+tirodi,GEO-TIR-0112,79.71573,21.68491,101.0,240,Hydrothermal Manganiferous Breccia,27.2,6.6,3.34,0.74
+tirodi,GEO-TIR-0113,79.72078,21.67769,299.2,42,Surface Lateritic Overburden,20.7,8.2,2.75,0.69
+tirodi,GEO-TIR-0114,79.70958,21.68534,165.3,171,Gondite Manganese Reef Horizon,31.6,5.5,4.0,0.9
+tirodi,GEO-TIR-0115,79.71167,21.6977,14.9,328,Tirodi Crystalline Gneiss Basement,19.6,7.1,2.93,0.61
+tirodi,GEO-TIR-0116,79.72076,21.68182,28.3,313,Tirodi Crystalline Gneiss Basement,18.3,7.9,2.95,0.62
+tirodi,GEO-TIR-0117,79.72037,21.69322,282.1,57,Mansar Quartz-Mica Schist,30.2,6.9,3.04,0.83
+tirodi,GEO-TIR-0118,79.70826,21.68587,98.8,243,Hydrothermal Manganiferous Breccia,27.1,6.3,3.35,0.73
+tirodi,GEO-TIR-0119,79.71341,21.67956,118.1,224,Hydrothermal Manganiferous Breccia,28.4,5.9,3.37,0.75
+tirodi,GEO-TIR-0120,79.71887,21.68296,164.4,175,Gondite Manganese Reef Horizon,32.3,4.6,3.58,0.88
+ukwa,GEO-UKW-0001,80.46479,21.96844,132.9,226,Hydrothermal Manganiferous Breccia,27.0,7.3,3.48,0.71
+ukwa,GEO-UKW-0002,80.46931,21.96892,45.5,313,Tirodi Crystalline Gneiss Basement,19.2,7.3,2.84,0.65
+ukwa,GEO-UKW-0003,80.4642,21.9563,36.0,322,Tirodi Crystalline Gneiss Basement,20.4,8.8,2.88,0.74
+ukwa,GEO-UKW-0004,80.47229,21.97239,79.8,280,Hydrothermal Manganiferous Breccia,28.3,5.8,3.14,0.73
+ukwa,GEO-UKW-0005,80.47101,21.9698,126.3,236,Hydrothermal Manganiferous Breccia,26.5,7.0,3.17,0.72
+ukwa,GEO-UKW-0006,80.47695,21.97955,312.5,46,Mansar Quartz-Mica Schist,26.3,6.3,3.09,0.85
+ukwa,GEO-UKW-0007,80.452,21.97336,303.4,54,Mansar Quartz-Mica Schist,25.6,5.5,3.02,0.86
+ukwa,GEO-UKW-0008,80.46897,21.96743,25.2,335,Tirodi Crystalline Gneiss Basement,18.2,8.3,2.84,0.66
+ukwa,GEO-UKW-0009,80.45485,21.96145,264.9,95,Mansar Quartz-Mica Schist,31.7,6.6,3.15,0.88
+ukwa,GEO-UKW-0010,80.47637,21.96181,148.4,210,Gondite Manganese Reef Horizon,34.2,5.6,3.88,0.91
+ukwa,GEO-UKW-0011,80.47097,21.95585,304.5,59,Mansar Quartz-Mica Schist,27.9,6.9,3.1,0.86
+ukwa,GEO-UKW-0012,80.47391,21.97058,177.1,182,Gondite Manganese Reef Horizon,35.6,5.5,3.99,0.9
+ukwa,GEO-UKW-0013,80.4809,21.95524,308.1,57,Mansar Quartz-Mica Schist,26.0,6.6,2.83,0.76
+ukwa,GEO-UKW-0014,80.46957,21.96833,311.3,50,Mansar Quartz-Mica Schist,24.7,7.1,2.82,0.81
+ukwa,GEO-UKW-0015,80.45957,21.96123,116.7,245,Hydrothermal Manganiferous Breccia,28.3,7.6,3.29,0.81
+ukwa,GEO-UKW-0016,80.47123,21.96599,224.2,137,Gondite Manganese Reef Horizon,44.0,5.4,3.65,0.97
+ukwa,GEO-UKW-0017,80.46147,21.95371,339.5,22,Surface Lateritic Overburden,19.0,7.5,2.67,0.71
+ukwa,GEO-UKW-0018,80.46563,21.96437,92.4,268,Hydrothermal Manganiferous Breccia,26.8,7.9,3.19,0.71
+ukwa,GEO-UKW-0019,80.46718,21.95686,227.9,128,Gondite Manganese Reef Horizon,45.5,5.2,3.48,0.97
+ukwa,GEO-UKW-0020,80.46362,21.97179,211.0,153,Gondite Manganese Reef Horizon,41.2,4.6,3.97,0.97
+ukwa,GEO-UKW-0021,80.48064,21.95654,132.9,232,Hydrothermal Manganiferous Breccia,27.4,7.1,3.2,0.75
+ukwa,GEO-UKW-0022,80.46375,21.95688,301.3,57,Mansar Quartz-Mica Schist,27.6,5.6,3.02,0.83
+ukwa,GEO-UKW-0023,80.46931,21.96236,53.4,307,Tirodi Crystalline Gneiss Basement,20.9,7.3,2.83,0.74
+ukwa,GEO-UKW-0024,80.46089,21.9563,212.6,147,Gondite Manganese Reef Horizon,41.9,5.5,3.46,0.97
+ukwa,GEO-UKW-0025,80.4696,21.97685,92.9,267,Hydrothermal Manganiferous Breccia,27.0,7.2,3.41,0.82
+ukwa,GEO-UKW-0026,80.48023,21.95573,254.1,107,Mansar Quartz-Mica Schist,31.4,5.6,2.96,0.82
+ukwa,GEO-UKW-0027,80.48008,21.97217,153.8,209,Gondite Manganese Reef Horizon,36.1,6.1,3.42,0.98
+ukwa,GEO-UKW-0028,80.47643,21.96041,316.7,43,Surface Lateritic Overburden,17.0,8.4,2.55,0.66
+ukwa,GEO-UKW-0029,80.47907,21.9635,144.4,215,Gondite Manganese Reef Horizon,34.3,4.6,3.97,0.96
+ukwa,GEO-UKW-0030,80.46259,21.97599,151.5,211,Gondite Manganese Reef Horizon,36.4,5.6,3.95,0.94
+ukwa,GEO-UKW-0031,80.48074,21.96823,204.3,153,Gondite Manganese Reef Horizon,42.7,5.6,3.8,0.9
+ukwa,GEO-UKW-0032,80.47013,21.97491,322.9,34,Surface Lateritic Overburden,18.2,8.5,2.43,0.72
+ukwa,GEO-UKW-0033,80.45753,21.95807,289.9,69,Mansar Quartz-Mica Schist,28.0,6.3,3.0,0.81
+ukwa,GEO-UKW-0034,80.47717,21.95636,215.5,143,Gondite Manganese Reef Horizon,44.0,4.6,3.8,0.94
+ukwa,GEO-UKW-0035,80.46874,21.98079,55.2,309,Tirodi Crystalline Gneiss Basement,19.9,7.2,2.98,0.73
+ukwa,GEO-UKW-0036,80.45432,21.9571,242.7,114,Gondite Manganese Reef Horizon,47.2,5.1,4.09,0.95
+ukwa,GEO-UKW-0037,80.45628,21.96346,26.4,332,Tirodi Crystalline Gneiss Basement,19.3,7.0,2.87,0.7
+ukwa,GEO-UKW-0038,80.46669,21.96446,208.2,152,Gondite Manganese Reef Horizon,42.9,5.7,3.62,0.92
+ukwa,GEO-UKW-0039,80.45491,21.95737,267.2,94,Mansar Quartz-Mica Schist,32.5,6.6,2.99,0.87
+ukwa,GEO-UKW-0040,80.46042,21.9625,322.0,39,Surface Lateritic Overburden,17.7,9.0,2.49,0.71
+ukwa,GEO-UKW-0041,80.48135,21.95743,206.8,152,Gondite Manganese Reef Horizon,43.6,5.7,3.69,0.94
+ukwa,GEO-UKW-0042,80.47612,21.97799,67.3,293,Tirodi Crystalline Gneiss Basement,18.8,7.5,2.77,0.68
+ukwa,GEO-UKW-0043,80.46759,21.9819,211.8,149,Gondite Manganese Reef Horizon,41.9,5.2,3.49,0.9
+ukwa,GEO-UKW-0044,80.47839,21.97921,29.7,333,Tirodi Crystalline Gneiss Basement,17.8,8.7,2.77,0.65
+ukwa,GEO-UKW-0045,80.46927,21.95684,152.1,213,Gondite Manganese Reef Horizon,34.5,5.5,3.55,0.95
+ukwa,GEO-UKW-0046,80.46264,21.97541,333.8,23,Surface Lateritic Overburden,18.3,8.6,2.63,0.77
+ukwa,GEO-UKW-0047,80.4703,21.96665,98.2,261,Hydrothermal Manganiferous Breccia,27.3,6.7,3.3,0.78
+ukwa,GEO-UKW-0048,80.45219,21.96689,251.0,111,Gondite Manganese Reef Horizon,45.9,4.5,3.81,0.97
+ukwa,GEO-UKW-0049,80.46615,21.95474,288.7,73,Mansar Quartz-Mica Schist,31.2,6.3,3.01,0.87
+ukwa,GEO-UKW-0050,80.45268,21.97785,281.9,80,Mansar Quartz-Mica Schist,29.8,6.7,3.12,0.81
+ukwa,GEO-UKW-0051,80.47939,21.96916,92.9,266,Hydrothermal Manganiferous Breccia,27.1,6.2,3.12,0.75
+ukwa,GEO-UKW-0052,80.46964,21.96479,158.5,200,Gondite Manganese Reef Horizon,36.7,4.6,3.52,0.93
+ukwa,GEO-UKW-0053,80.4605,21.96401,276.7,86,Mansar Quartz-Mica Schist,31.8,7.1,3.17,0.75
+ukwa,GEO-UKW-0054,80.47859,21.96576,297.8,66,Mansar Quartz-Mica Schist,28.7,6.9,3.17,0.88
+ukwa,GEO-UKW-0055,80.46062,21.97839,103.4,256,Hydrothermal Manganiferous Breccia,28.5,6.3,3.07,0.83
+ukwa,GEO-UKW-0056,80.47225,21.95917,179.6,182,Gondite Manganese Reef Horizon,38.6,5.0,3.69,0.9
+ukwa,GEO-UKW-0057,80.47137,21.98004,20.0,342,Tirodi Crystalline Gneiss Basement,18.4,9.7,2.88,0.74
+ukwa,GEO-UKW-0058,80.45592,21.97215,215.1,146,Gondite Manganese Reef Horizon,45.4,4.9,3.75,0.91
+ukwa,GEO-UKW-0059,80.47136,21.97436,201.0,158,Gondite Manganese Reef Horizon,39.5,5.0,3.54,0.96
+ukwa,GEO-UKW-0060,80.46311,21.97454,38.0,319,Tirodi Crystalline Gneiss Basement,17.8,7.2,2.79,0.62
+ukwa,GEO-UKW-0061,80.46151,21.97626,261.2,98,Mansar Quartz-Mica Schist,32.6,7.2,3.14,0.85
+ukwa,GEO-UKW-0062,80.47271,21.98035,293.7,64,Mansar Quartz-Mica Schist,29.0,6.5,3.06,0.82
+ukwa,GEO-UKW-0063,80.46136,21.97607,304.7,55,Mansar Quartz-Mica Schist,27.0,6.8,3.1,0.86
+ukwa,GEO-UKW-0064,80.46139,21.97776,29.8,331,Tirodi Crystalline Gneiss Basement,18.3,9.6,2.87,0.64
+ukwa,GEO-UKW-0065,80.45707,21.95361,52.6,307,Tirodi Crystalline Gneiss Basement,21.4,10.0,2.75,0.63
+ukwa,GEO-UKW-0066,80.46847,21.95768,65.2,295,Tirodi Crystalline Gneiss Basement,21.4,9.1,2.78,0.72
+ukwa,GEO-UKW-0067,80.47328,21.95516,68.9,292,Tirodi Crystalline Gneiss Basement,20.3,9.4,2.75,0.73
+ukwa,GEO-UKW-0068,80.45538,21.96423,103.1,257,Hydrothermal Manganiferous Breccia,28.2,7.2,3.14,0.74
+ukwa,GEO-UKW-0069,80.46095,21.97527,28.0,330,Tirodi Crystalline Gneiss Basement,18.8,7.0,2.82,0.75
+ukwa,GEO-UKW-0070,80.46272,21.96232,216.6,138,Gondite Manganese Reef Horizon,46.0,6.0,3.75,0.93
+ukwa,GEO-UKW-0071,80.48148,21.9595,299.4,61,Mansar Quartz-Mica Schist,26.5,6.7,2.97,0.8
+ukwa,GEO-UKW-0072,80.45787,21.97661,81.0,277,Hydrothermal Manganiferous Breccia,30.2,6.8,3.13,0.81
+ukwa,GEO-UKW-0073,80.46163,21.96988,174.0,186,Gondite Manganese Reef Horizon,37.4,6.1,3.64,0.89
+ukwa,GEO-UKW-0074,80.46456,21.95859,278.0,83,Mansar Quartz-Mica Schist,30.8,5.8,2.85,0.76
+ukwa,GEO-UKW-0075,80.47986,21.96492,103.1,257,Hydrothermal Manganiferous Breccia,26.8,6.6,3.19,0.79
+ukwa,GEO-UKW-0076,80.45532,21.95307,104.8,255,Hydrothermal Manganiferous Breccia,27.5,7.6,3.17,0.77
+ukwa,GEO-UKW-0077,80.46727,21.97784,118.6,241,Hydrothermal Manganiferous Breccia,29.8,8.0,3.24,0.85
+ukwa,GEO-UKW-0078,80.45946,21.96815,93.6,267,Hydrothermal Manganiferous Breccia,27.3,6.6,3.0,0.76
+ukwa,GEO-UKW-0079,80.47657,21.96212,264.9,93,Mansar Quartz-Mica Schist,30.2,6.0,2.83,0.77
+ukwa,GEO-UKW-0080,80.46074,21.96452,160.8,201,Gondite Manganese Reef Horizon,36.1,6.0,3.75,0.91
+ukwa,GEO-UKW-0081,80.4806,21.95381,307.9,50,Mansar Quartz-Mica Schist,25.0,6.1,2.87,0.85
+ukwa,GEO-UKW-0082,80.47105,21.95572,305.0,56,Mansar Quartz-Mica Schist,26.2,6.6,2.83,0.87
+ukwa,GEO-UKW-0083,80.47779,21.95706,266.1,97,Mansar Quartz-Mica Schist,31.7,7.4,3.16,0.86
+ukwa,GEO-UKW-0084,80.45798,21.96053,46.3,312,Tirodi Crystalline Gneiss Basement,17.4,8.4,2.82,0.62
+ukwa,GEO-UKW-0085,80.45703,21.96131,116.9,246,Hydrothermal Manganiferous Breccia,28.0,7.4,3.32,0.72
+ukwa,GEO-UKW-0086,80.45462,21.96332,161.0,198,Gondite Manganese Reef Horizon,36.4,5.0,4.07,0.98
+ukwa,GEO-UKW-0087,80.45329,21.95737,228.1,133,Gondite Manganese Reef Horizon,45.5,4.7,3.93,0.89
+ukwa,GEO-UKW-0088,80.46345,21.97526,19.4,343,Tirodi Crystalline Gneiss Basement,17.4,7.7,2.66,0.74
+ukwa,GEO-UKW-0089,80.47862,21.97076,35.5,322,Tirodi Crystalline Gneiss Basement,17.9,9.2,2.74,0.62
+ukwa,GEO-UKW-0090,80.47643,21.96346,145.4,214,Gondite Manganese Reef Horizon,35.7,4.9,3.61,0.94
+ukwa,GEO-UKW-0091,80.47288,21.96288,143.0,216,Gondite Manganese Reef Horizon,36.7,5.3,3.96,0.9
+ukwa,GEO-UKW-0092,80.47851,21.96229,306.8,51,Mansar Quartz-Mica Schist,27.7,5.6,3.04,0.78
+ukwa,GEO-UKW-0093,80.45442,21.95641,214.9,144,Gondite Manganese Reef Horizon,43.5,6.0,3.4,0.93
+ukwa,GEO-UKW-0094,80.46123,21.97978,305.3,56,Mansar Quartz-Mica Schist,25.8,6.6,3.15,0.82
+ukwa,GEO-UKW-0095,80.45786,21.95699,165.5,194,Gondite Manganese Reef Horizon,37.5,5.1,3.93,0.91
+ukwa,GEO-UKW-0096,80.47414,21.96992,26.5,333,Tirodi Crystalline Gneiss Basement,17.2,7.8,2.9,0.74
+ukwa,GEO-UKW-0097,80.46226,21.98085,202.8,156,Gondite Manganese Reef Horizon,38.1,5.1,4.04,0.94
+ukwa,GEO-UKW-0098,80.47635,21.96226,92.3,270,Hydrothermal Manganiferous Breccia,27.7,6.6,3.4,0.84
+ukwa,GEO-UKW-0099,80.47425,21.97615,136.3,223,Hydrothermal Manganiferous Breccia,29.4,5.9,3.2,0.8
+ukwa,GEO-UKW-0100,80.47447,21.96271,192.7,165,Gondite Manganese Reef Horizon,40.5,5.8,3.78,0.9
+ukwa,GEO-UKW-0101,80.47446,21.96648,246.2,112,Gondite Manganese Reef Horizon,43.9,6.0,3.77,0.95
+ukwa,GEO-UKW-0102,80.4654,21.9557,262.5,99,Mansar Quartz-Mica Schist,30.4,7.2,3.02,0.77
+ukwa,GEO-UKW-0103,80.47001,21.97394,98.3,258,Hydrothermal Manganiferous Breccia,29.0,7.2,3.03,0.83
+ukwa,GEO-UKW-0104,80.46184,21.97647,302.7,54,Mansar Quartz-Mica Schist,28.4,6.4,3.14,0.79
+ukwa,GEO-UKW-0105,80.45464,21.9753,53.3,306,Tirodi Crystalline Gneiss Basement,19.6,8.5,2.67,0.71
+ukwa,GEO-UKW-0106,80.47106,21.95789,167.3,194,Gondite Manganese Reef Horizon,34.5,6.0,3.87,0.92
+ukwa,GEO-UKW-0107,80.47358,21.9799,22.6,334,Tirodi Crystalline Gneiss Basement,19.4,7.2,2.89,0.62
+ukwa,GEO-UKW-0108,80.46797,21.96893,241.7,116,Gondite Manganese Reef Horizon,47.5,5.1,3.83,0.98
+ukwa,GEO-UKW-0109,80.47968,21.97487,99.5,258,Hydrothermal Manganiferous Breccia,28.5,7.3,3.31,0.79
+ukwa,GEO-UKW-0110,80.46786,21.96203,178.2,179,Gondite Manganese Reef Horizon,38.1,5.9,3.53,0.89
+ukwa,GEO-UKW-0111,80.47175,21.96513,199.9,161,Gondite Manganese Reef Horizon,38.6,5.1,4.05,0.97
+ukwa,GEO-UKW-0112,80.46184,21.97411,176.9,183,Gondite Manganese Reef Horizon,36.9,5.1,4.04,0.88
+ukwa,GEO-UKW-0113,80.47422,21.96655,164.8,200,Gondite Manganese Reef Horizon,36.9,4.9,3.74,0.92
+ukwa,GEO-UKW-0114,80.45518,21.97712,318.6,40,Surface Lateritic Overburden,17.4,8.0,2.71,0.66
+ukwa,GEO-UKW-0115,80.45558,21.95309,154.4,208,Gondite Manganese Reef Horizon,35.9,4.9,3.7,0.88
+ukwa,GEO-UKW-0116,80.46933,21.96913,192.5,165,Gondite Manganese Reef Horizon,38.6,4.7,3.66,0.89
+ukwa,GEO-UKW-0117,80.48099,21.9811,89.6,271,Hydrothermal Manganiferous Breccia,29.2,7.3,3.14,0.79
+ukwa,GEO-UKW-0118,80.46646,21.97473,191.1,167,Gondite Manganese Reef Horizon,38.3,6.1,3.44,0.93
+ukwa,GEO-UKW-0119,80.47031,21.96839,38.5,320,Tirodi Crystalline Gneiss Basement,17.7,10.0,2.82,0.68
+ukwa,GEO-UKW-0120,80.45248,21.98091,314.7,48,Mansar Quartz-Mica Schist,24.1,5.7,3.07,0.87

@@ -1,0 +1,76 @@
+mine_id,sample_id,latitude,longitude,depth_m,lithology,mn_grade,assay_confidence,lineament_distance,terrain_score,spectral_signal,prospectivity_label,depth_zone,grade_anomaly,lineament_proximity_score
+ukwa,EXP-UKW-0055,21.98386,80.47298,202,Basement Gneiss,28.1,0.76,638.8,0.84,0.505,MEDIUM PROSPECT (UNFC-122 Probable),Zone-2_GonditeReef,-3.4,0.681
+ukwa,EXP-UKW-0021,21.94997,80.45002,47,Basement Gneiss,25.1,0.8,1702.6,0.94,0.444,LOW PROSPECT (UNFC-333 Reconnaissance),Zone-0_Overburden,-6.4,0.149
+ukwa,EXP-UKW-0074,21.96057,80.45176,179,Basement Gneiss,33.3,0.82,361.3,0.81,0.584,MEDIUM PROSPECT (UNFC-122 Probable),Zone-2_GonditeReef,1.8,0.819
+dongri-buzurg,EXP-DON-0075,21.52181,79.69793,106,Quartzite Schist,36.6,0.89,1003.7,0.89,0.689,MEDIUM PROSPECT (UNFC-122 Probable),Zone-1_Schist,4.7,0.498
+balaghat,EXP-BAL-0047,21.78303,80.19232,33,Basement Gneiss,22.9,0.74,1706.9,0.84,0.35,LOW PROSPECT (UNFC-333 Reconnaissance),Zone-0_Overburden,-8.8,0.147
+tirodi,EXP-TIR-0056,21.68879,79.69438,288,Basement Gneiss,23.3,0.74,1015.9,0.81,0.39,LOW PROSPECT (UNFC-333 Reconnaissance),Zone-3_Breccia,-4.6,0.492
+tirodi,EXP-TIR-0021,21.70081,79.70393,116,Mansar Gondite Horizon,34.4,0.95,1225.0,0.94,0.76,MEDIUM PROSPECT (UNFC-122 Probable),Zone-2_GonditeReef,6.5,0.387
+tirodi,EXP-TIR-0054,21.67777,79.68783,230,Basement Gneiss,25.3,0.74,1062.2,0.86,0.367,LOW PROSPECT (UNFC-333 Reconnaissance),Zone-3_Breccia,-2.6,0.469
+ukwa,EXP-UKW-0072,21.98312,80.44485,156,Quartzite Schist,36.5,0.88,315.1,0.84,0.785,MEDIUM PROSPECT (UNFC-122 Probable),Zone-2_GonditeReef,5.0,0.842
+tirodi,EXP-TIR-0080,21.70094,79.69512,136,Quartzite Schist,34.0,0.88,403.1,0.91,0.718,MEDIUM PROSPECT (UNFC-122 Probable),Zone-2_GonditeReef,6.1,0.798
+tirodi,EXP-TIR-0045,21.70043,79.69688,25,Basement Gneiss,28.2,0.8,513.5,0.74,0.523,MEDIUM PROSPECT (UNFC-122 Probable),Zone-0_Overburden,0.3,0.743
+gumgaon,EXP-GUM-0017,21.36446,79.02476,65,Basement Gneiss,28.4,0.78,1067.8,0.88,0.518,LOW PROSPECT (UNFC-333 Reconnaissance),Zone-1_Schist,-0.8,0.466
+ukwa,EXP-UKW-0094,21.95129,80.46063,317,Basement Gneiss,25.6,0.76,549.8,0.7,0.459,MEDIUM PROSPECT (UNFC-122 Probable),Zone-4_Basement,-5.9,0.725
+tirodi,EXP-TIR-0049,21.69464,79.71619,26,Basement Gneiss,24.2,0.81,1704.9,0.87,0.439,LOW PROSPECT (UNFC-333 Reconnaissance),Zone-0_Overburden,-3.7,0.148
+tirodi,EXP-TIR-0007,21.67674,79.70073,157,Basement Gneiss,25.8,0.81,1751.0,0.89,0.481,LOW PROSPECT (UNFC-333 Reconnaissance),Zone-2_GonditeReef,-2.1,0.125
+gumgaon,EXP-GUM-0087,21.39381,79.00326,241,Basement Gneiss,28.2,0.74,147.0,0.93,0.489,MEDIUM PROSPECT (UNFC-122 Probable),Zone-3_Breccia,-1.0,0.926
+gumgaon,EXP-GUM-0091,21.38733,79.00602,332,Basement Gneiss,26.0,0.75,309.2,0.66,0.47,MEDIUM PROSPECT (UNFC-122 Probable),Zone-4_Basement,-3.2,0.845
+ukwa,EXP-UKW-0096,21.97089,80.48722,282,Basement Gneiss,28.5,0.76,553.0,0.78,0.42,MEDIUM PROSPECT (UNFC-122 Probable),Zone-3_Breccia,-3.0,0.724
+dongri-buzurg,EXP-DON-0095,21.53443,79.71472,149,Basement Gneiss,26.3,0.75,1607.9,0.8,0.348,LOW PROSPECT (UNFC-333 Reconnaissance),Zone-2_GonditeReef,-5.6,0.196
+gumgaon,EXP-GUM-0002,21.36609,78.99606,239,Basement Gneiss,26.8,0.73,13.1,0.88,0.521,MEDIUM PROSPECT (UNFC-122 Probable),Zone-3_Breccia,-2.4,0.993
+balaghat,EXP-BAL-0084,21.7956,80.17077,128,Quartzite Schist,36.7,0.86,558.1,0.91,0.715,MEDIUM PROSPECT (UNFC-122 Probable),Zone-2_GonditeReef,5.0,0.721
+balaghat,EXP-BAL-0019,21.80998,80.18533,41,Basement Gneiss,26.8,0.73,620.8,0.73,0.457,MEDIUM PROSPECT (UNFC-122 Probable),Zone-0_Overburden,-4.9,0.69
+ukwa,EXP-UKW-0081,21.95448,80.45516,25,Basement Gneiss,27.6,0.77,713.9,0.86,0.47,MEDIUM PROSPECT (UNFC-122 Probable),Zone-0_Overburden,-3.9,0.643
+gumgaon,EXP-GUM-0093,21.3609,79.03514,253,Basement Gneiss,25.9,0.76,476.7,0.74,0.487,MEDIUM PROSPECT (UNFC-122 Probable),Zone-3_Breccia,-3.3,0.762
+tirodi,EXP-TIR-0097,21.67196,79.721,199,Basement Gneiss,26.3,0.73,355.1,0.94,0.453,MEDIUM PROSPECT (UNFC-122 Probable),Zone-2_GonditeReef,-1.6,0.822
+dongri-buzurg,EXP-DON-0028,21.52895,79.69796,107,Quartzite Schist,40.2,0.88,209.0,0.81,0.721,HIGH PROSPECT (UNFC-111 Proved),Zone-1_Schist,8.3,0.896
+ukwa,EXP-UKW-0009,21.97706,80.47601,153,Mansar Gondite Horizon,37.8,0.89,171.9,0.73,0.771,HIGH PROSPECT (UNFC-111 Proved),Zone-2_GonditeReef,6.3,0.914
+tirodi,EXP-TIR-0078,21.68093,79.71383,100,Mansar Gondite Horizon,38.2,0.96,40.9,0.72,0.95,HIGH PROSPECT (UNFC-111 Proved),Zone-1_Schist,10.3,0.98
+balaghat,EXP-BAL-0009,21.79355,80.18733,69,Basement Gneiss,26.7,0.76,1013.0,0.89,0.426,LOW PROSPECT (UNFC-333 Reconnaissance),Zone-1_Schist,-5.0,0.494
+ukwa,EXP-UKW-0018,21.97532,80.48137,168,Quartzite Schist,34.0,0.83,489.0,0.88,0.593,MEDIUM PROSPECT (UNFC-122 Probable),Zone-2_GonditeReef,2.5,0.756
+tirodi,EXP-TIR-0075,21.69944,79.68577,160,Basement Gneiss,27.9,0.78,651.7,0.87,0.548,MEDIUM PROSPECT (UNFC-122 Probable),Zone-2_GonditeReef,0.0,0.674
+tirodi,EXP-TIR-0062,21.67441,79.69333,177,Basement Gneiss,27.6,0.78,911.9,0.67,0.452,LOW PROSPECT (UNFC-333 Reconnaissance),Zone-2_GonditeReef,-0.3,0.544
+tirodi,EXP-TIR-0058,21.67859,79.7197,268,Basement Gneiss,26.5,0.72,257.3,0.69,0.495,MEDIUM PROSPECT (UNFC-122 Probable),Zone-3_Breccia,-1.4,0.871
+ukwa,EXP-UKW-0002,21.97409,80.47557,224,Basement Gneiss,21.7,0.73,1601.2,0.9,0.33,LOW PROSPECT (UNFC-333 Reconnaissance),Zone-3_Breccia,-9.8,0.199
+gumgaon,EXP-GUM-0054,21.38405,79.01912,45,Basement Gneiss,29.3,0.77,570.4,0.84,0.534,MEDIUM PROSPECT (UNFC-122 Probable),Zone-0_Overburden,0.1,0.715
+balaghat,EXP-BAL-0037,21.824,80.1771,143,Mansar Gondite Horizon,35.5,0.91,1395.0,0.66,0.681,MEDIUM PROSPECT (UNFC-122 Probable),Zone-2_GonditeReef,3.8,0.302
+ukwa,EXP-UKW-0086,21.96706,80.44451,35,Basement Gneiss,31.2,0.76,329.3,0.93,0.465,MEDIUM PROSPECT (UNFC-122 Probable),Zone-0_Overburden,-0.3,0.835
+dongri-buzurg,EXP-DON-0047,21.52277,79.74027,108,Quartzite Schist,39.6,0.85,474.3,0.83,0.718,MEDIUM PROSPECT (UNFC-122 Probable),Zone-1_Schist,7.7,0.763
+ukwa,EXP-UKW-0064,21.96317,80.44623,216,Basement Gneiss,27.7,0.76,598.8,0.93,0.425,MEDIUM PROSPECT (UNFC-122 Probable),Zone-2_GonditeReef,-3.8,0.701
+gumgaon,EXP-GUM-0073,21.40032,79.00996,41,Basement Gneiss,24.6,0.74,1506.9,0.74,0.357,LOW PROSPECT (UNFC-333 Reconnaissance),Zone-0_Overburden,-4.6,0.247
+gumgaon,EXP-GUM-0053,21.37958,79.00763,244,Basement Gneiss,24.2,0.75,1017.1,0.68,0.438,LOW PROSPECT (UNFC-333 Reconnaissance),Zone-3_Breccia,-5.0,0.491
+dongri-buzurg,EXP-DON-0100,21.56492,79.71398,56,Mansar Gondite Horizon,41.5,0.97,1706.3,0.74,0.717,MEDIUM PROSPECT (UNFC-122 Probable),Zone-1_Schist,9.6,0.147
+dongri-buzurg,EXP-DON-0057,21.53549,79.72745,39,Mansar Gondite Horizon,43.8,0.91,281.0,0.66,0.85,HIGH PROSPECT (UNFC-111 Proved),Zone-0_Overburden,11.9,0.859
+balaghat,EXP-BAL-0087,21.7918,80.16823,83,Basement Gneiss,25.0,0.74,1221.7,0.95,0.377,LOW PROSPECT (UNFC-333 Reconnaissance),Zone-1_Schist,-6.7,0.389
+tirodi,EXP-TIR-0094,21.68781,79.70003,76,Mansar Gondite Horizon,37.2,0.93,588.3,0.78,0.865,MEDIUM PROSPECT (UNFC-122 Probable),Zone-1_Schist,9.3,0.706
+dongri-buzurg,EXP-DON-0018,21.56302,79.69705,51,Mansar Gondite Horizon,46.5,0.98,113.6,0.79,0.929,HIGH PROSPECT (UNFC-111 Proved),Zone-1_Schist,14.6,0.943
+balaghat,EXP-BAL-0099,21.8105,80.18687,306,Basement Gneiss,26.6,0.73,825.3,0.75,0.405,LOW PROSPECT (UNFC-333 Reconnaissance),Zone-4_Basement,-5.1,0.587
+balaghat,EXP-BAL-0050,21.78066,80.20092,113,Basement Gneiss,29.0,0.82,1152.1,0.86,0.519,LOW PROSPECT (UNFC-333 Reconnaissance),Zone-2_GonditeReef,-2.7,0.424
+ukwa,EXP-UKW-0085,21.94352,80.45222,132,Mansar Gondite Horizon,42.0,0.96,409.8,0.95,0.946,HIGH PROSPECT (UNFC-111 Proved),Zone-2_GonditeReef,10.5,0.795
+tirodi,EXP-TIR-0071,21.66665,79.71212,334,Basement Gneiss,21.9,0.76,1788.3,0.95,0.346,LOW PROSPECT (UNFC-333 Reconnaissance),Zone-4_Basement,-6.0,0.106
+gumgaon,EXP-GUM-0074,21.37651,79.02484,188,Quartzite Schist,31.3,0.83,277.3,0.94,0.637,MEDIUM PROSPECT (UNFC-122 Probable),Zone-2_GonditeReef,2.1,0.861
+tirodi,EXP-TIR-0048,21.7085,79.69987,328,Basement Gneiss,21.9,0.74,1692.4,0.81,0.338,LOW PROSPECT (UNFC-333 Reconnaissance),Zone-4_Basement,-6.0,0.154
+ukwa,EXP-UKW-0028,21.94296,80.45029,305,Basement Gneiss,25.1,0.73,656.5,0.68,0.416,LOW PROSPECT (UNFC-333 Reconnaissance),Zone-4_Basement,-6.4,0.672
+gumgaon,EXP-GUM-0003,21.38837,78.99983,328,Basement Gneiss,25.3,0.72,782.7,0.83,0.465,LOW PROSPECT (UNFC-333 Reconnaissance),Zone-4_Basement,-3.9,0.609
+gumgaon,EXP-GUM-0063,21.39828,78.99495,217,Basement Gneiss,28.0,0.78,146.6,0.87,0.542,MEDIUM PROSPECT (UNFC-122 Probable),Zone-2_GonditeReef,-1.2,0.927
+tirodi,EXP-TIR-0001,21.66821,79.70023,178,Basement Gneiss,25.9,0.77,945.1,0.85,0.464,LOW PROSPECT (UNFC-333 Reconnaissance),Zone-2_GonditeReef,-2.0,0.527
+ukwa,EXP-UKW-0059,21.97588,80.46066,321,Basement Gneiss,26.1,0.75,382.6,0.88,0.468,MEDIUM PROSPECT (UNFC-122 Probable),Zone-4_Basement,-5.4,0.809
+ukwa,EXP-UKW-0040,21.96521,80.47814,231,Basement Gneiss,24.6,0.72,859.5,0.81,0.439,LOW PROSPECT (UNFC-333 Reconnaissance),Zone-3_Breccia,-6.9,0.57
+ukwa,EXP-UKW-0089,21.97587,80.47029,317,Basement Gneiss,23.7,0.75,1297.0,0.66,0.347,LOW PROSPECT (UNFC-333 Reconnaissance),Zone-4_Basement,-7.8,0.352
+balaghat,EXP-BAL-0072,21.82211,80.1878,201,Mansar Gondite Horizon,43.1,0.91,401.2,0.69,0.818,HIGH PROSPECT (UNFC-111 Proved),Zone-2_GonditeReef,11.4,0.799
+balaghat,EXP-BAL-0038,21.80663,80.17453,211,Mansar Gondite Horizon,39.0,0.9,777.3,0.69,0.703,MEDIUM PROSPECT (UNFC-122 Probable),Zone-2_GonditeReef,7.3,0.611
+dongri-buzurg,EXP-DON-0077,21.54253,79.74007,308,Basement Gneiss,22.3,0.76,1699.8,0.85,0.281,LOW PROSPECT (UNFC-333 Reconnaissance),Zone-4_Basement,-9.6,0.15
+ukwa,EXP-UKW-0062,21.98214,80.49005,193,Basement Gneiss,29.7,0.78,270.0,0.7,0.464,MEDIUM PROSPECT (UNFC-122 Probable),Zone-2_GonditeReef,-1.8,0.865
+ukwa,EXP-UKW-0057,21.98841,80.48846,132,Mansar Gondite Horizon,40.4,0.98,814.8,0.98,0.784,MEDIUM PROSPECT (UNFC-122 Probable),Zone-2_GonditeReef,8.9,0.593
+tirodi,EXP-TIR-0083,21.67961,79.71568,267,Basement Gneiss,27.6,0.74,11.7,0.94,0.48,MEDIUM PROSPECT (UNFC-122 Probable),Zone-3_Breccia,-0.3,0.994
+balaghat,EXP-BAL-0004,21.79782,80.183,272,Basement Gneiss,25.0,0.73,950.4,0.85,0.426,LOW PROSPECT (UNFC-333 Reconnaissance),Zone-3_Breccia,-6.7,0.525
+ukwa,EXP-UKW-0056,21.99153,80.47984,164,Quartzite Schist,36.3,0.85,342.7,0.73,0.651,MEDIUM PROSPECT (UNFC-122 Probable),Zone-2_GonditeReef,4.8,0.829
+gumgaon,EXP-GUM-0011,21.36428,79.03171,85,Quartzite Schist,32.9,0.85,427.2,0.77,0.66,MEDIUM PROSPECT (UNFC-122 Probable),Zone-1_Schist,3.7,0.786
+balaghat,EXP-BAL-0067,21.78176,80.16152,143,Mansar Gondite Horizon,36.2,0.93,1173.8,0.78,0.709,MEDIUM PROSPECT (UNFC-122 Probable),Zone-2_GonditeReef,4.5,0.413
+dongri-buzurg,EXP-DON-0088,21.54398,79.72084,235,Basement Gneiss,29.1,0.75,33.6,0.72,0.54,MEDIUM PROSPECT (UNFC-122 Probable),Zone-3_Breccia,-2.8,0.983
+dongri-buzurg,EXP-DON-0033,21.52926,79.74578,322,Basement Gneiss,26.9,0.75,769.1,0.66,0.449,LOW PROSPECT (UNFC-333 Reconnaissance),Zone-4_Basement,-5.0,0.615
+tirodi,EXP-TIR-0069,21.66519,79.68929,165,Basement Gneiss,28.5,0.81,519.0,0.73,0.555,MEDIUM PROSPECT (UNFC-122 Probable),Zone-2_GonditeReef,0.6,0.74
+tirodi,EXP-TIR-0017,21.7075,79.69829,73,Mansar Gondite Horizon,33.3,0.94,1433.0,0.86,0.736,MEDIUM PROSPECT (UNFC-122 Probable),Zone-1_Schist,5.4,0.284
+dongri-buzurg,EXP-DON-0061,21.53808,79.71011,334,Basement Gneiss,22.6,0.73,1640.8,0.73,0.357,LOW PROSPECT (UNFC-333 Reconnaissance),Zone-4_Basement,-9.3,0.18
+ukwa,EXP-UKW-0097,21.98678,80.48746,123,Mansar Gondite Horizon,43.3,0.96,539.0,0.71,0.858,HIGH PROSPECT (UNFC-111 Proved),Zone-2_GonditeReef,11.8,0.73

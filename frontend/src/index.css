@@ -1,0 +1,162 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: dark;
+    --font-display: 'Space Grotesk', sans-serif;
+    --font-sans: 'Inter', sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+
+    /* Semantic Design Tokens */
+    --bg-primary: #0B0F14;
+    --bg-secondary: #10151C;
+    --surface-card: #151B23;
+    --surface-elevated: #1A232E;
+    --border-subtle: #222D3A;
+    --border-hover: #2D3A4B;
+
+    --accent-command: #F5A400;     /* Amber */
+    --accent-intelligence: #21D4C5; /* Cyan */
+    --accent-health: #22C55E;       /* Emerald */
+    --accent-warning: #FFB020;      /* Orange */
+    --accent-critical: #F0445E;     /* Coral Red */
+    --accent-ai: #8B7CFF;           /* Violet */
+  }
+  
+  body {
+    @apply bg-[#0B0F14] text-slate-100 font-sans tracking-tight overflow-x-hidden min-h-screen;
+    background-image: 
+      radial-gradient(circle at 10% 0%, rgba(245, 164, 0, 0.04) 0%, transparent 40%),
+      radial-gradient(circle at 90% 0%, rgba(33, 212, 197, 0.04) 0%, transparent 40%),
+      radial-gradient(circle at 50% 50%, rgba(139, 124, 255, 0.02) 0%, transparent 50%),
+      linear-gradient(180deg, #0B0F14 0%, #0E131A 50%, #0B0F14 100%);
+    background-attachment: fixed;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* Custom Sleek Industrial Scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #0B0F14;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #222D3A;
+    border-radius: 3px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #F5A400;
+  }
+}
+
+@layer components {
+  /* Precision Neutral Technical Panels & Cards */
+  .panel-surface {
+    @apply bg-[#151B23]/95 backdrop-blur-xl border border-[#222D3A] rounded-2xl transition-all duration-200 shadow-card-subtle;
+  }
+
+  .panel-surface-hover {
+    @apply panel-surface hover:border-[#2D3A4B] hover:bg-[#1A232E] hover:shadow-card-elevated;
+  }
+
+  .card-command {
+    @apply bg-[#151B23]/95 border border-[#222D3A] rounded-2xl p-5 sm:p-6 transition-all duration-200 shadow-card-subtle;
+  }
+
+  .card-command-hover {
+    @apply card-command hover:border-[#2D3A4B] hover:bg-[#1A232E] hover:shadow-card-elevated;
+  }
+
+  /* Container wrapper for widescreen command center */
+  .command-container {
+    @apply w-full max-w-[1680px] mx-auto px-4 sm:px-6 lg:px-8 xl:px-10;
+  }
+
+  /* Standardized Multi-Color Industrial Buttons */
+  .btn-command-primary {
+    @apply px-4 py-2.5 rounded-xl bg-amber-600 hover:bg-amber-500 text-[#0B0F14] font-bold text-xs uppercase tracking-wider transition-all duration-150 inline-flex items-center justify-center gap-2 shadow-md hover:shadow-glow-amber active:scale-[0.98] disabled:opacity-50 cursor-pointer;
+  }
+
+  .btn-command-secondary {
+    @apply px-4 py-2.5 rounded-xl bg-[#1A232E] hover:bg-[#222D3A] border border-[#2D3A4B] text-slate-100 font-bold text-xs uppercase tracking-wider transition-all duration-150 inline-flex items-center justify-center gap-2 shadow-sm active:scale-[0.98] disabled:opacity-50 cursor-pointer;
+  }
+
+  .btn-command-intelligence {
+    @apply px-4 py-2.5 rounded-xl bg-[#10151C] hover:bg-cyan-500/10 border border-cyan-500/50 text-cyan-400 font-bold text-xs uppercase tracking-wider transition-all duration-150 inline-flex items-center justify-center gap-2 shadow-sm hover:shadow-glow-cyan active:scale-[0.98] cursor-pointer;
+  }
+
+  .btn-command-ai {
+    @apply px-4 py-2.5 rounded-xl bg-[#10151C] hover:bg-violet-500/10 border border-violet-500/50 text-violet-400 font-bold text-xs uppercase tracking-wider transition-all duration-150 inline-flex items-center justify-center gap-2 shadow-sm hover:shadow-glow-violet active:scale-[0.98] cursor-pointer;
+  }
+
+  .btn-command-danger {
+    @apply px-4 py-2.5 rounded-xl bg-coral-500 hover:bg-coral-400 text-white font-bold text-xs uppercase tracking-wider transition-all duration-150 inline-flex items-center justify-center gap-2 shadow-md hover:shadow-glow-red active:scale-[0.98] disabled:opacity-50 cursor-pointer;
+  }
+
+  .btn-command-success {
+    @apply px-4 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-[#0B0F14] font-bold text-xs uppercase tracking-wider transition-all duration-150 inline-flex items-center justify-center gap-2 shadow-md hover:shadow-glow-green active:scale-[0.98] cursor-pointer;
+  }
+
+  .btn-command-ghost {
+    @apply px-3 py-2 rounded-xl text-slate-400 hover:text-white hover:bg-[#1A232E] transition-colors text-xs font-semibold inline-flex items-center gap-1.5 cursor-pointer;
+  }
+
+  /* Semantic Status Badges & Pills */
+  .badge-command {
+    @apply inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-[11px] font-mono font-semibold bg-amber-500/15 text-amber-400 border border-amber-500/30 tracking-wide;
+  }
+
+  .badge-intelligence {
+    @apply inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-[11px] font-mono font-semibold bg-cyan-500/15 text-cyan-400 border border-cyan-500/30 tracking-wide;
+  }
+
+  .badge-health {
+    @apply inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-[11px] font-mono font-semibold bg-emerald-500/15 text-emerald-400 border border-emerald-500/30 tracking-wide;
+  }
+
+  .badge-warning {
+    @apply inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-[11px] font-mono font-semibold bg-orange-500/15 text-orange-400 border border-orange-500/30 tracking-wide;
+  }
+
+  .badge-critical {
+    @apply inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-[11px] font-mono font-semibold bg-coral-500/15 text-coral-400 border border-coral-500/30 tracking-wide;
+  }
+
+  .badge-ai {
+    @apply inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-[11px] font-mono font-semibold bg-violet-500/15 text-violet-400 border border-violet-500/30 tracking-wide;
+  }
+
+  .badge-telemetry {
+    @apply inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-[11px] font-mono font-semibold bg-emerald-500/15 text-emerald-400 border border-emerald-500/30 tracking-wide;
+  }
+
+  .badge-manganese {
+    @apply inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-[11px] font-mono font-semibold bg-amber-500/15 text-amber-400 border border-amber-500/30 tracking-wide;
+  }
+
+  .badge-hazard {
+    @apply inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-[11px] font-mono font-semibold bg-coral-500/15 text-coral-400 border border-coral-500/30 tracking-wide;
+  }
+
+  .badge-radar {
+    @apply inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-[11px] font-mono font-semibold bg-cyan-500/15 text-cyan-400 border border-cyan-500/30 tracking-wide;
+  }
+
+  .badge-neutral {
+    @apply inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-[11px] font-mono font-medium bg-[#1A232E] text-slate-300 border border-[#222D3A] tracking-wide;
+  }
+
+  /* Utilities for hiding scrollbars while retaining scroll ability */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}

@@ -1,0 +1,102 @@
+{
+  "registry_version": "1.0",
+  "last_trained_utc": "2026-08-26T19:05:34Z",
+  "models": {
+    "production_shortfall": {
+      "name": "production_shortfall_v1",
+      "version": "1.0.0",
+      "training_dataset": "data/processed/train/production_train.csv (1,750 shifts)",
+      "algorithm": "GradientBoosting (Classifier + Regressor)",
+      "features": [
+        "planned_tonnage",
+        "ore_grade_mn",
+        "recovery_rate",
+        "crusher_utilization",
+        "fleet_availability",
+        "operating_hours",
+        "downtime_hours",
+        "rainfall_mm",
+        "production_trend_7d",
+        "production_trend_30d",
+        "shortfall_rate",
+        "target_deviation",
+        "rolling_downtime_7d"
+      ],
+      "metrics": {
+        "accuracy": 0.9973,
+        "precision": 0.9972,
+        "recall": 1.0,
+        "f1": 0.9986,
+        "roc_auc": 0.9667,
+        "mae": 12.05,
+        "r2": 0.9997
+      },
+      "status": "DEPLOYED_ACTIVE"
+    },
+    "exploration_prospectivity": {
+      "name": "exploration_prospectivity_v1",
+      "version": "1.0.0",
+      "training_dataset": "data/processed/train/exploration_train.csv (350 samples)",
+      "algorithm": "RandomForest + GradientBoosting",
+      "features": [
+        "depth_m",
+        "mn_grade",
+        "assay_confidence",
+        "lineament_distance",
+        "terrain_score",
+        "spectral_signal",
+        "lineament_proximity_score",
+        "grade_anomaly"
+      ],
+      "metrics": {
+        "accuracy": 0.9867,
+        "f1": 0.9863,
+        "r2": 0.9122
+      },
+      "status": "DEPLOYED_ACTIVE"
+    },
+    "equipment_failure_rul": {
+      "name": "equipment_failure_v1",
+      "version": "1.0.0",
+      "training_dataset": "data/processed/train/equipment_train.csv (1,400 logs)",
+      "algorithm": "GradientBoosting (Failure + Health + RUL)",
+      "features": [
+        "operating_hours",
+        "engine_temperature",
+        "vibration_rms",
+        "hydraulic_pressure",
+        "fuel_rate",
+        "utilization",
+        "availability",
+        "maintenance_age",
+        "vibration_zscore",
+        "temperature_anomaly",
+        "utilization_change"
+      ],
+      "metrics": {
+        "accuracy": 0.9967,
+        "roc_auc": 1.0,
+        "r2_health": 0.9951
+      },
+      "status": "DEPLOYED_ACTIVE"
+    },
+    "operational_anomaly": {
+      "name": "operational_anomaly_v1",
+      "version": "1.0.0",
+      "training_dataset": "data/processed/production_features.csv + equipment_features.csv",
+      "algorithm": "IsolationForest (Contamination=0.08)",
+      "features": [
+        "rainfall_mm",
+        "vibration_rms",
+        "engine_temperature",
+        "downtime_hours",
+        "shortfall_percentage"
+      ],
+      "metrics": {
+        "contamination": 0.08,
+        "anomaly_rate": "8.0%"
+      },
+      "status": "DEPLOYED_ACTIVE"
+    }
+  }
+}

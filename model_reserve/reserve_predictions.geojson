@@ -1,0 +1,515 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "sample_id": "SWIR-LOC-1000",
+        "predicted_grade": "42.9% Mn",
+        "indicated_tonnes": 1942184,
+        "depth": "-166m Level",
+        "unfc_category": "UNFC-111 (Proved)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          80.172751,
+          21.797018
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "sample_id": "SWIR-LOC-1001",
+        "predicted_grade": "38.4% Mn",
+        "indicated_tonnes": 1792617,
+        "depth": "-195m Level",
+        "unfc_category": "UNFC-122 (Probable)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          80.170553,
+          21.665992
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "sample_id": "SWIR-LOC-1002",
+        "predicted_grade": "36.9% Mn",
+        "indicated_tonnes": 1704494,
+        "depth": "-211m Level",
+        "unfc_category": "UNFC-122 (Probable)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          80.173355,
+          21.71609
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "sample_id": "SWIR-LOC-1003",
+        "predicted_grade": "38.8% Mn",
+        "indicated_tonnes": 1789915,
+        "depth": "-156m Level",
+        "unfc_category": "UNFC-122 (Probable)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          80.218996,
+          21.734583
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "sample_id": "SWIR-LOC-1004",
+        "predicted_grade": "33.2% Mn",
+        "indicated_tonnes": 1650185,
+        "depth": "-260m Level",
+        "unfc_category": "UNFC-122 (Probable)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          80.290045,
+          21.808858
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "sample_id": "SWIR-LOC-1005",
+        "predicted_grade": "45.3% Mn",
+        "indicated_tonnes": 2102637,
+        "depth": "-100m Level",
+        "unfc_category": "UNFC-111 (Proved)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          80.161153,
+          21.664927
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "sample_id": "SWIR-LOC-1006",
+        "predicted_grade": "38.9% Mn",
+        "indicated_tonnes": 1934796,
+        "depth": "-284m Level",
+        "unfc_category": "UNFC-122 (Probable)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          80.041653,
+          21.666891
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "sample_id": "SWIR-LOC-1007",
+        "predicted_grade": "40.1% Mn",
+        "indicated_tonnes": 1930358,
+        "depth": "-221m Level",
+        "unfc_category": "UNFC-122 (Probable)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          80.213199,
+          21.925044
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "sample_id": "SWIR-LOC-1008",
+        "predicted_grade": "42.9% Mn",
+        "indicated_tonnes": 1950538,
+        "depth": "-48m Level",
+        "unfc_category": "UNFC-111 (Proved)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          80.162045,
+          21.813711
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "sample_id": "SWIR-LOC-1009",
+        "predicted_grade": "36.8% Mn",
+        "indicated_tonnes": 1701430,
+        "depth": "-90m Level",
+        "unfc_category": "UNFC-122 (Probable)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          80.159378,
+          21.744886
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "sample_id": "SWIR-LOC-1010",
+        "predicted_grade": "41.8% Mn",
+        "indicated_tonnes": 2046789,
+        "depth": "-84m Level",
+        "unfc_category": "UNFC-122 (Probable)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          80.094024,
+          21.695365
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "sample_id": "SWIR-LOC-1011",
+        "predicted_grade": "40.1% Mn",
+        "indicated_tonnes": 1820980,
+        "depth": "-191m Level",
+        "unfc_category": "UNFC-122 (Probable)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          80.133445,
+          21.764778
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "sample_id": "SWIR-LOC-1012",
+        "predicted_grade": "39.6% Mn",
+        "indicated_tonnes": 1842094,
+        "depth": "-96m Level",
+        "unfc_category": "UNFC-122 (Probable)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          80.174598,
+          21.812381
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "sample_id": "SWIR-LOC-1013",
+        "predicted_grade": "38.1% Mn",
+        "indicated_tonnes": 1843678,
+        "depth": "-310m Level",
+        "unfc_category": "UNFC-122 (Probable)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          80.045867,
+          21.759884
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "sample_id": "SWIR-LOC-1014",
+        "predicted_grade": "39.9% Mn",
+        "indicated_tonnes": 1832300,
+        "depth": "-173m Level",
+        "unfc_category": "UNFC-122 (Probable)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          80.168677,
+          21.858745
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "sample_id": "SWIR-LOC-1015",
+        "predicted_grade": "40.4% Mn",
+        "indicated_tonnes": 1947959,
+        "depth": "-265m Level",
+        "unfc_category": "UNFC-122 (Probable)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          80.207055,
+          21.832692
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "sample_id": "SWIR-LOC-1016",
+        "predicted_grade": "42.8% Mn",
+        "indicated_tonnes": 2098962,
+        "depth": "-239m Level",
+        "unfc_category": "UNFC-111 (Proved)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          80.253123,
+          21.721046
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "sample_id": "SWIR-LOC-1017",
+        "predicted_grade": "40.7% Mn",
+        "indicated_tonnes": 1973258,
+        "depth": "-88m Level",
+        "unfc_category": "UNFC-122 (Probable)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          80.229987,
+          21.680983
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "sample_id": "SWIR-LOC-1018",
+        "predicted_grade": "35.9% Mn",
+        "indicated_tonnes": 1732670,
+        "depth": "-253m Level",
+        "unfc_category": "UNFC-122 (Probable)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          80.076646,
+          21.744779
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "sample_id": "SWIR-LOC-1019",
+        "predicted_grade": "39.4% Mn",
+        "indicated_tonnes": 1813783,
+        "depth": "-272m Level",
+        "unfc_category": "UNFC-122 (Probable)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          80.125569,
+          21.937772
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "sample_id": "SWIR-LOC-1020",
+        "predicted_grade": "43.3% Mn",
+        "indicated_tonnes": 2137499,
+        "depth": "-70m Level",
+        "unfc_category": "UNFC-111 (Proved)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          80.319297,
+          21.778545
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "sample_id": "SWIR-LOC-1021",
+        "predicted_grade": "39.7% Mn",
+        "indicated_tonnes": 1903052,
+        "depth": "-144m Level",
+        "unfc_category": "UNFC-122 (Probable)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          80.229143,
+          21.877829
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "sample_id": "SWIR-LOC-1022",
+        "predicted_grade": "39.0% Mn",
+        "indicated_tonnes": 1797696,
+        "depth": "-57m Level",
+        "unfc_category": "UNFC-122 (Probable)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          80.265407,
+          21.869701
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "sample_id": "SWIR-LOC-1023",
+        "predicted_grade": "42.0% Mn",
+        "indicated_tonnes": 2005659,
+        "depth": "-169m Level",
+        "unfc_category": "UNFC-122 (Probable)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          80.269318,
+          21.674017
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "sample_id": "SWIR-LOC-1024",
+        "predicted_grade": "42.2% Mn",
+        "indicated_tonnes": 1955946,
+        "depth": "-131m Level",
+        "unfc_category": "UNFC-111 (Proved)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          80.28219,
+          21.666859
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "sample_id": "SWIR-LOC-1025",
+        "predicted_grade": "41.2% Mn",
+        "indicated_tonnes": 1975995,
+        "depth": "-204m Level",
+        "unfc_category": "UNFC-122 (Probable)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          80.141075,
+          21.880438
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "sample_id": "SWIR-LOC-1026",
+        "predicted_grade": "37.3% Mn",
+        "indicated_tonnes": 1745712,
+        "depth": "-50m Level",
+        "unfc_category": "UNFC-122 (Probable)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          80.123913,
+          21.700273
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "sample_id": "SWIR-LOC-1027",
+        "predicted_grade": "41.0% Mn",
+        "indicated_tonnes": 1931201,
+        "depth": "-248m Level",
+        "unfc_category": "UNFC-122 (Probable)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          80.243365,
+          21.75845
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "sample_id": "SWIR-LOC-1028",
+        "predicted_grade": "45.7% Mn",
+        "indicated_tonnes": 2099113,
+        "depth": "-104m Level",
+        "unfc_category": "UNFC-111 (Proved)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          80.177298,
+          21.778484
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "sample_id": "SWIR-LOC-1029",
+        "predicted_grade": "42.3% Mn",
+        "indicated_tonnes": 1951859,
+        "depth": "-269m Level",
+        "unfc_category": "UNFC-111 (Proved)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          80.24776,
+          21.79939
+        ]
+      }
+    }
+  ]
+}

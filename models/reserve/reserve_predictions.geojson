@@ -1,0 +1,1145 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "sample_id": "EXP-BAL-0001",
+        "mine_id": "balaghat",
+        "depth": "-255m",
+        "prospectivity_score": "27.9%",
+        "prospectivity_class": "LOW PROSPECT (UNFC-333 Reconnaissance)",
+        "mn_grade": "26.0% Mn",
+        "spectral_signal": "0.37 SWIR Index"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          80.20774,
+          21.79823
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "sample_id": "EXP-BAL-0002",
+        "mine_id": "balaghat",
+        "depth": "-248m",
+        "prospectivity_score": "64.0%",
+        "prospectivity_class": "MEDIUM PROSPECT (UNFC-122 Probable)",
+        "mn_grade": "30.2% Mn",
+        "spectral_signal": "0.494 SWIR Index"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          80.19026,
+          21.82281
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "sample_id": "EXP-BAL-0003",
+        "mine_id": "balaghat",
+        "depth": "-161m",
+        "prospectivity_score": "63.0%",
+        "prospectivity_class": "MEDIUM PROSPECT (UNFC-122 Probable)",
+        "mn_grade": "40.7% Mn",
+        "spectral_signal": "0.849 SWIR Index"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          80.18644,
+          21.79471
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "sample_id": "EXP-BAL-0004",
+        "mine_id": "balaghat",
+        "depth": "-272m",
+        "prospectivity_score": "28.0%",
+        "prospectivity_class": "LOW PROSPECT (UNFC-333 Reconnaissance)",
+        "mn_grade": "25.0% Mn",
+        "spectral_signal": "0.426 SWIR Index"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          80.183,
+          21.79782
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "sample_id": "EXP-BAL-0005",
+        "mine_id": "balaghat",
+        "depth": "-45m",
+        "prospectivity_score": "28.0%",
+        "prospectivity_class": "LOW PROSPECT (UNFC-333 Reconnaissance)",
+        "mn_grade": "26.5% Mn",
+        "spectral_signal": "0.386 SWIR Index"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          80.16873,
+          21.80988
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "sample_id": "EXP-BAL-0006",
+        "mine_id": "balaghat",
+        "depth": "-180m",
+        "prospectivity_score": "88.0%",
+        "prospectivity_class": "HIGH PROSPECT (UNFC-111 Proved)",
+        "mn_grade": "44.6% Mn",
+        "spectral_signal": "0.945 SWIR Index"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          80.1663,
+          21.80151
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "sample_id": "EXP-BAL-0007",
+        "mine_id": "balaghat",
+        "depth": "-330m",
+        "prospectivity_score": "28.0%",
+        "prospectivity_class": "LOW PROSPECT (UNFC-333 Reconnaissance)",
+        "mn_grade": "25.3% Mn",
+        "spectral_signal": "0.379 SWIR Index"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          80.16944,
+          21.80684
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "sample_id": "EXP-BAL-0008",
+        "mine_id": "balaghat",
+        "depth": "-127m",
+        "prospectivity_score": "64.3%",
+        "prospectivity_class": "MEDIUM PROSPECT (UNFC-122 Probable)",
+        "mn_grade": "36.2% Mn",
+        "spectral_signal": "0.648 SWIR Index"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          80.16246,
+          21.7893
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "sample_id": "EXP-BAL-0009",
+        "mine_id": "balaghat",
+        "depth": "-69m",
+        "prospectivity_score": "28.0%",
+        "prospectivity_class": "LOW PROSPECT (UNFC-333 Reconnaissance)",
+        "mn_grade": "26.7% Mn",
+        "spectral_signal": "0.426 SWIR Index"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          80.18733,
+          21.79355
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "sample_id": "EXP-BAL-0010",
+        "mine_id": "balaghat",
+        "depth": "-61m",
+        "prospectivity_score": "27.9%",
+        "prospectivity_class": "LOW PROSPECT (UNFC-333 Reconnaissance)",
+        "mn_grade": "25.6% Mn",
+        "spectral_signal": "0.389 SWIR Index"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          80.17812,
+          21.7832
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "sample_id": "EXP-BAL-0011",
+        "mine_id": "balaghat",
+        "depth": "-254m",
+        "prospectivity_score": "64.3%",
+        "prospectivity_class": "MEDIUM PROSPECT (UNFC-122 Probable)",
+        "mn_grade": "31.8% Mn",
+        "spectral_signal": "0.583 SWIR Index"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          80.17646,
+          21.79505
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "sample_id": "EXP-BAL-0012",
+        "mine_id": "balaghat",
+        "depth": "-201m",
+        "prospectivity_score": "87.3%",
+        "prospectivity_class": "HIGH PROSPECT (UNFC-111 Proved)",
+        "mn_grade": "42.8% Mn",
+        "spectral_signal": "0.8 SWIR Index"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          80.19824,
+          21.81516
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "sample_id": "EXP-BAL-0013",
+        "mine_id": "balaghat",
+        "depth": "-34m",
+        "prospectivity_score": "28.0%",
+        "prospectivity_class": "LOW PROSPECT (UNFC-333 Reconnaissance)",
+        "mn_grade": "26.9% Mn",
+        "spectral_signal": "0.368 SWIR Index"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          80.16559,
+          21.78077
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "sample_id": "EXP-BAL-0014",
+        "mine_id": "balaghat",
+        "depth": "-262m",
+        "prospectivity_score": "64.1%",
+        "prospectivity_class": "MEDIUM PROSPECT (UNFC-122 Probable)",
+        "mn_grade": "30.5% Mn",
+        "spectral_signal": "0.521 SWIR Index"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          80.18072,
+          21.79196
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "sample_id": "EXP-BAL-0015",
+        "mine_id": "balaghat",
+        "depth": "-278m",
+        "prospectivity_score": "63.3%",
+        "prospectivity_class": "MEDIUM PROSPECT (UNFC-122 Probable)",
+        "mn_grade": "27.3% Mn",
+        "spectral_signal": "0.486 SWIR Index"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          80.20377,
+          21.81117
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "sample_id": "EXP-BAL-0016",
+        "mine_id": "balaghat",
+        "depth": "-159m",
+        "prospectivity_score": "63.9%",
+        "prospectivity_class": "MEDIUM PROSPECT (UNFC-122 Probable)",
+        "mn_grade": "39.4% Mn",
+        "spectral_signal": "0.752 SWIR Index"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          80.1716,
+          21.785
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "sample_id": "EXP-BAL-0017",
+        "mine_id": "balaghat",
+        "depth": "-62m",
+        "prospectivity_score": "27.9%",
+        "prospectivity_class": "LOW PROSPECT (UNFC-333 Reconnaissance)",
+        "mn_grade": "22.9% Mn",
+        "spectral_signal": "0.35 SWIR Index"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          80.17131,
+          21.80037
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "sample_id": "EXP-BAL-0018",
+        "mine_id": "balaghat",
+        "depth": "-331m",
+        "prospectivity_score": "64.0%",
+        "prospectivity_class": "MEDIUM PROSPECT (UNFC-122 Probable)",
+        "mn_grade": "27.6% Mn",
+        "spectral_signal": "0.399 SWIR Index"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          80.17838,
+          21.81465
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "sample_id": "EXP-BAL-0019",
+        "mine_id": "balaghat",
+        "depth": "-41m",
+        "prospectivity_score": "63.4%",
+        "prospectivity_class": "MEDIUM PROSPECT (UNFC-122 Probable)",
+        "mn_grade": "26.8% Mn",
+        "spectral_signal": "0.457 SWIR Index"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          80.18533,
+          21.80998
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "sample_id": "EXP-BAL-0020",
+        "mine_id": "balaghat",
+        "depth": "-101m",
+        "prospectivity_score": "64.1%",
+        "prospectivity_class": "MEDIUM PROSPECT (UNFC-122 Probable)",
+        "mn_grade": "31.4% Mn",
+        "spectral_signal": "0.568 SWIR Index"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          80.20948,
+          21.80397
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "sample_id": "EXP-BAL-0021",
+        "mine_id": "balaghat",
+        "depth": "-224m",
+        "prospectivity_score": "64.5%",
+        "prospectivity_class": "MEDIUM PROSPECT (UNFC-122 Probable)",
+        "mn_grade": "37.3% Mn",
+        "spectral_signal": "0.675 SWIR Index"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          80.19182,
+          21.79789
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "sample_id": "EXP-BAL-0022",
+        "mine_id": "balaghat",
+        "depth": "-211m",
+        "prospectivity_score": "64.6%",
+        "prospectivity_class": "MEDIUM PROSPECT (UNFC-122 Probable)",
+        "mn_grade": "39.9% Mn",
+        "spectral_signal": "0.721 SWIR Index"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          80.16224,
+          21.78883
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "sample_id": "EXP-BAL-0023",
+        "mine_id": "balaghat",
+        "depth": "-320m",
+        "prospectivity_score": "64.0%",
+        "prospectivity_class": "MEDIUM PROSPECT (UNFC-122 Probable)",
+        "mn_grade": "26.5% Mn",
+        "spectral_signal": "0.441 SWIR Index"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          80.17954,
+          21.81405
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "sample_id": "EXP-BAL-0024",
+        "mine_id": "balaghat",
+        "depth": "-232m",
+        "prospectivity_score": "63.6%",
+        "prospectivity_class": "MEDIUM PROSPECT (UNFC-122 Probable)",
+        "mn_grade": "33.0% Mn",
+        "spectral_signal": "0.566 SWIR Index"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          80.1731,
+          21.82337
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "sample_id": "EXP-BAL-0025",
+        "mine_id": "balaghat",
+        "depth": "-308m",
+        "prospectivity_score": "64.0%",
+        "prospectivity_class": "MEDIUM PROSPECT (UNFC-122 Probable)",
+        "mn_grade": "29.3% Mn",
+        "spectral_signal": "0.427 SWIR Index"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          80.20506,
+          21.78416
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "sample_id": "EXP-BAL-0026",
+        "mine_id": "balaghat",
+        "depth": "-270m",
+        "prospectivity_score": "63.9%",
+        "prospectivity_class": "MEDIUM PROSPECT (UNFC-122 Probable)",
+        "mn_grade": "28.9% Mn",
+        "spectral_signal": "0.463 SWIR Index"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          80.20455,
+          21.82436
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "sample_id": "EXP-BAL-0027",
+        "mine_id": "balaghat",
+        "depth": "-56m",
+        "prospectivity_score": "28.0%",
+        "prospectivity_class": "LOW PROSPECT (UNFC-333 Reconnaissance)",
+        "mn_grade": "21.7% Mn",
+        "spectral_signal": "0.339 SWIR Index"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          80.16066,
+          21.80982
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "sample_id": "EXP-BAL-0028",
+        "mine_id": "balaghat",
+        "depth": "-99m",
+        "prospectivity_score": "64.0%",
+        "prospectivity_class": "MEDIUM PROSPECT (UNFC-122 Probable)",
+        "mn_grade": "29.2% Mn",
+        "spectral_signal": "0.553 SWIR Index"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          80.19581,
+          21.79071
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "sample_id": "EXP-BAL-0029",
+        "mine_id": "balaghat",
+        "depth": "-54m",
+        "prospectivity_score": "27.8%",
+        "prospectivity_class": "LOW PROSPECT (UNFC-333 Reconnaissance)",
+        "mn_grade": "23.9% Mn",
+        "spectral_signal": "0.339 SWIR Index"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          80.18862,
+          21.81238
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "sample_id": "EXP-BAL-0030",
+        "mine_id": "balaghat",
+        "depth": "-223m",
+        "prospectivity_score": "64.0%",
+        "prospectivity_class": "MEDIUM PROSPECT (UNFC-122 Probable)",
+        "mn_grade": "34.0% Mn",
+        "spectral_signal": "0.58 SWIR Index"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          80.2048,
+          21.79915
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "sample_id": "EXP-BAL-0031",
+        "mine_id": "balaghat",
+        "depth": "-113m",
+        "prospectivity_score": "64.1%",
+        "prospectivity_class": "MEDIUM PROSPECT (UNFC-122 Probable)",
+        "mn_grade": "31.8% Mn",
+        "spectral_signal": "0.567 SWIR Index"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          80.19632,
+          21.78926
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "sample_id": "EXP-BAL-0032",
+        "mine_id": "balaghat",
+        "depth": "-141m",
+        "prospectivity_score": "63.8%",
+        "prospectivity_class": "MEDIUM PROSPECT (UNFC-122 Probable)",
+        "mn_grade": "37.9% Mn",
+        "spectral_signal": "0.732 SWIR Index"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          80.20594,
+          21.8272
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "sample_id": "EXP-BAL-0033",
+        "mine_id": "balaghat",
+        "depth": "-293m",
+        "prospectivity_score": "28.0%",
+        "prospectivity_class": "LOW PROSPECT (UNFC-333 Reconnaissance)",
+        "mn_grade": "22.4% Mn",
+        "spectral_signal": "0.307 SWIR Index"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          80.17945,
+          21.79422
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "sample_id": "EXP-BAL-0034",
+        "mine_id": "balaghat",
+        "depth": "-55m",
+        "prospectivity_score": "28.0%",
+        "prospectivity_class": "LOW PROSPECT (UNFC-333 Reconnaissance)",
+        "mn_grade": "22.6% Mn",
+        "spectral_signal": "0.358 SWIR Index"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          80.1887,
+          21.8143
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "sample_id": "EXP-BAL-0035",
+        "mine_id": "balaghat",
+        "depth": "-138m",
+        "prospectivity_score": "87.9%",
+        "prospectivity_class": "HIGH PROSPECT (UNFC-111 Proved)",
+        "mn_grade": "39.2% Mn",
+        "spectral_signal": "0.795 SWIR Index"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          80.19532,
+          21.81435
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "sample_id": "EXP-BAL-0036",
+        "mine_id": "balaghat",
+        "depth": "-182m",
+        "prospectivity_score": "87.6%",
+        "prospectivity_class": "HIGH PROSPECT (UNFC-111 Proved)",
+        "mn_grade": "45.9% Mn",
+        "spectral_signal": "0.909 SWIR Index"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          80.18577,
+          21.82516
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "sample_id": "EXP-BAL-0037",
+        "mine_id": "balaghat",
+        "depth": "-143m",
+        "prospectivity_score": "64.6%",
+        "prospectivity_class": "MEDIUM PROSPECT (UNFC-122 Probable)",
+        "mn_grade": "35.5% Mn",
+        "spectral_signal": "0.681 SWIR Index"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          80.1771,
+          21.824
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "sample_id": "EXP-BAL-0038",
+        "mine_id": "balaghat",
+        "depth": "-211m",
+        "prospectivity_score": "64.2%",
+        "prospectivity_class": "MEDIUM PROSPECT (UNFC-122 Probable)",
+        "mn_grade": "39.0% Mn",
+        "spectral_signal": "0.703 SWIR Index"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          80.17453,
+          21.80663
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "sample_id": "EXP-BAL-0039",
+        "mine_id": "balaghat",
+        "depth": "-221m",
+        "prospectivity_score": "87.9%",
+        "prospectivity_class": "HIGH PROSPECT (UNFC-111 Proved)",
+        "mn_grade": "39.7% Mn",
+        "spectral_signal": "0.789 SWIR Index"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          80.17099,
+          21.818
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "sample_id": "EXP-BAL-0040",
+        "mine_id": "balaghat",
+        "depth": "-126m",
+        "prospectivity_score": "63.4%",
+        "prospectivity_class": "MEDIUM PROSPECT (UNFC-122 Probable)",
+        "mn_grade": "34.6% Mn",
+        "spectral_signal": "0.592 SWIR Index"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          80.18602,
+          21.82829
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "sample_id": "EXP-BAL-0041",
+        "mine_id": "balaghat",
+        "depth": "-288m",
+        "prospectivity_score": "64.0%",
+        "prospectivity_class": "MEDIUM PROSPECT (UNFC-122 Probable)",
+        "mn_grade": "29.7% Mn",
+        "spectral_signal": "0.445 SWIR Index"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          80.20833,
+          21.78077
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "sample_id": "EXP-BAL-0042",
+        "mine_id": "balaghat",
+        "depth": "-250m",
+        "prospectivity_score": "28.0%",
+        "prospectivity_class": "LOW PROSPECT (UNFC-333 Reconnaissance)",
+        "mn_grade": "28.4% Mn",
+        "spectral_signal": "0.414 SWIR Index"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          80.18766,
+          21.79201
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "sample_id": "EXP-BAL-0043",
+        "mine_id": "balaghat",
+        "depth": "-157m",
+        "prospectivity_score": "63.8%",
+        "prospectivity_class": "MEDIUM PROSPECT (UNFC-122 Probable)",
+        "mn_grade": "40.8% Mn",
+        "spectral_signal": "0.8 SWIR Index"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          80.19079,
+          21.80722
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "sample_id": "EXP-BAL-0044",
+        "mine_id": "balaghat",
+        "depth": "-37m",
+        "prospectivity_score": "63.7%",
+        "prospectivity_class": "MEDIUM PROSPECT (UNFC-122 Probable)",
+        "mn_grade": "27.5% Mn",
+        "spectral_signal": "0.448 SWIR Index"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          80.1625,
+          21.7853
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "sample_id": "EXP-BAL-0045",
+        "mine_id": "balaghat",
+        "depth": "-79m",
+        "prospectivity_score": "63.8%",
+        "prospectivity_class": "MEDIUM PROSPECT (UNFC-122 Probable)",
+        "mn_grade": "28.4% Mn",
+        "spectral_signal": "0.452 SWIR Index"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          80.18387,
+          21.80408
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "sample_id": "EXP-BAL-0046",
+        "mine_id": "balaghat",
+        "depth": "-222m",
+        "prospectivity_score": "64.0%",
+        "prospectivity_class": "MEDIUM PROSPECT (UNFC-122 Probable)",
+        "mn_grade": "32.6% Mn",
+        "spectral_signal": "0.615 SWIR Index"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          80.17893,
+          21.78177
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "sample_id": "EXP-BAL-0047",
+        "mine_id": "balaghat",
+        "depth": "-33m",
+        "prospectivity_score": "28.0%",
+        "prospectivity_class": "LOW PROSPECT (UNFC-333 Reconnaissance)",
+        "mn_grade": "22.9% Mn",
+        "spectral_signal": "0.35 SWIR Index"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          80.19232,
+          21.78303
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "sample_id": "EXP-BAL-0048",
+        "mine_id": "balaghat",
+        "depth": "-196m",
+        "prospectivity_score": "87.4%",
+        "prospectivity_class": "HIGH PROSPECT (UNFC-111 Proved)",
+        "mn_grade": "43.0% Mn",
+        "spectral_signal": "0.828 SWIR Index"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          80.18311,
+          21.81166
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "sample_id": "EXP-BAL-0049",
+        "mine_id": "balaghat",
+        "depth": "-56m",
+        "prospectivity_score": "63.8%",
+        "prospectivity_class": "MEDIUM PROSPECT (UNFC-122 Probable)",
+        "mn_grade": "29.4% Mn",
+        "spectral_signal": "0.485 SWIR Index"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          80.16367,
+          21.78929
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "sample_id": "EXP-BAL-0050",
+        "mine_id": "balaghat",
+        "depth": "-113m",
+        "prospectivity_score": "34.0%",
+        "prospectivity_class": "LOW PROSPECT (UNFC-333 Reconnaissance)",
+        "mn_grade": "29.0% Mn",
+        "spectral_signal": "0.519 SWIR Index"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          80.20092,
+          21.78066
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "sample_id": "EXP-BAL-0051",
+        "mine_id": "balaghat",
+        "depth": "-113m",
+        "prospectivity_score": "62.7%",
+        "prospectivity_class": "MEDIUM PROSPECT (UNFC-122 Probable)",
+        "mn_grade": "29.9% Mn",
+        "spectral_signal": "0.548 SWIR Index"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          80.20037,
+          21.81625
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "sample_id": "EXP-BAL-0052",
+        "mine_id": "balaghat",
+        "depth": "-269m",
+        "prospectivity_score": "28.0%",
+        "prospectivity_class": "LOW PROSPECT (UNFC-333 Reconnaissance)",
+        "mn_grade": "25.7% Mn",
+        "spectral_signal": "0.429 SWIR Index"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          80.1788,
+          21.80013
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "sample_id": "EXP-BAL-0053",
+        "mine_id": "balaghat",
+        "depth": "-57m",
+        "prospectivity_score": "28.1%",
+        "prospectivity_class": "LOW PROSPECT (UNFC-333 Reconnaissance)",
+        "mn_grade": "27.3% Mn",
+        "spectral_signal": "0.426 SWIR Index"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          80.19793,
+          21.81704
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "sample_id": "EXP-BAL-0054",
+        "mine_id": "balaghat",
+        "depth": "-28m",
+        "prospectivity_score": "28.0%",
+        "prospectivity_class": "LOW PROSPECT (UNFC-333 Reconnaissance)",
+        "mn_grade": "22.6% Mn",
+        "spectral_signal": "0.34 SWIR Index"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          80.17966,
+          21.82428
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "sample_id": "EXP-BAL-0055",
+        "mine_id": "balaghat",
+        "depth": "-117m",
+        "prospectivity_score": "64.2%",
+        "prospectivity_class": "MEDIUM PROSPECT (UNFC-122 Probable)",
+        "mn_grade": "32.2% Mn",
+        "spectral_signal": "0.64 SWIR Index"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          80.18262,
+          21.81109
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "sample_id": "EXP-BAL-0056",
+        "mine_id": "balaghat",
+        "depth": "-180m",
+        "prospectivity_score": "88.3%",
+        "prospectivity_class": "HIGH PROSPECT (UNFC-111 Proved)",
+        "mn_grade": "45.2% Mn",
+        "spectral_signal": "0.921 SWIR Index"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          80.16476,
+          21.81898
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "sample_id": "EXP-BAL-0057",
+        "mine_id": "balaghat",
+        "depth": "-70m",
+        "prospectivity_score": "28.1%",
+        "prospectivity_class": "LOW PROSPECT (UNFC-333 Reconnaissance)",
+        "mn_grade": "27.9% Mn",
+        "spectral_signal": "0.446 SWIR Index"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          80.16605,
+          21.79705
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "sample_id": "EXP-BAL-0058",
+        "mine_id": "balaghat",
+        "depth": "-283m",
+        "prospectivity_score": "28.1%",
+        "prospectivity_class": "LOW PROSPECT (UNFC-333 Reconnaissance)",
+        "mn_grade": "26.4% Mn",
+        "spectral_signal": "0.404 SWIR Index"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          80.16384,
+          21.81455
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "sample_id": "EXP-BAL-0059",
+        "mine_id": "balaghat",
+        "depth": "-281m",
+        "prospectivity_score": "28.0%",
+        "prospectivity_class": "LOW PROSPECT (UNFC-333 Reconnaissance)",
+        "mn_grade": "25.9% Mn",
+        "spectral_signal": "0.355 SWIR Index"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          80.17873,
+          21.79821
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "sample_id": "EXP-BAL-0060",
+        "mine_id": "balaghat",
+        "depth": "-310m",
+        "prospectivity_score": "64.0%",
+        "prospectivity_class": "MEDIUM PROSPECT (UNFC-122 Probable)",
+        "mn_grade": "28.5% Mn",
+        "spectral_signal": "0.507 SWIR Index"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          80.18141,
+          21.80742
+        ]
+      }
+    }
+  ]
+}

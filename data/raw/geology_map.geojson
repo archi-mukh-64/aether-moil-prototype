@@ -1,0 +1,79 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "mine_name": "Balaghat Deep Shaft Lease",
+        "code": "ML-BH-01",
+        "proved_reserves_mt": 14.8,
+        "avg_grade": "44.2% Mn",
+        "status": "Active Underground"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              80.185,
+              21.805
+            ],
+            [
+              80.198,
+              21.808
+            ],
+            [
+              80.205,
+              21.815
+            ],
+            [
+              80.192,
+              21.821
+            ],
+            [
+              80.185,
+              21.805
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "mine_name": "Dongri Buzurg Opencast Lease",
+        "code": "ML-DB-02",
+        "proved_reserves_mt": 11.2,
+        "avg_grade": "48.5% MnO\u2082",
+        "status": "Active Opencast"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              79.675,
+              21.545
+            ],
+            [
+              79.692,
+              21.551
+            ],
+            [
+              79.698,
+              21.562
+            ],
+            [
+              79.681,
+              21.558
+            ],
+            [
+              79.675,
+              21.545
+            ]
+          ]
+        ]
+      }
+    }
+  ]
+}
