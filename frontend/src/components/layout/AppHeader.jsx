@@ -12,8 +12,11 @@ import {
   ShieldAlert,
   RotateCcw,
   Layers,
-  FileText
+  FileText,
+  Sparkles,
+  Flame
 } from 'lucide-react';
+import { AetherStatusBadge } from '../design-system/AetherStatusBadge.jsx';
 
 /**
  * AETHER Command Console Bar (AppHeader)
