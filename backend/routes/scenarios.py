@@ -6,6 +6,7 @@ from ..schemas.scenario import ScenarioSimulateRequest, ScenarioSimulateResponse
 router = APIRouter(prefix="/scenarios", tags=["Scenario Simulation Engine"])
 
 @router.get("", summary="Get Available Scenarios Catalog")
+@router.get("/", summary="Get Available Scenarios Catalog", include_in_schema=False)
 @router.get("/catalog", summary="Get Available Scenarios Catalog Alias")
 def get_scenarios_catalog() -> Dict[str, Any]:
     """

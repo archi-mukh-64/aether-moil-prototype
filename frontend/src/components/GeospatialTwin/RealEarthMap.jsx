@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { MapContainer, TileLayer, Polygon, Marker, Popup, Tooltip, useMap } from 'react-leaflet';
 import L from 'leaflet';
 import { useApp } from '../../context/AppContext.jsx';
@@ -88,6 +88,8 @@ export const RealEarthMap = ({
     }));
   }, [mineConfig, centerLat, centerLng]);
 
+  const [tileError, setTileError] = useState(false);
+
   return (
     <div className="relative w-full h-full bg-[#06090e] select-none">
       <MapContainer
@@ -99,16 +101,21 @@ export const RealEarthMap = ({
       >
         <MapCenterController center={[centerLat, centerLng]} zoom={14.8} />
 
-        {/* 1. Real Satellite Orthoimage Layer (Esri World Imagery) with Carto fallback */}
-        {activeLayers.satellite !== false ? (
+        {/* 1. Real Satellite Orthoimage Layer (Esri World Imagery) with OpenStreetMap zero-key fallback */}
+        {activeLayers.satellite !== false && !tileError ? (
           <TileLayer
             url="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}"
             maxZoom={19}
+            attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+            eventHandlers={{
+              tileerror: () => setTileError(true)
+            }}
           />
         ) : (
           <TileLayer
-            url="https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png"
+            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
             maxZoom={19}
+            attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
           />
         )}
 

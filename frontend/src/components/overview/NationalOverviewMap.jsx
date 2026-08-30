@@ -29,11 +29,12 @@ function MapController({ center, zoom }) {
 
 export const NationalOverviewMap = ({ onSelectMine }) => {
   const { activeMine, selectedMineId, setSelectedMineId, t, lang } = useApp();
-  const [baseLayer, setBaseLayer] = useState('TERRAIN'); // 'TERRAIN', 'SATELLITE', 'STREET'
+  const [baseLayer, setBaseLayer] = useState('STREET'); // 'STREET', 'TERRAIN', 'SATELLITE'
   const [showProspectivity, setShowProspectivity] = useState(true);
   const [searchQuery, setSearchQuery] = useState('');
   const [mapZoom, setMapZoom] = useState(5.4);
   const [mapCenter, setMapCenter] = useState([22.2, 79.8]);
+  const [tileError, setTileError] = useState(false);
 
   // Canonical 10 MOIL Mines with precise WGS84 coordinates
   const moilMines = useMemo(() => [
@@ -213,11 +214,11 @@ export const NationalOverviewMap = ({ onSelectMine }) => {
     [22.20, 80.60]
   ];
 
-  // Tile Layer Providers
+  // Zero-Key Tile Layer Providers (OpenStreetMap Default)
   const tileUrls = {
-    TERRAIN: 'https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png',
-    SATELLITE: 'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',
-    STREET: 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
+    STREET: 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+    TERRAIN: 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+    SATELLITE: 'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}'
   };
 
   // Custom Leaflet DivIcon Generator matching Reference Image 1
@@ -275,15 +276,15 @@ export const NationalOverviewMap = ({ onSelectMine }) => {
         <div className="flex items-center gap-1.5 pointer-events-auto">
           <div className="flex items-center p-0.5 rounded-xl bg-white/95 dark:bg-[#0c1422]/95 border border-[#cbdce6] dark:border-[#1e2f4a] backdrop-blur-md shadow-md text-[11px] font-medium text-zinc-700 dark:text-zinc-300">
             <button
-              onClick={() => setBaseLayer('TERRAIN')}
+              onClick={() => { setBaseLayer('STREET'); setTileError(false); }}
               className={`px-2.5 py-1 rounded-lg transition-colors ${
-                baseLayer === 'TERRAIN' ? 'bg-[#0f3a33] text-white font-bold' : 'hover:text-zinc-900 dark:hover:text-white'
+                baseLayer === 'STREET' ? 'bg-[#0f3a33] text-white font-bold' : 'hover:text-zinc-900 dark:hover:text-white'
               }`}
             >
-              Terrain / Topo
+              Topo / Map (OSM)
             </button>
             <button
-              onClick={() => setBaseLayer('SATELLITE')}
+              onClick={() => { setBaseLayer('SATELLITE'); setTileError(false); }}
               className={`px-2.5 py-1 rounded-lg transition-colors ${
                 baseLayer === 'SATELLITE' ? 'bg-[#0f3a33] text-white font-bold' : 'hover:text-zinc-900 dark:hover:text-white'
               }`}
@@ -314,8 +315,16 @@ export const NationalOverviewMap = ({ onSelectMine }) => {
         <MapController center={mapCenter} zoom={mapZoom} />
 
         <TileLayer
-          url={tileUrls[baseLayer] || tileUrls.TERRAIN}
+          url={tileError ? tileUrls.STREET : (tileUrls[baseLayer] || tileUrls.STREET)}
           maxZoom={18}
+          attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+          eventHandlers={{
+            tileerror: () => {
+              if (baseLayer !== 'STREET') {
+                setTileError(true);
+              }
+            }
+          }}
         />
 
         {/* Sausar Manganese Geological Prospectivity Corridor */}

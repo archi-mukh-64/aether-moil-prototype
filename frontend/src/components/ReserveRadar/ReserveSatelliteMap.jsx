@@ -133,20 +133,21 @@ export const ReserveSatelliteMap = ({
     }
   }, [activeBand]);
 
-  // Basemap Tile URL resolver
+  const [tileError, setTileError] = useState(false);
+
+  // Basemap Tile URL resolver (Zero-Key OpenStreetMap & Esri Fallback)
   const tileUrl = useMemo(() => {
+    if (tileError) return 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
     switch (basemap) {
       case 'terrain':
-        return 'https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png';
       case 'street':
-        return 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
       case 'dark':
-        return 'https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png';
+        return 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
       case 'satellite':
       default:
         return 'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}';
     }
-  }, [basemap]);
+  }, [basemap, tileError]);
 
   return (
     <div className="relative w-full h-full min-h-[460px] bg-[#06090e] rounded-2xl overflow-hidden border border-obsidian-750 shadow-2xl select-none">
@@ -165,6 +166,10 @@ export const ReserveSatelliteMap = ({
         <TileLayer
           url={tileUrl}
           maxZoom={19}
+          attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+          eventHandlers={{
+            tileerror: () => setTileError(true)
+          }}
         />
 
         {/* 2. Statutory Environmental 500m Greenbelt Buffer */}

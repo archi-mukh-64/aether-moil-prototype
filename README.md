@@ -60,49 +60,63 @@ npm run preview
 
 ```
 moil-project/
-├── frontend/
+├── frontend/                        # React 18 + Vite Frontend Application
 │   ├── src/
-│   │   ├── components/
-│   │   │   ├── Navbar.jsx               # Enterprise command bar & active mine switcher
-│   │   │   ├── Hero.jsx                 # Topographic radar canvas & coordinate HUD
-│   │   │   ├── MetricStrip.jsx          # Live KPI metrics (Target, Yield, Risk, Fleet)
-│   │   │   ├── DigitalMine.jsx          # 2.5D Isometric topographic digital twin
-│   │   │   ├── IntelligenceEngines.jsx  # 6 core intelligence engine cards
-│   │   │   ├── RiskCenterPreview.jsx    # Real-time operational risk matrix
-│   │   │   ├── ForecastPreview.jsx      # 14-day production forecast & confidence envelope
-│   │   │   ├── TrustScorePreview.jsx    # Multi-pillar AI governance trust gauge
-│   │   │   ├── CommandDrawer.jsx        # Live pitch scenario injection console
-│   │   │   └── Footer.jsx               # PSU credentials, coordinates, and version
-│   │   ├── pages/
-│   │   │   ├── Home.jsx                 # Executive Command Center landing
-│   │   │   ├── CommandCenterPage.jsx    # Multi-mine dispatch & telemetry feed
-│   │   │   ├── ReserveRadarPage.jsx     # GIS Exploration & virtual core drill probe
-│   │   │   ├── AlertEnginePage.jsx      # Shortfall forecasting & SHAP waterfall
-│   │   │   ├── ProtocolPage.jsx         # Prescriptive optimization & dispatch logger
-│   │   │   ├── EquipmentPage.jsx        # HEMM fleet health, vibration & RUL
-│   │   │   └── AnalyticsPage.jsx        # Ore grade blending & trust calibration
-│   │   ├── context/
-│   │   │   └── AppContext.jsx           # Global state (Mine, Language, Simulation)
-│   │   ├── data/
-│   │   │   ├── mockMines.js             # Authentic MOIL mine profiles
-│   │   │   ├── mockTelemetry.js         # Sensor streams, KPIs & risk logs
-│   │   │   └── mockEngines.js           # Engine specifications
-│   │   ├── i18n/
-│   │   │   └── translations.js          # Trilingual dictionary (EN, HI, OR)
-│   │   ├── App.jsx                      # Router configuration
-│   │   ├── main.jsx                     # Application entrypoint
-│   │   └── index.css                    # Industrial dark theme tokens
+│   │   ├── components/              # UI Panels, Modals, 2.5D Digital Twin, Navigation
+│   │   ├── pages/                   # 10 Canonical Application Pages
+│   │   ├── context/                 # Global AppContext (Mine, Language, Scenario)
+│   │   ├── services/                # API clients, Multi-physics engines, i18n
+│   │   ├── i18n/                    # Trilingual dictionary (EN, HI, MR)
+│   │   ├── App.jsx                  # Router configuration with code-splitting
+│   │   └── main.jsx                 # Entrypoint
 │   ├── package.json
-│   ├── tailwind.config.js
-│   └── vite.config.js
+│   ├── vercel.json                  # Vercel SPA configuration
+│   └── vite.config.js               # Optimized rollup vendor chunk partitions
+├── backend/                         # FastAPI Production Backend Gateway
+│   ├── routes/                      # 17 REST API Controllers
+│   ├── services/                    # ML service drivers & multi-physics models
+│   ├── database/                    # PostgreSQL / Supabase with SQLite fallback
+│   ├── schemas/                     # Pydantic request/response validation
+│   ├── utils/                       # Model loader, structured logging, auth
+│   ├── requirements.txt             # Python dependencies
+│   └── main.py                      # FastAPI Application entrypoint
+├── models/                          # Production Machine Learning Artifacts (.pkl)
+├── render.yaml                      # Render Blueprint deployment definition
 └── README.md
 ```
 
 ---
 
-## ⚙️ Target Mines Modeled
-1. **Balaghat Mine (MP)**: Asia's premier deep shaft manganese mine (Holmes, Bharveli, Western shafts, 44.2% Mn grade, -185m depth).
-2. **Dongri Buzurg Mine (MH)**: Premier opencast bench-cut mine producing battery-grade peroxide dioxide ore (48.5% MnO₂).
-3. **Gumgaon Mine (MH)**: Strategic underground incline operation in the Sausar geological belt.
-4. **Tirodi Mine (MP)**: Historic lease featuring extensive strike-length benches with ongoing geophysical exploration.
-5. **Ukwa Mine (MP)**: Underground adit mining producing premium low-phosphorus manganese ore.
+## 🌐 Cloud Deployment Architecture
+
+### 1. Vercel (Frontend)
+- **Root Directory**: `frontend`
+- **Build Command**: `npm run build`
+- **Output Directory**: `dist`
+- **Install Command**: `npm install`
+- **Environment Variables**:
+  - `VITE_API_BASE_URL`: `https://moil-aether-backend.onrender.com/api`
+
+### 2. Render (FastAPI Backend)
+- **Build Command**: `pip install -r backend/requirements.txt`
+- **Start Command**: `uvicorn backend.main:app --host 0.0.0.0 --port $PORT`
+- **Health Check Path**: `/health`
+- **Environment Variables**:
+  - `ENVIRONMENT`: `production`
+  - `DEBUG`: `False`
+  - `DATABASE_URL`: `postgresql://postgres:[PASSWORD]@[HOST]:5432/postgres` (Supabase Connection URI)
+  - `CORS_ORIGINS`: `https://aether-moil-prototype.vercel.app`
+
+---
+
+## ⚙️ Target MOIL Assets Monitored (10 Canonical Mines)
+1. **Balaghat Mine (MP)**: Asia's premier deep shaft manganese mine (44.2% Mn grade).
+2. **Dongri Buzurg Mine (MH)**: Opencast bench-cut producing battery-grade peroxide dioxide ore (48.5% MnO₂).
+3. **Tirodi Mine (MP)**: Historic lease featuring extensive strike-length benches.
+4. **Chikla Mine (MH)**: Deep underground incline mining high-grade manganese vein.
+5. **Gumgaon Mine (MH)**: Strategic underground incline operation in the Sausar geological belt.
+6. **Kandri Mine (MH)**: Premier high-grade underground and open-pit manganese asset.
+7. **Munsar Mine (MH)**: Heavy-production pit with automated loading and haulage.
+8. **Bhandara Mine (MH)**: Sausar group metamorphic quartz-braunite deposit.
+9. **Ukwa Mine (MP)**: Underground adit mining producing premium low-phosphorus manganese ore.
+10. **Ramtek Mine (MH)**: High-altitude Sausar formation opencast operation.

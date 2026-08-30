@@ -11,6 +11,7 @@ from ..schemas.mine import MineListResponse, MineDetail, MineSummary
 router = APIRouter(prefix="/mines", tags=["MOIL Mine Registry & Asset Data"])
 
 @router.get("", response_model=MineListResponse)
+@router.get("/", response_model=MineListResponse, include_in_schema=False)
 def list_all_mines():
     """
     Returns the complete list of all 10 official MOIL production mines.
