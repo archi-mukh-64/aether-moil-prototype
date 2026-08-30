@@ -2,16 +2,16 @@ import React, { useState, useEffect, useMemo } from 'react';
 import { MapContainer, TileLayer, Marker, Popup, Polygon, Tooltip, useMap } from 'react-leaflet';
 import L from 'leaflet';
 import { useApp } from '../../context/AppContext.jsx';
-import { 
-  Layers, 
-  Map as MapIcon, 
-  Compass, 
-  RotateCcw, 
-  Search, 
-  ZoomIn, 
-  ZoomOut, 
-  ChevronRight, 
-  ShieldAlert, 
+import {
+  Layers,
+  Map as MapIcon,
+  Compass,
+  RotateCcw,
+  Search,
+  ZoomIn,
+  ZoomOut,
+  ChevronRight,
+  ShieldAlert,
   Activity,
   Maximize2
 } from 'lucide-react';
@@ -29,7 +29,7 @@ function MapController({ center, zoom }) {
 
 export const NationalOverviewMap = ({ onSelectMine }) => {
   const { activeMine, selectedMineId, setSelectedMineId, t, lang } = useApp();
-  const [baseLayer, setBaseLayer] = useState('STREET'); // 'STREET', 'TERRAIN', 'SATELLITE'
+  const [baseLayer, setBaseLayer] = useState('STREET'); // 'STREET', 'SATELLITE'
   const [showProspectivity, setShowProspectivity] = useState(true);
   const [searchQuery, setSearchQuery] = useState('');
   const [mapZoom, setMapZoom] = useState(5.4);
@@ -99,40 +99,40 @@ export const NationalOverviewMap = ({ onSelectMine }) => {
       gap: '-513 MT',
       grade: '38.6% Mn',
       risk: 'WATCH',
-      type: 'Underground Deep Shaft',
-      pass: '25 Aug 2026'
-    },
-    {
-      id: 'kandri',
-      name: 'Kandri Mine',
-      state: 'Maharashtra',
-      district: 'Nagpur',
-      lat: 21.4178,
-      lng: 79.2689,
-      status: 'WATCH',
-      production: '2,210 T',
-      target: '2,800 T',
-      gap: '-590 MT',
-      grade: '42.5% Mn',
-      risk: 'WATCH',
-      type: 'Underground Deep Shaft',
-      pass: '25 Aug 2026'
+      type: 'Opencast / Underground',
+      pass: '26 Aug 2026'
     },
     {
       id: 'gumgaon',
       name: 'Gumgaon Mine',
       state: 'Maharashtra',
       district: 'Nagpur',
-      lat: 21.3917,
-      lng: 78.9861,
-      status: 'OPTIMAL',
-      production: '2,605 T',
-      target: '3,400 T',
-      gap: '-795 MT',
-      grade: '43.8% Mn',
-      risk: 'NOMINAL',
-      type: 'Underground Deep Shaft',
-      pass: '25 Aug 2026'
+      lat: 21.4167,
+      lng: 78.9833,
+      status: 'WATCH',
+      production: '1,960 T',
+      target: '2,500 T',
+      gap: '-540 MT',
+      grade: '43.1% Mn',
+      risk: 'WATCH',
+      type: 'Underground Incline',
+      pass: '26 Aug 2026'
+    },
+    {
+      id: 'kandri',
+      name: 'Kandri Mine',
+      state: 'Maharashtra',
+      district: 'Nagpur',
+      lat: 21.4283,
+      lng: 79.2781,
+      status: 'WATCH',
+      production: '2,210 T',
+      target: '2,800 T',
+      gap: '-590 MT',
+      grade: '41.0% Mn',
+      risk: 'WATCH',
+      type: 'Opencast Mechanized',
+      pass: '26 Aug 2026'
     },
     {
       id: 'chikla',
@@ -217,11 +217,10 @@ export const NationalOverviewMap = ({ onSelectMine }) => {
   // Zero-Key Tile Layer Providers (OpenStreetMap Default)
   const tileUrls = {
     STREET: 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
-    TERRAIN: 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
     SATELLITE: 'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}'
   };
 
-  // Custom Leaflet DivIcon Generator matching Reference Image 1
+  // Custom Leaflet DivIcon Generator
   const createCustomPin = (mine, isSelected) => {
     const isCrit = mine.status === 'CRITICAL';
     const isWatch = mine.status === 'WATCH';
@@ -253,48 +252,48 @@ export const NationalOverviewMap = ({ onSelectMine }) => {
   };
 
   return (
-    <div className="relative w-full h-[540px] sm:h-[600px] lg:h-[660px] rounded-2xl bg-[#f4f7f6] dark:bg-[#070c14] border border-[#d2e0e8] dark:border-[#162338] overflow-hidden shadow-xl select-none font-sans">
-      
-      {/* Top Map Toolbar (Matching Reference Image 1) */}
+    <div className="relative w-full h-[540px] sm:h-[600px] lg:h-[660px] rounded-2xl bg-[#EEF2F6] border border-[#CBD5E1] overflow-hidden shadow-md select-none font-sans">
+
+      {/* Top Map Toolbar */}
       <div className="absolute top-3 left-3 right-3 flex items-center justify-between z-[500] pointer-events-none">
-        
+
         {/* Search Mine Bar */}
         <div className="flex items-center gap-2 pointer-events-auto">
-          <div className="flex items-center px-3 py-1.5 rounded-xl bg-white/95 dark:bg-[#0c1422]/95 border border-[#cbdce6] dark:border-[#1e2f4a] backdrop-blur-md shadow-md text-xs text-zinc-800 dark:text-zinc-200">
-            <Search className="w-3.5 h-3.5 text-zinc-400 mr-2" />
+          <div className="flex items-center px-3.5 py-1.5 rounded-xl bg-white border border-[#CBD5E1] shadow-md text-xs text-[#0F172A]">
+            <Search className="w-3.5 h-3.5 text-slate-400 mr-2" />
             <input
               type="text"
               placeholder="Search mine / location..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="bg-transparent border-none outline-none text-xs w-36 sm:w-48 text-zinc-900 dark:text-white placeholder-zinc-400"
+              className="bg-transparent border-none outline-none text-xs w-36 sm:w-48 text-[#0F172A] placeholder-slate-400 font-semibold"
             />
           </div>
         </div>
 
-        {/* Layer & Basemap Toggles (Matching Reference Image 1) */}
+        {/* Layer & Basemap Toggles */}
         <div className="flex items-center gap-1.5 pointer-events-auto">
-          <div className="flex items-center p-0.5 rounded-xl bg-white/95 dark:bg-[#0c1422]/95 border border-[#cbdce6] dark:border-[#1e2f4a] backdrop-blur-md shadow-md text-[11px] font-medium text-zinc-700 dark:text-zinc-300">
+          <div className="flex items-center p-1 rounded-xl bg-white border border-[#CBD5E1] shadow-md text-xs font-bold text-[#334155]">
             <button
               onClick={() => { setBaseLayer('STREET'); setTileError(false); }}
-              className={`px-2.5 py-1 rounded-lg transition-colors ${
-                baseLayer === 'STREET' ? 'bg-[#0f3a33] text-white font-bold' : 'hover:text-zinc-900 dark:hover:text-white'
+              className={`px-3 py-1 rounded-lg transition-colors cursor-pointer ${
+                baseLayer === 'STREET' ? 'bg-[#0F172A] text-white font-bold' : 'hover:text-[#0F172A] text-[#475569]'
               }`}
             >
-              Topo / Map (OSM)
+              Topo (OSM)
             </button>
             <button
               onClick={() => { setBaseLayer('SATELLITE'); setTileError(false); }}
-              className={`px-2.5 py-1 rounded-lg transition-colors ${
-                baseLayer === 'SATELLITE' ? 'bg-[#0f3a33] text-white font-bold' : 'hover:text-zinc-900 dark:hover:text-white'
+              className={`px-3 py-1 rounded-lg transition-colors cursor-pointer ${
+                baseLayer === 'SATELLITE' ? 'bg-[#0F172A] text-white font-bold' : 'hover:text-[#0F172A] text-[#475569]'
               }`}
             >
               Satellite
             </button>
             <button
               onClick={() => setShowProspectivity(prev => !prev)}
-              className={`px-2.5 py-1 rounded-lg transition-colors ${
-                showProspectivity ? 'bg-amber-600/20 text-amber-800 dark:text-amber-300 font-bold' : 'text-zinc-500'
+              className={`px-3 py-1 rounded-lg transition-colors cursor-pointer ${
+                showProspectivity ? 'bg-amber-100 text-amber-900 border border-amber-300' : 'text-[#64748B]'
               }`}
             >
               Mineral Belt
@@ -335,14 +334,14 @@ export const NationalOverviewMap = ({ onSelectMine }) => {
               color: '#ea580c',
               fillColor: '#f59e0b',
               fillOpacity: 0.22,
-              weight: 1.5,
+              weight: 2,
               dashArray: '4 4'
             }}
           >
             <Tooltip sticky>
               <div className="font-mono text-xs p-1">
-                <strong className="text-amber-800">{lang === 'hi' ? 'सौसर मैंगनीज अयस्क पट्टी' : lang === 'mr' ? 'सौसर मॅंगनीज पट्टा' : 'Sausar Manganese Ore Belt'}</strong>
-                <div className="text-[10px] text-zinc-600">{lang === 'hi' ? 'मध्य प्रदेश-महाराष्ट्र प्रीकैम्ब्रियन रूपांतरित संस्तर' : lang === 'mr' ? 'मध्य प्रदेश-महाराष्ट्र प्रीकॅम्ब्रियन रूपांतरित स्तर' : 'Central MP-MH Precambrian Metamorphic Horizon'}</div>
+                <strong className="text-amber-900">{lang === 'hi' ? 'à¤¸à¥Œà¤¸à¤° à¤®à¥ˆà¤‚à¤—à¤¨à¥€à¤œ à¤…à¤¯à¤¸à¥à¤• à¤ªà¤Ÿà¥à¤Ÿà¥€' : lang === 'mr' ? 'à¤¸à¥Œà¤¸à¤° à¤®à¥…à¤‚à¤—à¤¨à¥€à¤œ à¤ªà¤Ÿà¥à¤Ÿà¤¾' : 'Sausar Manganese Ore Belt'}</strong>
+                <div className="text-[10px] text-slate-700">{lang === 'hi' ? 'à¤®à¤§à¥à¤¯ à¤ªà¥à¤°à¤¦à¥‡à¤¶-à¤®à¤¹à¤¾à¤°à¤¾à¤·à¥à¤Ÿà¥à¤° à¤ªà¥à¤°à¥€à¤•à¥ˆà¤®à¥à¤¬à¥à¤°à¤¿à¤¯à¤¨ à¤°à¥‚à¤ªà¤¾à¤‚à¤¤à¤°à¤¿à¤¤ à¤¸à¤‚à¤¸à¥à¤¤à¤°' : lang === 'mr' ? 'à¤®à¤§à¥à¤¯ à¤ªà¥à¤°à¤¦à¥‡à¤¶-à¤®à¤¹à¤¾à¤°à¤¾à¤·à¥à¤Ÿà¥à¤° à¤ªà¥à¤°à¥€à¤•à¥…à¤®à¥à¤¬à¥à¤°à¤¿à¤¯à¤¨ à¤°à¥‚à¤ªà¤¾à¤‚à¤¤à¤°à¤¿à¤¤ à¤¸à¥à¤¤à¤°' : 'Central MP-MH Precambrian Metamorphic Horizon'}</div>
               </div>
             </Tooltip>
           </Polygon>
@@ -361,22 +360,22 @@ export const NationalOverviewMap = ({ onSelectMine }) => {
                 click: () => handleSelect(m)
               }}
             >
-              <Tooltip direction="top" offset={[0, -10]} opacity={0.95}>
-                <div className="font-sans text-xs p-1 space-y-1">
-                  <div className="font-bold text-zinc-900 flex items-center justify-between gap-3">
-                    <span>{m.name}</span>
-                    <span className={`text-[9px] px-1.5 py-0.2 rounded font-mono font-bold ${
-                      m.status === 'CRITICAL' ? 'bg-rose-100 text-rose-700' : 'bg-emerald-100 text-emerald-700'
+              <Tooltip direction="top" offset={[0, -10]} opacity={0.98}>
+                <div className="font-sans text-xs p-1.5 space-y-1 bg-white rounded-lg shadow-md border border-[#CBD5E1]">
+                  <div className="font-bold text-[#0F172A] flex items-center justify-between gap-3">
+                    <span className="text-sm font-black">{m.name}</span>
+                    <span className={`text-[10px] px-1.5 py-0.5 rounded font-mono font-bold ${
+                      m.status === 'CRITICAL' ? 'bg-rose-100 text-rose-800' : 'bg-emerald-100 text-emerald-800'
                     }`}>
                       {m.status}
                     </span>
                   </div>
-                  <div className="text-[10px] text-zinc-500 font-mono">
-                    {m.district}, {m.state} • {m.type}
+                  <div className="text-[10px] text-[#475569] font-mono">
+                    {m.district}, {m.state} â€¢ {m.type}
                   </div>
-                  <div className="flex items-center justify-between text-[10px] font-mono font-bold text-zinc-700 pt-1 border-t border-zinc-200">
-                    <span>{t?.common?.target || 'Target'}: {m.target}</span>
-                    <span className="text-emerald-700">{t?.common?.grade || 'Grade'}: {m.grade}</span>
+                  <div className="flex items-center justify-between text-[11px] font-mono font-bold text-[#0F172A] pt-1 border-t border-[#E2E8F0]">
+                    <span>Target: {m.target}</span>
+                    <span className="text-emerald-800">Grade: {m.grade}</span>
                   </div>
                 </div>
               </Tooltip>
@@ -389,7 +388,7 @@ export const NationalOverviewMap = ({ onSelectMine }) => {
       <div className="absolute bottom-4 right-4 flex flex-col gap-1.5 z-[500]">
         <button
           onClick={() => setMapZoom(prev => Math.min(12, prev + 1))}
-          className="w-8 h-8 rounded-xl bg-white/95 dark:bg-[#0e1624]/95 border border-zinc-300 dark:border-[#1e2f4a] text-zinc-800 dark:text-zinc-200 hover:bg-zinc-100 dark:hover:bg-[#162338] flex items-center justify-center shadow-lg backdrop-blur-md transition-colors"
+          className="w-9 h-9 rounded-xl bg-white border border-[#CBD5E1] text-[#0F172A] hover:bg-slate-50 flex items-center justify-center shadow-lg transition-colors cursor-pointer"
           title="Zoom In"
         >
           <ZoomIn className="w-4 h-4" />
@@ -397,7 +396,7 @@ export const NationalOverviewMap = ({ onSelectMine }) => {
 
         <button
           onClick={() => setMapZoom(prev => Math.max(4, prev - 1))}
-          className="w-8 h-8 rounded-xl bg-white/95 dark:bg-[#0e1624]/95 border border-zinc-300 dark:border-[#1e2f4a] text-zinc-800 dark:text-zinc-200 hover:bg-zinc-100 dark:hover:bg-[#162338] flex items-center justify-center shadow-lg backdrop-blur-md transition-colors"
+          className="w-9 h-9 rounded-xl bg-white border border-[#CBD5E1] text-[#0F172A] hover:bg-slate-50 flex items-center justify-center shadow-lg transition-colors cursor-pointer"
           title="Zoom Out"
         >
           <ZoomOut className="w-4 h-4" />
@@ -405,7 +404,7 @@ export const NationalOverviewMap = ({ onSelectMine }) => {
 
         <button
           onClick={handleResetView}
-          className="w-8 h-8 rounded-xl bg-white/95 dark:bg-[#0e1624]/95 border border-zinc-300 dark:border-[#1e2f4a] text-zinc-800 dark:text-zinc-200 hover:bg-zinc-100 dark:hover:bg-[#162338] flex items-center justify-center shadow-lg backdrop-blur-md transition-colors"
+          className="w-9 h-9 rounded-xl bg-white border border-[#CBD5E1] text-[#0F172A] hover:bg-slate-50 flex items-center justify-center shadow-lg transition-colors cursor-pointer"
           title="Reset National View"
         >
           <RotateCcw className="w-4 h-4" />
@@ -413,29 +412,29 @@ export const NationalOverviewMap = ({ onSelectMine }) => {
       </div>
 
       {/* Map Legend */}
-      <div className="absolute bottom-4 left-4 p-3 rounded-2xl bg-white/95 dark:bg-[#0b121e]/95 border border-[#cadbe6] dark:border-[#18263c] shadow-xl backdrop-blur-md z-[500] text-[11px] font-sans text-zinc-700 dark:text-zinc-300 space-y-1.5 select-none">
-        <div className="text-[10px] font-bold uppercase tracking-wider text-zinc-500 dark:text-zinc-400 pb-1 border-b border-zinc-200 dark:border-zinc-800">
-          {lang === 'hi' ? 'मानचित्र संकेत एवं स्थिति' : lang === 'mr' ? 'नकाशा सूची व स्थिती' : 'MAP LEGEND & STATUS'}
+      <div className="absolute bottom-4 left-4 p-3.5 rounded-2xl bg-white border border-[#CBD5E1] shadow-xl z-[500] text-xs font-sans text-[#0F172A] space-y-1.5 select-none">
+        <div className="text-[10px] font-bold uppercase tracking-wider text-[#475569] pb-1 border-b border-[#E2E8F0]">
+          {lang === 'hi' ? 'à¤®à¤¾à¤¨à¤šà¤¿à¤¤à¥à¤° à¤¸à¤‚à¤•à¥‡à¤¤ à¤à¤µà¤‚ à¤¸à¥à¤¥à¤¿à¤¤à¤¿' : lang === 'mr' ? 'à¤¨à¤•à¤¾à¤¶à¤¾ à¤¸à¥‚à¤šà¥€ à¤µ à¤¸à¥à¤¥à¤¿à¤¤à¥€' : 'MAP LEGEND & STATUS'}
         </div>
         <div className="flex items-center gap-2">
-          <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 shadow-sm" />
-          <span>{lang === 'hi' ? 'लक्ष्य पर (>85% दैनिक उत्पादन)' : lang === 'mr' ? 'उद्दिष्टावर (>85% दैनिक उत्पादन)' : 'On Target (>85% Daily Yield)'}</span>
+          <span className="w-2.5 h-2.5 rounded-full bg-emerald-600 shadow-sm" />
+          <span className="font-semibold">{lang === 'hi' ? 'à¤²à¤•à¥à¤·à¥à¤¯ à¤ªà¤° (>85% à¤¦à¥ˆà¤¨à¤¿à¤• à¤‰à¤¤à¥à¤ªà¤¾à¤¦à¤¨)' : lang === 'mr' ? 'à¤‰à¤¦à¥à¤¦à¤¿à¤·à¥à¤Ÿà¤¾à¤µà¤° (>85% à¤¦à¥ˆà¤¨à¤¿à¤• à¤‰à¤¤à¥à¤ªà¤¾à¤¦à¤¨)' : 'On Target (>85% Daily Yield)'}</span>
         </div>
         <div className="flex items-center gap-2">
-          <span className="w-2.5 h-2.5 rounded-full bg-amber-500 shadow-sm" />
-          <span>{lang === 'hi' ? 'जोखिम में (65% - 85% उत्पादन)' : lang === 'mr' ? 'जोखमीत (65% - 85% उत्पादन)' : 'At Risk (65% - 85% Yield)'}</span>
+          <span className="w-2.5 h-2.5 rounded-full bg-amber-600 shadow-sm" />
+          <span className="font-semibold">{lang === 'hi' ? 'à¤œà¥‹à¤–à¤¿à¤® à¤®à¥‡à¤‚ (65% - 85% à¤‰à¤¤à¥à¤ªà¤¾à¤¦à¤¨)' : lang === 'mr' ? 'à¤œà¥‹à¤–à¤®à¥€à¤¤ (65% - 85% à¤‰à¤¤à¥à¤ªà¤¾à¤¦à¤¨)' : 'At Risk (65% - 85% Yield)'}</span>
         </div>
         <div className="flex items-center gap-2">
           <span className="w-2.5 h-2.5 rounded-full bg-rose-600 shadow-sm" />
-          <span>{lang === 'hi' ? 'गंभीर अंतर अलर्ट' : lang === 'mr' ? 'गंभीर तूट इशारा' : 'Critical Shortfall Alert'}</span>
+          <span className="font-semibold">{lang === 'hi' ? 'à¤—à¤‚à¤­à¥€à¤° à¤…à¤‚à¤¤à¤° à¤…à¤²à¤°à¥à¤Ÿ' : lang === 'mr' ? 'à¤—à¤‚à¤­à¥€à¤° à¤¤à¥‚à¤Ÿ à¤‡à¤¶à¤¾à¤°à¤¾' : 'Critical Shortfall Alert'}</span>
         </div>
         <div className="flex items-center gap-2">
-          <span className="w-2.5 h-2.5 rounded-full bg-sky-500 shadow-sm animate-pulse" />
-          <span>{lang === 'hi' ? 'सक्रिय चयनित खदान' : lang === 'mr' ? 'सक्रिय निवडलेली खाण' : 'Active Selected Mine'}</span>
+          <span className="w-2.5 h-2.5 rounded-full bg-sky-600 shadow-sm animate-pulse" />
+          <span className="font-semibold">{lang === 'hi' ? 'à¤¸à¤•à¥à¤°à¤¿à¤¯ à¤šà¤¯à¤¨à¤¿à¤¤ à¤–à¤¦à¤¾à¤¨' : lang === 'mr' ? 'à¤¸à¤•à¥à¤°à¤¿à¤¯ à¤¨à¤¿à¤µà¤¡à¤²à¥‡à¤²à¥€ à¤–à¤¾à¤£' : 'Active Selected Mine'}</span>
         </div>
-        <div className="flex items-center gap-2 pt-1 border-t border-zinc-100 dark:border-zinc-800 text-[10px] text-amber-600 dark:text-amber-400">
-          <span className="w-4 h-1.5 rounded bg-amber-500/40 border border-amber-500" />
-          <span>{lang === 'hi' ? 'सौसर खनिज संभावना पट्टी' : lang === 'mr' ? 'सौसर खनिज संभाव्यता पट्टा' : 'Sausar Mineral Prospectivity Belt'}</span>
+        <div className="flex items-center gap-2 pt-1 border-t border-[#E2E8F0] text-[11px] text-amber-800 font-bold">
+          <span className="w-4 h-2 rounded bg-amber-500/40 border border-amber-600" />
+          <span>{lang === 'hi' ? 'à¤¸à¥Œà¤¸à¤° à¤–à¤¨à¤¿à¤œ à¤¸à¤‚à¤­à¤¾à¤µà¤¨à¤¾ à¤ªà¤Ÿà¥à¤Ÿà¥€' : lang === 'mr' ? 'à¤¸à¥Œà¤¸à¤° à¤–à¤¨à¤¿à¤œ à¤¸à¤‚à¤­à¤¾à¤µà¥à¤¯à¤¤à¤¾ à¤ªà¤Ÿà¥à¤Ÿà¤¾' : 'Sausar Mineral Belt'}</span>
         </div>
       </div>
 

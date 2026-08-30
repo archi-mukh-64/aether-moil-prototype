@@ -35,33 +35,35 @@ export const MainLayout = () => {
     setShowBootScreen(false);
   };
 
-  const { 
-    isComparisonModalOpen, 
-    setIsComparisonModalOpen, 
-    isExecutiveModalOpen, 
+  const {
+    isComparisonModalOpen,
+    setIsComparisonModalOpen,
+    isExecutiveModalOpen,
     setIsExecutiveModalOpen,
     isReportModalOpen,
     setIsReportModalOpen
   } = useApp();
 
   return (
-    <div className="min-h-screen flex bg-[#F5F7FA] text-[#172033] font-sans selection:bg-amber-500/30 selection:text-amber-900">
-      
+    <div className="min-h-screen flex bg-[#EEF2F6] text-[#0F172A] font-sans selection:bg-amber-500/30 selection:text-amber-900">
+
       {/* Optional Boot Initialization Screen */}
       {showBootScreen && (
         <AetherLoadingScreen onComplete={handleBootComplete} />
       )}
 
       {/* 1. Collapsible Categorized Sidebar */}
-      <Sidebar 
-        isCollapsed={isSidebarCollapsed} 
+      <Sidebar
+        isCollapsed={isSidebarCollapsed}
         setIsCollapsed={setIsSidebarCollapsed}
         isMobileOpen={isMobileMenuOpen}
         setIsMobileOpen={setIsMobileMenuOpen}
       />
 
-      {/* 2. Main Application Flow Area */}
-      <div className="flex-1 flex flex-col min-w-0 min-h-screen">
+      {/* 2. Main Application Flow Area (Offset by sidebar width) */}
+      <div className={`flex-1 flex flex-col min-w-0 min-h-screen transition-all duration-300 ${
+        isSidebarCollapsed ? 'lg:pl-20' : 'lg:pl-64'
+      }`}>
         {/* Top Command Platform Header */}
         <AppHeader onMobileMenuToggle={() => setIsMobileMenuOpen(true)} />
 
@@ -80,17 +82,17 @@ export const MainLayout = () => {
       <DecisionModal />
       <SupportModal />
       <CommandDrawer />
-      <MineComparisonModal 
-        isOpen={isComparisonModalOpen} 
-        onClose={() => setIsComparisonModalOpen(false)} 
+      <MineComparisonModal
+        isOpen={isComparisonModalOpen}
+        onClose={() => setIsComparisonModalOpen(false)}
       />
-      <ExecutiveCommandModal 
-        isOpen={isExecutiveModalOpen} 
-        onClose={() => setIsExecutiveModalOpen(false)} 
+      <ExecutiveCommandModal
+        isOpen={isExecutiveModalOpen}
+        onClose={() => setIsExecutiveModalOpen(false)}
       />
-      <ReportModal 
-        isOpen={isReportModalOpen} 
-        onClose={() => setIsReportModalOpen(false)} 
+      <ReportModal
+        isOpen={isReportModalOpen}
+        onClose={() => setIsReportModalOpen(false)}
       />
     </div>
   );

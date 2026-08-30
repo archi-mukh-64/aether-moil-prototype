@@ -9,28 +9,29 @@
     --font-sans: 'Inter', sans-serif;
     --font-mono: 'JetBrains Mono', monospace;
 
-    /* Semantic Light Industrial Design Tokens */
-    --bg-primary: #F5F7FA;
-    --bg-secondary: #F0F4F8;
+    /* High-Contrast Light Industrial Design Tokens */
+    --bg-primary: #EEF2F6;
+    --bg-secondary: #E2E8F0;
     --surface-card: #FFFFFF;
     --surface-elevated: #FFFFFF;
-    --border-subtle: #E2E8F0;
-    --border-hover: #CBD5E1;
+    --border-subtle: #CBD5E1;
+    --border-hover: #94A3B8;
 
     --accent-command: #F59E0B;     /* Amber */
     --accent-intelligence: #0891B2; /* Cyan */
     --accent-health: #16A34A;       /* Emerald */
     --accent-warning: #D97706;      /* Orange */
     --accent-critical: #DC2626;     /* Red */
-    --accent-ai: #6366F1;           /* Indigo */
+    --accent-ai: #4F46E5;           /* Indigo */
   }
-  
+
   body {
-    @apply bg-[#F5F7FA] text-[#172033] font-sans tracking-tight overflow-x-hidden min-h-screen;
-    background-image: 
-      radial-gradient(circle at 10% 0%, rgba(245, 158, 11, 0.03) 0%, transparent 40%),
-      radial-gradient(circle at 90% 0%, rgba(8, 145, 178, 0.03) 0%, transparent 40%),
-      linear-gradient(180deg, #F5F7FA 0%, #FFFFFF 50%, #F5F7FA 100%);
+    @apply bg-[#EEF2F6] text-[#0F172A] font-sans tracking-tight overflow-x-hidden min-h-screen;
+    background-color: #EEF2F6;
+    background-image:
+      radial-gradient(circle at 15% 0%, rgba(245, 158, 11, 0.04) 0%, transparent 45%),
+      radial-gradient(circle at 85% 0%, rgba(8, 145, 178, 0.04) 0%, transparent 45%),
+      linear-gradient(180deg, #EEF2F6 0%, #F1F5F9 100%);
     background-attachment: fixed;
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
@@ -42,33 +43,33 @@
     height: 6px;
   }
   ::-webkit-scrollbar-track {
-    background: #F1F5F9;
+    background: #E2E8F0;
   }
   ::-webkit-scrollbar-thumb {
-    background: #CBD5E1;
+    background: #94A3B8;
     border-radius: 3px;
   }
   ::-webkit-scrollbar-thumb:hover {
-    background: #94A3B8;
+    background: #64748B;
   }
 }
 
 @layer components {
   /* Precision Neutral Technical Panels & Cards */
   .panel-surface {
-    @apply bg-white border border-[#E2E8F0] rounded-xl transition-all duration-200 shadow-sm;
+    @apply bg-white border border-[#CBD5E1] rounded-xl transition-all duration-200 shadow-sm text-[#0F172A];
   }
 
   .panel-surface-hover {
-    @apply panel-surface hover:border-[#CBD5E1] hover:shadow-md;
+    @apply panel-surface hover:border-[#94A3B8] hover:shadow-md;
   }
 
   .card-command {
-    @apply bg-white border border-[#E2E8F0] rounded-xl p-5 sm:p-6 transition-all duration-200 shadow-sm;
+    @apply bg-white border border-[#CBD5E1] rounded-xl p-5 sm:p-6 transition-all duration-200 shadow-sm text-[#0F172A];
   }
 
   .card-command-hover {
-    @apply card-command hover:border-[#CBD5E1] hover:shadow-md;
+    @apply card-command hover:border-[#94A3B8] hover:shadow-md;
   }
 
   /* Container wrapper for widescreen command center */
@@ -82,15 +83,15 @@
   }
 
   .btn-command-secondary {
-    @apply px-4 py-2.5 rounded-xl bg-white hover:bg-slate-50 border border-[#CBD5E1] text-[#1E293B] font-bold text-xs uppercase tracking-wider transition-all duration-150 inline-flex items-center justify-center gap-2 shadow-sm active:scale-[0.98] disabled:opacity-50 cursor-pointer;
+    @apply px-4 py-2.5 rounded-xl bg-white hover:bg-slate-50 border border-[#CBD5E1] text-[#0F172A] font-bold text-xs uppercase tracking-wider transition-all duration-150 inline-flex items-center justify-center gap-2 shadow-sm active:scale-[0.98] disabled:opacity-50 cursor-pointer;
   }
 
   .btn-command-intelligence {
-    @apply px-4 py-2.5 rounded-xl bg-cyan-50 hover:bg-cyan-100 border border-cyan-300 text-cyan-800 font-bold text-xs uppercase tracking-wider transition-all duration-150 inline-flex items-center justify-center gap-2 shadow-sm active:scale-[0.98] cursor-pointer;
+    @apply px-4 py-2.5 rounded-xl bg-cyan-50 hover:bg-cyan-100 border border-cyan-300 text-cyan-900 font-bold text-xs uppercase tracking-wider transition-all duration-150 inline-flex items-center justify-center gap-2 shadow-sm active:scale-[0.98] cursor-pointer;
   }
 
   .btn-command-ai {
-    @apply px-4 py-2.5 rounded-xl bg-indigo-50 hover:bg-indigo-100 border border-indigo-300 text-indigo-800 font-bold text-xs uppercase tracking-wider transition-all duration-150 inline-flex items-center justify-center gap-2 shadow-sm active:scale-[0.98] cursor-pointer;
+    @apply px-4 py-2.5 rounded-xl bg-indigo-50 hover:bg-indigo-100 border border-indigo-300 text-indigo-900 font-bold text-xs uppercase tracking-wider transition-all duration-150 inline-flex items-center justify-center gap-2 shadow-sm active:scale-[0.98] cursor-pointer;
   }
 
   .btn-command-danger {
@@ -98,52 +99,23 @@
   }
 
   .btn-command-success {
-    @apply px-4 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs uppercase tracking-wider transition-all duration-150 inline-flex items-center justify-center gap-2 shadow-sm active:scale-[0.98] cursor-pointer;
+    @apply px-4 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs uppercase tracking-wider transition-all duration-150 inline-flex items-center justify-center gap-2 shadow-sm active:scale-[0.98] disabled:opacity-50 cursor-pointer;
   }
 
-  .btn-command-ghost {
-    @apply px-3 py-2 rounded-xl text-[#64748B] hover:text-[#172033] hover:bg-slate-100 transition-colors text-xs font-semibold inline-flex items-center gap-1.5 cursor-pointer;
-  }
-
-  /* Semantic Status Badges & Pills */
-  .badge-command {
-    @apply inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-[11px] font-mono font-semibold bg-amber-50 text-amber-800 border border-amber-200 tracking-wide;
-  }
-
-  .badge-intelligence {
-    @apply inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-[11px] font-mono font-semibold bg-cyan-50 text-cyan-800 border border-cyan-200 tracking-wide;
-  }
-
-  .badge-health {
-    @apply inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-[11px] font-mono font-semibold bg-emerald-50 text-emerald-800 border border-emerald-200 tracking-wide;
-  }
-
-  .badge-warning {
-    @apply inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-[11px] font-mono font-semibold bg-amber-50 text-amber-800 border border-amber-200 tracking-wide;
-  }
-
-  .badge-critical {
-    @apply inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-[11px] font-mono font-semibold bg-red-50 text-red-800 border border-red-200 tracking-wide;
-  }
-
-  .badge-manganese {
-    @apply inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-[11px] font-mono font-semibold bg-amber-500/10 text-amber-800 border border-amber-500/30 tracking-wide;
-  }
-
-  /* Industrial Data Tables */
+  /* Industrial Data Table Style */
   .table-industrial {
-    @apply w-full text-left text-xs font-sans;
+    @apply w-full text-left text-xs font-mono;
   }
 
   .table-industrial th {
-    @apply px-4 py-3 bg-[#F8FAFC] text-[#475569] font-mono font-bold text-[11px] uppercase tracking-wider border-b border-[#E2E8F0] sticky top-0 z-10;
+    @apply bg-[#F1F5F9] text-[#334155] font-bold uppercase tracking-wider px-4 py-3 border-b border-[#CBD5E1];
   }
 
   .table-industrial td {
-    @apply px-4 py-3.5 border-b border-[#F1F5F9] text-[#1E293B] font-medium transition-colors;
+    @apply px-4 py-3 border-b border-[#E2E8F0] text-[#0F172A] bg-white transition-colors;
   }
 
   .table-industrial tr:hover td {
-    @apply bg-[#F8FAFC];
+    @apply bg-slate-50;
   }
 }
