@@ -9,29 +9,37 @@
     --font-sans: 'Inter', sans-serif;
     --font-mono: 'JetBrains Mono', monospace;
 
-    /* High-Contrast Light Industrial Design Tokens */
-    --bg-primary: #EEF2F6;
-    --bg-secondary: #E2E8F0;
-    --surface-card: #FFFFFF;
-    --surface-elevated: #FFFFFF;
-    --border-subtle: #CBD5E1;
-    --border-hover: #94A3B8;
+    /* AETHER Digital Mine / Mineral Intelligence Design Tokens */
+    --aether-canvas: #E8E1D5;
+    --aether-canvas-secondary: #DDD4C5;
+    --aether-sidebar: #202522;
+    --aether-sidebar-elevated: #29302B;
+    --aether-header: #292E2A;
+    --aether-primary: #272A27;
+    --aether-secondary: #5F625C;
+    --aether-muted: #85877E;
+    --aether-border: #C8BFAF;
+    --aether-surface: #F0EBE2;
+    --aether-surface-elevated: #F5F1E9;
 
-    --accent-command: #F59E0B;     /* Amber */
-    --accent-intelligence: #0891B2; /* Cyan */
-    --accent-health: #16A34A;       /* Emerald */
-    --accent-warning: #D97706;      /* Orange */
-    --accent-critical: #DC2626;     /* Red */
-    --accent-ai: #4F46E5;           /* Indigo */
+    /* Semantic Accents */
+    --accent-copper: #C46A32;
+    --accent-ochre: #B88A3B;
+    --accent-sage: #71856B;
+    --accent-teal: #3D8C8A;
+    --accent-violet: #655C9F;
+    --accent-vermilion: #C84B3F;
+    --accent-burgundy: #7D4545;
+    --accent-terracotta: #B76543;
   }
 
   body {
-    @apply bg-[#EEF2F6] text-[#0F172A] font-sans tracking-tight overflow-x-hidden min-h-screen;
-    background-color: #EEF2F6;
+    @apply bg-[#E8E1D5] text-[#272A27] font-sans tracking-tight overflow-x-hidden min-h-screen;
+    background-color: #E8E1D5;
     background-image:
-      radial-gradient(circle at 15% 0%, rgba(245, 158, 11, 0.04) 0%, transparent 45%),
-      radial-gradient(circle at 85% 0%, rgba(8, 145, 178, 0.04) 0%, transparent 45%),
-      linear-gradient(180deg, #EEF2F6 0%, #F1F5F9 100%);
+      radial-gradient(circle at 10% 0%, rgba(196, 106, 50, 0.05) 0%, transparent 45%),
+      radial-gradient(circle at 90% 0%, rgba(61, 140, 138, 0.05) 0%, transparent 45%),
+      linear-gradient(180deg, #E8E1D5 0%, #DDD4C5 100%);
     background-attachment: fixed;
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
@@ -43,33 +51,33 @@
     height: 6px;
   }
   ::-webkit-scrollbar-track {
-    background: #E2E8F0;
+    background: #DDD4C5;
   }
   ::-webkit-scrollbar-thumb {
-    background: #94A3B8;
+    background: #85877E;
     border-radius: 3px;
   }
   ::-webkit-scrollbar-thumb:hover {
-    background: #64748B;
+    background: #5F625C;
   }
 }
 
 @layer components {
-  /* Precision Neutral Technical Panels & Cards */
+  /* Precision Mineral Panels & Cards */
   .panel-surface {
-    @apply bg-white border border-[#CBD5E1] rounded-xl transition-all duration-200 shadow-sm text-[#0F172A];
+    @apply bg-[#F0EBE2] border border-[#C8BFAF] rounded-xl transition-all duration-200 shadow-mineral-sm text-[#272A27];
   }
 
   .panel-surface-hover {
-    @apply panel-surface hover:border-[#94A3B8] hover:shadow-md;
+    @apply panel-surface hover:border-[#85877E] hover:shadow-mineral-md;
   }
 
   .card-command {
-    @apply bg-white border border-[#CBD5E1] rounded-xl p-5 sm:p-6 transition-all duration-200 shadow-sm text-[#0F172A];
+    @apply bg-[#F0EBE2] border border-[#C8BFAF] rounded-xl p-5 sm:p-6 transition-all duration-200 shadow-mineral-sm text-[#272A27];
   }
 
   .card-command-hover {
-    @apply card-command hover:border-[#94A3B8] hover:shadow-md;
+    @apply card-command hover:border-[#85877E] hover:shadow-mineral-md;
   }
 
   /* Container wrapper for widescreen command center */
@@ -77,29 +85,29 @@
     @apply w-full max-w-[1680px] mx-auto px-4 sm:px-6 lg:px-8;
   }
 
-  /* Standardized Multi-Color Industrial Buttons */
+  /* Standardized Semantic Buttons */
   .btn-command-primary {
-    @apply px-4 py-2.5 rounded-xl bg-amber-500 hover:bg-amber-600 text-[#0F172A] font-bold text-xs uppercase tracking-wider transition-all duration-150 inline-flex items-center justify-center gap-2 shadow-sm active:scale-[0.98] disabled:opacity-50 cursor-pointer;
+    @apply px-4 py-2.5 rounded-xl bg-[#C46A32] hover:bg-[#B05924] text-white font-bold text-xs uppercase tracking-wider transition-all duration-150 inline-flex items-center justify-center gap-2 shadow-sm active:scale-[0.98] disabled:opacity-50 cursor-pointer;
   }
 
   .btn-command-secondary {
-    @apply px-4 py-2.5 rounded-xl bg-white hover:bg-slate-50 border border-[#CBD5E1] text-[#0F172A] font-bold text-xs uppercase tracking-wider transition-all duration-150 inline-flex items-center justify-center gap-2 shadow-sm active:scale-[0.98] disabled:opacity-50 cursor-pointer;
+    @apply px-4 py-2.5 rounded-xl bg-[#F5F1E9] hover:bg-[#E8E1D5] border border-[#C8BFAF] text-[#272A27] font-bold text-xs uppercase tracking-wider transition-all duration-150 inline-flex items-center justify-center gap-2 shadow-sm active:scale-[0.98] disabled:opacity-50 cursor-pointer;
   }
 
   .btn-command-intelligence {
-    @apply px-4 py-2.5 rounded-xl bg-cyan-50 hover:bg-cyan-100 border border-cyan-300 text-cyan-900 font-bold text-xs uppercase tracking-wider transition-all duration-150 inline-flex items-center justify-center gap-2 shadow-sm active:scale-[0.98] cursor-pointer;
+    @apply px-4 py-2.5 rounded-xl bg-[#E1EFEF] hover:bg-[#C2DFDF] border border-[#9ECFCF] text-[#1D4241] font-bold text-xs uppercase tracking-wider transition-all duration-150 inline-flex items-center justify-center gap-2 shadow-sm active:scale-[0.98] cursor-pointer;
   }
 
   .btn-command-ai {
-    @apply px-4 py-2.5 rounded-xl bg-indigo-50 hover:bg-indigo-100 border border-indigo-300 text-indigo-900 font-bold text-xs uppercase tracking-wider transition-all duration-150 inline-flex items-center justify-center gap-2 shadow-sm active:scale-[0.98] cursor-pointer;
+    @apply px-4 py-2.5 rounded-xl bg-[#EAE7F3] hover:bg-[#D4CEE7] border border-[#BEB4DA] text-[#302A50] font-bold text-xs uppercase tracking-wider transition-all duration-150 inline-flex items-center justify-center gap-2 shadow-sm active:scale-[0.98] cursor-pointer;
   }
 
   .btn-command-danger {
-    @apply px-4 py-2.5 rounded-xl bg-red-600 hover:bg-red-700 text-white font-bold text-xs uppercase tracking-wider transition-all duration-150 inline-flex items-center justify-center gap-2 shadow-sm active:scale-[0.98] disabled:opacity-50 cursor-pointer;
+    @apply px-4 py-2.5 rounded-xl bg-[#C84B3F] hover:bg-[#AB3B30] text-white font-bold text-xs uppercase tracking-wider transition-all duration-150 inline-flex items-center justify-center gap-2 shadow-sm active:scale-[0.98] disabled:opacity-50 cursor-pointer;
   }
 
   .btn-command-success {
-    @apply px-4 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs uppercase tracking-wider transition-all duration-150 inline-flex items-center justify-center gap-2 shadow-sm active:scale-[0.98] disabled:opacity-50 cursor-pointer;
+    @apply px-4 py-2.5 rounded-xl bg-[#71856B] hover:bg-[#5E7058] text-white font-bold text-xs uppercase tracking-wider transition-all duration-150 inline-flex items-center justify-center gap-2 shadow-sm active:scale-[0.98] disabled:opacity-50 cursor-pointer;
   }
 
   /* Industrial Data Table Style */
@@ -108,14 +116,14 @@
   }
 
   .table-industrial th {
-    @apply bg-[#F1F5F9] text-[#334155] font-bold uppercase tracking-wider px-4 py-3 border-b border-[#CBD5E1];
+    @apply bg-[#E6ECE4] text-[#272A27] font-bold uppercase tracking-wider px-4 py-3 border-b border-[#C8BFAF];
   }
 
   .table-industrial td {
-    @apply px-4 py-3 border-b border-[#E2E8F0] text-[#0F172A] bg-white transition-colors;
+    @apply px-4 py-3 border-b border-[#DDD4C5] text-[#272A27] bg-[#F0EBE2] transition-colors;
   }
 
   .table-industrial tr:hover td {
-    @apply bg-slate-50;
+    @apply bg-[#F5F1E9];
   }
 }

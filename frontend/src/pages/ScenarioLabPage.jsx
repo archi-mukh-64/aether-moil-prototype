@@ -1,37 +1,37 @@
-import React, { useState, useMemo, useEffect } from 'react';
+import { useState, useMemo, useEffect } from 'react';
 import { useApp } from '../context/AppContext.jsx';
 import { OFFICIAL_MOIL_MINES } from '../services/mineRegistry.js';
 import { ErrorBoundary } from '../components/common/ErrorBoundary.jsx';
 import { AetherSectionHeader, AetherStatusBadge } from '../components/design-system/index.js';
 import { StaticEngineeringMap } from '../components/scenario/StaticEngineeringMap.jsx';
-import { 
-  SCENARIO_KEYS, 
-  TIME_HORIZONS, 
-  SEVERITY_LEVELS, 
+import {
+  SCENARIO_KEYS,
+  TIME_HORIZONS,
+  SEVERITY_LEVELS,
   calculateScenarioIntelligence,
-  getLocalizedMineName 
+  getLocalizedMineName
 } from '../services/scenarioIntelligenceService.js';
-import { 
-  SlidersHorizontal, 
-  FlaskConical, 
-  RotateCcw, 
-  AlertTriangle, 
-  CheckCircle2, 
-  Sparkles, 
-  TrendingDown, 
-  TrendingUp, 
-  Activity, 
-  Droplet, 
-  Wrench, 
-  Truck, 
-  Zap, 
-  Clock, 
-  DollarSign, 
-  ShieldCheck, 
-  Sliders, 
-  Workflow, 
-  ChevronRight, 
-  FileText, 
+import {
+  SlidersHorizontal,
+  FlaskConical,
+  RotateCcw,
+  AlertTriangle,
+  CheckCircle2,
+  Sparkles,
+  TrendingDown,
+  TrendingUp,
+  Activity,
+  Droplet,
+  Wrench,
+  Truck,
+  Zap,
+  Clock,
+  DollarSign,
+  ShieldCheck,
+  Sliders,
+  Workflow,
+  ChevronRight,
+  FileText,
   HelpCircle,
   Eye,
   Radio,
@@ -148,33 +148,33 @@ const ScenarioLabPageContent = () => {
 
   // Toggle Intervention Selection
   const toggleIntervention = (actionId) => {
-    setActiveInterventions(prev => 
+    setActiveInterventions(prev =>
       prev.includes(actionId) ? prev.filter(id => id !== actionId) : [...prev, actionId]
     );
   };
 
   return (
     <div className="space-y-6 font-sans">
-      
+
       {/* 1. TOP HEADER & BREADCRUMB */}
       <AetherSectionHeader
-        title={sc?.title || 'Operational Scenario Simulation Lab'}
-        subtitle="Simulate pit inundation, crusher breakdowns, haulage bottlenecks, and grade deviations to evaluate recovery trajectories."
-        badge={sc?.engineBadge || 'DETERMINISTIC CAUSAL ENGINE'}
-        accent="#8B5CF6"
+        title={`${getLocalizedMineName(currentMine, lang)} — Scenario Simulation Lab`}
+        subtitle="Dynamic causal perturbation modeling, TreeSHAP loss attribution waterfalls, multi-layer GIS impact mapping, and automated statutory intervention optimizer."
+        badge={sc?.mode || "PREDICTIVE SHOCK TESTING"}
+        accent="#B76543"
         icon={FlaskConical}
         actions={
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-2 flex-wrap">
             <button
               onClick={() => setIsMultiScenarioOpen(!isMultiScenarioOpen)}
-              className="flex items-center gap-1.5 px-3 py-2 rounded-xl bg-purple-50 border border-purple-200 text-purple-800 text-xs font-bold font-mono hover:bg-purple-100 transition shadow-xs"
+              className="flex items-center gap-1.5 px-3 py-2 rounded-xl bg-[#F5F1E9] border border-[#C8BFAF] text-[#272A27] text-xs font-bold font-mono hover:bg-[#E8E1D5] transition shadow-sm cursor-pointer"
             >
-              <Layers className="w-3.5 h-3.5 text-purple-600" />
+              <Layers className="w-3.5 h-3.5 text-[#B76543]" />
               <span>{isMultiScenarioOpen ? (comm?.closeMatrix || 'CLOSE MATRIX') : (comm?.multiMatrix || 'MULTI-SCENARIO MATRIX')}</span>
             </button>
-            <button 
+            <button
               onClick={() => window.print()}
-              className="flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-amber-500 text-slate-950 text-xs font-bold font-mono hover:bg-amber-400 shadow-xs transition"
+              className="flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-[#B76543] text-white text-xs font-bold font-mono hover:bg-[#9B5133] shadow-sm transition cursor-pointer"
             >
               <Download className="w-3.5 h-3.5" />
               <span>{comm?.exportPdf || 'EXPORT DOSSIER (PDF)'}</span>
@@ -184,18 +184,18 @@ const ScenarioLabPageContent = () => {
       />
 
       {/* 2. TOP CONTROL BAR */}
-      <div className="p-4 rounded-3xl bg-[#080d1a] border border-[#1b2a41] shadow-2xl space-y-4">
+      <div className="p-4 rounded-2xl bg-[#F0EBE2] border border-[#C8BFAF] shadow-mineral-sm space-y-4 text-[#272A27]">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3">
-          
+
           {/* Mine Selector */}
           <div>
-            <label className="block text-[10.5px] font-bold text-zinc-400 uppercase tracking-wider mb-1">
+            <label className="block text-[10.5px] font-bold text-[#5F625C] uppercase tracking-wider mb-1">
               {sc?.selectMine || 'Select Mine Asset'}
             </label>
             <select
               value={selectedMineId}
               onChange={(e) => setSelectedMineId(e.target.value)}
-              className="w-full px-3 py-2.5 rounded-xl bg-[#0e1728] border border-[#223755] text-white text-xs font-bold focus:outline-none focus:border-amber-400"
+              className="w-full px-3 py-2 rounded-xl bg-[#F5F1E9] border border-[#C8BFAF] text-[#272A27] text-xs font-bold focus:outline-none focus:border-[#B76543] cursor-pointer"
             >
               {OFFICIAL_MOIL_MINES.map(m => (
                 <option key={m.id} value={m.id}>
@@ -207,13 +207,13 @@ const ScenarioLabPageContent = () => {
 
           {/* Scenario Selector */}
           <div>
-            <label className="block text-[10.5px] font-bold text-zinc-400 uppercase tracking-wider mb-1">
+            <label className="block text-[10.5px] font-bold text-[#5F625C] uppercase tracking-wider mb-1">
               {sc?.selectScenario || 'Operational Scenario'}
             </label>
             <select
               value={selectedScenarioId}
               onChange={(e) => setSelectedScenarioId(e.target.value)}
-              className="w-full px-3 py-2.5 rounded-xl bg-[#0e1728] border border-[#223755] text-amber-300 text-xs font-bold focus:outline-none focus:border-amber-400"
+              className="w-full px-3 py-2 rounded-xl bg-[#F5F1E9] border border-[#C8BFAF] text-[#B76543] text-xs font-bold focus:outline-none focus:border-[#B76543] cursor-pointer"
             >
               {SCENARIO_KEYS.map(key => (
                 <option key={key} value={key}>
@@ -225,13 +225,13 @@ const ScenarioLabPageContent = () => {
 
           {/* Severity Selector */}
           <div>
-            <label className="block text-[10.5px] font-bold text-zinc-400 uppercase tracking-wider mb-1">
+            <label className="block text-[10.5px] font-bold text-[#5F625C] uppercase tracking-wider mb-1">
               {sc?.selectSeverity || 'Crisis Severity'}
             </label>
             <select
               value={selectedSeverity}
               onChange={(e) => setSelectedSeverity(e.target.value)}
-              className="w-full px-3 py-2.5 rounded-xl bg-[#0e1728] border border-[#223755] text-white text-xs font-bold focus:outline-none focus:border-amber-400"
+              className="w-full px-3 py-2 rounded-xl bg-[#F5F1E9] border border-[#C8BFAF] text-[#272A27] text-xs font-bold focus:outline-none focus:border-[#B76543] cursor-pointer"
             >
               {SEVERITY_LEVELS.map(sev => (
                 <option key={sev.id} value={sev.id}>
@@ -243,13 +243,13 @@ const ScenarioLabPageContent = () => {
 
           {/* Time Horizon Selector */}
           <div>
-            <label className="block text-[10.5px] font-bold text-zinc-400 uppercase tracking-wider mb-1">
+            <label className="block text-[10.5px] font-bold text-[#5F625C] uppercase tracking-wider mb-1">
               {sc?.selectHorizon || 'Time Horizon'}
             </label>
             <select
               value={selectedHorizon}
               onChange={(e) => setSelectedHorizon(e.target.value)}
-              className="w-full px-3 py-2.5 rounded-xl bg-[#0e1728] border border-[#223755] text-white text-xs font-bold focus:outline-none focus:border-amber-400"
+              className="w-full px-3 py-2 rounded-xl bg-[#F5F1E9] border border-[#C8BFAF] text-[#272A27] text-xs font-bold focus:outline-none focus:border-[#B76543] cursor-pointer"
             >
               {TIME_HORIZONS.map(h => (
                 <option key={h.id} value={h.id}>
@@ -263,7 +263,7 @@ const ScenarioLabPageContent = () => {
           <div className="flex items-end">
             <button
               onClick={handleRunAnalysis}
-              className="w-full py-2.5 px-4 rounded-xl bg-amber-500 hover:bg-amber-400 text-obsidian-950 font-black text-xs uppercase tracking-wider shadow-lg shadow-amber-500/20 flex items-center justify-center gap-2 transition"
+              className="w-full py-2.5 px-4 rounded-xl bg-[#B76543] hover:bg-[#9B5133] text-white font-black text-xs uppercase tracking-wider shadow-md flex items-center justify-center gap-2 transition cursor-pointer"
             >
               <Play className="w-4 h-4 fill-current" />
               <span>{sc?.runBtn || 'RUN SCENARIO ANALYSIS'}</span>
@@ -320,7 +320,7 @@ const ScenarioLabPageContent = () => {
 
       {/* 4. EXECUTIVE IMPACT KPI PANEL */}
       <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
-        
+
         {/* Production at Risk */}
         <div className="p-4 rounded-2xl bg-[#080d1a] border border-[#1b2a41] shadow-xl space-y-1">
           <span className="text-[10px] text-zinc-400 uppercase tracking-wider block">{sc?.kpiProdAtRisk || 'Production at Risk'}</span>
@@ -407,8 +407,8 @@ const ScenarioLabPageContent = () => {
                 key={idx}
                 onClick={() => setActiveCausalNode(isSelected ? null : idx)}
                 className={`p-3.5 rounded-2xl border cursor-pointer transition-all ${
-                  isSelected 
-                    ? 'bg-[#182942] border-amber-400 shadow-lg shadow-amber-500/20 scale-[1.02]' 
+                  isSelected
+                    ? 'bg-[#182942] border-amber-400 shadow-lg shadow-amber-500/20 scale-[1.02]'
                     : 'bg-[#0c1424] border-[#1e2f4a] hover:border-zinc-500'
                 }`}
               >
@@ -451,7 +451,7 @@ const ScenarioLabPageContent = () => {
 
       {/* 6. BEFORE vs AFTER COMPARISON & PRODUCTION LOSS WATERFALL */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-        
+
         {/* Before vs After KPI Table */}
         <div className="p-5 rounded-3xl bg-[#080d1a] border border-[#1b2a41] shadow-2xl space-y-4">
           <div className="flex items-center gap-2 text-amber-400 text-xs font-bold uppercase tracking-wider pb-2 border-b border-[#1b2a41]">
@@ -508,8 +508,8 @@ const ScenarioLabPageContent = () => {
               const widthPct = Math.min(100, Math.max(8, Math.round((Math.abs(item.value) / maxVal) * 100)));
 
               return (
-                <div 
-                  key={idx} 
+                <div
+                  key={idx}
                   onClick={() => setSelectedWaterfallItem(item)}
                   className="space-y-1 cursor-pointer hover:opacity-90 transition"
                 >
@@ -522,7 +522,7 @@ const ScenarioLabPageContent = () => {
                     </span>
                   </div>
                   <div className="w-full h-3 rounded-full bg-[#0e1728] overflow-hidden">
-                    <div 
+                    <div
                       className={`h-full ${item.color} rounded-full transition-all duration-500`}
                       style={{ width: `${widthPct}%` }}
                     />
@@ -542,7 +542,7 @@ const ScenarioLabPageContent = () => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-          
+
           {/* Exposure Breakdown */}
           <div className="p-4 rounded-2xl bg-[#0e1728] border border-[#1e2f4a] space-y-2 text-xs">
             <span className="text-[10px] text-zinc-400 uppercase font-bold block">{sc?.exposureTitle || 'Financial Exposure'}</span>
@@ -585,8 +585,8 @@ const ScenarioLabPageContent = () => {
             </div>
 
             <div className="text-[10.5px] text-zinc-400 bg-[#121c2c] p-2.5 rounded-xl border border-[#1e2f4a]">
-              💡 <strong>{sc?.decisionInsight || 'Decision Support Insight'}:</strong> {lang === 'hi' 
-                ? `प्रोटोकॉल ${scenarioResult.recommendations[0].actionId} लागू करने से +${scenarioResult.recommendations[0].expectedRecoveryTPD} टीपीडी बहाल होता है, जिससे शमन लागत पर 12.4 गुना आरओआई प्राप्त होता है।` 
+              💡 <strong>{sc?.decisionInsight || 'Decision Support Insight'}:</strong> {lang === 'hi'
+                ? `प्रोटोकॉल ${scenarioResult.recommendations[0].actionId} लागू करने से +${scenarioResult.recommendations[0].expectedRecoveryTPD} टीपीडी बहाल होता है, जिससे शमन लागत पर 12.4 गुना आरओआई प्राप्त होता है।`
                 : lang === 'mr'
                 ? `प्रोटोकॉल ${scenarioResult.recommendations[0].actionId} लागू केल्याने +${scenarioResult.recommendations[0].expectedRecoveryTPD} टीपीडी पूर्ववत होते, ज्यामुळे खर्चावर 12.4 पट आरओआय मिळतो.`
                 : `Implementing AETHER Protocol ${scenarioResult.recommendations[0].actionId} restores +${scenarioResult.recommendations[0].expectedRecoveryTPD} TPD, yielding a 12.4x ROI on operational mitigation cost.`}
@@ -609,11 +609,11 @@ const ScenarioLabPageContent = () => {
           {scenarioResult.recommendations.map((rec, idx) => {
             const isApplied = activeInterventions.includes(rec.actionId);
             return (
-              <div 
+              <div
                 key={idx}
                 className={`p-4 rounded-2xl border transition-all ${
-                  isApplied 
-                    ? 'bg-emerald-950/30 border-emerald-500 shadow-lg shadow-emerald-500/10' 
+                  isApplied
+                    ? 'bg-emerald-950/30 border-emerald-500 shadow-lg shadow-emerald-500/10'
                     : 'bg-[#0e1728] border-[#1e2f4a]'
                 } space-y-2 text-xs`}
               >
@@ -649,8 +649,8 @@ const ScenarioLabPageContent = () => {
                 <button
                   onClick={() => toggleIntervention(rec.actionId)}
                   className={`w-full py-2 rounded-xl font-bold text-[10.5px] transition ${
-                    isApplied 
-                      ? 'bg-emerald-500 text-obsidian-950 hover:bg-emerald-400' 
+                    isApplied
+                      ? 'bg-emerald-500 text-obsidian-950 hover:bg-emerald-400'
                       : 'bg-[#182942] text-zinc-300 hover:bg-[#223755] hover:text-white'
                   }`}
                 >
@@ -664,11 +664,11 @@ const ScenarioLabPageContent = () => {
 
       {/* 9. STATIC 2D OPERATIONAL MAP & SATELLITE REALITY CONTEXT */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-        
+
         {/* Static 2D Digital Map */}
-        <StaticEngineeringMap 
-          mine={currentMine} 
-          scenarioResult={scenarioResult} 
+        <StaticEngineeringMap
+          mine={currentMine}
+          scenarioResult={scenarioResult}
         />
 
         {/* Satellite Earth Observation Reality Layer */}
@@ -710,7 +710,7 @@ const ScenarioLabPageContent = () => {
 
       {/* 10. DETERMINISTIC OPERATIONAL TIMELINE & SHAP DRIVERS */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-        
+
         {/* Operational Timeline */}
         <div className="p-5 rounded-3xl bg-[#080d1a] border border-[#1b2a41] shadow-2xl space-y-3 lg:col-span-2 text-xs">
           <div className="flex items-center gap-2 text-amber-400 font-bold uppercase tracking-wider pb-2 border-b border-[#1b2a41]">
@@ -748,7 +748,7 @@ const ScenarioLabPageContent = () => {
                   <span className="text-amber-400">{driver.contributionPct}%</span>
                 </div>
                 <div className="w-full h-2 rounded-full bg-[#0e1728]">
-                  <div 
+                  <div
                     className="h-full bg-amber-500 rounded-full"
                     style={{ width: `${driver.contributionPct}%` }}
                   />

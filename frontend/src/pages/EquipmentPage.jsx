@@ -1,18 +1,18 @@
-import React, { useState, useMemo } from 'react';
+import { useState, useMemo } from 'react';
 import { useApp } from '../context/AppContext.jsx';
-import { 
-  Truck, 
-  Activity, 
-  AlertTriangle, 
-  CheckCircle2, 
-  Search, 
-  SlidersHorizontal, 
-  Fuel, 
-  Thermometer, 
-  Gauge, 
-  Clock, 
-  Wrench, 
-  Zap, 
+import {
+  Truck,
+  Activity,
+  AlertTriangle,
+  CheckCircle2,
+  Search,
+  SlidersHorizontal,
+  Fuel,
+  Thermometer,
+  Gauge,
+  Clock,
+  Wrench,
+  Zap,
   ChevronRight,
   TrendingUp,
   BarChart3,
@@ -46,7 +46,7 @@ const EquipmentContent = () => {
   const [selectedAssetId, setSelectedAssetId] = useState(null);
   const [filterType, setFilterType] = useState('ALL');
   const [fleetTab, setFleetTab] = useState('FLEET_ROSTER'); // 'FLEET_ROSTER', 'CYCLE_MONITOR', 'MAINTENANCE_RUL', 'ANALYTICS', 'COMPARISON'
-  
+
   // Machine Comparison State
   const [compareIdA, setCompareIdA] = useState(null);
   const [compareIdB, setCompareIdB] = useState(null);
@@ -57,7 +57,7 @@ const EquipmentContent = () => {
   // Dynamic, Mine-Specific & Scenario-Aware Equipment Fleet Registry
   const equipmentFleet = useMemo(() => {
     const pfx = (activeMine.shortName || 'MIN').slice(0, 3).toUpperCase();
-    
+
     if (isUnderground) {
       return [
         {
@@ -237,7 +237,7 @@ const EquipmentContent = () => {
           utilizationPct: scenarioType === 'CRUSHER' ? 42.0 : 86.4,
           idleRatioPct: scenarioType === 'CRUSHER' ? 48.0 : 5.2,
           maintenancePriority: scenarioType === 'CRUSHER' ? 'CRITICAL' : 'MEDIUM',
-          prescription: scenarioType === 'CRUSHER' 
+          prescription: scenarioType === 'CRUSHER'
             ? 'CRITICAL ALERT: Drive bearing harmonic anomaly (42 Hz) - execute immediate bearing grease purge.'
             : 'Bearing temperature and eccentric shaft vibration within nominal ISO 10816 zone.',
           strengths: ['High throughput capability (250 TPH)', 'Uniform manganese product sizing'],
@@ -449,7 +449,7 @@ const EquipmentContent = () => {
       const vibScore = Math.max(0, 100 - item.vibrationMms * 12);
       const rulScore = Math.min(100, (item.rulHours / 4000) * 100);
       const penalty = item.status === 'CRITICAL' ? 25 : item.status === 'ALERT' ? 10 : 0;
-      
+
       const compositeScore = (
         (item.health * 0.35) +
         (availScore * 0.20) +
@@ -469,7 +469,7 @@ const EquipmentContent = () => {
   // Filtered Assets for Roster
   const filteredAssets = useMemo(() => {
     return equipmentFleet.filter(a => {
-      const matchesSearch = a.name.toLowerCase().includes(searchQuery.toLowerCase()) || 
+      const matchesSearch = a.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
                             a.id.toLowerCase().includes(searchQuery.toLowerCase()) ||
                             a.category.toLowerCase().includes(searchQuery.toLowerCase());
       const matchesFilter = filterType === 'ALL' || a.category === filterType;
@@ -513,17 +513,17 @@ const EquipmentContent = () => {
   }, [scenarioType]);
 
   return (
-    <div className="space-y-6 font-sans">
-      
-      {/* 1. TOP HEADER & FLEET TELEMETRY RIBBON */}
+    <div className="space-y-6 font-sans text-[#272A27]">
+
+      {/* 1. TOP HEADER & FLEET TELEMETRY RIBBON (Theme: Heavy Machinery, Accent: Mineral Sage #71856B + Copper #C46A32) */}
       <AetherSectionHeader
         title={`${activeMine.name} — Fleet SCADA & Machine Telemetry`}
         subtitle={`Real-time payload, engine thermodynamics, hydraulic health, and predictive RUL for ${activeMine.name}.`}
         badge={activeMine.mineType?.toUpperCase()}
-        accent="#EA580C"
+        accent="#71856B"
         icon={Truck}
         actions={
-          <div className="flex items-center p-1 rounded-xl bg-[#F8FAFC] border border-[#E2E8F0] text-xs flex-wrap gap-1">
+          <div className="flex items-center p-1 rounded-xl bg-[#F5F1E9] border border-[#C8BFAF] text-xs flex-wrap gap-1">
             {[
               { id: 'FLEET_ROSTER', label: t?.fleet?.fleetRoster || 'Fleet Roster' },
               { id: 'CYCLE_MONITOR', label: t?.fleet?.loadHaulCycles || 'Load & Haul Cycles' },
@@ -534,10 +534,10 @@ const EquipmentContent = () => {
               <button
                 key={tab.id}
                 onClick={() => setFleetTab(tab.id)}
-                className={`px-3 py-1.5 rounded-lg font-bold font-mono transition-all ${
+                className={`px-3 py-1.5 rounded-lg font-bold font-mono transition-all cursor-pointer ${
                   fleetTab === tab.id
-                    ? 'bg-[#EA580C] text-white shadow-xs'
-                    : 'text-[#64748B] hover:text-[#172033] hover:bg-slate-100'
+                    ? 'bg-[#71856B] text-white shadow-xs'
+                    : 'text-[#5F625C] hover:text-[#272A27] hover:bg-[#E8E1D5]'
                 }`}
               >
                 {tab.label}
@@ -549,60 +549,60 @@ const EquipmentContent = () => {
 
       {/* 2. FLEET OVERVIEW AGGREGATE KPI CARDS */}
       <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-2 sm:gap-3">
-        <div className="p-3 rounded-xl bg-[#090e17] border border-[#18263c]">
-          <div className="text-[10px] text-zinc-500 uppercase font-bold">{t?.fleet?.totalUnits || 'TOTAL FLEET'}</div>
-          <div className="text-xl font-bold text-white mt-1 flex items-center justify-between">
+        <div className="p-3 rounded-xl bg-[#F0EBE2] border border-[#C8BFAF] shadow-mineral-sm">
+          <div className="text-[10px] text-[#5F625C] uppercase font-bold">{t?.fleet?.totalUnits || 'TOTAL FLEET'}</div>
+          <div className="text-xl font-bold text-[#272A27] mt-1 flex items-center justify-between">
             <span>{fleetKpis.total} Units</span>
-            <Truck className="w-4 h-4 text-sky-400" />
+            <Truck className="w-4 h-4 text-[#71856B]" />
           </div>
-          <div className="text-[9px] text-emerald-400 mt-1">{fleetKpis.optimal} Optimal • {fleetKpis.alert + fleetKpis.critical} Alarmed</div>
+          <div className="text-[9px] text-[#4A5845] mt-1 font-bold">{fleetKpis.optimal} Optimal • {fleetKpis.alert + fleetKpis.critical} Alarmed</div>
         </div>
 
-        <div className="p-3 rounded-xl bg-[#090e17] border border-[#18263c]">
-          <div className="text-[10px] text-zinc-500 uppercase font-bold">{t?.fleet?.availability || 'FLEET AVAILABILITY'}</div>
-          <div className="text-xl font-bold text-emerald-400 mt-1 flex items-center justify-between">
+        <div className="p-3 rounded-xl bg-[#F0EBE2] border border-[#C8BFAF] shadow-mineral-sm">
+          <div className="text-[10px] text-[#5F625C] uppercase font-bold">{t?.fleet?.availability || 'FLEET AVAILABILITY'}</div>
+          <div className="text-xl font-bold text-[#4A5845] mt-1 flex items-center justify-between">
             <span>{activeMine.fleetAvailabilityBase || 87.5}%</span>
-            <ShieldCheck className="w-4 h-4 text-emerald-400" />
+            <ShieldCheck className="w-4 h-4 text-[#71856B]" />
           </div>
-          <div className="text-[9px] text-zinc-400 mt-1">Target: &gt; 85.0%</div>
+          <div className="text-[9px] text-[#5F625C] mt-1">Target: &gt; 85.0%</div>
         </div>
 
-        <div className="p-3 rounded-xl bg-[#090e17] border border-[#18263c]">
-          <div className="text-[10px] text-zinc-500 uppercase font-bold">{t?.fleet?.utilization || 'FLEET UTILIZATION'}</div>
-          <div className="text-xl font-bold text-sky-300 mt-1 flex items-center justify-between">
+        <div className="p-3 rounded-xl bg-[#F0EBE2] border border-[#C8BFAF] shadow-mineral-sm">
+          <div className="text-[10px] text-[#5F625C] uppercase font-bold">{t?.fleet?.utilization || 'FLEET UTILIZATION'}</div>
+          <div className="text-xl font-bold text-[#3D8C8A] mt-1 flex items-center justify-between">
             <span>{fleetKpis.avgUtil}%</span>
-            <Activity className="w-4 h-4 text-sky-400" />
+            <Activity className="w-4 h-4 text-[#3D8C8A]" />
           </div>
-          <div className="text-[9px] text-zinc-400 mt-1">Effective Haul Shift</div>
+          <div className="text-[9px] text-[#5F625C] mt-1">Effective Haul Shift</div>
         </div>
 
-        <div className="p-3 rounded-xl bg-[#090e17] border border-[#18263c]">
-          <div className="text-[10px] text-zinc-500 uppercase font-bold">{t?.fleet?.meanHealth || 'MEAN FLEET HEALTH'}</div>
-          <div className="text-xl font-bold text-amber-300 mt-1 flex items-center justify-between">
+        <div className="p-3 rounded-xl bg-[#F0EBE2] border border-[#C8BFAF] shadow-mineral-sm">
+          <div className="text-[10px] text-[#5F625C] uppercase font-bold">{t?.fleet?.meanHealth || 'MEAN FLEET HEALTH'}</div>
+          <div className="text-xl font-bold text-[#C46A32] mt-1 flex items-center justify-between">
             <span>{fleetKpis.avgHealth}%</span>
-            <Gauge className="w-4 h-4 text-amber-400" />
+            <Gauge className="w-4 h-4 text-[#C46A32]" />
           </div>
-          <div className="text-[9px] text-zinc-400 mt-1">SCADA Diagnostics</div>
+          <div className="text-[9px] text-[#5F625C] mt-1">SCADA Diagnostics</div>
         </div>
 
-        <div className="p-3 rounded-xl bg-[#090e17] border border-[#18263c]">
-          <div className="text-[10px] text-zinc-500 uppercase font-bold">{t?.fleet?.engineHours || 'TOTAL ENGINE HOURS'}</div>
-          <div className="text-xl font-bold text-zinc-200 mt-1 flex items-center justify-between">
+        <div className="p-3 rounded-xl bg-[#F0EBE2] border border-[#C8BFAF] shadow-mineral-sm">
+          <div className="text-[10px] text-[#5F625C] uppercase font-bold">{t?.fleet?.engineHours || 'TOTAL ENGINE HOURS'}</div>
+          <div className="text-xl font-bold text-[#272A27] mt-1 flex items-center justify-between">
             <span>{fleetKpis.totalHours}</span>
-            <Clock className="w-4 h-4 text-purple-400" />
+            <Clock className="w-4 h-4 text-[#655C9F]" />
           </div>
-          <div className="text-[9px] text-zinc-400 mt-1">Fleet Cumulative</div>
+          <div className="text-[9px] text-[#5F625C] mt-1">Fleet Cumulative</div>
         </div>
 
-        <div className="p-3 rounded-xl bg-[#090e17] border border-[#18263c]">
-          <div className="text-[10px] text-zinc-500 uppercase font-bold">{t?.fleet?.criticalAlerts || 'CRITICAL ALERTS'}</div>
+        <div className="p-3 rounded-xl bg-[#F0EBE2] border border-[#C8BFAF] shadow-mineral-sm">
+          <div className="text-[10px] text-[#5F625C] uppercase font-bold">{t?.fleet?.criticalAlerts || 'CRITICAL ALERTS'}</div>
           <div className={`text-xl font-bold mt-1 flex items-center justify-between ${
-            fleetKpis.critical > 0 ? 'text-rose-400 animate-pulse' : 'text-emerald-400'
+            fleetKpis.critical > 0 ? 'text-[#872C23] animate-pulse' : 'text-[#4A5845]'
           }`}>
-            <span>{fleetKpis.critical} Active</span>
+            <span>{fleetKpis.critical} Alarms</span>
             <AlertTriangle className="w-4 h-4" />
           </div>
-          <div className="text-[9px] text-zinc-400 mt-1">{fleetKpis.alert} Warnings</div>
+          <div className="text-[9px] text-[#5F625C] mt-1">Immediate Triage</div>
         </div>
       </div>
 
@@ -634,7 +634,7 @@ const EquipmentContent = () => {
       {/* 4. FLEET ROSTER & INSPECTION VIEW */}
       {fleetTab === 'FLEET_ROSTER' && (
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-4">
-          
+
           {/* Left Machine Roster List (5 Cols) */}
           <div className="lg:col-span-5 space-y-3">
             <div className="flex items-center justify-between gap-2">
@@ -712,7 +712,7 @@ const EquipmentContent = () => {
 
           {/* Right Selected Machine Digital Health Card (7 Cols) */}
           <div className="lg:col-span-7 p-4 sm:p-5 rounded-2xl bg-[#090e17] border border-[#18263c] space-y-4">
-            
+
             {/* Header with Silhouette & Quick State */}
             <div className="flex items-start justify-between pb-3 border-b border-[#18263c]">
               <div className="flex items-center gap-3">

@@ -1,4 +1,4 @@
-import React, { useState, useMemo, useEffect } from 'react';
+import { useState, useMemo, useEffect } from 'react';
 import { useApp } from '../context/AppContext.jsx';
 import { calculateGeologyAtDepth, MINE_GEOLOGY_PROFILES } from '../services/geologyEngine.js';
 import { OFFICIAL_MOIL_MINES, MOIL_MINE_REGISTRY } from '../services/mineRegistry.js';
@@ -7,24 +7,24 @@ import { nationalRadarApi } from '../services/api/nationalRadarApi.js';
 import { explorationApi } from '../services/api/explorationApi.js';
 import { earthObservationApi } from '../services/api/earthObservationApi.js';
 import { ReserveSatelliteMap } from '../components/ReserveRadar/ReserveSatelliteMap.jsx';
-import { 
-  NATIONAL_RADAR_MODES, 
-  calculateNationalRadarAnalysis, 
-  getNationalRadarInsight, 
-  getNationalCrossMineCorrelations, 
-  simulateNationalCapitalAllocation 
+import {
+  NATIONAL_RADAR_MODES,
+  calculateNationalRadarAnalysis,
+  getNationalRadarInsight,
+  getNationalCrossMineCorrelations,
+  simulateNationalCapitalAllocation
 } from '../services/nationalRadarEngine.js';
-import { 
-  Layers, 
-  Radar, 
-  MapPin, 
-  Compass, 
-  Sparkles, 
-  Crosshair, 
-  Activity, 
-  Download, 
-  Sliders, 
-  CheckCircle2, 
+import {
+  Layers,
+  Radar,
+  MapPin,
+  Compass,
+  Sparkles,
+  Crosshair,
+  Activity,
+  Download,
+  Sliders,
+  CheckCircle2,
   TrendingUp,
   AlertTriangle,
   ArrowRight,
@@ -70,9 +70,9 @@ export const ReserveRadarPage = () => {
 
 const ReserveRadarContent = () => {
   const { selectedMineId, setSelectedMineId, activeMine, officialMines, activeScenario, t } = useApp();
-  
+
   // Primary Module Mode Tabs
-  const [radarTab, setRadarTab] = useState('EARTH_INTELLIGENCE'); 
+  const [radarTab, setRadarTab] = useState('EARTH_INTELLIGENCE');
 
   const [selectedBand, setSelectedBand] = useState('SWIR');
   const [basemap, setBasemap] = useState('satellite');
@@ -401,17 +401,17 @@ const ReserveRadarContent = () => {
   const activeEnvScene = envTemporalData[timeMachineYear] || envTemporalData[2026];
 
   return (
-    <div className="space-y-6 font-sans">
-      
-      {/* 1. Header & Mine Selector Strip */}
+    <div className="space-y-6 font-sans text-[#272A27]">
+
+      {/* 1. Header & Mine Selector Strip (Theme: Geology / Earth Observation, Accent: Ochre #B88A3B) */}
       <AetherSectionHeader
         title={`${currentMine.name} — Reserve Intelligence & Radar`}
         subtitle="Multi-spectral satellite remote sensing, Dynamic World land-cover classification, geological prospectivity modeling, and UNFC reserve intelligence."
         badge={`${currentMine.district?.toUpperCase()} • ${currentMine.state?.toUpperCase()}`}
-        accent="#0D9488"
+        accent="#B88A3B"
         icon={Compass}
         actions={
-          <div className="flex items-center gap-1.5 overflow-x-auto max-w-lg p-1 rounded-xl bg-[#F8FAFC] border border-[#E2E8F0] no-scrollbar">
+          <div className="flex items-center gap-1.5 overflow-x-auto max-w-lg p-1 rounded-xl bg-[#F5F1E9] border border-[#C8BFAF] no-scrollbar">
             {mineList.map((m) => (
               <button
                 key={m.id}
@@ -421,10 +421,10 @@ const ReserveRadarContent = () => {
                   setActiveTargetId('TARGET-01');
                   setSelectedBlockId('B-17');
                 }}
-                className={`px-2.5 py-1 rounded-lg text-xs font-mono font-bold transition-all whitespace-nowrap ${
+                className={`px-2.5 py-1 rounded-lg text-xs font-mono font-bold transition-all whitespace-nowrap cursor-pointer ${
                   selectedMineId === m.id
-                    ? 'bg-[#0D9488] text-white shadow-xs'
-                    : 'text-[#64748B] hover:text-[#172033] hover:bg-slate-100'
+                    ? 'bg-[#B88A3B] text-white shadow-xs'
+                    : 'text-[#5F625C] hover:text-[#272A27] hover:bg-[#E8E1D5]'
                 }`}
               >
                 {m.shortName || m.name}
@@ -435,48 +435,48 @@ const ReserveRadarContent = () => {
       />
 
       {/* 2. SATELLITE TO UNFC RESERVE INTELLIGENCE PIPELINE BANNER */}
-      <div className="p-4 rounded-2xl bg-gradient-to-r from-obsidian-950 via-[#0a1526] to-obsidian-950 border border-sky-500/40 shadow-xl space-y-3 font-mono text-xs">
-        <div className="flex items-center justify-between pb-1.5 border-b border-obsidian-800">
+      <div className="p-4 rounded-2xl bg-[#F0EBE2] border border-[#C8BFAF] shadow-mineral-sm space-y-3 font-mono text-xs text-[#272A27]">
+        <div className="flex items-center justify-between pb-1.5 border-b border-[#DDD4C5] flex-wrap gap-2">
           <div className="flex items-center gap-2">
-            <Globe2 className="w-4 h-4 text-sky-400" />
-            <span className="font-bold text-sky-300 uppercase tracking-wider">
+            <Globe2 className="w-4 h-4 text-[#3D8C8A]" />
+            <span className="font-bold text-[#3D8C8A] uppercase tracking-wider">
               EARTH OBSERVATION &rarr; SPECTRAL FEATURES &rarr; PROSPECTIVITY &rarr; UNFC RESERVE
             </span>
           </div>
-          <span className="px-2 py-0.5 rounded bg-sky-950 text-sky-300 border border-sky-800 text-[10px] font-bold">
+          <span className="px-2 py-0.5 rounded bg-[#3D8C8A]/15 text-[#275B59] border border-[#3D8C8A]/40 text-[10px] font-bold">
             DATA SOURCE: SATELLITE DEMONSTRATION DATA (Sentinel-2 MSI Level-2A &amp; Landsat 8/9)
           </span>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
-          <div className="p-3 rounded-xl bg-obsidian-900/90 border border-obsidian-750">
-            <div className="text-[9px] text-zinc-500 uppercase font-bold">1. SATELLITE SPECTRAL</div>
-            <div className="text-sm font-bold text-sky-300 mt-1">SWIR 0.412 Index</div>
-            <div className="text-[10.5px] text-zinc-400 mt-0.5">Braunite Band 11/12 Peak</div>
+          <div className="p-3 rounded-xl bg-[#F5F1E9] border border-[#C8BFAF]">
+            <div className="text-[9px] text-[#5F625C] uppercase font-bold">1. SATELLITE SPECTRAL</div>
+            <div className="text-sm font-bold text-[#3D8C8A] mt-1">SWIR 0.412 Index</div>
+            <div className="text-[10.5px] text-[#5F625C] mt-0.5">Braunite Band 11/12 Peak</div>
           </div>
 
-          <div className="p-3 rounded-xl bg-obsidian-900/90 border border-obsidian-750">
-            <div className="text-[9px] text-zinc-500 uppercase font-bold">2. GEOLOGICAL HORIZON</div>
-            <div className="text-sm font-bold text-amber-400 mt-1">{geology.stratumLayer}</div>
-            <div className="text-[10.5px] text-zinc-400 mt-0.5">Dip: {currentMine.dipAngle || '70° S'} • Sausar Group</div>
+          <div className="p-3 rounded-xl bg-[#F5F1E9] border border-[#C8BFAF]">
+            <div className="text-[9px] text-[#5F625C] uppercase font-bold">2. GEOLOGICAL HORIZON</div>
+            <div className="text-sm font-bold text-[#B88A3B] mt-1">{geology.stratumLayer}</div>
+            <div className="text-[10.5px] text-[#5F625C] mt-0.5">Dip: {currentMine.dipAngle || '70° S'} • Sausar Group</div>
           </div>
 
-          <div className="p-3 rounded-xl bg-obsidian-900/90 border border-obsidian-750">
-            <div className="text-[9px] text-zinc-500 uppercase font-bold">3. PROSPECTIVITY SCORE</div>
-            <div className="text-sm font-bold text-emerald-400 mt-1">{geology.prospectivityScore}% Prospectivity</div>
-            <div className="text-[10.5px] text-zinc-400 mt-0.5">RandomForest RF-94.2 Calibrated</div>
+          <div className="p-3 rounded-xl bg-[#F5F1E9] border border-[#C8BFAF]">
+            <div className="text-[9px] text-[#5F625C] uppercase font-bold">3. PROSPECTIVITY SCORE</div>
+            <div className="text-sm font-bold text-[#71856B] mt-1">{geology.prospectivityScore}% Prospectivity</div>
+            <div className="text-[10.5px] text-[#5F625C] mt-0.5">RandomForest RF-94.2 Calibrated</div>
           </div>
 
-          <div className="p-3 rounded-xl bg-obsidian-900/90 border border-obsidian-750">
-            <div className="text-[9px] text-zinc-500 uppercase font-bold">4. UNFC STATUS</div>
-            <div className="text-sm font-bold text-manganese-300 mt-1">{currentMine.unfcStatus || 'UNFC-111 Proved'}</div>
-            <div className="text-[10.5px] text-zinc-400 mt-0.5">Statutory Mineral Inventory</div>
+          <div className="p-3 rounded-xl bg-[#F5F1E9] border border-[#C8BFAF]">
+            <div className="text-[9px] text-[#5F625C] uppercase font-bold">4. UNFC STATUS</div>
+            <div className="text-sm font-bold text-[#C46A32] mt-1">{currentMine.unfcStatus || 'UNFC-111 Proved'}</div>
+            <div className="text-[10.5px] text-[#5F625C] mt-0.5">Statutory Mineral Inventory</div>
           </div>
         </div>
       </div>
 
       {/* 3. RESERVE RADAR WORKSPACE TABS */}
-      <div className="flex items-center gap-1.5 overflow-x-auto p-2 rounded-2xl bg-obsidian-900/90 border border-obsidian-750 font-mono text-xs no-scrollbar">
+      <div className="flex items-center gap-1.5 overflow-x-auto p-2 rounded-2xl bg-[#F5F1E9] border border-[#C8BFAF] font-mono text-xs no-scrollbar">
         {[
           { id: 'EARTH_INTELLIGENCE', label: 'Earth Intelligence Map' },
           { id: 'TIME_MACHINE', label: 'Satellite Time Machine' },
@@ -491,10 +491,10 @@ const ReserveRadarContent = () => {
           <button
             key={tab.id}
             onClick={() => setRadarTab(tab.id)}
-            className={`px-3.5 py-1.5 rounded-xl font-bold transition-all whitespace-nowrap ${
+            className={`px-3.5 py-1.5 rounded-xl font-bold transition-all whitespace-nowrap cursor-pointer ${
               radarTab === tab.id
-                ? 'bg-[#182844] text-sky-300 border border-sky-500/50 shadow'
-                : 'text-zinc-400 hover:text-white hover:bg-obsidian-800'
+                ? 'bg-[#B88A3B] text-white shadow-xs'
+                : 'text-[#5F625C] hover:text-[#272A27] hover:bg-[#E8E1D5]'
             }`}
           >
             {tab.label}
@@ -517,7 +517,7 @@ const ReserveRadarContent = () => {
                     Multi-Spectral Earth Observation Canvas ({currentMine.name})
                   </h3>
                 </div>
-                
+
                 {/* Basemap & Spectral Band Toggles */}
                 <div className="flex flex-wrap items-center gap-1.5">
                   {['SWIR', 'NDVI', 'NDWI', 'TRUE_RGB', 'FALSE_COLOR', 'LAND_COVER'].map(b => (
@@ -635,11 +635,11 @@ const ReserveRadarContent = () => {
               <span>Select Acquisition Year:</span>
               <strong className="text-sky-300 text-sm font-bold">{timeMachineYear} COMPOSITE</strong>
             </div>
-            <input 
-              type="range" 
-              min="2018" 
-              max="2026" 
-              value={timeMachineYear} 
+            <input
+              type="range"
+              min="2018"
+              max="2026"
+              value={timeMachineYear}
               onChange={(e) => setTimeMachineYear(parseInt(e.target.value))}
               className="w-full h-2 bg-obsidian-950 rounded-lg appearance-none cursor-pointer accent-sky-500"
             />
@@ -790,7 +790,7 @@ const ReserveRadarContent = () => {
           {/* Target Cards */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 font-mono text-xs">
             {explorationTargets.map(t => (
-              <div 
+              <div
                 key={t.id}
                 onClick={() => setActiveTargetId(t.id)}
                 className={`p-5 rounded-2xl border cursor-pointer transition-all space-y-3 ${
@@ -1076,11 +1076,11 @@ const ReserveRadarContent = () => {
               <span>Inspect Environmental Year:</span>
               <strong className="text-emerald-400 font-bold text-sm">{timeMachineYear} SATELLITE COMPOSITE</strong>
             </div>
-            <input 
-              type="range" 
-              min="2018" 
-              max="2026" 
-              value={timeMachineYear} 
+            <input
+              type="range"
+              min="2018"
+              max="2026"
+              value={timeMachineYear}
               onChange={(e) => setTimeMachineYear(parseInt(e.target.value))}
               className="w-full h-2 bg-obsidian-900 rounded-lg appearance-none cursor-pointer accent-emerald-500"
             />
@@ -1149,7 +1149,7 @@ const ReserveRadarContent = () => {
       {/* ========================================================================= */}
       {radarTab === 'NATIONAL_RADAR' && (
         <div className="space-y-6 font-mono text-xs">
-          
+
           {/* Header Strip & 7 Mode Selector */}
           <div className="panel-surface p-6 sm:p-8 border border-obsidian-750 shadow-2xl space-y-6">
             <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-4 border-b border-obsidian-800 gap-3">
@@ -1229,8 +1229,8 @@ const ReserveRadarContent = () => {
                 </thead>
                 <tbody className="divide-y divide-obsidian-800 text-zinc-200">
                   {nationalAnalysis.map((m) => (
-                    <tr 
-                      key={m.id} 
+                    <tr
+                      key={m.id}
                       onClick={() => {
                         setSelectedMineId(m.id);
                         setInspectedMineId(m.id);
@@ -1374,12 +1374,12 @@ const ReserveRadarContent = () => {
                 <span>Select Capital Deployment:</span>
                 <strong className="text-manganese-400 font-bold text-base">₹{nationalInvestCr} Crore Budget</strong>
               </div>
-              <input 
-                type="range" 
-                min="50" 
-                max="500" 
+              <input
+                type="range"
+                min="50"
+                max="500"
                 step="25"
-                value={nationalInvestCr} 
+                value={nationalInvestCr}
                 onChange={(e) => setNationalInvestCr(parseInt(e.target.value))}
                 className="w-full h-2 bg-obsidian-950 rounded-lg appearance-none cursor-pointer accent-manganese-500"
               />
@@ -1441,11 +1441,11 @@ const ReserveRadarContent = () => {
               <span>Adjust Probe Drilling Depth:</span>
               <strong className="text-manganese-400 text-sm font-bold">-{drillDepth} m Horizon</strong>
             </label>
-            <input 
-              type="range" 
-              min="20" 
-              max="350" 
-              value={drillDepth} 
+            <input
+              type="range"
+              min="20"
+              max="350"
+              value={drillDepth}
               onChange={(e) => setDrillDepth(parseInt(e.target.value))}
               className="w-full h-2 bg-obsidian-950 rounded-lg appearance-none cursor-pointer accent-manganese-500"
             />

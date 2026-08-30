@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useApp } from '../../context/AppContext.jsx';
@@ -7,32 +7,25 @@ import {
   Layers,
   Radio,
   Compass,
-  Activity,
-  BarChart3,
   Cpu,
   FlaskConical,
   ShieldCheck,
   Terminal,
-  ChevronDown,
   ChevronRight,
   PanelLeftClose,
   PanelLeftOpen,
-  Sparkles,
-  Truck,
   Globe2,
   FileText,
   LineChart,
   ShieldAlert,
   Server,
   Database,
-  Info,
-  CheckCircle2,
   X
 } from 'lucide-react';
 
 /**
- * AETHER Responsive Industrial Sidebar
- * Bloomberg / Command Center aesthetic tailored for national-level MOIL operations.
+ * AETHER Responsive Mineral Rail Sidebar
+ * Digital Mine / Geological Command aesthetic tailored for MOIL national operations.
  */
 export const Sidebar = ({ isCollapsed, setIsCollapsed, isMobileOpen, setIsMobileOpen }) => {
   const location = useLocation();
@@ -45,74 +38,73 @@ export const Sidebar = ({ isCollapsed, setIsCollapsed, isMobileOpen, setIsMobile
   const navSections = [
     {
       id: 'NATIONAL',
-      title: 'NATIONAL INTELLIGENCE',
-      accent: '#F59E0B', // Amber
+      title: 'NATIONAL',
+      accent: '#C46A32', // Oxidized Copper
       items: [
-        { name: t?.nav?.overview || 'Overview', path: '/', icon: Layers, exact: true, accent: '#F59E0B' }
+        { name: t?.nav?.overview || 'Overview', path: '/', icon: Layers, exact: true, accent: '#C46A32' }
       ]
     },
     {
       id: 'OPERATIONS',
       title: 'OPERATIONS',
-      accent: '#0284C7', // Steel Blue
+      accent: '#71856B', // Mineral Sage
       items: [
-        { name: t?.nav?.commandCenter || 'Command Center', path: '/command-center', icon: Radio, accent: '#0284C7' },
-        { name: t?.nav?.equipment || 'Equipment', path: '/equipment', icon: Cpu, accent: '#EA580C' },
-        { name: t?.nav?.alertEngine || 'Alerts', path: '/alert-engine', icon: ShieldAlert, accent: '#DC2626' }
+        { name: t?.nav?.commandCenter || 'Command Center', path: '/command-center', icon: Radio, accent: '#71856B' },
+        { name: t?.nav?.equipment || 'Fleet & Equipment', path: '/equipment', icon: Cpu, accent: '#71856B' },
+        { name: t?.nav?.alertEngine || 'Alert Engine', path: '/alert-engine', icon: ShieldAlert, accent: '#C84B3F' }
       ]
     },
     {
       id: 'INTELLIGENCE',
       title: 'INTELLIGENCE',
-      accent: '#0891B2', // Cyan
+      accent: '#B88A3B', // Mineral Ochre
       items: [
-        { name: t?.nav?.reserveRadar || 'Reserve Radar', path: '/reserve-radar', icon: Compass, accent: '#0D9488' },
-        { name: t?.nav?.analytics || 'Analytics', path: '/analytics', icon: LineChart, accent: '#6366F1' },
-        { name: 'Exploration', path: '/reserve-radar', icon: Sparkles, accent: '#0D9488' },
-        { name: 'Forecasting', path: '/analytics', icon: BarChart3, accent: '#6366F1' }
+        { name: t?.nav?.reserveRadar || 'Reserve Radar', path: '/reserve-radar', icon: Compass, accent: '#B88A3B' },
+        { name: t?.nav?.analytics || 'Analytics', path: '/analytics', icon: LineChart, accent: '#655C9F' },
+        { name: 'Earth Observation', path: '/reserve-radar', icon: Globe2, accent: '#3D8C8A' }
       ]
     },
     {
       id: 'SIMULATION',
       title: 'SIMULATION',
-      accent: '#8B5CF6', // Purple
+      accent: '#B76543', // Terracotta
       items: [
-        { name: t?.nav?.scenarioLab || 'Scenario Lab', path: '/scenario-lab', icon: FlaskConical, accent: '#8B5CF6' }
+        { name: t?.nav?.scenarioLab || 'Scenario Lab', path: '/scenario-lab', icon: FlaskConical, accent: '#B76543' }
       ]
     },
     {
-      id: 'COMPLIANCE',
-      title: 'COMPLIANCE',
-      accent: '#10B981', // Emerald
+      id: 'GOVERNANCE',
+      title: 'GOVERNANCE',
+      accent: '#7D4545', // Burgundy
       items: [
-        { name: t?.nav?.protocol || 'Protocols', path: '/protocol', icon: ShieldCheck, accent: '#10B981' },
-        { name: t?.nav?.decisionLog || 'Decision Log', path: '/decision-log', icon: Terminal, accent: '#4F46E5' }
+        { name: t?.nav?.protocol || 'Protocols', path: '/protocol', icon: ShieldCheck, accent: '#7D4545' },
+        { name: t?.nav?.decisionLog || 'Decision Log', path: '/decision-log', icon: Terminal, accent: '#7D4545' }
       ]
     },
     {
       id: 'REPORTING',
       title: 'REPORTING',
-      accent: '#2563EB', // Blue
+      accent: '#C46A32', // Copper
       items: [
-        { name: t?.nav?.reports || 'Reports', path: '/reports', icon: FileText, accent: '#2563EB' }
+        { name: t?.nav?.reports || 'Reports', path: '/reports', icon: FileText, accent: '#C46A32' }
       ]
     },
     {
       id: 'SYSTEM',
       title: 'SYSTEM',
-      accent: '#64748B', // Slate
+      accent: '#85877E', // Mineral Muted
       items: [
         {
-          name: 'Data Sources & GEE',
+          name: 'Data Status & GEE',
           action: () => setSourcesModalOpen(true),
           icon: Database,
-          accent: '#0891B2'
+          accent: '#3D8C8A'
         },
         {
-          name: 'About AETHER',
+          name: 'API Status & Health',
           action: () => setAboutModalOpen(true),
-          icon: Info,
-          accent: '#F59E0B'
+          icon: Server,
+          accent: '#71856B'
         }
       ]
     }
@@ -130,20 +122,20 @@ export const Sidebar = ({ isCollapsed, setIsCollapsed, isMobileOpen, setIsMobile
       {isMobileOpen && (
         <div
           onClick={() => setIsMobileOpen(false)}
-          className="fixed inset-0 bg-[#0F172A]/60 backdrop-blur-xs z-40 lg:hidden transition-opacity"
+          className="fixed inset-0 bg-[#202522]/80 backdrop-blur-xs z-40 lg:hidden transition-opacity"
         />
       )}
 
       {/* Main Sidebar Container */}
       <aside
-        className={`fixed top-0 left-0 bottom-0 z-50 bg-white border-r border-[#CBD5E1] shadow-md flex flex-col justify-between transition-all duration-300 select-none ${
+        className={`fixed top-0 left-0 bottom-0 z-50 bg-[#202522] border-r border-[#2E3731] shadow-2xl flex flex-col justify-between transition-all duration-300 select-none ${
           isCollapsed ? 'w-20' : 'w-64'
         } ${
           isMobileOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'
         }`}
       >
         {/* 1. Header / Brand Mark */}
-        <div className="h-16 px-4 flex items-center justify-between border-b border-[#CBD5E1] bg-white">
+        <div className="h-16 px-4 flex items-center justify-between border-b border-[#2E3731] bg-[#202522]">
           {!isCollapsed ? (
             <div className="flex items-center gap-3">
               <AetherLogo size="sm" showText={true} />
@@ -157,7 +149,7 @@ export const Sidebar = ({ isCollapsed, setIsCollapsed, isMobileOpen, setIsMobile
           {/* Desktop Collapse / Expand Toggle Button */}
           <button
             onClick={() => setIsCollapsed(!isCollapsed)}
-            className="hidden lg:flex p-1.5 rounded-lg text-[#64748B] hover:text-[#0F172A] hover:bg-[#F1F5F9] transition-colors"
+            className="hidden lg:flex p-1.5 rounded-lg text-[#85877E] hover:text-[#F0EBE2] hover:bg-[#29302B] transition-colors cursor-pointer"
             title={isCollapsed ? 'Expand Sidebar' : 'Collapse Sidebar'}
           >
             {isCollapsed ? (
@@ -170,19 +162,19 @@ export const Sidebar = ({ isCollapsed, setIsCollapsed, isMobileOpen, setIsMobile
           {/* Mobile Close Button */}
           <button
             onClick={() => setIsMobileOpen(false)}
-            className="lg:hidden p-1.5 rounded-lg text-[#64748B] hover:text-[#0F172A] hover:bg-[#F1F5F9]"
+            className="lg:hidden p-1.5 rounded-lg text-[#85877E] hover:text-[#F0EBE2] hover:bg-[#29302B]"
           >
             <X className="w-5 h-5" />
           </button>
         </div>
 
         {/* 2. Categorized Navigation Sections */}
-        <div className="flex-1 overflow-y-auto px-3 py-4 space-y-5 scrollbar-thin">
+        <div className="flex-1 overflow-y-auto px-3 py-4 space-y-4 scrollbar-thin">
           {navSections.map((sec) => (
             <div key={sec.id} className="space-y-1">
               {/* Section Header */}
               {!isCollapsed && (
-                <div className="px-3 pb-1 text-[10px] font-mono font-bold tracking-wider text-[#64748B] uppercase">
+                <div className="px-3 pb-1 text-[10px] font-mono font-bold tracking-widest text-[#85877E] uppercase">
                   {sec.title}
                 </div>
               )}
@@ -200,7 +192,7 @@ export const Sidebar = ({ isCollapsed, setIsCollapsed, isMobileOpen, setIsMobile
                         onClick={item.action}
                         onMouseEnter={() => setHoveredItem(item.name)}
                         onMouseLeave={() => setHoveredItem(null)}
-                        className={`w-full flex items-center gap-3 px-3 py-2 rounded-xl text-xs font-semibold font-sans transition-all duration-150 relative cursor-pointer text-[#475569] hover:bg-[#F1F5F9] hover:text-[#0F172A] ${
+                        className={`w-full flex items-center gap-3 px-3 py-2 rounded-xl text-xs font-semibold font-sans transition-all duration-150 relative cursor-pointer text-[#A6A89F] hover:bg-[#29302B] hover:text-[#F0EBE2] ${
                           isCollapsed ? 'justify-center' : 'justify-start'
                         }`}
                       >
@@ -209,7 +201,7 @@ export const Sidebar = ({ isCollapsed, setIsCollapsed, isMobileOpen, setIsMobile
 
                         {/* Collapsed Tooltip */}
                         {isCollapsed && hoveredItem === item.name && (
-                          <div className="absolute left-full ml-3 px-2.5 py-1 rounded-md bg-[#0F172A] text-white text-xs font-mono whitespace-nowrap shadow-xl z-50 pointer-events-none">
+                          <div className="absolute left-full ml-3 px-2.5 py-1 rounded-md bg-[#292E2A] border border-[#3A423C] text-[#F0EBE2] text-xs font-mono whitespace-nowrap shadow-2xl z-50 pointer-events-none">
                             {item.name}
                           </div>
                         )}
@@ -223,13 +215,13 @@ export const Sidebar = ({ isCollapsed, setIsCollapsed, isMobileOpen, setIsMobile
                       to={item.path}
                       onMouseEnter={() => setHoveredItem(item.name)}
                       onMouseLeave={() => setHoveredItem(null)}
-                      className={`flex items-center gap-3 px-3 py-2.5 rounded-xl text-xs font-bold font-sans transition-all duration-150 relative ${
+                      className={`flex items-center gap-3 px-3 py-2 rounded-xl text-xs font-bold font-sans transition-all duration-150 relative ${
                         active
-                          ? 'bg-[#F1F5F9] text-[#0F172A] shadow-xs border border-[#CBD5E1]'
-                          : 'text-[#475569] hover:bg-[#F8FAFC] hover:text-[#0F172A]'
+                          ? 'bg-[#29302B] text-[#F0EBE2] shadow-sm'
+                          : 'text-[#A6A89F] hover:bg-[#29302B]/60 hover:text-[#F0EBE2]'
                       } ${isCollapsed ? 'justify-center' : 'justify-start'}`}
                     >
-                      {/* Active Indicator Bar */}
+                      {/* Active Indicator Left Rail */}
                       {active && (
                         <div
                           style={{ backgroundColor: item.accent }}
@@ -239,14 +231,14 @@ export const Sidebar = ({ isCollapsed, setIsCollapsed, isMobileOpen, setIsMobile
 
                       <Icon
                         className="w-4 h-4 shrink-0 transition-colors"
-                        style={{ color: active ? item.accent : '#64748B' }}
+                        style={{ color: active ? item.accent : '#85877E' }}
                       />
 
                       {!isCollapsed && <span>{item.name}</span>}
 
                       {/* Collapsed Tooltip */}
                       {isCollapsed && hoveredItem === item.name && (
-                        <div className="absolute left-full ml-3 px-2.5 py-1 rounded-md bg-[#0F172A] text-white text-xs font-mono whitespace-nowrap shadow-xl z-50 pointer-events-none">
+                        <div className="absolute left-full ml-3 px-2.5 py-1 rounded-md bg-[#292E2A] border border-[#3A423C] text-[#F0EBE2] text-xs font-mono whitespace-nowrap shadow-2xl z-50 pointer-events-none">
                           {item.name}
                         </div>
                       )}
@@ -259,28 +251,28 @@ export const Sidebar = ({ isCollapsed, setIsCollapsed, isMobileOpen, setIsMobile
         </div>
 
         {/* 3. System Operational Status Footer */}
-        <div className="p-3 border-t border-[#CBD5E1] bg-[#F8FAFC]">
+        <div className="p-3 border-t border-[#2E3731] bg-[#1C211E]">
           {!isCollapsed ? (
-            <div className="p-2.5 rounded-xl bg-white border border-[#CBD5E1] space-y-2 text-[11px] font-mono">
-              <div className="flex items-center justify-between text-[#334155]">
+            <div className="p-2.5 rounded-xl bg-[#202522] border border-[#2E3731] space-y-2 text-[11px] font-mono">
+              <div className="flex items-center justify-between text-[#A6A89F]">
                 <span className="flex items-center gap-1.5">
-                  <Server className="w-3.5 h-3.5 text-slate-500" />
+                  <Server className="w-3.5 h-3.5 text-[#85877E]" />
                   System Status
                 </span>
-                <span className="flex items-center gap-1 text-emerald-700 font-bold">
-                  <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+                <span className="flex items-center gap-1 text-[#71856B] font-bold">
+                  <span className="w-2 h-2 rounded-full bg-[#71856B] animate-pulse" />
                   {apiConnected ? 'API LIVE' : 'DEMO MODE'}
                 </span>
               </div>
 
-              <div className="flex items-center justify-between text-[10px] text-[#64748B] pt-1.5 border-t border-[#F1F5F9]">
+              <div className="flex items-center justify-between text-[10px] text-[#85877E] pt-1.5 border-t border-[#2E3731]">
                 <span>AETHER v1.0</span>
-                <span className="text-amber-700 font-bold">MOIL Limited</span>
+                <span className="text-[#C46A32] font-bold">MOIL Limited</span>
               </div>
             </div>
           ) : (
             <div className="flex justify-center">
-              <div className="w-3 h-3 rounded-full bg-emerald-500 shadow-sm" title="System Operational" />
+              <div className="w-3 h-3 rounded-full bg-[#71856B] shadow-sm" title="System Operational" />
             </div>
           )}
         </div>
@@ -289,31 +281,31 @@ export const Sidebar = ({ isCollapsed, setIsCollapsed, isMobileOpen, setIsMobile
       {/* About AETHER Modal */}
       <AnimatePresence>
         {aboutModalOpen && (
-          <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-[#0F172A]/70 backdrop-blur-xs">
+          <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-[#202522]/80 backdrop-blur-xs">
             <motion.div
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.95 }}
-              className="bg-white border border-[#CBD5E1] rounded-2xl max-w-lg w-full p-6 shadow-2xl space-y-4"
+              className="bg-[#F0EBE2] border border-[#C8BFAF] rounded-2xl max-w-lg w-full p-6 shadow-2xl space-y-4 text-[#272A27]"
             >
-              <div className="flex items-center justify-between pb-3 border-b border-[#CBD5E1]">
+              <div className="flex items-center justify-between pb-3 border-b border-[#C8BFAF]">
                 <AetherLogo size="sm" showText={true} />
                 <button
                   onClick={() => setAboutModalOpen(false)}
-                  className="p-1 rounded-lg text-[#64748B] hover:text-[#0F172A] hover:bg-[#F1F5F9]"
+                  className="p-1 rounded-lg text-[#5F625C] hover:text-[#272A27] hover:bg-[#DDD4C5] cursor-pointer"
                 >
                   <X className="w-5 h-5" />
                 </button>
               </div>
 
-              <div className="space-y-3 text-xs text-[#334155] leading-relaxed">
+              <div className="space-y-3 text-xs text-[#272A27] leading-relaxed">
                 <p>
-                  <strong>AETHER (Advanced Earth-observation Telemetry &amp; Holistic Extraction Radar)</strong> is an enterprise-grade AI mining intelligence platform engineered for MOIL Limited (Manganese Ore India Limited).
+                  <strong>AETHER (Advanced Earth-observation Telemetry &amp; Holistic Extraction Radar)</strong> is a national-scale digital mining intelligence platform engineered for MOIL Limited.
                 </p>
                 <p>
-                  The platform unifies 10-mine SCADA telemetry, Sentinel-2 SWIR mineral spectroscopy, TreeSHAP predictive diagnostics, and DGMS statutory safety audit ledgers.
+                  Unifies 10-mine SCADA telemetry, Sentinel-2 SWIR mineral spectroscopy, TreeSHAP predictive diagnostics, and DGMS statutory safety audit ledgers.
                 </p>
-                <div className="p-3 rounded-xl bg-[#F8FAFC] border border-[#CBD5E1] font-mono text-[11px] space-y-1">
+                <div className="p-3 rounded-xl bg-[#F5F1E9] border border-[#C8BFAF] font-mono text-[11px] space-y-1">
                   <div><strong>Architecture:</strong> React + Vite + Tailwind + FastAPI + Scikit-Learn</div>
                   <div><strong>Mines:</strong> 10 Operating Leases (Madhya Pradesh &amp; Maharashtra)</div>
                   <div><strong>Compliance:</strong> DGMS Statutory Audit Log &amp; UNFC 2009 Standards</div>
@@ -322,7 +314,7 @@ export const Sidebar = ({ isCollapsed, setIsCollapsed, isMobileOpen, setIsMobile
 
               <button
                 onClick={() => setAboutModalOpen(false)}
-                className="w-full py-2.5 rounded-xl bg-[#0F172A] hover:bg-[#1E293B] text-white font-bold text-xs uppercase tracking-wider"
+                className="w-full py-2.5 rounded-xl bg-[#292E2A] hover:bg-[#202522] text-[#F0EBE2] font-bold text-xs uppercase tracking-wider cursor-pointer"
               >
                 Close Information Window
               </button>
@@ -334,38 +326,38 @@ export const Sidebar = ({ isCollapsed, setIsCollapsed, isMobileOpen, setIsMobile
       {/* Data Sources & GEE Modal */}
       <AnimatePresence>
         {sourcesModalOpen && (
-          <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-[#0F172A]/70 backdrop-blur-xs">
+          <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-[#202522]/80 backdrop-blur-xs">
             <motion.div
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.95 }}
-              className="bg-white border border-[#CBD5E1] rounded-2xl max-w-lg w-full p-6 shadow-2xl space-y-4"
+              className="bg-[#F0EBE2] border border-[#C8BFAF] rounded-2xl max-w-lg w-full p-6 shadow-2xl space-y-4 text-[#272A27]"
             >
-              <div className="flex items-center justify-between pb-3 border-b border-[#CBD5E1]">
+              <div className="flex items-center justify-between pb-3 border-b border-[#C8BFAF]">
                 <div className="flex items-center gap-2">
-                  <Database className="w-5 h-5 text-cyan-600" />
-                  <h3 className="font-bold text-base text-[#0F172A] font-display">Data Architecture &amp; GEE Satellite Feeds</h3>
+                  <Database className="w-5 h-5 text-[#3D8C8A]" />
+                  <h3 className="font-bold text-base text-[#272A27] font-display">Data Architecture &amp; GEE Satellite Feeds</h3>
                 </div>
                 <button
                   onClick={() => setSourcesModalOpen(false)}
-                  className="p-1 rounded-lg text-[#64748B] hover:text-[#0F172A] hover:bg-[#F1F5F9]"
+                  className="p-1 rounded-lg text-[#5F625C] hover:text-[#272A27] hover:bg-[#DDD4C5] cursor-pointer"
                 >
                   <X className="w-5 h-5" />
                 </button>
               </div>
 
-              <div className="space-y-3 text-xs text-[#334155] leading-relaxed">
-                <div className="p-3 rounded-xl bg-[#F8FAFC] border border-[#CBD5E1] space-y-2 font-mono text-[11px]">
-                  <div><strong className="text-cyan-800">1. Sentinel-2 MSI Level-2A:</strong> 10m Multi-spectral bands (B11/B12 SWIR for Braunite / Pyrolusite alteration detection).</div>
-                  <div><strong className="text-emerald-800">2. SCADA Telemetry Stream:</strong> Real-time vibration FFT, sump level, motor thermal sensors.</div>
-                  <div><strong className="text-amber-800">3. UNFC Block Models:</strong> Geostatistical kriging and 3D wireframe reserve classifications.</div>
-                  <div><strong className="text-purple-800">4. OpenStreetMap Architecture:</strong> Zero-key, high-res topographic baseline maps.</div>
+              <div className="space-y-3 text-xs text-[#272A27] leading-relaxed">
+                <div className="p-3 rounded-xl bg-[#F5F1E9] border border-[#C8BFAF] space-y-2 font-mono text-[11px]">
+                  <div><strong className="text-[#3D8C8A]">1. Sentinel-2 MSI Level-2A:</strong> 10m Multi-spectral bands (B11/B12 SWIR for Braunite / Pyrolusite alteration detection).</div>
+                  <div><strong className="text-[#71856B]">2. SCADA Telemetry Stream:</strong> Real-time vibration FFT, sump level, motor thermal sensors.</div>
+                  <div><strong className="text-[#B88A3B]">3. UNFC Block Models:</strong> Geostatistical kriging and 3D wireframe reserve classifications.</div>
+                  <div><strong className="text-[#C46A32]">4. OpenStreetMap Architecture:</strong> Zero-key, high-res topographic baseline maps.</div>
                 </div>
               </div>
 
               <button
                 onClick={() => setSourcesModalOpen(false)}
-                className="w-full py-2.5 rounded-xl bg-[#0F172A] hover:bg-[#1E293B] text-white font-bold text-xs uppercase tracking-wider"
+                className="w-full py-2.5 rounded-xl bg-[#292E2A] hover:bg-[#202522] text-[#F0EBE2] font-bold text-xs uppercase tracking-wider cursor-pointer"
               >
                 Close Data Architecture
               </button>

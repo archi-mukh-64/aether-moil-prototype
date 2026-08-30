@@ -8,123 +8,127 @@ export default {
   theme: {
     extend: {
       colors: {
-        // Dark-Warm Industrial Charcoal Base
-        charcoal: {
-          950: '#0B0F14', // Main canvas background (dark charcoal)
-          900: '#10151C', // Console & Sidebar primary surface
-          850: '#151B23', // Standard neutral card & panel surface
-          800: '#1A232E', // Elevated interactive surface
-          750: '#222D3A', // Subtle structural hairline borders
-          700: '#2D3A4B', // Interactive hover borders
-          600: '#4A5B70', // Inactive icons & subtle dividers
-          500: '#8E9EAE', // Technical metadata & secondary labels
+        // AETHER Structural Mineral Base
+        aether: {
+          canvas: '#E8E1D5',
+          canvasSecondary: '#DDD4C5',
+          sidebar: '#202522',
+          sidebarElevated: '#29302B',
+          header: '#292E2A',
+          primary: '#272A27',
+          secondary: '#5F625C',
+          muted: '#85877E',
+          border: '#C8BFAF',
+          surface: '#F0EBE2',
+          surfaceElevated: '#F5F1E9',
         },
-        obsidian: {
-          950: '#0B0F14',
-          900: '#10151C',
-          850: '#151B23',
-          800: '#1A232E',
-          750: '#222D3A',
-          700: '#2D3A4B',
-          600: '#4A5B70',
-          500: '#8E9EAE',
+        // Semantic Mineral Accents
+        copper: {
+          50: '#FBF5F0',
+          100: '#F6EAE1',
+          200: '#EED5C2',
+          300: '#E4BDA2',
+          400: '#D59265',
+          500: '#C46A32', // Oxidized Copper (Brand / Overview)
+          600: '#B05924',
+          700: '#8E441B',
+          800: '#6C3214',
+          900: '#4D220C',
         },
-        // 1. AMBER / GOLD — COMMAND / ACTION / PRIMARY IDENTITY
-        amber: {
-          300: '#FFE082',
-          400: '#FFC247',
-          500: '#FFB000',
-          600: '#F5A400',
-          700: '#D48B00',
+        ochre: {
+          50: '#FAF7F0',
+          100: '#F4EFE0',
+          200: '#E9DFC2',
+          300: '#DCCDA3',
+          400: '#CCB067',
+          500: '#B88A3B', // Mineral Ochre (Geology / Reserve)
+          600: '#9E722C',
+          700: '#7C571F',
+          800: '#5C3F14',
+          900: '#3D280B',
         },
-        gold: {
-          300: '#FFE082',
-          400: '#FFC247',
-          500: '#FFB000',
-          600: '#F5A400',
-          700: '#D48B00',
+        sage: {
+          50: '#F3F6F2',
+          100: '#E6ECE4',
+          200: '#CDDAC9',
+          300: '#B2C6AC',
+          400: '#8FA888',
+          500: '#71856B', // Mineral Sage (Environment / Fleet / Cockpit)
+          600: '#5E7058',
+          700: '#4A5845',
+          800: '#364032',
+          900: '#232A20',
         },
-        manganese: {
-          400: '#FFC247',
-          500: '#FFB000',
-          600: '#F5A400',
-          700: '#D48B00',
+        teal: {
+          50: '#F0F7F7',
+          100: '#E1EFEF',
+          200: '#C2DFDF',
+          300: '#9ECFCF',
+          400: '#68B2B0',
+          500: '#3D8C8A', // Muted Teal (Earth Observation)
+          600: '#327371',
+          700: '#275B59',
+          800: '#1D4241',
+          900: '#132A29',
         },
-        // 2. CYAN / TEAL — INTELLIGENCE / DATA / TELEMETRY / SATELLITE
-        cyan: {
-          300: '#5EEAD4',
-          400: '#2DD4BF',
-          500: '#21D4C5',
-          600: '#19C3D1',
-          700: '#0D9488',
-        },
-        intel: {
-          300: '#5EEAD4',
-          400: '#2DD4BF',
-          500: '#21D4C5',
-          600: '#19C3D1',
-          700: '#0D9488',
-        },
-        oper: {
-          300: '#5EEAD4',
-          400: '#2DD4BF',
-          500: '#21D4C5',
-          600: '#19C3D1',
-          700: '#0D9488',
-        },
-        radar: {
-          400: '#2DD4BF',
-          500: '#21D4C5',
-          600: '#19C3D1',
-        },
-        // 3. GREEN / EMERALD — HEALTH / SUCCESS / OPTIMAL / AVAILABLE
-        emerald: {
-          300: '#86EFAC',
-          400: '#34D399',
-          500: '#22C55E',
-          600: '#20C997',
-          700: '#15803D',
-        },
-        telemetry: {
-          400: '#34D399',
-          500: '#22C55E',
-          600: '#20C997',
-        },
-        // 4. ORANGE — WARNING / ATTENTION / DEGRADED / AT-RISK
-        orange: {
-          300: '#FDBA74',
-          400: '#FB923C',
-          500: '#FFB020',
-          600: '#F59E0B',
-          700: '#C2410C',
-        },
-        // 5. RED / CORAL — CRITICAL / THREAT / SEVERE SHORTFALL
-        coral: {
-          300: '#FDA4AF',
-          400: '#FF5A67',
-          500: '#F0445E',
-          600: '#E11D48',
-          700: '#BE123C',
-        },
-        hazard: {
-          400: '#FF5A67',
-          500: '#F0445E',
-          600: '#EF4444',
-        },
-        // 6. VIOLET / INDIGO — AI PREDICTION / ML REASONING / SHAP
         violet: {
-          300: '#C4B5FD',
-          400: '#A78BFA',
-          500: '#9B8AFB',
-          600: '#8B7CFF',
-          700: '#6D28D9',
+          50: '#F4F3F9',
+          100: '#EAE7F3',
+          200: '#D4CEE7',
+          300: '#BEB4DA',
+          400: '#8F81BF',
+          500: '#655C9F', // Indigo Violet (AI / Analytics)
+          600: '#544A88',
+          700: '#423A6D',
+          800: '#302A50',
+          900: '#201A34',
         },
-        ai: {
-          300: '#C4B5FD',
-          400: '#A78BFA',
-          500: '#9B8AFB',
-          600: '#8B7CFF',
-          700: '#6D28D9',
+        vermilion: {
+          50: '#FAF2F1',
+          100: '#F5E4E2',
+          200: '#EAC8C4',
+          300: '#DFABA5',
+          400: '#D57367',
+          500: '#C84B3F', // Vermilion (Safety / Alert)
+          600: '#AB3B30',
+          700: '#872C23',
+          800: '#631E17',
+          900: '#41120D',
+        },
+        burgundy: {
+          50: '#F8F3F3',
+          100: '#F1E6E6',
+          200: '#E3CDCD',
+          300: '#D4B2B2',
+          400: '#A46868',
+          500: '#7D4545', // Burgundy (Compliance / Protocols)
+          600: '#683636',
+          700: '#512828',
+          800: '#3A1B1B',
+          900: '#251010',
+        },
+        terracotta: {
+          50: '#FAF4F1',
+          100: '#F5E8E2',
+          200: '#EBD1C5',
+          300: '#E0B8A7',
+          400: '#CF8769',
+          500: '#B76543', // Terracotta (Simulation / Scenario Lab)
+          600: '#9B5133',
+          700: '#7B3E25',
+          800: '#5A2C18',
+          900: '#3B1B0D',
+        },
+        // Legacy fallbacks mapped to mineral palette
+        charcoal: {
+          950: '#202522',
+          900: '#292E2A',
+          850: '#29302B',
+          800: '#323B34',
+          750: '#3D473F',
+          700: '#4D5850',
+          600: '#5F625C',
+          500: '#85877E',
         }
       },
       fontFamily: {
@@ -133,14 +137,16 @@ export default {
         display: ['"Space Grotesk"', 'Inter', 'sans-serif'],
       },
       boxShadow: {
-        'xs': '0 1px 2px 0 rgba(0, 0, 0, 0.05)',
-        'card-subtle': '0 4px 20px -2px rgba(0, 0, 0, 0.08)',
-        'card-elevated': '0 10px 30px -5px rgba(0, 0, 0, 0.12)',
-        'glow-amber': '0 0 20px -3px rgba(245, 158, 11, 0.25)',
-        'glow-cyan': '0 0 20px -3px rgba(8, 145, 178, 0.25)',
-        'glow-green': '0 0 20px -3px rgba(22, 163, 74, 0.25)',
-        'glow-violet': '0 0 20px -3px rgba(99, 102, 241, 0.25)',
-        'glow-red': '0 0 20px -3px rgba(220, 38, 38, 0.25)',
+        'xs': '0 1px 2px 0 rgba(39, 42, 39, 0.05)',
+        'mineral-sm': '0 1px 3px 0 rgba(39, 42, 39, 0.08), 0 1px 2px -1px rgba(39, 42, 39, 0.08)',
+        'mineral-md': '0 4px 6px -1px rgba(39, 42, 39, 0.10), 0 2px 4px -2px rgba(39, 42, 39, 0.08)',
+        'mineral-lg': '0 10px 15px -3px rgba(39, 42, 39, 0.12), 0 4px 6px -4px rgba(39, 42, 39, 0.08)',
+        'glow-copper': '0 0 20px -3px rgba(196, 106, 50, 0.35)',
+        'glow-sage': '0 0 20px -3px rgba(113, 133, 107, 0.35)',
+        'glow-teal': '0 0 20px -3px rgba(61, 140, 138, 0.35)',
+        'glow-ochre': '0 0 20px -3px rgba(184, 138, 59, 0.35)',
+        'glow-violet': '0 0 20px -3px rgba(101, 92, 159, 0.35)',
+        'glow-vermilion': '0 0 20px -3px rgba(200, 75, 63, 0.35)',
       }
     },
   },

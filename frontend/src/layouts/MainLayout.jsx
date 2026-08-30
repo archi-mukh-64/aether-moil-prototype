@@ -45,14 +45,14 @@ export const MainLayout = () => {
   } = useApp();
 
   return (
-    <div className="min-h-screen flex bg-[#EEF2F6] text-[#0F172A] font-sans selection:bg-amber-500/30 selection:text-amber-900">
+    <div className="min-h-screen flex bg-[#E8E1D5] text-[#272A27] font-sans selection:bg-[#C46A32]/30 selection:text-[#6C3214]">
 
       {/* Optional Boot Initialization Screen */}
       {showBootScreen && (
         <AetherLoadingScreen onComplete={handleBootComplete} />
       )}
 
-      {/* 1. Collapsible Categorized Sidebar */}
+      {/* 1. Collapsible Mineral Rail Sidebar */}
       <Sidebar
         isCollapsed={isSidebarCollapsed}
         setIsCollapsed={setIsSidebarCollapsed}
@@ -64,7 +64,7 @@ export const MainLayout = () => {
       <div className={`flex-1 flex flex-col min-w-0 min-h-screen transition-all duration-300 ${
         isSidebarCollapsed ? 'lg:pl-20' : 'lg:pl-64'
       }`}>
-        {/* Top Command Platform Header */}
+        {/* Top Command Console Header */}
         <AppHeader onMobileMenuToggle={() => setIsMobileMenuOpen(true)} />
 
         {/* Viewport Outlet */}

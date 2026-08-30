@@ -1,11 +1,11 @@
-import React from 'react';
 import { motion } from 'framer-motion';
 import { TrendingUp, TrendingDown, Minus } from 'lucide-react';
 import { AetherStatusBadge } from './AetherStatusBadge.jsx';
 
 /**
- * AETHER Industrial KPI Card Primitive
- * Precision dashboard metric card with trend indicators, sparkline, and status pill.
+ * AETHER Mineral KPI Card Primitive
+ * Precision dashboard metric card with semantic accents, trend indicators,
+ * sparklines, and status badges.
  */
 export const AetherKpiCard = ({
   title,
@@ -17,32 +17,34 @@ export const AetherKpiCard = ({
   changeType = 'positive', // 'positive' | 'negative' | 'neutral'
   status,
   sparklineData,
-  accent = 'amber', // 'amber' | 'cyan' | 'navy' | 'emerald' | 'indigo' | 'coral'
+  accent = 'copper', // 'copper' | 'ochre' | 'sage' | 'teal' | 'violet' | 'vermilion' | 'burgundy' | 'terracotta'
   className = '',
   onClick
 }) => {
   const accentStyles = {
-    amber: { iconBg: 'bg-amber-50 text-amber-700 border-amber-300', borderTop: 'border-t-amber-500' },
-    cyan: { iconBg: 'bg-cyan-50 text-cyan-700 border-cyan-300', borderTop: 'border-t-cyan-500' },
-    navy: { iconBg: 'bg-slate-100 text-slate-900 border-slate-300', borderTop: 'border-t-slate-800' },
-    emerald: { iconBg: 'bg-emerald-50 text-emerald-700 border-emerald-300', borderTop: 'border-t-emerald-500' },
-    indigo: { iconBg: 'bg-indigo-50 text-indigo-700 border-indigo-300', borderTop: 'border-t-indigo-500' },
-    coral: { iconBg: 'bg-red-50 text-red-700 border-red-300', borderTop: 'border-t-red-500' }
+    copper: { iconBg: 'bg-[#C46A32]/10 text-[#C46A32] border-[#C46A32]/30', borderTop: 'border-t-[#C46A32]', bar: 'bg-[#C46A32]' },
+    ochre: { iconBg: 'bg-[#B88A3B]/10 text-[#B88A3B] border-[#B88A3B]/30', borderTop: 'border-t-[#B88A3B]', bar: 'bg-[#B88A3B]' },
+    sage: { iconBg: 'bg-[#71856B]/10 text-[#71856B] border-[#71856B]/30', borderTop: 'border-t-[#71856B]', bar: 'bg-[#71856B]' },
+    teal: { iconBg: 'bg-[#3D8C8A]/10 text-[#3D8C8A] border-[#3D8C8A]/30', borderTop: 'border-t-[#3D8C8A]', bar: 'bg-[#3D8C8A]' },
+    violet: { iconBg: 'bg-[#655C9F]/10 text-[#655C9F] border-[#655C9F]/30', borderTop: 'border-t-[#655C9F]', bar: 'bg-[#655C9F]' },
+    vermilion: { iconBg: 'bg-[#C84B3F]/10 text-[#C84B3F] border-[#C84B3F]/30', borderTop: 'border-t-[#C84B3F]', bar: 'bg-[#C84B3F]' },
+    burgundy: { iconBg: 'bg-[#7D4545]/10 text-[#7D4545] border-[#7D4545]/30', borderTop: 'border-t-[#7D4545]', bar: 'bg-[#7D4545]' },
+    terracotta: { iconBg: 'bg-[#B76543]/10 text-[#B76543] border-[#B76543]/30', borderTop: 'border-t-[#B76543]', bar: 'bg-[#B76543]' }
   };
 
-  const currentAccent = accentStyles[accent] || accentStyles.amber;
+  const currentAccent = accentStyles[accent] || accentStyles.copper;
 
   const renderTrendIcon = () => {
-    if (changeType === 'positive') return <TrendingUp className="w-3.5 h-3.5 text-emerald-700" />;
-    if (changeType === 'negative') return <TrendingDown className="w-3.5 h-3.5 text-red-700" />;
-    return <Minus className="w-3.5 h-3.5 text-slate-500" />;
+    if (changeType === 'positive') return <TrendingUp className="w-3.5 h-3.5 text-[#71856B]" />;
+    if (changeType === 'negative') return <TrendingDown className="w-3.5 h-3.5 text-[#C84B3F]" />;
+    return <Minus className="w-3.5 h-3.5 text-[#85877E]" />;
   };
 
   const trendColor = changeType === 'positive'
-    ? 'text-emerald-800 bg-emerald-50 border-emerald-300'
+    ? 'text-[#4A5845] bg-[#71856B]/15 border-[#71856B]/40'
     : changeType === 'negative'
-    ? 'text-red-800 bg-red-50 border-red-300'
-    : 'text-slate-700 bg-slate-100 border-slate-300';
+    ? 'text-[#872C23] bg-[#C84B3F]/15 border-[#C84B3F]/40'
+    : 'text-[#5F625C] bg-[#DDD4C5] border-[#C8BFAF]';
 
   return (
     <motion.div
@@ -51,54 +53,54 @@ export const AetherKpiCard = ({
       transition={{ duration: 0.25, ease: 'easeOut' }}
       whileHover={onClick ? { y: -2 } : {}}
       onClick={onClick}
-      className={`relative bg-white border border-[#CBD5E1] border-t-4 ${currentAccent.borderTop} rounded-xl p-5 shadow-sm hover:shadow-md hover:border-[#94A3B8] transition-all duration-200 flex flex-col justify-between ${onClick ? 'cursor-pointer' : ''} ${className}`}
+      className={`relative bg-[#F0EBE2] border border-[#C8BFAF] border-t-4 ${currentAccent.borderTop} rounded-xl p-4 sm:p-5 shadow-mineral-sm hover:shadow-mineral-md hover:border-[#85877E] transition-all duration-200 flex flex-col justify-between overflow-hidden min-w-0 ${onClick ? 'cursor-pointer' : ''} ${className}`}
     >
       {/* Top Row: Title, Icon & Status */}
-      <div className="flex items-start justify-between gap-3">
-        <div className="space-y-1">
-          <span className="text-xs font-bold tracking-wider text-[#334155] uppercase font-sans block">
+      <div className="flex items-start justify-between gap-2 min-w-0">
+        <div className="space-y-0.5 min-w-0 flex-1">
+          <span className="text-[11px] font-bold tracking-wider text-[#5F625C] uppercase font-mono block truncate">
             {title}
           </span>
           {subtitle && (
-            <span className="text-[11px] text-[#64748B] font-mono block">
+            <span className="text-[10px] text-[#85877E] font-sans block truncate">
               {subtitle}
             </span>
           )}
         </div>
 
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-1.5 shrink-0">
           {status && <AetherStatusBadge status={status} size="sm" pulse={false} />}
           {Icon && (
-            <div className={`p-2 rounded-lg border shadow-xs ${currentAccent.iconBg}`}>
-              <Icon className="w-4 h-4" />
+            <div className={`p-1.5 rounded-lg border shadow-xs shrink-0 ${currentAccent.iconBg}`}>
+              <Icon className="w-3.5 h-3.5" />
             </div>
           )}
         </div>
       </div>
 
       {/* Main Metric Value */}
-      <div className="mt-4 mb-2 flex items-baseline gap-2">
-        <span className="text-2xl sm:text-3xl font-black tracking-tight text-[#0F172A] font-display">
+      <div className="mt-3 mb-2 flex items-baseline gap-1.5 min-w-0">
+        <span className="text-2xl sm:text-3xl font-black tracking-tight text-[#272A27] font-display truncate tabular-nums">
           {value}
         </span>
         {unit && (
-          <span className="text-sm font-bold text-[#475569] font-mono">
+          <span className="text-xs font-bold text-[#5F625C] font-mono shrink-0">
             {unit}
           </span>
         )}
       </div>
 
-      {/* Bottom Row: Percentage Change & Optional Sparkline */}
-      <div className="pt-3 border-t border-[#E2E8F0] flex items-center justify-between gap-2 mt-auto text-xs">
+      {/* Bottom Row: Percentage Change & Sparkline */}
+      <div className="pt-2.5 border-t border-[#DDD4C5] flex items-center justify-between gap-2 mt-auto text-xs min-w-0">
         {change && (
-          <div className={`inline-flex items-center gap-1 px-2 py-0.5 rounded-md border font-mono font-bold text-[11px] ${trendColor}`}>
+          <div className={`inline-flex items-center gap-1 px-2 py-0.5 rounded-md border font-mono font-bold text-[10px] truncate shrink-0 ${trendColor}`}>
             {renderTrendIcon()}
-            <span>{change}</span>
+            <span className="truncate">{change}</span>
           </div>
         )}
 
         {sparklineData && sparklineData.length > 0 && (
-          <div className="h-6 w-24 flex items-end gap-1">
+          <div className="h-5 w-20 flex items-end gap-1 shrink-0 ml-auto">
             {sparklineData.map((val, idx) => {
               const maxVal = Math.max(...sparklineData, 1);
               const heightPct = Math.max(15, Math.round((val / maxVal) * 100));
@@ -106,13 +108,7 @@ export const AetherKpiCard = ({
                 <div
                   key={idx}
                   style={{ height: `${heightPct}%` }}
-                  className={`w-full rounded-xs transition-all ${
-                    accent === 'amber' ? 'bg-amber-500' :
-                    accent === 'cyan' ? 'bg-cyan-600' :
-                    accent === 'emerald' ? 'bg-emerald-600' :
-                    accent === 'coral' ? 'bg-red-500' :
-                    accent === 'indigo' ? 'bg-indigo-600' : 'bg-slate-500'
-                  } opacity-85 hover:opacity-100`}
+                  className={`w-full rounded-xs transition-all ${currentAccent.bar} opacity-80 hover:opacity-100`}
                 />
               );
             })}

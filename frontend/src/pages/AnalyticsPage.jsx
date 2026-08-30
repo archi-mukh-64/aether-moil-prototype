@@ -1,44 +1,44 @@
-import React, { useState, useMemo } from 'react';
+import { useState, useMemo } from 'react';
 import { useApp } from '../context/AppContext.jsx';
 import { MOIL_MINE_REGISTRY, OFFICIAL_MOIL_MINES, getMineAnalytics } from '../services/mineRegistry.js';
 import { ErrorBoundary } from '../components/common/ErrorBoundary.jsx';
 import { AetherSectionHeader, AetherStatusBadge } from '../components/design-system/index.js';
-import { 
-  ResponsiveContainer, 
-  AreaChart, 
-  Area, 
-  LineChart, 
-  Line, 
-  BarChart, 
-  Bar, 
-  XAxis, 
-  YAxis, 
-  CartesianGrid, 
-  Tooltip, 
-  Legend 
+import {
+  ResponsiveContainer,
+  AreaChart,
+  Area,
+  LineChart,
+  Line,
+  BarChart,
+  Bar,
+  XAxis,
+  YAxis,
+  CartesianGrid,
+  Tooltip,
+  Legend
 } from 'recharts';
-import { 
-  BarChart3, 
-  Layers, 
-  ShieldCheck, 
-  TrendingUp, 
-  TrendingDown, 
-  Award, 
-  CheckCircle2, 
-  PieChart, 
-  Sparkles, 
-  SlidersHorizontal, 
-  Activity, 
-  Cpu, 
-  Droplet, 
-  Compass, 
-  ArrowRight, 
-  ArrowUpRight, 
-  ArrowDownRight, 
-  Sliders, 
-  Scale, 
-  Zap, 
-  Radio, 
+import {
+  BarChart3,
+  Layers,
+  ShieldCheck,
+  TrendingUp,
+  TrendingDown,
+  Award,
+  CheckCircle2,
+  PieChart,
+  Sparkles,
+  SlidersHorizontal,
+  Activity,
+  Cpu,
+  Droplet,
+  Compass,
+  ArrowRight,
+  ArrowUpRight,
+  ArrowDownRight,
+  Sliders,
+  Scale,
+  Zap,
+  Radio,
   RotateCcw,
   Gauge,
   Clock,
@@ -69,12 +69,12 @@ export const AnalyticsPage = () => {
 };
 
 const AnalyticsPageContent = () => {
-  const { 
-    activeMine, 
-    selectedMineId, 
-    setSelectedMineId, 
-    activeScenario, 
-    resetBaseline, 
+  const {
+    activeMine,
+    selectedMineId,
+    setSelectedMineId,
+    activeScenario,
+    resetBaseline,
     officialMines,
     setIsDecisionModalOpen,
     t
@@ -86,7 +86,7 @@ const AnalyticsPageContent = () => {
   // Active Dynamic Analytics Profile derived purely from currentMine and activeScenario
   const analytics = useMemo(() => {
     return getMineAnalytics(
-      selectedMineId || currentMine.id, 
+      selectedMineId || currentMine.id,
       activeScenario ? { scenarioId: activeScenario.scenarioId, severity: activeScenario.severity } : null
     );
   }, [selectedMineId, currentMine, activeScenario]);
@@ -126,7 +126,7 @@ const AnalyticsPageContent = () => {
   const blendedMnGrade = Math.round((currentGradeNum * activeRatioFraction + partnerGradeNum * partnerRatioFraction) * 10) / 10;
   const blendedSilica = Math.round((currentSilicaPct * activeRatioFraction + partnerSilicaPct * partnerRatioFraction) * 10) / 10;
   const blendedP = Math.round((currentPhosphorusPct * activeRatioFraction + partnerPhosphorusPct * partnerRatioFraction) * 1000) / 1000;
-  
+
   const totalBlendedTPD = typeof currentMine.productionTarget === 'number' ? currentMine.productionTarget : 6200;
   const blendedValueCr = ((totalBlendedTPD * (blendedMnGrade / 40.0) * 14200) / 10000000).toFixed(2);
 
@@ -305,7 +305,7 @@ const AnalyticsPageContent = () => {
   const fftData = useMemo(() => {
     const baseFreq = activeMachine.type === 'CRUSHER' ? 124 : activeMachine.type === 'PUMP' ? 50 : 85;
     const isCritical = activeMachine.priority === 'CRITICAL';
-    
+
     return [
       { freq: '10 Hz', amp: 0.2, harmonic: 'Sub-synchronous' },
       { freq: '25 Hz', amp: 0.4, harmonic: 'Shaft 1/2X' },
@@ -346,25 +346,25 @@ const AnalyticsPageContent = () => {
   const isScenarioActive = !!activeScenario;
 
   return (
-    <div className="space-y-6 font-sans">
-      
-      {/* 1. Header & Asset Selector Strip */}
+    <div className="space-y-6 font-sans text-[#272A27]">
+
+      {/* 1. Header & Asset Selector Strip (Theme: AI Intelligence, Accent: Indigo Violet #655C9F) */}
       <AetherSectionHeader
         title={`${currentMine.name} — Predictive Shift & Bottleneck Analytics`}
         subtitle="Multi-dimensional operations intelligence, loss attribution waterfalls, shift analytics, bottleneck diagnosis, vibration FFT harmonics, and risk matrices."
         badge={`${currentMine.district?.toUpperCase()} • ${currentMine.state?.toUpperCase()}`}
-        accent="#6366F1"
+        accent="#655C9F"
         icon={BarChart3}
         actions={
-          <div className="flex items-center gap-1.5 overflow-x-auto max-w-lg p-1 rounded-xl bg-[#F8FAFC] border border-[#E2E8F0] no-scrollbar">
+          <div className="flex items-center gap-1.5 overflow-x-auto max-w-lg p-1 rounded-xl bg-[#F5F1E9] border border-[#C8BFAF] no-scrollbar">
             {mineList.map((m) => (
               <button
                 key={m.id}
                 onClick={() => setSelectedMineId(m.id)}
-                className={`px-2.5 py-1 rounded-lg text-xs font-mono font-bold transition-all whitespace-nowrap ${
+                className={`px-2.5 py-1 rounded-lg text-xs font-mono font-bold transition-all whitespace-nowrap cursor-pointer ${
                   selectedMineId === m.id
-                    ? 'bg-[#6366F1] text-white shadow-xs'
-                    : 'text-[#64748B] hover:text-[#172033] hover:bg-slate-100'
+                    ? 'bg-[#655C9F] text-white shadow-xs'
+                    : 'text-[#5F625C] hover:text-[#272A27] hover:bg-[#E8E1D5]'
                 }`}
               >
                 {m.shortName || m.name}
@@ -375,39 +375,39 @@ const AnalyticsPageContent = () => {
       />
 
       {/* 2. EXECUTIVE AI-GENERATED OPERATIONAL INSIGHTS BANNER */}
-      <div className="p-4 rounded-2xl bg-gradient-to-r from-obsidian-950 via-[#0d1c30] to-obsidian-950 border border-sky-500/40 shadow-xl space-y-2.5 font-mono text-xs">
-        <div className="flex items-center justify-between pb-1.5 border-b border-obsidian-800">
+      <div className="p-4 rounded-2xl bg-[#F0EBE2] border border-[#C8BFAF] shadow-mineral-sm space-y-2.5 font-mono text-xs text-[#272A27]">
+        <div className="flex items-center justify-between pb-1.5 border-b border-[#DDD4C5] flex-wrap gap-2">
           <div className="flex items-center gap-2">
-            <Sparkles className="w-4 h-4 text-sky-400" />
-            <span className="font-bold text-sky-300 uppercase tracking-wider">
+            <Sparkles className="w-4 h-4 text-[#655C9F]" />
+            <span className="font-bold text-[#655C9F] uppercase tracking-wider">
               AI GENERATED OPERATIONAL INSIGHTS // LIVE SCADA &amp; REMOTE SENSING
             </span>
           </div>
-          <span className="px-2 py-0.5 rounded bg-sky-950 text-sky-300 border border-sky-800 text-[10px] font-bold">
+          <span className="px-2 py-0.5 rounded bg-[#655C9F]/15 text-[#423A6D] border border-[#655C9F]/40 text-[10px] font-bold">
             CONFIDENCE: 96.4%
           </span>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2.5 pt-1">
-          <div className="p-2.5 rounded-xl bg-obsidian-900/90 border border-obsidian-750 flex items-start gap-2">
-            <span className="w-2 h-2 rounded-full bg-emerald-400 mt-1 flex-shrink-0" />
-            <span>Production pacing at <strong className="text-emerald-400">{analytics.production?.achievementPct || 100}%</strong> of nominal {currentMine.productionTarget.toLocaleString()} TPD quota.</span>
+          <div className="p-2.5 rounded-xl bg-[#F5F1E9] border border-[#C8BFAF] flex items-start gap-2">
+            <span className="w-2 h-2 rounded-full bg-[#71856B] mt-1 flex-shrink-0" />
+            <span>Production pacing at <strong className="text-[#4A5845]">{analytics.production?.achievementPct || 100}%</strong> of nominal {currentMine.productionTarget.toLocaleString()} TPD quota.</span>
           </div>
 
-          <div className="p-2.5 rounded-xl bg-obsidian-900/90 border border-obsidian-750 flex items-start gap-2">
-            <span className="w-2 h-2 rounded-full bg-amber-400 mt-1 flex-shrink-0" />
-            <span>Primary Crusher line health at <strong className="text-amber-400">{analytics.equipment?.machineHealthIndex || `${currentMine.crusherHealthBase}%`}</strong>. Bearing vibration at {currentMine.telemetry.bearingVibrationMmS}.</span>
+          <div className="p-2.5 rounded-xl bg-[#F5F1E9] border border-[#C8BFAF] flex items-start gap-2">
+            <span className="w-2 h-2 rounded-full bg-[#B88A3B] mt-1 flex-shrink-0" />
+            <span>Primary Crusher line health at <strong className="text-[#7C571F]">{analytics.equipment?.machineHealthIndex || `${currentMine.crusherHealthBase}%`}</strong>. Bearing vibration at {currentMine.telemetry.bearingVibrationMmS}.</span>
           </div>
 
-          <div className="p-2.5 rounded-xl bg-obsidian-900/90 border border-obsidian-750 flex items-start gap-2">
-            <span className="w-2 h-2 rounded-full bg-sky-400 mt-1 flex-shrink-0" />
-            <span>Sentinel-2 SWIR band reflects high <strong className="text-sky-300">{currentMine.baseGradeNum}% Mn</strong> mineral signature across {currentMine.leaseAreaHa} Ha footprint.</span>
+          <div className="p-2.5 rounded-xl bg-[#F5F1E9] border border-[#C8BFAF] flex items-start gap-2">
+            <span className="w-2 h-2 rounded-full bg-[#3D8C8A] mt-1 flex-shrink-0" />
+            <span>Sentinel-2 SWIR band reflects high <strong className="text-[#275B59]">{currentMine.baseGradeNum}% Mn</strong> mineral signature across {currentMine.leaseAreaHa} Ha footprint.</span>
           </div>
         </div>
       </div>
 
       {/* 3. DATE RANGE & ANALYTICS MODULE TABS */}
-      <div className="flex flex-wrap items-center justify-between gap-3 p-2 rounded-2xl bg-obsidian-900/90 border border-obsidian-750 font-mono text-xs">
+      <div className="flex flex-wrap items-center justify-between gap-3 p-2 rounded-2xl bg-[#F5F1E9] border border-[#C8BFAF] font-mono text-xs">
         <div className="flex items-center gap-1 overflow-x-auto no-scrollbar">
           {[
             { id: 'ALL', label: 'All Modules' },
@@ -551,11 +551,11 @@ const AnalyticsPageContent = () => {
                   <span>What if Crusher Output Falls:</span>
                   <strong className="text-amber-400 font-bold">-{whatIfCrusherThrottle}% Throttle</strong>
                 </label>
-                <input 
-                  type="range" 
-                  min="0" 
-                  max="60" 
-                  value={whatIfCrusherThrottle} 
+                <input
+                  type="range"
+                  min="0"
+                  max="60"
+                  value={whatIfCrusherThrottle}
                   onChange={(e) => setWhatIfCrusherThrottle(parseInt(e.target.value))}
                   className="w-full h-2 bg-obsidian-950 rounded-lg appearance-none cursor-pointer accent-amber-500"
                 />
@@ -566,11 +566,11 @@ const AnalyticsPageContent = () => {
                   <span>What if Monsoon Rainfall Surges:</span>
                   <strong className="text-sky-400 font-bold">+{whatIfMonsoonRainfall} mm / hr</strong>
                 </label>
-                <input 
-                  type="range" 
-                  min="0" 
-                  max="120" 
-                  value={whatIfMonsoonRainfall} 
+                <input
+                  type="range"
+                  min="0"
+                  max="120"
+                  value={whatIfMonsoonRainfall}
                   onChange={(e) => setWhatIfMonsoonRainfall(parseInt(e.target.value))}
                   className="w-full h-2 bg-obsidian-950 rounded-lg appearance-none cursor-pointer accent-sky-500"
                 />
@@ -581,11 +581,11 @@ const AnalyticsPageContent = () => {
                   <span>What if Haul Ramp Delay Increases:</span>
                   <strong className="text-rose-400 font-bold">+{whatIfHaulDelay} mins / trip</strong>
                 </label>
-                <input 
-                  type="range" 
-                  min="0" 
-                  max="45" 
-                  value={whatIfHaulDelay} 
+                <input
+                  type="range"
+                  min="0"
+                  max="45"
+                  value={whatIfHaulDelay}
                   onChange={(e) => setWhatIfHaulDelay(parseInt(e.target.value))}
                   className="w-full h-2 bg-obsidian-950 rounded-lg appearance-none cursor-pointer accent-rose-500"
                 />
@@ -1339,11 +1339,11 @@ const AnalyticsPageContent = () => {
                   <span>Blend Ratio ({currentMine.shortName || currentMine.name}):</span>
                   <strong className="text-manganese-400 font-bold">{blendRatio}% Primary / {100 - blendRatio}% Partner</strong>
                 </label>
-                <input 
-                  type="range" 
-                  min="10" 
-                  max="90" 
-                  value={blendRatio} 
+                <input
+                  type="range"
+                  min="10"
+                  max="90"
+                  value={blendRatio}
                   onChange={(e) => setBlendRatio(parseInt(e.target.value))}
                   className="w-full h-2 bg-obsidian-950 rounded-lg appearance-none cursor-pointer accent-manganese-500"
                 />

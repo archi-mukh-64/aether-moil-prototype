@@ -1,21 +1,15 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { useApp } from '../context/AppContext.jsx';
-import { 
-  AetherSectionHeader, 
-  AetherStatusBadge, 
-  AetherEmptyState 
+import {
+  AetherSectionHeader,
+  AetherEmptyState
 } from '../components/design-system/index.js';
 import { ErrorBoundary } from '../components/common/ErrorBoundary.jsx';
-import { 
-  Terminal, 
-  Search, 
-  Filter, 
-  ShieldCheck, 
-  Clock, 
-  CheckCircle2, 
-  AlertTriangle, 
-  FileText, 
-  ArrowRight,
+import {
+  Terminal,
+  Search,
+  Clock,
+  CheckCircle2,
   UserCheck,
   Download
 } from 'lucide-react';
@@ -91,111 +85,103 @@ const DecisionLogPageContent = () => {
   });
 
   return (
-    <div className="space-y-6 font-sans">
-      
-      {/* 1. TOP DECISION LOG HEADER */}
+    <div className="space-y-6 font-sans text-[#272A27]">
+
+      {/* 1. TOP DECISION LOG HEADER (Theme: Audit / Governance, Accent: Burgundy #7D4545) */}
       <AetherSectionHeader
         title="DGMS Statutory Decision Log & Audit Ledger"
         subtitle="Cryptographically verified, immutable record of shift supervisor actions, AI prescription approvals, and regulatory compliance logs."
         badge="IMMUTABLE CHAIN OF CUSTODY"
-        accent="#4F46E5"
+        accent="#7D4545"
         icon={Terminal}
         actions={
           <div className="flex items-center gap-2">
-            <button 
+            <button
               onClick={() => window.print()}
               className="btn-command-secondary text-xs"
             >
-              <Download className="w-3.5 h-3.5 text-amber-600" />
+              <Download className="w-3.5 h-3.5 text-[#7D4545]" />
               <span>Export Audit Ledger</span>
             </button>
           </div>
         }
       />
 
-      {/* 2. SEARCH & FILTER BAR */}
-      <div className="p-4 rounded-xl bg-white border border-[#E2E8F0] shadow-xs flex flex-col sm:flex-row items-center justify-between gap-4 font-mono text-xs">
-        <div className="relative w-full sm:w-96">
-          <Search className="w-4 h-4 text-[#94A3B8] absolute left-3 top-1/2 -translate-y-1/2" />
+      {/* 2. SEARCH & AUDIT FILTER STRIP */}
+      <div className="p-3.5 rounded-xl bg-[#F0EBE2] border border-[#C8BFAF] shadow-mineral-sm flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+        <div className="relative flex-1 max-w-md">
+          <Search className="w-4 h-4 absolute left-3 top-1/2 -translate-y-1/2 text-[#85877E]" />
           <input
             type="text"
-            placeholder="Search audit trail by keyword, mine, or DGMS license..."
+            placeholder="Search decisions, supervisor licenses, mine assets..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="w-full pl-9 pr-4 py-2 rounded-lg bg-[#F8FAFC] border border-[#CBD5E1] text-[#172033] placeholder-[#94A3B8] text-xs font-sans focus:outline-none focus:border-indigo-500"
+            className="w-full pl-9 pr-4 py-2 rounded-xl bg-[#F5F1E9] border border-[#C8BFAF] text-xs text-[#272A27] placeholder-[#85877E] font-mono focus:outline-none focus:border-[#7D4545]"
           />
         </div>
 
-        <div className="flex items-center gap-2 text-xs text-[#64748B] self-end sm:self-auto">
-          <span>Total Records: <strong className="text-[#172033]">{filteredEvents.length}</strong></span>
-          <span className="text-[#CBD5E1]">•</span>
-          <span className="text-emerald-700 font-bold">100% Audit Verified</span>
+        <div className="flex items-center gap-2 text-xs font-mono text-[#5F625C]">
+          <span>Audit Status:</span>
+          <span className="px-2.5 py-1 rounded-lg bg-[#71856B]/20 text-[#4A5845] border border-[#71856B]/40 font-bold">
+            100% DGMS COMPLIANT
+          </span>
         </div>
       </div>
 
-      {/* 3. AUDIT EVENTS TIMELINE STREAM */}
-      <div className="space-y-4 font-mono">
-        {filteredEvents.length > 0 ? (
-          filteredEvents.map((evt) => (
-            <div 
-              key={evt.id} 
-              className="p-5 rounded-xl bg-white border border-[#E2E8F0] hover:border-[#CBD5E1] shadow-xs hover:shadow-md transition-all space-y-3"
+      {/* 3. AUDIT TIMELINE STREAM */}
+      {filteredEvents.length > 0 ? (
+        <div className="space-y-4">
+          {filteredEvents.map((evt) => (
+            <div
+              key={evt.id}
+              className="p-5 rounded-xl bg-[#F0EBE2] border border-[#C8BFAF] hover:border-[#85877E] shadow-mineral-sm hover:shadow-mineral-md transition-all space-y-3 relative overflow-hidden"
             >
-              <div className="flex flex-wrap items-center justify-between gap-2 pb-2.5 border-b border-[#F1F5F9]">
-                <div className="flex items-center gap-2.5">
-                  <span className="px-2 py-0.5 rounded text-[10px] font-bold bg-indigo-50 text-indigo-800 border border-indigo-200">
-                    {evt.actionType}
-                  </span>
-                  <span className="text-xs font-bold text-[#172033] font-display">
-                    {evt.title}
-                  </span>
-                </div>
-
+              <div className="flex flex-wrap items-center justify-between gap-2 pb-2.5 border-b border-[#DDD4C5]">
                 <div className="flex items-center gap-2">
-                  <AetherStatusBadge status="OPTIMAL" size="sm" pulse={false} />
-                  <span className="text-[11px] text-[#64748B]">{evt.timestamp}</span>
+                  <span className="px-2 py-0.5 rounded text-[10px] font-mono font-bold bg-[#7D4545]/15 text-[#7D4545] border border-[#7D4545]/40">
+                    {evt.id}
+                  </span>
+                  <span className="text-xs font-bold text-[#5F625C] font-mono">
+                    • {evt.mineName} ({evt.shift})
+                  </span>
+                </div>
+
+                <div className="flex items-center gap-2 text-xs font-mono text-[#5F625C]">
+                  <Clock className="w-3.5 h-3.5 text-[#85877E]" />
+                  <span>{evt.timestamp}</span>
                 </div>
               </div>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 text-xs">
-                <div>
-                  <span className="text-[10px] text-[#94A3B8] block uppercase">MINE ASSET</span>
-                  <strong className="text-[#172033]">{evt.mineName}</strong>
+              <div className="space-y-1">
+                <h3 className="font-bold text-sm text-[#272A27] font-display">
+                  {evt.title}
+                </h3>
+                <p className="text-xs text-[#5F625C] leading-relaxed font-sans">
+                  <strong>Regulatory Cause:</strong> {evt.reasoning}
+                </p>
+              </div>
+
+              <div className="pt-2 border-t border-[#DDD4C5] flex flex-wrap items-center justify-between gap-3 text-xs font-mono">
+                <div className="flex items-center gap-2 text-[#4A5845]">
+                  <CheckCircle2 className="w-4 h-4 text-[#71856B]" />
+                  <span className="font-bold">Verified Impact: {evt.impact}</span>
                 </div>
-                <div>
-                  <span className="text-[10px] text-[#94A3B8] block uppercase">SHIFT PERIOD</span>
-                  <strong className="text-[#172033]">{evt.shift}</strong>
-                </div>
-                <div className="sm:col-span-2">
-                  <span className="text-[10px] text-[#94A3B8] block uppercase">VERIFYING OFFICER</span>
-                  <strong className="text-[#172033]">{evt.operator}</strong>
+
+                <div className="flex items-center gap-1.5 text-[#5F625C]">
+                  <UserCheck className="w-3.5 h-3.5 text-[#85877E]" />
+                  <span>{evt.operator}</span>
                 </div>
               </div>
 
-              <div className="p-3 rounded-lg bg-[#F8FAFC] border border-[#E2E8F0] space-y-1 text-xs">
-                <div className="text-[#475569]">
-                  <strong className="text-[#172033]">Trigger Reason: </strong>{evt.reasoning}
-                </div>
-                <div className="text-emerald-700 font-semibold">
-                  <strong className="text-emerald-800">Operational Outcome: </strong>{evt.impact}
-                </div>
-              </div>
-
-              <div className="flex items-center justify-between text-[10px] text-[#94A3B8] pt-1">
-                <span>SHA-256 Ledger Hash: <code>{evt.id.replace(/-/g, '').toLowerCase()}f83a...</code></span>
-                <span className="text-emerald-600 font-bold">DIGITALLY SIGNED</span>
-              </div>
             </div>
-          ))
-        ) : (
-          <AetherEmptyState
-            title="No Matching Audit Records"
-            description="No statutory decision logs matched your current search parameters."
-            actionLabel="Clear Search Filter"
-            onAction={() => setSearchQuery('')}
-          />
-        )}
-      </div>
+          ))}
+        </div>
+      ) : (
+        <AetherEmptyState
+          title="No Audit Records Found"
+          description="Try broadening your search query or reset filters."
+        />
+      )}
 
     </div>
   );
