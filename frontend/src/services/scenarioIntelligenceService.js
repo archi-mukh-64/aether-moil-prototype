@@ -77,10 +77,10 @@ export function getLocalizedMineName(mine, lang = 'en') {
  * Execute Deterministic Decision Intelligence Calculation
  */
 export function calculateScenarioIntelligence(
-  mineId, 
-  scenarioId, 
-  severityId = 'HIGH', 
-  horizonId = '24_HOURS', 
+  mineId,
+  scenarioId,
+  severityId = 'HIGH',
+  horizonId = '24_HOURS',
   lang = 'en'
 ) {
   const mine = OFFICIAL_MOIL_MINES.find(m => m.id === mineId) || OFFICIAL_MOIL_MINES[0];
@@ -334,9 +334,9 @@ export function calculateScenarioIntelligence(
   const causalChain = [
     {
       stage: scDict.stages.trigger,
-      title: scenarioId === 'HEAVY_MONSOON' 
+      title: scenarioId === 'HEAVY_MONSOON'
         ? (lang === 'hi' ? 'भारी बादल फटने की घटना (>85 मिमी)' : lang === 'mr' ? 'मुसळधार ढगफुटी घटना (>85 मिमी)' : 'Intense Cloudburst Event (>85mm)')
-        : scenarioId === 'CRUSHER_SEIZURE' 
+        : scenarioId === 'CRUSHER_SEIZURE'
         ? (lang === 'hi' ? '42 हर्ट्ज़ पर बेयरिंग हार्मोनिक जाम' : lang === 'mr' ? '42 हर्ट्झ वर बेअरिंग हार्मोनिक बिघाड' : 'Bearing Harmonic Seizure at 42Hz')
         : (lang === 'hi' ? 'प्राथमिक प्रचालन विचलन का पता चला' : lang === 'mr' ? 'प्राथमिक ऑपरेशनल विचलन आढळले' : 'Primary Operational Deviation Detected'),
       detail: lang === 'hi' ? `${localizedMineName} पर्यावरण और यांत्रिक सेंसर सरणी में अलर्ट का पता चला।` : lang === 'mr' ? `${localizedMineName} पर्यावरण व यांत्रिक सेन्सर संचात इशारा आढळला.` : `Telemetry alert detected across ${mine.name} environmental and mechanical sensor array.`,
@@ -345,7 +345,7 @@ export function calculateScenarioIntelligence(
     },
     {
       stage: scDict.stages.disruption,
-      title: scenarioId === 'HEAVY_MONSOON' 
+      title: scenarioId === 'HEAVY_MONSOON'
         ? (lang === 'hi' ? 'सड़क कर्षण में गिरावट (-38%)' : lang === 'mr' ? 'रस्ता कर्षण घसरण (-38%)' : 'Haul Road Traction Loss (-38%)')
         : (lang === 'hi' ? 'डाउनस्ट्रीम प्रवाह में व्यवधान' : lang === 'mr' ? 'प्रवाह प्रक्रियेत अडथळा' : 'Downstream Flow Interruption'),
       detail: lang === 'hi' ? `औसत डंपर चक्र समय 18.4 मिनट से बढ़कर ${(18.4 * (1 + lossPct / 50)).toFixed(1)} मिनट हो गया।` : lang === 'mr' ? `सरासरी डंपर चक्र वेळ 18.4 मिनिटांवरून ${(18.4 * (1 + lossPct / 50)).toFixed(1)} मिनिटांपर्यंत वाढली.` : `Average dumper cycle times increased from 18.4 min to ${(18.4 * (1 + lossPct / 50)).toFixed(1)} min.`,
@@ -354,7 +354,7 @@ export function calculateScenarioIntelligence(
     },
     {
       stage: scDict.stages.bottleneck,
-      title: isUnderground 
+      title: isUnderground
         ? (lang === 'hi' ? 'शाफ्ट हॉइस्टिंग व ओर पॉकेट थ्रॉटल' : lang === 'mr' ? 'शाफ्ट हॉइस्टिंग व खनिज पॉकेट अडथळा' : 'Shaft Hoisting & Ore Pocket Throttle')
         : (lang === 'hi' ? 'प्राथमिक साइजिंग हॉपर जाम' : lang === 'mr' ? 'प्राथमिक साइजिंग हॉपर चोक' : 'Primary Sizing Hopper Choke'),
       detail: lang === 'hi' ? 'फीड दर क्रशिंग सीमा से नीचे गिर जाता है, जिससे डंप ट्रकों की कतारें लग जाती हैं।' : lang === 'mr' ? 'फीड दर मर्यादेपेक्षा खाली घसरल्याने ट्रकांच्या रांगा लागतात.' : `Feed rate drops below economic sizing threshold, causing truck dump queues.`,
@@ -386,65 +386,65 @@ export function calculateScenarioIntelligence(
 
   // TreeSHAP Feature Drivers
   const shapDrivers = [
-    { 
-      name: lang === 'hi' ? 'ढुलाई व फ्लीट गति में गिरावट' : lang === 'mr' ? 'वाहतूक व फ्लीट गती घसरण' : 'Haulage & Fleet Speed Degradation', 
-      contributionPct: 44.0 
+    {
+      name: lang === 'hi' ? 'ढुलाई व फ्लीट गति में गिरावट' : lang === 'mr' ? 'वाहतूक व फ्लीट गती घसरण' : 'Haulage & Fleet Speed Degradation',
+      contributionPct: 44.0
     },
-    { 
-      name: lang === 'hi' ? 'क्रशर फीड व साइजिंग भुखमरी' : lang === 'mr' ? 'क्रशर फीड व साइजिंग तुटवडा' : 'Crusher Feed & Sizing Starvation', 
-      contributionPct: 26.0 
+    {
+      name: lang === 'hi' ? 'क्रशर फीड व साइजिंग भुखमरी' : lang === 'mr' ? 'क्रशर फीड व साइजिंग तुटवडा' : 'Crusher Feed & Sizing Starvation',
+      contributionPct: 26.0
     },
-    { 
-      name: lang === 'hi' ? 'पर्यावरणीय व जल निकासी बाढ़' : lang === 'mr' ? 'पर्यावरणीय व पाण्याचा निचरा पूर' : 'Environmental & Drainage Inundation', 
-      contributionPct: 18.0 
+    {
+      name: lang === 'hi' ? 'पर्यावरणीय व जल निकासी बाढ़' : lang === 'mr' ? 'पर्यावरणीय व पाण्याचा निचरा पूर' : 'Environmental & Drainage Inundation',
+      contributionPct: 18.0
     },
-    { 
-      name: lang === 'hi' ? 'अनपेक्षित यांत्रिक डाउनटाइम' : lang === 'mr' ? 'अनपेक्षित यांत्रिक डाउनटाइम' : 'Unscheduled Mechanical Downtime', 
-      contributionPct: 12.0 
+    {
+      name: lang === 'hi' ? 'अनपेक्षित यांत्रिक डाउनटाइम' : lang === 'mr' ? 'अनपेक्षित यांत्रिक डाउनटाइम' : 'Unscheduled Mechanical Downtime',
+      contributionPct: 12.0
     }
   ];
 
   // Localized Timeline Milestones
   const timelineMilestones = [
-    { 
-      time: 'T+00:00', 
-      event: lang === 'hi' ? 'प्राथमिक परिदृश्य ट्रिगर घटना का पता चला' : lang === 'mr' ? 'प्राथमिक परिस्थिती ट्रिगर घटना आढळली' : 'Primary Scenario Trigger Event Detected', 
-      detail: lang === 'hi' ? 'स्काडा टेलीमेट्री 3σ सीमा से परे विचलन प्रसारित करती है।' : lang === 'mr' ? 'स्काडा टेलीमेट्री 3σ मर्यादेपलीकडे विचलन नोंदवते.' : 'SCADA telemetry streams initial deviation beyond 3σ threshold.' 
+    {
+      time: 'T+00:00',
+      event: lang === 'hi' ? 'प्राथमिक परिदृश्य ट्रिगर घटना का पता चला' : lang === 'mr' ? 'प्राथमिक परिस्थिती ट्रिगर घटना आढळली' : 'Primary Scenario Trigger Event Detected',
+      detail: lang === 'hi' ? 'स्काडा टेलीमेट्री 3σ सीमा से परे विचलन प्रसारित करती है।' : lang === 'mr' ? 'स्काडा टेलीमेट्री 3σ मर्यादेपलीकडे विचलन नोंदवते.' : 'SCADA telemetry streams initial deviation beyond 3σ threshold.'
     },
-    { 
-      time: 'T+00:15', 
-      event: lang === 'hi' ? 'ढुलाई व प्रवाह दक्षता में गिरावट शुरू' : lang === 'mr' ? 'वाहतूक व प्रवाह कार्यक्षमतेत घसरण सुरू' : 'Haulage & Flow Efficiency Begins Declining', 
-      detail: lang === 'hi' ? 'ईस्ट रैंप पर टायर स्लिप; ट्रक की गति 14 किमी/घंटा तक धीमी।' : lang === 'mr' ? 'पूर्व रस्त्यावर टायर स्लिप; ट्रकचा वेग 14 किमी/तास पर्यंत मंद.' : 'Tire slip detected on East Ramp; truck speeds throttle to 14 km/h.' 
+    {
+      time: 'T+00:15',
+      event: lang === 'hi' ? 'ढुलाई व प्रवाह दक्षता में गिरावट शुरू' : lang === 'mr' ? 'वाहतूक व प्रवाह कार्यक्षमतेत घसरण सुरू' : 'Haulage & Flow Efficiency Begins Declining',
+      detail: lang === 'hi' ? 'ईस्ट रैंप पर टायर स्लिप; ट्रक की गति 14 किमी/घंटा तक धीमी।' : lang === 'mr' ? 'पूर्व रस्त्यावर टायर स्लिप; ट्रकचा वेग 14 किमी/तास पर्यंत मंद.' : 'Tire slip detected on East Ramp; truck speeds throttle to 14 km/h.'
     },
-    { 
-      time: 'T+00:45', 
-      event: lang === 'hi' ? 'क्रशर हॉपर फीड दर लक्ष्य से नीचे' : lang === 'mr' ? 'क्रशर हॉपर फीड दर उद्दिष्टापेक्षा खाली' : 'Crusher Hopper Feed Rate Falls Below Target', 
-      detail: lang === 'hi' ? 'प्राथमिक क्रशर उपयोगिता 28% गिरती है; कतारें जमा होती हैं।' : lang === 'mr' ? 'क्रशर वापर 28% घसरतो; वाहनांच्या रांगा लागतात.' : 'Primary jaw crusher utilization falls by 28%; queue accumulates.' 
+    {
+      time: 'T+00:45',
+      event: lang === 'hi' ? 'क्रशर हॉपर फीड दर लक्ष्य से नीचे' : lang === 'mr' ? 'क्रशर हॉपर फीड दर उद्दिष्टापेक्षा खाली' : 'Crusher Hopper Feed Rate Falls Below Target',
+      detail: lang === 'hi' ? 'प्राथमिक क्रशर उपयोगिता 28% गिरती है; कतारें जमा होती हैं।' : lang === 'mr' ? 'क्रशर वापर 28% घसरतो; वाहनांच्या रांगा लागतात.' : 'Primary jaw crusher utilization falls by 28%; queue accumulates.'
     },
-    { 
-      time: 'T+02:00', 
-      event: lang === 'hi' ? 'उत्पादन घाटा महत्वपूर्ण सीमा से अधिक' : lang === 'mr' ? 'उत्पादन तूट गंभीर मर्यादेपलीकडे' : 'Production Shortfall Critical Threshold Exceeded', 
-      detail: lang === 'hi' ? `शिफ्ट का घाटा -${Math.round(lossTonnage * 0.4)} टन तक पहुंच गया।` : lang === 'mr' ? `शिफ्टमधील तूट -${Math.round(lossTonnage * 0.4)} टनांपर्यंत पोहोचली.` : `Shift forecast deficit reaches -${Math.round(lossTonnage * 0.4)} T.` 
+    {
+      time: 'T+02:00',
+      event: lang === 'hi' ? 'उत्पादन घाटा महत्वपूर्ण सीमा से अधिक' : lang === 'mr' ? 'उत्पादन तूट गंभीर मर्यादेपलीकडे' : 'Production Shortfall Critical Threshold Exceeded',
+      detail: lang === 'hi' ? `शिफ्ट का घाटा -${Math.round(lossTonnage * 0.4)} टन तक पहुंच गया।` : lang === 'mr' ? `शिफ्टमधील तूट -${Math.round(lossTonnage * 0.4)} टनांपर्यंत पोहोचली.` : `Shift forecast deficit reaches -${Math.round(lossTonnage * 0.4)} T.`
     },
-    { 
-      time: 'T+04:00', 
-      event: lang === 'hi' ? 'खदान-व्यापी परिचालन जोखिम में वृद्धि' : lang === 'mr' ? 'खाण-स्तरीय ऑपरेशनल जोखीम वाढली' : 'Site-Wide Operational Risk Escalated', 
-      detail: lang === 'hi' ? `जोखिम सूचकांक 0.18 से बढ़कर ${(0.18 + (lossPct / 100) * 0.6).toFixed(2)} हो गया।` : lang === 'mr' ? `जोखीम निर्देशांक 0.18 वरून ${(0.18 + (lossPct / 100) * 0.6).toFixed(2)} झाला.` : `Risk index surges from 0.18 to ${(0.18 + (lossPct / 100) * 0.6).toFixed(2)}.` 
+    {
+      time: 'T+04:00',
+      event: lang === 'hi' ? 'खदान-व्यापी परिचालन जोखिम में वृद्धि' : lang === 'mr' ? 'खाण-स्तरीय ऑपरेशनल जोखीम वाढली' : 'Site-Wide Operational Risk Escalated',
+      detail: lang === 'hi' ? `जोखिम सूचकांक 0.18 से बढ़कर ${(0.18 + (lossPct / 100) * 0.6).toFixed(2)} हो गया।` : lang === 'mr' ? `जोखीम निर्देशांक 0.18 वरून ${(0.18 + (lossPct / 100) * 0.6).toFixed(2)} झाला.` : `Risk index surges from 0.18 to ${(0.18 + (lossPct / 100) * 0.6).toFixed(2)}.`
     },
-    { 
-      time: 'T+06:00', 
-      event: lang === 'hi' ? 'एथर स्वचालित प्रतिक्रिया प्रोटोकॉल प्रेषित' : lang === 'mr' ? 'एथर स्वयंचलित प्रतिसाद प्रोटोकॉल जारी' : 'AETHER Automated Response Protocol Dispatched', 
-      detail: lang === 'hi' ? `ऑपरेटर ने प्रोटोकॉल ${recommendations[0].actionId} की समीक्षा की और अधिकृत किया।` : lang === 'mr' ? `ऑपरेटरने प्रोटोकॉल ${recommendations[0].actionId} मंजूर केला.` : `Operator reviews and authorizes Protocol ${recommendations[0].actionId}.` 
+    {
+      time: 'T+06:00',
+      event: lang === 'hi' ? 'एथर स्वचालित प्रतिक्रिया प्रोटोकॉल प्रेषित' : lang === 'mr' ? 'एथर स्वयंचलित प्रतिसाद प्रोटोकॉल जारी' : 'AETHER Automated Response Protocol Dispatched',
+      detail: lang === 'hi' ? `ऑपरेटर ने प्रोटोकॉल ${recommendations[0].actionId} की समीक्षा की और अधिकृत किया।` : lang === 'mr' ? `ऑपरेटरने प्रोटोकॉल ${recommendations[0].actionId} मंजूर केला.` : `Operator reviews and authorizes Protocol ${recommendations[0].actionId}.`
     },
-    { 
-      time: 'T+08:00', 
-      event: lang === 'hi' ? 'सहायक क्षमता संलग्न व प्रवाह स्थिर' : lang === 'mr' ? 'सहाय्यक क्षमता जोडली व प्रवाह स्थिर' : 'Auxiliary Capacity Engaged & Flow Stabilizing', 
-      detail: lang === 'hi' ? 'फ्लीट पुनर-प्रेषित; द्वितीयक क्रशिंग सर्किट 82% क्षमता पर बहाल।' : lang === 'mr' ? 'फ्लीट पुनर्वाटप पूर्ण; दुय्यम क्रशिंग क्षमता 82% पूर्ववत.' : 'Fleet rerouted; secondary sizing circuit restored to 82% capacity.' 
+    {
+      time: 'T+08:00',
+      event: lang === 'hi' ? 'सहायक क्षमता संलग्न व प्रवाह स्थिर' : lang === 'mr' ? 'सहाय्यक क्षमता जोडली व प्रवाह स्थिर' : 'Auxiliary Capacity Engaged & Flow Stabilizing',
+      detail: lang === 'hi' ? 'फ्लीट पुनर-प्रेषित; द्वितीयक क्रशिंग सर्किट 82% क्षमता पर बहाल।' : lang === 'mr' ? 'फ्लीट पुनर्वाटप पूर्ण; दुय्यम क्रशिंग क्षमता 82% पूर्ववत.' : 'Fleet rerouted; secondary sizing circuit restored to 82% capacity.'
     },
-    { 
-      time: `T+${Math.round(recoveryHours)}:00`, 
-      event: lang === 'hi' ? 'सामान्य आधारभूत संचालन पूरी तरह बहाल' : lang === 'mr' ? 'सामान्य मूळ संचालन पूर्णपणे पूर्ववत' : 'Normal Nominal Operations Fully Restored', 
-      detail: lang === 'hi' ? `उत्पादन दर ${Math.round(target - (lossTonnage * 0.19))} टीपीडी पर स्थिर हुआ।` : lang === 'mr' ? `उत्पादन दर ${Math.round(target - (lossTonnage * 0.19))} टीपीडी वर स्थिर झाला.` : `Shift yield stabilized at ${Math.round(target - (lossTonnage * 0.19))} TPD.` 
+    {
+      time: `T+${Math.round(recoveryHours)}:00`,
+      event: lang === 'hi' ? 'सामान्य आधारभूत संचालन पूरी तरह बहाल' : lang === 'mr' ? 'सामान्य मूळ संचालन पूर्णपणे पूर्ववत' : 'Normal Nominal Operations Fully Restored',
+      detail: lang === 'hi' ? `उत्पादन दर ${Math.round(target - (lossTonnage * 0.19))} टीपीडी पर स्थिर हुआ।` : lang === 'mr' ? `उत्पादन दर ${Math.round(target - (lossTonnage * 0.19))} टीपीडी वर स्थिर झाला.` : `Shift yield stabilized at ${Math.round(target - (lossTonnage * 0.19))} TPD.`
     }
   ];
 
@@ -506,7 +506,7 @@ export function calculateScenarioIntelligence(
       ndwiValue: (0.28 + (rainSens * 0.08)).toFixed(2),
       soilMoisturePct: Math.min(88, Math.round(42 + (rainSens * 28 * sevMult))),
       disturbedAreaHa: Math.round(140.8 + (target / 50)),
-      observationSummary: lang === 'hi' 
+      observationSummary: lang === 'hi'
         ? `${localizedMineName} के सक्रिय ढुलाई गलियारे और खदान परिधि के पास उपग्रह-व्युत्पन्न वर्णक्रमीय नमी सूचकांक का पता चला। सतह पर जल परावर्तन से मिट्टी संतृप्ति बढ़ती है और सड़क पर फिसलन का जोखिम बढ़ता है।`
         : lang === 'mr'
         ? `${localizedMineName} च्या सक्रिय वाहतूक कॉरिडॉरजवळ उपग्रह-आधारित ओलावा निर्देशांक आढळला. पृष्ठभागावरील पाण्याचे परावर्तन मातीची संपृक्तता वाढवते आणि रस्त्यावरील घसरणीचा धोका वाढवते.`

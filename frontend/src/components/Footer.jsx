@@ -1,13 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useApp } from '../context/AppContext.jsx';
-import { 
-  Radio, 
-  ShieldCheck, 
-  MapPin, 
-  Compass, 
-  Layers, 
-  Activity, 
+import {
+  Radio,
+  ShieldCheck,
+  MapPin,
+  Compass,
+  Layers,
+  Activity,
   ExternalLink,
   Lock,
   Cpu
@@ -19,10 +19,10 @@ export const Footer = () => {
   return (
     <footer className="w-full bg-obsidian-950 border-t border-obsidian-800/90 pt-16 pb-12 text-zinc-400 font-mono text-xs">
       <div className="command-container">
-        
+
         {/* Top Section */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-12 border-b border-obsidian-800/80">
-          
+
           {/* Brand & PSU Credentials (2 cols) */}
           <div className="lg:col-span-2 space-y-4">
             <div className="flex items-center gap-3">
@@ -36,8 +36,8 @@ export const Footer = () => {
             </div>
 
             <p className="text-xs text-zinc-400 font-sans leading-relaxed max-w-sm">
-              {lang === 'hi' 
-                ? 'भारत का प्रमुख मैंगनीज अयस्क उत्पादक। पृथ्वी अवलोकन और भूमिगत आईओटी टेलीमेट्री का स्वायत्त एआई कमान केंद्र।' 
+              {lang === 'hi'
+                ? 'भारत का प्रमुख मैंगनीज अयस्क उत्पादक। पृथ्वी अवलोकन और भूमिगत आईओटी टेलीमेट्री का स्वायत्त एआई कमान केंद्र।'
                 : lang === 'mr'
                 ? 'भारतातील अग्रगण्य मॅंगनीज उत्पादक. उपग्रह पृथ्वी निरीक्षण आणि भूमिगत आयओटी टेलीमेट्रीची स्वायत्त एआय प्रणाली.'
                 : "India's premier manganese ore producer. Autonomous AI command suite fusing Earth Observation with sub-surface IoT telemetry for predictive risk mitigation."}

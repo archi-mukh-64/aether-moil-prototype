@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useMemo } from 'react';
 import { useApp } from '../context/AppContext.jsx';
 import {
   AetherSectionHeader,
@@ -26,56 +26,63 @@ const DecisionLogPageContent = () => {
   const { activeMine, lang, t } = useApp();
   const [searchQuery, setSearchQuery] = useState('');
 
-  const auditEvents = [
-    {
-      id: 'AUD-2026-0829-01',
-      title: 'Auxiliary Dewatering Pump Activation & Haulage Reroute',
-      mineName: activeMine.name,
-      shift: 'Shift A (06:00 - 14:00)',
-      timestamp: '29 Aug 2026, 10:14 IST',
-      actionType: 'MITIGATION_DISPATCH',
-      operator: 'Mining Engineer S. Sharma (DGMS Lic #4829)',
-      status: 'APPROVED',
-      reasoning: 'Water inflow at Level -185m sump reached 1,850 m³/h after 55mm precipitation burst.',
-      impact: '+1,116 TPD yield protected; haul road slip factor reduced by 42%.'
-    },
-    {
-      id: 'AUD-2026-0829-02',
-      title: 'Primary Jaw Crusher Feed Throttled from 280 to 200 TPH',
-      mineName: 'Dongri Buzurg Mine',
-      shift: 'Shift A (06:00 - 14:00)',
-      timestamp: '29 Aug 2026, 09:42 IST',
-      actionType: 'EQUIPMENT_PROTECTION',
-      operator: 'Plant Controller V. Deshmukh',
-      status: 'APPROVED',
-      reasoning: 'Vibration RMS on drive bearing #2 reached 4.8 mm/s exceeding warning threshold (3.5 mm/s).',
-      impact: 'Bearing catastrophic seizure averted; continuous 200 TPH processing maintained.'
-    },
-    {
-      id: 'AUD-2026-0828-03',
-      title: 'Grade Blending Ratio Adjusted to 55:45 (ROM : Stockpile)',
-      mineName: 'Chikla Mine',
-      shift: 'Shift B (14:00 - 22:00)',
-      timestamp: '28 Aug 2026, 17:30 IST',
-      actionType: 'QUALITY_CONTROL',
-      operator: 'Chief Metallurgist R. Patil',
-      status: 'APPROVED',
-      reasoning: 'Pit extraction face 04 produced 38.4% Mn grade against 44.0% Mn contract requirement.',
-      impact: 'Product grade stabilized at 44.2% Mn across 420 Ton lot.'
-    },
-    {
-      id: 'AUD-2026-0828-04',
-      title: 'Emergency Stope Dewatering Pipeline Bypass Installed',
-      mineName: 'Balaghat Mine',
-      shift: 'Shift C (22:00 - 06:00)',
-      timestamp: '28 Aug 2026, 02:15 IST',
-      actionType: 'EMERGENCY_INTERVENTION',
-      operator: 'Underground Shift Boss P. Rathore',
-      status: 'APPROVED',
-      reasoning: 'Main discharge pipe fractured due to water hammer pressure spike.',
-      impact: 'Stope flooding prevented; 4 underground LHD loaders kept in service.'
-    }
-  ];
+  const auditEvents = useMemo(() => {
+    const targetTpd = activeMine?.productionTarget || 6200;
+    const waterDepth = activeMine?.waterTableDepth || '-185m Level';
+    const primaryCrusher = activeMine?.equipment?.primaryCrusher || 'Primary Jaw Crusher';
+    const oreGrade = activeMine?.baseGradeNum || 44.2;
+
+    return [
+      {
+        id: `AUD-2026-${(activeMine?.id || 'BAL').toUpperCase().slice(0, 3)}-01`,
+        title: 'Auxiliary Dewatering Pump Activation & Haulage Reroute',
+        mineName: activeMine?.name || 'Balaghat Mine',
+        shift: 'Shift A (06:00 - 14:00)',
+        timestamp: '29 Aug 2026, 10:14 IST',
+        actionType: 'MITIGATION_DISPATCH',
+        operator: 'Mining Engineer S. Sharma (DGMS Lic #4829)',
+        status: 'APPROVED',
+        reasoning: `Water inflow at ${waterDepth} sump reached statutory drainage threshold after monsoon precipitation.`,
+        impact: `+${Math.round(targetTpd * 0.18).toLocaleString()} TPD yield protected; haul road slip factor reduced by 42%.`
+      },
+      {
+        id: `AUD-2026-${(activeMine?.id || 'BAL').toUpperCase().slice(0, 3)}-02`,
+        title: `${primaryCrusher} Feed Throttled & Vibration Managed`,
+        mineName: activeMine?.name || 'Balaghat Mine',
+        shift: 'Shift A (06:00 - 14:00)',
+        timestamp: '29 Aug 2026, 09:42 IST',
+        actionType: 'EQUIPMENT_PROTECTION',
+        operator: 'Plant Controller V. Deshmukh',
+        status: 'APPROVED',
+        reasoning: `Vibration on ${primaryCrusher} drive bearing reached ${activeMine?.telemetry?.bearingVibrationMmS || '2.8 mm/s'}, approaching warning threshold.`,
+        impact: `Bearing catastrophic seizure averted; continuous ${Math.round((activeMine?.crusherCapacityTPH || 280) * 0.75)} TPH processing maintained.`
+      },
+      {
+        id: 'AUD-2026-REG-03',
+        title: 'Grade Blending Ratio Adjusted to Maintain Steel Spec',
+        mineName: activeMine?.name || 'Balaghat Mine',
+        shift: 'Shift B (14:00 - 22:00)',
+        timestamp: '28 Aug 2026, 17:30 IST',
+        actionType: 'QUALITY_CONTROL',
+        operator: 'Chief Metallurgist R. Patil',
+        status: 'APPROVED',
+        reasoning: `Active feed grade calibrated to ensure statutory ${oreGrade}% Mn delivery to furnace stockpile.`,
+        impact: `Product grade stabilized at ${oreGrade}% Mn across 420 Ton lot.`
+      },
+      {
+        id: 'AUD-2026-REG-04',
+        title: 'Statutory Incline Strata Monitoring & Rockfall Protocol Logged',
+        mineName: activeMine?.name || 'Balaghat Mine',
+        shift: 'Shift C (22:00 - 06:00)',
+        timestamp: '28 Aug 2026, 02:15 IST',
+        actionType: 'EMERGENCY_INTERVENTION',
+        operator: 'Underground Shift Boss P. Rathore',
+        status: 'APPROVED',
+        reasoning: `DGMS Rule 104 compliance inspection verified along ${activeMine?.strikeLengthKm || 3.2} km strike zone.`,
+        impact: 'Safe stope production maintained; zero statutory stop-work notices logged.'
+      }
+    ];
+  }, [activeMine]);
 
   const filteredEvents = auditEvents.filter(e => {
     const matchesSearch = e.title.toLowerCase().includes(searchQuery.toLowerCase()) ||

@@ -21,9 +21,9 @@ export class ForecastEngine {
     const target = Number(mine.productionTarget || mine.dailyTarget || 6200);
     const rainfallSens = Number(mine.rainfallSensitivity || 1.35);
     const baseGrade = mine.oreGrade || mine.grade || '44.2% Mn';
-    
+
     const scen = (params.scenario_id || 'BASELINE').toUpperCase();
-    
+
     // Sliders / Parameters
     const rainfall = params.rainfall_mm !== undefined ? Number(params.rainfall_mm) : (scen === 'HEAVY_MONSOON' ? 95.0 : 12.5);
     const crusher = params.crusher_availability_pct !== undefined ? Number(params.crusher_availability_pct) : (scen === 'CRUSHER_SEIZURE' || scen === 'CRUSHER_CONSTRAINT' ? 45.0 : 90.0);
@@ -38,11 +38,11 @@ export class ForecastEngine {
     const haulLoss = target * (1.0 - (haulEff / 100.0)) * 0.28;
     const crusherLoss = target * (1.0 - (crusher / 100.0)) * 0.35;
     const fleetLoss = target * (1.0 - (fleet / 100.0)) * 0.30;
-    
+
     const pumpMaxM3h = 350.0 * (pump / 100.0);
     const inflowExcess = Math.max(0.0, inflow - pumpMaxM3h);
     const waterLoss = target * Math.min(0.35, (inflowExcess / 350.0) * 0.32);
-    
+
     const eqLoss = target * (1.0 - (eqHealth / 100.0)) * 0.20;
     const bufferT = Math.min(850.0, target * 0.15);
     const stockpileOffset = Math.min(bufferT * 0.5, (rainLoss + haulLoss + crusherLoss + fleetLoss + waterLoss + eqLoss) * 0.18);
@@ -55,33 +55,33 @@ export class ForecastEngine {
     const baseDate = new Date();
     const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
     const forecastPoints = [];
-    
+
     for (let d = 1; d <= 14; d++) {
       const curDate = new Date(baseDate);
       curDate.setDate(baseDate.getDate() + (d - 1));
       const dateStr = `${curDate.getDate()} ${months[curDate.getMonth()]}`;
-      
+
       const dayRain = Math.round(rainfall * (0.8 + 0.4 * Math.sin(d * 0.8)) * 10) / 10;
-      
+
       const timeDecay = totalLoss > 50 ? (0.012 * (d - 1) * (rainfall > 60 ? 1.2 : 0.8)) : 0.0;
       const variation = 0.02 * Math.sin(d * 0.5);
       const dayYield = Math.round(Math.max(target * 0.30, Math.min(target * 1.15, predictedMean * (1.0 + variation - timeDecay))));
-      
+
       const isHist = (d === 1);
       const actualYield = isHist ? Math.round(target * 0.96) : null;
 
       const sigma = target * 0.025 * Math.sqrt(d);
       const lowerCi = Math.round(Math.max(target * 0.25, dayYield - 1.96 * sigma));
       const upperCi = Math.round(Math.min(target * 1.25, dayYield + 1.96 * sigma));
-      
+
       const shortfall = Math.round(Math.max(0.0, target - dayYield));
       const shortfallPct = Math.round((shortfall / target) * 1000) / 10;
-      
+
       let riskLvl = 'LOW';
       if (shortfallPct >= 20.0) riskLvl = 'CRITICAL';
       else if (shortfallPct >= 12.0) riskLvl = 'HIGH';
       else if (shortfallPct >= 5.0) riskLvl = 'MODERATE';
-      
+
       let mainDriver = 'Nominal Quota Trajectory';
       if (dayRain > 60.0) mainDriver = 'Heavy Precipitation & Sump Loading';
       else if (crusher < 60.0) mainDriver = 'Gyratory Crusher Throughput Bottleneck';

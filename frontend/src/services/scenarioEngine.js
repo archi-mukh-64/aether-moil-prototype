@@ -107,9 +107,9 @@ export function computeScenarioIntelligenceState({
   }
 
   // 4. PRESCRIPTIVE RECOMMENDATION & PARETO OPTIONS
-  const protectedTonnes = scenarioId === 'DISCOVERY' 
-    ? (effectiveMetrics.addedReserveTonnes || 1800000) 
-    : isDetected 
+  const protectedTonnes = scenarioId === 'DISCOVERY'
+    ? (effectiveMetrics.addedReserveTonnes || 1800000)
+    : isDetected
     ? Math.max(180, Math.round(lossTonnes * 0.88))
     : 0;
 
@@ -206,7 +206,7 @@ export function computeScenarioIntelligenceState({
     signals,
     causalChain,
     effectiveMetrics,
-    thresholdSummary: isDetected 
+    thresholdSummary: isDetected
       ? `Anomaly score (${Math.round(detectionScore * 100)}%) exceeded ${mine.name} threshold (${Math.round(mine.rainfallSensitivity * 45)}%). Triggered Alert.`
       : `Operational stress (${Math.round(detectionScore * 100)}%) within ${mine.name} capacity tolerances. No emergency detected.`,
     prediction: {

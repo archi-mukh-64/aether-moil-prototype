@@ -89,7 +89,7 @@ export const MOCK_SCENARIOS = [
     icon: 'CloudRain',
     defaultMine: 'balaghat',
     timeHorizon: '24 HOURS',
-    
+
     // Baseline state before shock
     beforeState: {
       dailyProduction: 6200,

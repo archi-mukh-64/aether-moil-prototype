@@ -3,8 +3,8 @@
  * Handles HTTP requests, abort timeouts, JSON parsing, structured error interception, and request tracing.
  */
 
-const RAW_API_BASE_URL = (typeof import.meta !== 'undefined' && import.meta.env && import.meta.env.VITE_API_BASE_URL) 
-  ? import.meta.env.VITE_API_BASE_URL 
+const RAW_API_BASE_URL = (typeof import.meta !== 'undefined' && import.meta.env && import.meta.env.VITE_API_BASE_URL)
+  ? import.meta.env.VITE_API_BASE_URL
   : '/api';
 
 // Normalize by stripping any trailing slash

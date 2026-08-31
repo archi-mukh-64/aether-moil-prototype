@@ -2,17 +2,17 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useApp } from '../context/AppContext.jsx';
 import { OFFICIAL_MOIL_MINES } from '../services/mineRegistry.js';
-import { 
-  Building2, 
-  MapPin, 
-  Layers, 
-  Globe2, 
-  HelpCircle, 
-  RotateCcw, 
-  FlaskConical, 
-  ChevronDown, 
-  Check, 
-  Activity, 
+import {
+  Building2,
+  MapPin,
+  Layers,
+  Globe2,
+  HelpCircle,
+  RotateCcw,
+  FlaskConical,
+  ChevronDown,
+  Check,
+  Activity,
   ChevronRight,
   ShieldCheck,
   Compass,
@@ -28,16 +28,16 @@ import {
 } from 'lucide-react';
 
 export const Navbar = () => {
-  const { 
-    lang, 
-    setLang, 
-    activeMine, 
+  const {
+    lang,
+    setLang,
+    activeMine,
     selectedMineId,
     setSelectedMineId,
-    activeScenario, 
-    runScenario, 
-    resetBaseline, 
-    setIsCommandDrawerOpen, 
+    activeScenario,
+    runScenario,
+    resetBaseline,
+    setIsCommandDrawerOpen,
     setIsSupportModalOpen,
     setIsComparisonModalOpen,
     setIsExecutiveModalOpen,
@@ -149,14 +149,14 @@ export const Navbar = () => {
 
   return (
     <header className="w-full bg-obsidian-950 border-b border-obsidian-750 sticky top-0 z-50 select-none shadow-xl font-sans">
-      
+
       {/* 1. TOP GLOBAL COMMAND HEADER */}
       <div className="w-full px-4 sm:px-6 lg:px-8 py-2.5 flex flex-wrap items-center justify-between gap-x-4 gap-y-2 border-b border-obsidian-800/80">
-        
+
         {/* Left: Brand Identity & Active Mine Selector */}
         <div className="flex items-center gap-4 flex-shrink-0">
           <Link to="/" className="flex items-center gap-3 group">
-            
+
             {/* Manganese Hexagonal Crystal Mark */}
             <div className="relative w-9 h-9 rounded-xl bg-gradient-to-br from-obsidian-800 via-obsidian-900 to-obsidian-950 border border-manganese-500/40 flex items-center justify-center shadow-lg group-hover:border-manganese-400 transition-colors">
               <svg viewBox="0 0 32 32" className="w-5 h-5">
@@ -280,7 +280,7 @@ export const Navbar = () => {
 
         {/* Right: Operational Scenarios + Language + Reports + Live Time */}
         <div className="flex items-center gap-2 font-mono text-xs">
-          
+
           {/* Quick Scenario Triggers */}
           <div className="hidden xl:flex items-center gap-1.5">
             <button

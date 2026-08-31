@@ -2,7 +2,7 @@ import { MOIL_MINE_REGISTRY } from './mineRegistry.js';
 
 /**
  * AETHER Authoritative Discrete-Event Operational Scenario Simulation Engine
- * 
+ *
  * Deterministic multi-variable physics & discrete-event simulation model
  * computing live interactions across weather, haulage, crushing, dewatering,
  * shaft hoisting, fleet SCADA telemetry, and production quotas for all 10 MOIL assets.

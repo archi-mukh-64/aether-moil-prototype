@@ -2,14 +2,14 @@ import React, { useEffect, useMemo, useState } from 'react';
 import { MapContainer, TileLayer, Polygon, Circle, CircleMarker, Marker, Popup, Tooltip, useMap } from 'react-leaflet';
 import L from 'leaflet';
 import { MINE_SPATIAL_REGISTRY } from '../GeospatialTwin/mapConfig.js';
-import { 
-  Globe2, 
-  MapPin, 
-  Layers, 
-  Radio, 
-  Sparkles, 
+import {
+  Globe2,
+  MapPin,
+  Layers,
+  Radio,
+  Sparkles,
   Crosshair,
-  Compass, 
+  Compass,
   Maximize2,
   Calendar,
   Eye,
@@ -151,7 +151,7 @@ export const ReserveSatelliteMap = ({
 
   return (
     <div className="relative w-full h-full min-h-[460px] bg-[#06090e] rounded-2xl overflow-hidden border border-obsidian-750 shadow-2xl select-none">
-      
+
       {/* Real Leaflet Map Container */}
       <MapContainer
         center={mapCenter}

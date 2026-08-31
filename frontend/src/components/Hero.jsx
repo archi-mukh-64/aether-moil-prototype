@@ -1,17 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useApp } from '../context/AppContext.jsx';
-import { 
-  Radio, 
-  Layers, 
-  AlertTriangle, 
-  Zap, 
-  Cpu, 
-  BarChart3, 
-  Compass, 
-  Globe2, 
-  ChevronDown, 
-  Terminal, 
+import {
+  Radio,
+  Layers,
+  AlertTriangle,
+  Zap,
+  Cpu,
+  BarChart3,
+  Compass,
+  Globe2,
+  ChevronDown,
+  Terminal,
   Clock,
   Sparkles,
   ArrowRight,
@@ -35,7 +35,7 @@ export const Hero = () => {
 
   return (
     <section className="relative w-full overflow-hidden pt-8 pb-12 sm:pt-12 sm:pb-16 border-b border-obsidian-800/80 bg-gradient-to-b from-obsidian-950 via-obsidian-900/40 to-obsidian-950">
-      
+
       {/* Ambient Radial Lighting Backgrounds */}
       <div className="absolute top-0 left-1/4 w-[600px] h-[400px] bg-manganese-500/5 rounded-full blur-[140px] pointer-events-none" />
       <div className="absolute bottom-0 right-1/4 w-[500px] h-[350px] bg-telemetry-500/4 rounded-full blur-[120px] pointer-events-none" />
@@ -43,12 +43,12 @@ export const Hero = () => {
 
       <div className="command-container relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 xl:gap-14 items-center">
-          
+
           {/* ========================================================================= */}
           {/* LEFT 6-7 COLS: MISSION HEADLINE & ENTERPRISE VALUE PROP                   */}
           {/* ========================================================================= */}
           <div className="lg:col-span-6 xl:col-span-7 space-y-6 text-left">
-            
+
             {/* Top Identity & Geodetic Pill Rail */}
             <div className="flex flex-wrap items-center gap-2.5">
               <div className="badge-manganese shadow-sm">
@@ -130,7 +130,7 @@ export const Hero = () => {
           {/* ========================================================================= */}
           <div className="lg:col-span-6 xl:col-span-5">
             <div className="panel-surface p-6 sm:p-7 border border-obsidian-750 relative overflow-hidden shadow-2xl space-y-5 bg-gradient-to-br from-obsidian-900/90 via-obsidian-950 to-obsidian-900/90">
-              
+
               {/* Radar & Telemetry HUD Header */}
               <div className="flex items-center justify-between pb-3 border-b border-obsidian-800 font-mono text-xs">
                 <div className="flex items-center gap-2">
@@ -145,7 +145,7 @@ export const Hero = () => {
 
               {/* Sub-Surface Strata & Radar Target Visualization Area */}
               <div className="relative h-64 rounded-xl bg-obsidian-950/80 border border-obsidian-800 overflow-hidden flex items-center justify-center p-4">
-                
+
                 {/* Radar Sweep Arc */}
                 <div className="absolute inset-0 flex items-center justify-center pointer-events-none opacity-70">
                   <div className="w-56 h-56 rounded-full border border-manganese-500/20 flex items-center justify-center">

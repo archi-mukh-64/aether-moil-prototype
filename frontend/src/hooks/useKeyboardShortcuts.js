@@ -12,10 +12,10 @@ import { useApp } from '../context/AppContext.jsx';
  */
 export function useKeyboardShortcuts() {
   const navigate = useNavigate();
-  const { 
-    setIsCommandDrawerOpen, 
-    setIsSupportModalOpen, 
-    resetBaseline 
+  const {
+    setIsCommandDrawerOpen,
+    setIsSupportModalOpen,
+    resetBaseline
   } = useApp();
 
   useEffect(() => {

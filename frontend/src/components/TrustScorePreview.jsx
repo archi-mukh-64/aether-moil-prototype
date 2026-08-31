@@ -1,12 +1,12 @@
 import React from 'react';
 import { useApp } from '../context/AppContext.jsx';
-import { 
-  ShieldCheck, 
-  CheckCircle2, 
-  Layers, 
-  Lock, 
-  Activity, 
-  FileText, 
+import {
+  ShieldCheck,
+  CheckCircle2,
+  Layers,
+  Lock,
+  Activity,
+  FileText,
   TrendingUp,
   Cpu,
   Radio,
@@ -21,7 +21,7 @@ export const TrustScorePreview = () => {
 
   return (
     <section className="command-container py-12 border-t border-obsidian-800 select-none">
-      
+
       {/* Header */}
       <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
         <div>
@@ -49,7 +49,7 @@ export const TrustScorePreview = () => {
 
       {/* Main Grid: Left Overall Big Gauge + Right 4 Pillars */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
-        
+
         {/* Left 5 Cols: Massive Overall Score Hero Card */}
         <div className="lg:col-span-5 panel-surface p-8 sm:p-10 border border-obsidian-700/80 relative overflow-hidden flex flex-col justify-between shadow-2xl">
           <div className="space-y-4">
@@ -105,7 +105,7 @@ export const TrustScorePreview = () => {
 
               {/* Progress Bar */}
               <div className="w-full h-1.5 rounded-full bg-obsidian-950 overflow-hidden border border-obsidian-800">
-                <div 
+                <div
                   className="h-full rounded-full bg-gradient-to-r from-manganese-500 to-telemetry-400 transition-all duration-700"
                   style={{ width: `${pillar.score}%` }}
                 />

@@ -115,7 +115,7 @@ export function evaluateDetection({
     const isCritical = detectionScore >= 0.78;
     const statusLevel = isCritical ? 'CRITICAL' : isDetected ? 'ELEVATED' : 'WATCH';
 
-    const headline = isCritical 
+    const headline = isCritical
       ? `Critical Crusher Drive Harmonic Seizure Risk at ${mine.name}`
       : isDetected
       ? `Primary Crusher Bearing Vibration Anomaly Detected at ${mine.name}`

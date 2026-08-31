@@ -15,7 +15,7 @@ export const AetherMapLegend = ({
 }) => {
   return (
     <div className={`p-3 rounded-xl bg-white/95 backdrop-blur-md border border-[#CBD5E1] shadow-md font-sans text-xs text-[#1E293B] space-y-2 select-none pointer-events-auto ${className}`}>
-      
+
       {/* Header */}
       <div className="flex items-center justify-between gap-2 pb-1.5 border-b border-[#E2E8F0] font-mono text-[10px] font-bold text-[#64748B]">
         <div className="flex items-center gap-1.5 text-[#0F172A]">
@@ -53,8 +53,8 @@ export const AetherMapLegend = ({
           <button
             onClick={onToggleGeology}
             className={`px-2 py-0.5 rounded text-[10px] font-mono font-bold transition-colors ${
-              showGeology 
-                ? 'bg-amber-100 text-amber-800 border border-amber-300' 
+              showGeology
+                ? 'bg-amber-100 text-amber-800 border border-amber-300'
                 : 'bg-slate-100 text-slate-500 border border-slate-200'
             }`}
           >

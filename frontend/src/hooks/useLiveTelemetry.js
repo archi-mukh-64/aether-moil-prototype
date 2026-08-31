@@ -9,7 +9,7 @@ export function useLiveTelemetry(mineId, intervalMs = 6000, enabled = true) {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const [lastUpdated, setLastUpdated] = useState(null);
-  
+
   const activeMineIdRef = useRef(mineId);
   const abortControllerRef = useRef(null);
 

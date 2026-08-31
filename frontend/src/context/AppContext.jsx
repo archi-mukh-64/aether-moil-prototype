@@ -1,21 +1,21 @@
 import React, { createContext, useContext, useState, useMemo, useCallback, useEffect, useRef } from 'react';
-import { 
-  MOIL_MINE_REGISTRY, 
-  OFFICIAL_MOIL_MINES, 
-  getMine, 
-  getMineAnalytics, 
-  getMineAnalyticsProfile, 
-  validateMineRegistry 
+import {
+  MOIL_MINE_REGISTRY,
+  OFFICIAL_MOIL_MINES,
+  getMine,
+  getMineAnalytics,
+  getMineAnalyticsProfile,
+  validateMineRegistry
 } from '../services/mineRegistry.js';
 import { generateMineFleetAssets } from '../services/mineProfiles.js';
 import { SCENARIO_TYPES, INITIAL_AUDIT_LOGS } from '../data/mockScenarios.js';
 import { TRANSLATIONS } from '../i18n/translations.js';
 import { computeScenarioIntelligenceState } from '../services/scenarioEngine.js';
-import { 
-  calculateMineIntelligenceScore, 
-  generateForecastSeries, 
-  generateTrustPillars, 
-  generateRiskMatrix 
+import {
+  calculateMineIntelligenceScore,
+  generateForecastSeries,
+  generateTrustPillars,
+  generateRiskMatrix
 } from '../services/riskEngine.js';
 
 // API Client Layer Imports
@@ -43,7 +43,7 @@ export const AppProvider = ({ children }) => {
   const [isComparisonModalOpen, setIsComparisonModalOpen] = useState(false);
   const [isExecutiveModalOpen, setIsExecutiveModalOpen] = useState(false);
   const [isReportModalOpen, setIsReportModalOpen] = useState(false);
-  
+
   // Backend Connection & Live State
   const [apiConnected, setApiConnected] = useState(false);
   const [apiHealthData, setApiHealthData] = useState(null);
@@ -185,7 +185,7 @@ export const AppProvider = ({ children }) => {
     setBackendScenarioData(null);
     setDecisionStage('BASELINE');
     setLastApprovedAction(null);
-    
+
     // Adjust language if state does not support it
     if (lang === 'mr' && !targetMine.languageOptions.includes('mr')) {
       setLang('hi');
@@ -396,7 +396,7 @@ export const AppProvider = ({ children }) => {
   // Dynamic Reactive Mine Analytics Profile
   const analyticsProfile = useMemo(() => {
     return getMineAnalyticsProfile(
-      selectedMineId, 
+      selectedMineId,
       activeScenarioId ? { scenarioId: activeScenarioId, severity: scenarioSeverity } : null
     );
   }, [selectedMineId, activeScenarioId, scenarioSeverity]);
@@ -405,7 +405,7 @@ export const AppProvider = ({ children }) => {
   const activeMine = useMemo(() => {
     const isApproved = decisionStage === 'APPROVED' || decisionStage === 'MODIFIED';
     const intelligenceScore = calculateMineIntelligenceScore(
-      selectedMineId, 
+      selectedMineId,
       activeScenarioId ? { scenarioId: activeScenarioId, severity: scenarioSeverity } : null
     );
 
@@ -429,30 +429,30 @@ export const AppProvider = ({ children }) => {
     const sim = activeScenario.whatIfSimulation;
     const p = activeScenario.prediction;
 
-    const projectedYieldVal = isApproved 
+    const projectedYieldVal = isApproved
       ? (sim?.withAiRecommendation?.production || baseProfile.baselineProduction)
       : (p?.unmitigatedYieldTonnes || p?.unmitigatedYield || baseProfile.baselineProduction);
 
     return {
       ...baseProfile,
-      grade: activeScenario.scenarioId === 'GRADE' && !isApproved 
-        ? `${activeScenario.signals?.[0]?.value?.split(' ')[0] || '34.8% Mn'}` 
+      grade: activeScenario.scenarioId === 'GRADE' && !isApproved
+        ? `${activeScenario.signals?.[0]?.value?.split(' ')[0] || '34.8% Mn'}`
         : baseProfile.oreGrade,
       currentOutput: baseProfile.baselineProduction,
       projectedYield: projectedYieldVal,
-      shortfallRisk: isApproved 
-        ? `RESOLVED (${sim?.withAiRecommendation?.riskScore || 'Nominal'})` 
+      shortfallRisk: isApproved
+        ? `RESOLVED (${sim?.withAiRecommendation?.riskScore || 'Nominal'})`
         : `${activeScenario.statusLevel} (${p?.shortfallProbability || '50%'})`,
-      activeFleet: isApproved 
-        ? `${baseProfile.fleetCount}/${baseProfile.fleetCount} Online` 
+      activeFleet: isApproved
+        ? `${baseProfile.fleetCount}/${baseProfile.fleetCount} Online`
         : `${activeScenario.signals?.find(s => s.name?.includes('Fleet'))?.value || `${baseProfile.fleetCount - 4}/${baseProfile.fleetCount} Units`}`,
-      waterTableDepth: isApproved 
-        ? `${baseProfile.waterTableDepth} (Aux Pumping Active)` 
+      waterTableDepth: isApproved
+        ? `${baseProfile.waterTableDepth} (Aux Pumping Active)`
         : `${baseProfile.waterTableDepth} (${activeScenario.signals?.find(s => s.name?.includes('Sump'))?.value || 'Ingress Influx'})`,
       statusVariant: isApproved ? 'telemetry' : activeScenario.statusLevel === 'CRITICAL' ? 'hazard' : 'manganese',
       status: isApproved ? 'MITIGATION PROTOCOL ACTIVE' : activeScenario.detectionHeadline,
-      reservePotential: activeScenario.scenarioId === 'DISCOVERY' 
-        ? `${((baseProfile.reservePotentialM || 4.2) + 1.8).toFixed(1)}M` 
+      reservePotential: activeScenario.scenarioId === 'DISCOVERY'
+        ? `${((baseProfile.reservePotentialM || 4.2) + 1.8).toFixed(1)}M`
         : `${baseProfile.reservePotentialM || 4.2}M`,
       intelligenceScore,
       analyticsProfile,
@@ -467,7 +467,7 @@ export const AppProvider = ({ children }) => {
       return backendEquipmentData;
     }
     return generateMineFleetAssets(
-      selectedMineId, 
+      selectedMineId,
       activeScenarioId ? { scenarioId: activeScenarioId, severity: scenarioSeverity } : null
     );
   }, [backendEquipmentData, selectedMineId, activeScenarioId, scenarioSeverity]);
@@ -475,7 +475,7 @@ export const AppProvider = ({ children }) => {
   // Dynamic 14-Day Production Forecast
   const forecastSeries = useMemo(() => {
     return generateForecastSeries(
-      selectedMineId, 
+      selectedMineId,
       activeScenarioId ? { scenarioId: activeScenarioId, severity: scenarioSeverity } : null
     );
   }, [selectedMineId, activeScenarioId, scenarioSeverity]);
@@ -486,7 +486,7 @@ export const AppProvider = ({ children }) => {
       return backendTrustData.pillars;
     }
     return generateTrustPillars(
-      selectedMineId, 
+      selectedMineId,
       activeScenarioId ? { scenarioId: activeScenarioId, severity: scenarioSeverity } : null
     );
   }, [backendTrustData, selectedMineId, activeScenarioId, scenarioSeverity]);
@@ -494,7 +494,7 @@ export const AppProvider = ({ children }) => {
   // Dynamic Operational Threat Matrix for Risk Center
   const riskMatrix = useMemo(() => {
     return generateRiskMatrix(
-      selectedMineId, 
+      selectedMineId,
       activeScenarioId ? { scenarioId: activeScenarioId, severity: scenarioSeverity } : null
     );
   }, [selectedMineId, activeScenarioId, scenarioSeverity]);
@@ -712,7 +712,7 @@ export const AppProvider = ({ children }) => {
     }
   };
 
-  
+
   // Normalized scenario ID for cross-module synchronization
   const normalizedScenarioId = useMemo(() => {
     if (!activeScenarioId) return 'BASELINE';

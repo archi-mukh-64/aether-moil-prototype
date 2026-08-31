@@ -1,5 +1,6 @@
-import { useState } from 'react';
+import { useState, useMemo } from 'react';
 import { useApp } from '../context/AppContext.jsx';
+import { getMineMitigationProtocols } from '../services/protocolService.js';
 import { AetherSectionHeader, AetherStatusBadge } from '../components/design-system/index.js';
 import { ErrorBoundary } from '../components/common/ErrorBoundary.jsx';
 import {
@@ -28,47 +29,10 @@ const ProtocolPageContent = () => {
     }));
   };
 
-  const protocols = [
-    {
-      id: 'PROT-MON-01',
-      scenarioMatch: 'MONSOON',
-      title: lang === 'hi' ? 'सहायक जल निकासी एवं खदान संप सुरक्षा' : lang === 'mr' ? 'सहाय्यक निचरा व खाण संप संरक्षण' : 'Deep Sump Dewatering & Haul Road Slurry Clearance',
-      category: 'HYDROGEOLOGICAL MITIGATION',
-      categoryColor: '#3D8C8A',
-      severity: 'CRITICAL',
-      description: 'Activate 3 auxiliary high-head submersible pumps (650 m³/h capacity) at Level -185m sump and deploy grader fleet with crushed slag binder to Western haul road haulage ramps.',
-      expectedRecovery: '+1,116 T / Day (+80.8% shortfall prevented)',
-      roi: '₹18.4 Lakhs / Shift Revenue Protected',
-      timeToDeploy: '18 Minutes',
-      confidence: '96.4%'
-    },
-    {
-      id: 'PROT-CRU-02',
-      scenarioMatch: 'CRUSHER',
-      title: lang === 'hi' ? 'प्राथमिक क्रशर फीड नियंत्रण एवं कंपन शमन' : lang === 'mr' ? 'प्राथमिक क्रशर फीड नियंत्रण व कंपन शमन' : 'Primary Jaw Crusher Feed Throttling & Thermal Dissipation',
-      category: 'ELECTROMECHANICAL MITIGATION',
-      categoryColor: '#C46A32',
-      severity: 'CRITICAL',
-      description: 'Throttle vibratory feeder rate from 280 to 200 TPH, engage forced-air oil mist cooling to drive bearing #2, and divert oversized ROM boulders (>450mm) to secondary mobile impact crusher.',
-      expectedRecovery: '+610 T / Day (Bearing failure prevented)',
-      roi: '₹34.5 Lakhs Asset Replacement Avoided',
-      timeToDeploy: '12 Minutes',
-      confidence: '94.8%'
-    },
-    {
-      id: 'PROT-GRD-03',
-      scenarioMatch: 'BASELINE',
-      title: lang === 'hi' ? 'उच्च-ग्रेड अयस्क स्टॉकपाइल सम्मिश्रण' : lang === 'mr' ? 'उच्च-प्रत धातुक साठा मिश्रण' : 'Non-Linear Manganese Grade Blending & Stockpile Recovery',
-      category: 'METALLURGICAL QUALITY ASSURANCE',
-      categoryColor: '#655C9F',
-      severity: 'OPTIMAL',
-      description: 'Dynamically mix low-grade ROM (38.2% Mn) with high-grade silo buffer ore (48.5% Mn) in a 60:40 ratio using precision load-cell feeder belts to deliver guaranteed 44.0% Mn furnace feed.',
-      expectedRecovery: 'Grade compliance maintained at 44.2% Mn',
-      roi: 'Zero Grade Penalty (₹6.8 Lakhs/lot value preserved)',
-      timeToDeploy: 'Immediate Continuous',
-      confidence: '98.1%'
-    }
-  ];
+  // Deterministically derive active mitigation protocols from selected mine profile and scenario stress
+  const protocols = useMemo(() => {
+    return getMineMitigationProtocols(activeMine, activeScenario, lang);
+  }, [activeMine, activeScenario, lang]);
 
   return (
     <div className="space-y-6 font-sans text-[#272A27]">

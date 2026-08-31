@@ -152,16 +152,16 @@ export const MINE_GEOLOGY_PROFILES = {
  */
 export function calculateGeologyAtDepth(mineId = 'balaghat', depthM = 120, band = 'SWIR') {
   const profile = MINE_GEOLOGY_PROFILES[mineId] || MINE_GEOLOGY_PROFILES.balaghat;
-  
+
   // Normalized depth relative to peak manganese reef depth
   const deltaDepth = Math.abs(depthM - profile.peakDepthM);
-  
+
   // Gaussian bell curve for % Mn Grade centered at peakDepthM
   const gaussianFactor = Math.exp(-Math.pow(deltaDepth / 55, 2));
-  
+
   // Deterministic secondary sinusoids to model natural mineral banding and interbedded quartzite lenses
   const ripple = Math.sin(depthM * 0.14) * 1.8 + Math.cos(depthM * 0.05) * 1.2;
-  
+
   // Calculated Mn Grade %
   let mnGrade = (profile.maxMnGrade - 18.0) * gaussianFactor + 22.0 + ripple;
   mnGrade = Math.min(52.0, Math.max(18.5, Math.round(mnGrade * 10) / 10));
@@ -203,7 +203,7 @@ export function calculateGeologyAtDepth(mineId = 'balaghat', depthM = 120, band 
 
   // Model Prospectivity Index
   const prospectivityScore = Math.min(99.4, Math.max(45.0, Math.round((gaussianFactor * 65 + 32) * profile.prospectivityMultiplier * 10) / 10));
-  
+
   // Model Confidence
   const confidencePct = Math.round((88.0 + gaussianFactor * 9.5) * 10) / 10;
 

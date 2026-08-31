@@ -214,7 +214,7 @@ export const MOIL_MINE_REGISTRY = {
     unfcClassification: 'UNFC-111 Proved Mineral Reserve',
     languageOptions: ['en', 'hi'],
     description: "Asia's premier and deepest underground manganese mine with 3 active production shafts (Holmes, Bharveli, Western Incline).",
-    
+
     telemetry: {
       waterTableDepth: '-185m Level',
       waterIngressRateM3h: '12.4 m³/h',
@@ -313,7 +313,7 @@ export const MOIL_MINE_REGISTRY = {
     unfcClassification: 'UNFC-111 Proved Mineral Reserve',
     languageOptions: ['en', 'hi'],
     description: 'Extensive opencast bench system and mechanized incline delivering consistent metallurgical manganese ore.',
-    
+
     telemetry: {
       waterTableDepth: '-92m Pit Sump',
       waterIngressRateM3h: '8.8 m³/h',
@@ -411,7 +411,7 @@ export const MOIL_MINE_REGISTRY = {
     unfcClassification: 'UNFC-111 Proved Mineral Reserve',
     languageOptions: ['en', 'hi'],
     description: 'Highland plateau underground drift mine producing India’s finest low-phosphorus metallurgical ore.',
-    
+
     telemetry: {
       waterTableDepth: '-65m Plateau Drift',
       waterIngressRateM3h: '6.2 m³/h',
@@ -508,7 +508,7 @@ export const MOIL_MINE_REGISTRY = {
     unfcClassification: 'UNFC-111 Proved Mineral Reserve',
     languageOptions: ['en', 'hi', 'mr'],
     description: 'Sub-level stoping underground shaft in the Mansar formation known for high-grade braunite bands.',
-    
+
     telemetry: {
       waterTableDepth: '-140m Sump Level',
       waterIngressRateM3h: '9.4 m³/h',
@@ -605,7 +605,7 @@ export const MOIL_MINE_REGISTRY = {
     unfcClassification: 'UNFC-111 Proved Mineral Reserve',
     languageOptions: ['en', 'hi', 'mr'],
     description: 'High-grade underground manganese stoping with modern winch and hoist infrastructure.',
-    
+
     telemetry: {
       waterTableDepth: '-165m Sump',
       waterIngressRateM3h: '10.8 m³/h',
@@ -702,7 +702,7 @@ export const MOIL_MINE_REGISTRY = {
     unfcClassification: 'UNFC-111 Proved Mineral Reserve',
     languageOptions: ['en', 'hi', 'mr'],
     description: 'Deep vertical shaft mine exploiting thick braunite and hollandite ore bands in western Sausar belt.',
-    
+
     telemetry: {
       waterTableDepth: '-175m Sump',
       waterIngressRateM3h: '11.5 m³/h',
@@ -799,7 +799,7 @@ export const MOIL_MINE_REGISTRY = {
     unfcClassification: 'UNFC-111 Proved Mineral Reserve',
     languageOptions: ['en', 'hi', 'mr'],
     description: 'Major underground production centre in Bhandara region operating mechanized sub-level open stoping.',
-    
+
     telemetry: {
       waterTableDepth: '-155m Sump',
       waterIngressRateM3h: '12.0 m³/h',
@@ -896,7 +896,7 @@ export const MOIL_MINE_REGISTRY = {
     unfcClassification: 'UNFC-111 Proved Mineral Reserve',
     languageOptions: ['en', 'hi', 'mr'],
     description: 'Premier large-scale opencast manganese mine supplying peroxide ore for chemical and battery applications.',
-    
+
     telemetry: {
       waterTableDepth: '-110m Pit Sump',
       waterIngressRateM3h: '14.2 m³/h',
@@ -994,7 +994,7 @@ export const MOIL_MINE_REGISTRY = {
     unfcClassification: 'UNFC-111 Proved Mineral Reserve',
     languageOptions: ['en', 'hi', 'mr'],
     description: 'Regional satellite mining corridor supplying siliceous manganese ore for metallurgical blending.',
-    
+
     telemetry: {
       waterTableDepth: '-78m Bench Sump',
       waterIngressRateM3h: '5.8 m³/h',
@@ -1091,7 +1091,7 @@ export const MOIL_MINE_REGISTRY = {
     unfcClassification: 'UNFC-111 Proved Mineral Reserve',
     languageOptions: ['en', 'hi', 'mr'],
     description: 'Integrated underground and opencast manganese cluster delivering dependable ore to regional smelters.',
-    
+
     telemetry: {
       waterTableDepth: '-88m Sump Level',
       waterIngressRateM3h: '7.8 m³/h',
@@ -1243,27 +1243,27 @@ export function getMineAnalyticsProfile(mineId, stressEvent = null) {
   const isCrusher = scen === 'CRUSHER';
   const isMultiRisk = scen === 'MULTI_RISK';
 
-  const ingressM3h = isMonsoon || isMultiRisk 
-    ? Math.round((mine.drainageBaselineM3h + 24.5 * mine.rainfallSensitivity) * 10) / 10 
+  const ingressM3h = isMonsoon || isMultiRisk
+    ? Math.round((mine.drainageBaselineM3h + 24.5 * mine.rainfallSensitivity) * 10) / 10
     : mine.drainageBaselineM3h;
 
-  const dragPct = isMonsoon || isMultiRisk 
-    ? `${Math.round(18.5 * mine.rainfallSensitivity)}% Slurry Drag` 
+  const dragPct = isMonsoon || isMultiRisk
+    ? `${Math.round(18.5 * mine.rainfallSensitivity)}% Slurry Drag`
     : '3.2% Drag';
 
-  const crusherHealth = isCrusher || isMultiRisk 
-    ? Math.max(38, mine.crusherHealthBase - 36) 
+  const crusherHealth = isCrusher || isMultiRisk
+    ? Math.max(38, mine.crusherHealthBase - 36)
     : mine.crusherHealthBase;
 
   const fleetAvail = isMonsoon ? 64.0 : isCrusher ? 72.0 : isMultiRisk ? 54.0 : mine.fleetAvailabilityBase;
 
   const shortfallProb = isMultiRisk ? 94.2 : isMonsoon ? 84.5 : isCrusher ? 78.4 : 45.0;
-  const actualProd = isMultiRisk 
-    ? Math.round(mine.productionTarget * 0.68) 
-    : isMonsoon 
-    ? Math.round(mine.productionTarget * 0.78) 
-    : isCrusher 
-    ? Math.round(mine.productionTarget * 0.82) 
+  const actualProd = isMultiRisk
+    ? Math.round(mine.productionTarget * 0.68)
+    : isMonsoon
+    ? Math.round(mine.productionTarget * 0.78)
+    : isCrusher
+    ? Math.round(mine.productionTarget * 0.82)
     : mine.baselineProduction;
 
   return {
@@ -1306,8 +1306,8 @@ export function getMineAnalyticsProfile(mineId, stressEvent = null) {
     })),
     gradeHistory: baseProfile.gradeHistory,
     recoveryHistory: baseProfile.recoveryHistory,
-    rainfallHistory: isMonsoon || isMultiRisk 
-      ? baseProfile.rainfallHistory.map(r => ({ ...r, rainfallMm: Math.round(r.rainfallMm * 2.8), anomalyStatus: 'EXTREME MONSOON' })) 
+    rainfallHistory: isMonsoon || isMultiRisk
+      ? baseProfile.rainfallHistory.map(r => ({ ...r, rainfallMm: Math.round(r.rainfallMm * 2.8), anomalyStatus: 'EXTREME MONSOON' }))
       : baseProfile.rainfallHistory,
     riskHistory: baseProfile.riskHistory.map(rk => ({ ...rk, compositeRisk: Math.min(98, Math.round(rk.compositeRisk * 2.4)) })),
     equipmentHistory: baseProfile.equipmentHistory.map(eq => isCrusher && eq.type.includes('Crusher') ? { ...eq, health: 42, status: 'Warning', vibration: '6.4 mm/s' } : eq)

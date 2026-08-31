@@ -323,7 +323,7 @@ export class AlertForecastEngine {
     const canonicalId = String(mineId || 'balaghat').toLowerCase().replace('_', '-');
     const mine = MOIL_MINE_REGISTRY[canonicalId] || MOIL_MINE_REGISTRY[canonicalId.replace('-', '_')] || MOIL_MINE_REGISTRY.balaghat;
     const phys = this.getMineProfile(canonicalId);
-    
+
     // Canonical Target and Physical Baseline
     const target = phys.targetTpd;
     const rainfallSens = phys.rainSens;
@@ -502,7 +502,7 @@ export class AlertForecastEngine {
       const crusherLoss = target * Math.max(0, (baseCrusherHealth - effCrusher) / 100.0) * phys.crusherDependency;
       const fleetLoss = target * Math.max(0, (baseFleetAvail - effFleet) / 100.0) * 0.42;
       const eqLoss = target * Math.max(0, (88.0 - effEqHealth) / 100.0) * 0.22;
-      
+
       const unpumpedInflow = Math.max(0, effInflow - (phys.maxDrainageM3h * (effPump / 100.0)));
       const waterLoss = target * Math.min(0.40, (unpumpedInflow / 500.0) * 0.38 * phys.headPressureFactor);
 

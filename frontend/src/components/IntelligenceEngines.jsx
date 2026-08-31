@@ -2,21 +2,21 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useApp } from '../context/AppContext.jsx';
 import { INTELLIGENCE_ENGINES } from '../data/mockEngines.js';
-import { 
-  AlertTriangle, 
-  Layers, 
-  Zap, 
-  Cpu, 
-  ShieldCheck, 
-  Activity, 
-  ArrowRight, 
-  CheckCircle2, 
-  Radio, 
-  Compass, 
-  Sparkles, 
-  ChevronRight, 
-  Terminal, 
-  BarChart3, 
+import {
+  AlertTriangle,
+  Layers,
+  Zap,
+  Cpu,
+  ShieldCheck,
+  Activity,
+  ArrowRight,
+  CheckCircle2,
+  Radio,
+  Compass,
+  Sparkles,
+  ChevronRight,
+  Terminal,
+  BarChart3,
   Radar,
   BrainCircuit,
   Binary,
@@ -102,7 +102,7 @@ export const IntelligenceEngines = () => {
 
   return (
     <section className="command-container py-12 select-none">
-      
+
       {/* Section Header */}
       <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4 border-b border-obsidian-800 pb-6">
         <div>
@@ -126,7 +126,7 @@ export const IntelligenceEngines = () => {
 
       {/* Asymmetric Composition */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
-        
+
         {/* Left 5 Cols: Technical Engine Navigation List */}
         <div className="lg:col-span-5 space-y-2.5">
           {INTELLIGENCE_ENGINES.map((engine, idx) => {
@@ -171,7 +171,7 @@ export const IntelligenceEngines = () => {
 
         {/* Right 7 Cols: Expansive Spotlight Intelligence Chamber */}
         <div className="lg:col-span-7 panel-surface p-6 sm:p-8 border border-obsidian-750/90 shadow-2xl space-y-6 font-mono text-xs">
-          
+
           {/* Header */}
           <div className="flex flex-wrap items-center justify-between gap-3 pb-4 border-b border-obsidian-800">
             <div className="flex items-center gap-3">

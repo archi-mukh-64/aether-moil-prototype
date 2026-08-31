@@ -513,7 +513,7 @@ const ReserveRadarContent = () => {
               <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-4 border-b border-[#C8BFAF] gap-3">
                 <div>
                   <span className="badge-telemetry text-[10px]">COPERNICUS SENTINEL-2 &amp; LANDSAT 8/9</span>
-                  <h3 className="font-display text-xl font-bold text-white mt-1">
+                  <h3 className="font-display text-xl font-bold text-[#272A27] mt-1">
                     Multi-Spectral Earth Observation Canvas ({currentMine.name})
                   </h3>
                 </div>
@@ -525,7 +525,7 @@ const ReserveRadarContent = () => {
                       key={b}
                       onClick={() => setSelectedBand(b)}
                       className={`px-2 py-1 rounded-lg text-[10px] font-bold transition-all ${
-                        selectedBand === b ? 'bg-sky-500 text-obsidian-950 font-extrabold shadow' : 'bg-[#F0EBE2] text-[#5F625C] hover:text-white border border-[#C8BFAF]'
+                        selectedBand === b ? 'bg-[#3D8C8A] text-white font-extrabold shadow' : 'bg-[#F0EBE2] text-[#5F625C] hover:text-[#272A27] border border-[#C8BFAF]'
                       }`}
                     >
                       {b}
@@ -560,7 +560,7 @@ const ReserveRadarContent = () => {
                     { key: 'drillHoles', label: 'Drill Holes' },
                     { key: 'targets', label: 'AI Targets' }
                   ].map(l => (
-                    <label key={l.key} className="flex items-center gap-1.5 cursor-pointer text-[#272A27] hover:text-white">
+                    <label key={l.key} className="flex items-center gap-1.5 cursor-pointer text-[#272A27] hover:text-[#272A27]">
                       <input
                         type="checkbox"
                         checked={activeLayers[l.key] !== false}
@@ -578,7 +578,7 @@ const ReserveRadarContent = () => {
                   <select
                     value={basemap}
                     onChange={(e) => setBasemap(e.target.value)}
-                    className="bg-[#F5F1E9] text-sky-300 border border-[#C8BFAF] rounded px-2 py-0.5 font-mono text-[10px]"
+                    className="bg-[#F5F1E9] text-[#275B59] border border-[#C8BFAF] rounded px-2 py-0.5 font-mono text-[10px]"
                   >
                     <option value="satellite">Satellite RGB</option>
                     <option value="terrain">USGS Terrain</option>
@@ -592,7 +592,7 @@ const ReserveRadarContent = () => {
             {/* Right 4 Cols: Dynamic World Land-Cover Breakdown */}
             <div className="lg:col-span-4 panel-surface p-6 sm:p-8 border border-[#C8BFAF] shadow-2xl space-y-4">
               <div className="flex justify-between items-center pb-3 border-b border-[#C8BFAF]">
-                <h3 className="font-display text-lg font-bold text-white">Dynamic World Land-Cover</h3>
+                <h3 className="font-display text-lg font-bold text-[#272A27]">Dynamic World Land-Cover</h3>
                 <span className="text-[10px] text-[#85877E]">10m Near-Real-Time</span>
               </div>
 
@@ -601,7 +601,7 @@ const ReserveRadarContent = () => {
                   <div key={c.name} className="space-y-1">
                     <div className="flex justify-between text-[11px]">
                       <span className="text-[#272A27]">{c.name}</span>
-                      <strong className="text-white">{c.pct}%</strong>
+                      <strong className="text-[#272A27]">{c.pct}%</strong>
                     </div>
                     <div className="w-full h-2 bg-[#F0EBE2] rounded-full overflow-hidden">
                       <div className="h-full rounded-full" style={{ width: `${c.pct}%`, backgroundColor: c.color }} />
@@ -622,18 +622,18 @@ const ReserveRadarContent = () => {
           <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-4 border-b border-[#C8BFAF] gap-3">
             <div>
               <span className="badge-telemetry text-[10px]">HISTORICAL SATELLITE TIME MACHINE</span>
-              <h3 className="font-display text-xl font-bold text-white mt-1">
+              <h3 className="font-display text-xl font-bold text-[#272A27] mt-1">
                 Multi-Temporal Landscape Evolution ({timeMachineYear} Scene)
               </h3>
             </div>
-            <span className="text-xs font-mono text-sky-400 font-bold">2018 &rarr; 2026 Timeline</span>
+            <span className="text-xs font-mono text-[#3D8C8A] font-bold">2018 &rarr; 2026 Timeline</span>
           </div>
 
           {/* Timeline Slider */}
           <div className="space-y-2 font-mono text-xs">
             <div className="flex justify-between text-[#272A27]">
               <span>Select Acquisition Year:</span>
-              <strong className="text-sky-300 text-sm font-bold">{timeMachineYear} COMPOSITE</strong>
+              <strong className="text-[#275B59] text-sm font-bold">{timeMachineYear} COMPOSITE</strong>
             </div>
             <input
               type="range"
@@ -675,8 +675,8 @@ const ReserveRadarContent = () => {
               {whatChangedRecords.map(r => (
                 <div key={r.id} className="p-4 rounded-xl bg-[#F0EBE2] border border-[#C8BFAF] space-y-2">
                   <div className="flex justify-between items-center text-[10px]">
-                    <strong className="text-white">{r.title}</strong>
-                    <span className="px-1.5 py-0.2 rounded bg-sky-950 text-sky-300 border border-sky-800 font-bold">{r.confidence} CI</span>
+                    <strong className="text-[#272A27]">{r.title}</strong>
+                    <span className="px-1.5 py-0.2 rounded bg-sky-950 text-[#275B59] border border-sky-800 font-bold">{r.confidence} CI</span>
                   </div>
                   <div className="text-[11px] text-amber-400 font-bold">{r.magnitude}</div>
                   <p className="text-[#5F625C] text-[10.5px] font-sans leading-relaxed">{r.desc}</p>
@@ -695,7 +695,7 @@ const ReserveRadarContent = () => {
           {/* Prospectivity Score Card */}
           <div className="lg:col-span-6 panel-surface p-6 sm:p-8 border border-manganese-500/40 shadow-2xl space-y-4">
             <div className="flex justify-between items-center pb-3 border-b border-[#C8BFAF]">
-              <h3 className="font-display text-xl font-bold text-white">AI Mineral Prospectivity Score</h3>
+              <h3 className="font-display text-xl font-bold text-[#272A27]">AI Mineral Prospectivity Score</h3>
               <span className="px-2 py-0.5 rounded bg-emerald-950 text-emerald-300 border border-emerald-800 text-[10px] font-bold">
                 HIGH PROBABILITY
               </span>
@@ -715,7 +715,7 @@ const ReserveRadarContent = () => {
           {/* Feature Contribution Breakdown */}
           <div className="lg:col-span-6 panel-surface p-6 sm:p-8 border border-[#C8BFAF] shadow-2xl space-y-4">
             <div className="flex justify-between items-center pb-3 border-b border-[#C8BFAF]">
-              <h3 className="font-display text-xl font-bold text-white">Multi-Input Feature Importance</h3>
+              <h3 className="font-display text-xl font-bold text-[#272A27]">Multi-Input Feature Importance</h3>
               <span className="text-[10px] text-[#85877E]">RandomForest Weights</span>
             </div>
 
@@ -724,7 +724,7 @@ const ReserveRadarContent = () => {
                 <div key={f.name} className="space-y-1">
                   <div className="flex justify-between text-[11px]">
                     <span className="text-[#272A27]">{f.name}</span>
-                    <strong className="text-white">{f.pct}%</strong>
+                    <strong className="text-[#272A27]">{f.pct}%</strong>
                   </div>
                   <div className="w-full h-2 bg-[#F0EBE2] rounded-full overflow-hidden">
                     <div className="h-full rounded-full" style={{ width: `${f.pct}%`, backgroundColor: f.fill }} />
@@ -744,14 +744,14 @@ const ReserveRadarContent = () => {
           <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-4 border-b border-[#C8BFAF] gap-3">
             <div>
               <span className="badge-radar text-[10px]">AI EXPLORATION TARGET SCANNER</span>
-              <h3 className="font-display text-xl font-bold text-white mt-1">
+              <h3 className="font-display text-xl font-bold text-[#272A27] mt-1">
                 Candidate Drilling Targets ({currentMine.name} Strike Zone)
               </h3>
             </div>
             <div className="flex items-center gap-2">
               <button
                 onClick={() => setIsCompareTargetsOpen(!isCompareTargetsOpen)}
-                className="px-3 py-2 rounded-xl bg-[#F5F1E9] border border-[#C8BFAF] text-[#272A27] hover:text-white font-mono text-xs font-bold transition-all"
+                className="px-3 py-2 rounded-xl bg-[#F5F1E9] border border-[#C8BFAF] text-[#272A27] hover:text-[#272A27] font-mono text-xs font-bold transition-all"
               >
                 {isCompareTargetsOpen ? 'HIDE COMPARISON' : 'COMPARE TARGETS'}
               </button>
@@ -795,12 +795,12 @@ const ReserveRadarContent = () => {
                 onClick={() => setActiveTargetId(t.id)}
                 className={`p-5 rounded-2xl border cursor-pointer transition-all space-y-3 ${
                   activeTarget.id === t.id
-                    ? 'bg-[#14233c] border-manganese-500 text-white shadow-xl'
+                    ? 'bg-[#F0EBE2] border-2 border-[#C46A32] text-[#272A27] shadow-xl'
                     : 'bg-[#F0EBE2] border-[#C8BFAF] text-[#5F625C] hover:border-zinc-700'
                 }`}
               >
                 <div className="flex justify-between items-center pb-2 border-b border-obsidian-850">
-                  <strong className="text-white text-sm">{t.name}</strong>
+                  <strong className="text-[#272A27] text-sm">{t.name}</strong>
                   <span className="px-2 py-0.5 rounded bg-emerald-950 text-emerald-300 border border-emerald-800 text-[10px] font-bold">
                     {t.prospectivity}% Score
                   </span>
@@ -811,7 +811,7 @@ const ReserveRadarContent = () => {
                 </div>
                 <div className="flex justify-between text-[#5F625C]">
                   <span>Depth Horizon:</span>
-                  <strong className="text-white">{t.depthRange}</strong>
+                  <strong className="text-[#272A27]">{t.depthRange}</strong>
                 </div>
                 <div className="text-[11px] text-[#272A27] pt-1 font-sans">
                   <strong>Satellite Evidence:</strong> {t.satelliteEvidence}
@@ -830,7 +830,7 @@ const ReserveRadarContent = () => {
           {isCompareTargetsOpen && (
             <div className="p-6 rounded-2xl bg-[#F0EBE2] border border-[#C8BFAF] space-y-4 font-mono text-xs">
               <div className="flex justify-between items-center pb-3 border-b border-obsidian-850">
-                <h4 className="font-bold text-white text-sm">Target-to-Target Comparative Decision Matrix</h4>
+                <h4 className="font-bold text-[#272A27] text-sm">Target-to-Target Comparative Decision Matrix</h4>
                 <span className="text-[10px] text-[#85877E]">3 Candidate Prospects Identified</span>
               </div>
               <div className="overflow-x-auto">
@@ -849,12 +849,12 @@ const ReserveRadarContent = () => {
                   <tbody className="divide-y divide-obsidian-800 text-[#272A27]">
                     {explorationTargets.map(tgt => (
                       <tr key={tgt.id} className="hover:bg-[#C8BFAF]/50">
-                        <td className="py-2.5 px-3 font-bold text-white">{tgt.id}</td>
+                        <td className="py-2.5 px-3 font-bold text-[#272A27]">{tgt.id}</td>
                         <td className="py-2.5 px-3 text-emerald-400 font-bold">{tgt.prospectivity}%</td>
                         <td className="py-2.5 px-3 text-manganese-400 font-bold">{tgt.gradeEst}</td>
                         <td className="py-2.5 px-3">{tgt.depthRange}</td>
                         <td className="py-2.5 px-3">{tgt.areaHa}</td>
-                        <td className="py-2.5 px-3 text-sky-400 font-bold">{tgt.confidence}</td>
+                        <td className="py-2.5 px-3 text-[#3D8C8A] font-bold">{tgt.confidence}</td>
                         <td className="py-2.5 px-3 font-bold text-amber-300">{tgt.status}</td>
                       </tr>
                     ))}
@@ -874,7 +874,7 @@ const ReserveRadarContent = () => {
           <div className="flex justify-between items-center pb-4 border-b border-[#C8BFAF]">
             <div>
               <span className="badge-manganese text-[10px]">RESERVE EVOLUTION WATERFALL</span>
-              <h3 className="font-display text-xl font-bold text-white mt-1">
+              <h3 className="font-display text-xl font-bold text-[#272A27] mt-1">
                 Initial Resource vs Depletion &amp; AI-Projected Additions
               </h3>
             </div>
@@ -885,7 +885,7 @@ const ReserveRadarContent = () => {
             {reserveEvolutionData.map(step => (
               <div key={step.step} className="p-4 rounded-xl bg-[#F0EBE2] border border-[#C8BFAF] space-y-2">
                 <span className="text-[10px] text-[#85877E] uppercase font-bold">{step.step}</span>
-                <div className="text-2xl font-bold text-white" style={{ color: step.fill }}>
+                <div className="text-2xl font-bold text-[#272A27]" style={{ color: step.fill }}>
                   {step.value > 0 ? `+${step.value.toFixed(1)}` : step.value.toFixed(1)} MT
                 </div>
               </div>
@@ -902,7 +902,7 @@ const ReserveRadarContent = () => {
           <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-4 border-b border-[#C8BFAF] gap-3">
             <div>
               <span className="badge-telemetry text-[10px]">SPATIAL UNCERTAINTY &amp; CONFIDENCE ANALYSIS</span>
-              <h3 className="font-display text-xl font-bold text-white mt-1">
+              <h3 className="font-display text-xl font-bold text-[#272A27] mt-1">
                 Mine Block Resource Confidence Grid ({currentMine.name})
               </h3>
             </div>
@@ -916,7 +916,7 @@ const ReserveRadarContent = () => {
               <select
                 value={confidenceDimension}
                 onChange={(e) => setConfidenceDimension(e.target.value)}
-                className="w-full bg-[#F5F1E9] text-white border border-[#C8BFAF] rounded-lg p-2 text-xs"
+                className="w-full bg-[#F5F1E9] text-[#272A27] border border-[#C8BFAF] rounded-lg p-2 text-xs"
               >
                 <option value="COMPOSITE">Composite Confidence</option>
                 <option value="GEOLOGICAL">Geological Structure Confidence</option>
@@ -990,7 +990,7 @@ const ReserveRadarContent = () => {
                         : 'bg-rose-950/40 border-rose-500/40 hover:border-rose-400'
                     }`}
                   >
-                    <div className="font-bold text-white text-[11px]">{block.id}</div>
+                    <div className="font-bold text-[#272A27] text-[11px]">{block.id}</div>
                     <div className={`text-xs font-extrabold mt-1 ${
                       block.level === 'HIGH' ? 'text-emerald-400' : block.level === 'MEDIUM' ? 'text-amber-400' : 'text-rose-400'
                     }`}>
@@ -1006,7 +1006,7 @@ const ReserveRadarContent = () => {
             <div className="lg:col-span-4 p-6 rounded-2xl bg-[#F0EBE2] border border-[#C8BFAF] space-y-4">
               <div className="flex justify-between items-center pb-3 border-b border-obsidian-850">
                 <div>
-                  <h4 className="font-bold text-white text-base">BLOCK {activeBlock.id}</h4>
+                  <h4 className="font-bold text-[#272A27] text-base">BLOCK {activeBlock.id}</h4>
                   <span className="text-[10px] text-[#85877E]">Resource Confidence Dossier</span>
                 </div>
                 <span className={`px-2 py-0.5 rounded text-[10px] font-bold ${
@@ -1033,15 +1033,15 @@ const ReserveRadarContent = () => {
                 </div>
                 <div className="flex justify-between pb-1.5 border-b border-obsidian-850">
                   <span className="text-[#5F625C]">Diamond Borehole Support:</span>
-                  <strong className="text-sky-400 font-bold">{activeBlock.drillHoles} Core Holes</strong>
+                  <strong className="text-[#3D8C8A] font-bold">{activeBlock.drillHoles} Core Holes</strong>
                 </div>
                 <div className="flex justify-between pb-1.5 border-b border-obsidian-850">
                   <span className="text-[#5F625C]">Satellite SWIR Support:</span>
-                  <strong className="text-white font-bold">{activeBlock.satSupport}</strong>
+                  <strong className="text-[#272A27] font-bold">{activeBlock.satSupport}</strong>
                 </div>
                 <div className="flex justify-between pb-1.5 border-b border-obsidian-850">
                   <span className="text-[#5F625C]">Sausar Geological Support:</span>
-                  <strong className="text-white font-bold">{activeBlock.geoSupport}</strong>
+                  <strong className="text-[#272A27] font-bold">{activeBlock.geoSupport}</strong>
                 </div>
               </div>
 
@@ -1061,7 +1061,7 @@ const ReserveRadarContent = () => {
           <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-4 border-b border-[#C8BFAF] gap-3">
             <div>
               <span className="badge-telemetry text-[10px]">EARTH OBSERVATION ENVIRONMENTAL MONITOR</span>
-              <h3 className="font-display text-xl font-bold text-white mt-1">
+              <h3 className="font-display text-xl font-bold text-[#272A27] mt-1">
                 Multi-Temporal Afforestation, Disturbance &amp; Sump Water Tracking ({timeMachineYear})
               </h3>
             </div>
@@ -1097,7 +1097,7 @@ const ReserveRadarContent = () => {
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
             <div className="p-4 rounded-xl bg-[#F0EBE2] border border-[#C8BFAF] space-y-1">
               <span className="text-[10px] text-[#85877E] uppercase">Mine Footprint</span>
-              <div className="text-xl font-bold text-white">{activeEnvScene.footprint} Ha</div>
+              <div className="text-xl font-bold text-[#272A27]">{activeEnvScene.footprint} Ha</div>
               <div className="text-[10px] text-[#5F625C]">Total authorized area</div>
             </div>
 
@@ -1109,7 +1109,7 @@ const ReserveRadarContent = () => {
 
             <div className="p-4 rounded-xl bg-[#F0EBE2] border border-[#C8BFAF] space-y-1">
               <span className="text-[10px] text-[#85877E] uppercase">Reclaimed Land</span>
-              <div className="text-xl font-bold text-sky-400">{activeEnvScene.rec} Ha</div>
+              <div className="text-xl font-bold text-[#3D8C8A]">{activeEnvScene.rec} Ha</div>
               <div className="text-[10px] text-[#5F625C]">Waste dump restoration</div>
             </div>
 
@@ -1122,11 +1122,11 @@ const ReserveRadarContent = () => {
 
           {/* 2018 -> 2026 Cumulative Environmental Evolution Breakdown */}
           <div className="p-6 rounded-2xl bg-[#F0EBE2] border border-[#C8BFAF] space-y-3 font-mono text-xs">
-            <h4 className="font-bold text-white text-sm">Cumulative 8-Year Environmental Evolution (2018 &rarr; 2026)</h4>
+            <h4 className="font-bold text-[#272A27] text-sm">Cumulative 8-Year Environmental Evolution (2018 &rarr; 2026)</h4>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-3 pt-1">
               <div className="p-3 rounded-xl bg-[#F5F1E9] border border-[#C8BFAF]">
                 <span className="text-[#5F625C] text-[10px] uppercase">1. Disturbed Footprint Expansion</span>
-                <div className="text-base font-bold text-white mt-1">+18.2 Ha (+11.2% within lease)</div>
+                <div className="text-base font-bold text-[#272A27] mt-1">+18.2 Ha (+11.2% within lease)</div>
                 <p className="text-[10.5px] text-[#5F625C] font-sans mt-0.5">Bench deepening &amp; crusher pad expansion.</p>
               </div>
               <div className="p-3 rounded-xl bg-[#F5F1E9] border border-[#C8BFAF]">
@@ -1136,7 +1136,7 @@ const ReserveRadarContent = () => {
               </div>
               <div className="p-3 rounded-xl bg-[#F5F1E9] border border-[#C8BFAF]">
                 <span className="text-[#5F625C] text-[10px] uppercase">3. Sump Hydrology Control</span>
-                <div className="text-base font-bold text-sky-400 mt-1">+2.6 Ha Water Managed (450kW Active)</div>
+                <div className="text-base font-bold text-[#3D8C8A] mt-1">+2.6 Ha Water Managed (450kW Active)</div>
                 <p className="text-[10.5px] text-[#5F625C] font-sans mt-0.5">Zero discharge overflow into natural drainage.</p>
               </div>
             </div>
@@ -1155,7 +1155,7 @@ const ReserveRadarContent = () => {
             <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-4 border-b border-[#C8BFAF] gap-3">
               <div>
                 <span className="badge-manganese text-[10px]">NATIONAL RESERVE INTELLIGENCE COMMAND</span>
-                <h3 className="font-display text-xl font-bold text-white mt-1">
+                <h3 className="font-display text-xl font-bold text-[#272A27] mt-1">
                   10-Mine National Strategy Engine // Mode: <strong style={{ color: activeModeConfig.color }}>{activeModeConfig.label.toUpperCase()}</strong>
                 </h3>
                 <p className="text-[#5F625C] text-xs font-sans mt-0.5">{activeModeConfig.description}</p>
@@ -1177,7 +1177,7 @@ const ReserveRadarContent = () => {
                     className={`px-3 py-1.5 rounded-lg font-bold text-[11px] transition-all whitespace-nowrap ${
                       isActive
                         ? 'text-obsidian-950 shadow-lg scale-105'
-                        : 'text-[#5F625C] hover:text-white hover:bg-[#F5F1E9]'
+                        : 'text-[#5F625C] hover:text-[#272A27] hover:bg-[#F5F1E9]'
                     }`}
                     style={{ backgroundColor: isActive ? cfg.color : 'transparent' }}
                   >
@@ -1189,10 +1189,10 @@ const ReserveRadarContent = () => {
 
             {/* National AI Insight Banner */}
             <div className="p-4 rounded-xl bg-[#0c1524] border border-sky-500/40 flex items-start gap-3">
-              <Sparkles className="w-5 h-5 text-sky-400 flex-shrink-0 mt-0.5" />
+              <Sparkles className="w-5 h-5 text-[#3D8C8A] flex-shrink-0 mt-0.5" />
               <div className="space-y-1">
-                <span className="text-[10px] text-sky-400 font-bold uppercase tracking-wider">NATIONAL AI STRATEGIC INSIGHT</span>
-                <p className="text-white text-xs font-sans leading-relaxed">{nationalInsight}</p>
+                <span className="text-[10px] text-[#3D8C8A] font-bold uppercase tracking-wider">NATIONAL AI STRATEGIC INSIGHT</span>
+                <p className="text-[#272A27] text-xs font-sans leading-relaxed">{nationalInsight}</p>
               </div>
             </div>
 
@@ -1206,7 +1206,7 @@ const ReserveRadarContent = () => {
                 {activeModeConfig.driverWeights.map(d => (
                   <div key={d.name} className="p-2.5 rounded-lg bg-[#F5F1E9] border border-[#C8BFAF] flex justify-between items-center">
                     <span className="text-[#272A27] text-[10.5px] truncate">{d.name}</span>
-                    <strong className="text-white text-[11px] ml-2" style={{ color: activeModeConfig.color }}>{d.pct}%</strong>
+                    <strong className="text-[#272A27] text-[11px] ml-2" style={{ color: activeModeConfig.color }}>{d.pct}%</strong>
                   </div>
                 ))}
               </div>
@@ -1235,19 +1235,19 @@ const ReserveRadarContent = () => {
                         setSelectedMineId(m.id);
                         setInspectedMineId(m.id);
                       }}
-                      className={`hover:bg-[#C8BFAF]/50 cursor-pointer transition-colors ${inspectedMineId === m.id ? 'bg-[#15233b]/70 text-white font-bold' : ''}`}
+                      className={`hover:bg-[#C8BFAF]/50 cursor-pointer transition-colors ${inspectedMineId === m.id ? 'bg-[#15233b]/70 text-[#272A27] font-bold' : ''}`}
                     >
-                      <td className="py-3 px-4 font-bold text-white">
+                      <td className="py-3 px-4 font-bold text-[#272A27]">
                         <span className="px-2 py-0.5 rounded bg-[#F5F1E9] border border-[#C8BFAF] text-[10px]">
                           #{m.rank}
                         </span>
                       </td>
-                      <td className="py-3 px-4 font-bold text-white flex items-center gap-2">
+                      <td className="py-3 px-4 font-bold text-[#272A27] flex items-center gap-2">
                         <span className="w-2 h-2 rounded-full" style={{ backgroundColor: activeModeConfig.color }} />
                         <span>{m.name}</span>
                       </td>
                       <td className="py-3 px-4 text-[#5F625C]">{m.state}</td>
-                      <td className="py-3 px-4 font-bold text-white">{m.metricPrimary}</td>
+                      <td className="py-3 px-4 font-bold text-[#272A27]">{m.metricPrimary}</td>
                       <td className="py-3 px-4 text-[#272A27]">{m.metricSecondary}</td>
                       <td className="py-3 px-4 text-[#272A27]">{m.metricTertiary}</td>
                       <td className="py-3 px-4 text-[#5F625C] text-[11px]">{m.metricQuaternary}</td>
@@ -1265,20 +1265,20 @@ const ReserveRadarContent = () => {
           <div className="panel-surface p-6 sm:p-8 border border-sky-500/40 shadow-2xl space-y-4">
             <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-3 border-b border-[#C8BFAF] gap-2">
               <div>
-                <span className="text-[10px] text-sky-400 font-bold uppercase tracking-wider">EXPLAINABLE AI INTELLIGENCE DOSSIER</span>
-                <h3 className="font-display text-xl font-bold text-white mt-0.5">
+                <span className="text-[10px] text-[#3D8C8A] font-bold uppercase tracking-wider">EXPLAINABLE AI INTELLIGENCE DOSSIER</span>
+                <h3 className="font-display text-xl font-bold text-[#272A27] mt-0.5">
                   Why is {inspectedMine.name} Ranked in {activeModeConfig.label}?
                 </h3>
               </div>
               <span className="px-2.5 py-1 rounded-lg bg-[#F0EBE2] border border-[#C8BFAF] text-[#5F625C] text-xs">
-                Selected Asset: <strong className="text-white">{inspectedMine.name}</strong>
+                Selected Asset: <strong className="text-[#272A27]">{inspectedMine.name}</strong>
               </span>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs">
               <div className="p-4 rounded-xl bg-[#F0EBE2] border border-[#C8BFAF] space-y-2">
                 <span className="text-[#85877E] uppercase text-[10px] font-bold">1. Ore &amp; Reserve Base</span>
-                <div className="text-white font-bold">{inspectedMine.oreGrade} • {inspectedMine.unfcStatus || 'UNFC-111 Proved'}</div>
+                <div className="text-[#272A27] font-bold">{inspectedMine.oreGrade} • {inspectedMine.unfcStatus || 'UNFC-111 Proved'}</div>
                 <p className="text-[#5F625C] text-[11px] font-sans">
                   Deep Braunite strike continuity plunging 70° South into Sausar Group bedrock with high metallurgical grade.
                 </p>
@@ -1286,7 +1286,7 @@ const ReserveRadarContent = () => {
 
               <div className="p-4 rounded-xl bg-[#F0EBE2] border border-[#C8BFAF] space-y-2">
                 <span className="text-[#85877E] uppercase text-[10px] font-bold">2. Operational &amp; Fleet Status</span>
-                <div className="text-white font-bold">Target: {inspectedMine.productionTarget} TPD • {inspectedMine.fleetCount} Komatsu Units</div>
+                <div className="text-[#272A27] font-bold">Target: {inspectedMine.productionTarget} TPD • {inspectedMine.fleetCount} Komatsu Units</div>
                 <p className="text-[#5F625C] text-[11px] font-sans">
                   Crusher line running at {inspectedMine.crusherHealthBase || 92}% baseline health with active telemetry nodes.
                 </p>
@@ -1307,7 +1307,7 @@ const ReserveRadarContent = () => {
             <div className="flex justify-between items-center pb-3 border-b border-[#C8BFAF]">
               <div>
                 <span className="badge-radar text-[10px]">NATIONAL AI STRATEGIC ADVISOR</span>
-                <h3 className="font-display text-xl font-bold text-white mt-0.5">
+                <h3 className="font-display text-xl font-bold text-[#272A27] mt-0.5">
                   Top 5 Priority Interventions Across MOIL Portfolio
                 </h3>
               </div>
@@ -1321,7 +1321,7 @@ const ReserveRadarContent = () => {
                     <span className="px-2 py-0.5 rounded bg-manganese-950 text-manganese-300 border border-manganese-800 font-bold">
                       {act.priority}
                     </span>
-                    <strong className="text-white">{act.mine}</strong>
+                    <strong className="text-[#272A27]">{act.mine}</strong>
                   </div>
                   <div className="text-[#272A27] font-bold text-[11.5px]">{act.problem}</div>
                   <div className="text-[#5F625C] text-[10.5px] font-sans">
@@ -1341,14 +1341,14 @@ const ReserveRadarContent = () => {
           {/* Cross-Mine Correlation Engine */}
           <div className="panel-surface p-6 sm:p-8 border border-[#C8BFAF] shadow-2xl space-y-4">
             <div className="flex justify-between items-center pb-3 border-b border-[#C8BFAF]">
-              <h3 className="font-display text-lg font-bold text-white">National Cross-Mine Correlation Engine</h3>
+              <h3 className="font-display text-lg font-bold text-[#272A27]">National Cross-Mine Correlation Engine</h3>
               <span className="text-[10px] text-[#85877E]">Pearson Coefficient (r)</span>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
               {nationalCorrelations.map(c => (
                 <div key={c.pair} className="p-4 rounded-xl bg-[#F0EBE2] border border-[#C8BFAF] space-y-1.5">
                   <div className="flex justify-between items-center text-[11px]">
-                    <strong className="text-white">{c.pair}</strong>
+                    <strong className="text-[#272A27]">{c.pair}</strong>
                     <span className="px-2 py-0.5 rounded bg-emerald-950 text-emerald-300 border border-emerald-800 font-bold">{c.r}</span>
                   </div>
                   <p className="text-[#5F625C] text-[10.5px] font-sans leading-relaxed">{c.desc}</p>
@@ -1362,7 +1362,7 @@ const ReserveRadarContent = () => {
             <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-4 border-b border-[#C8BFAF] gap-3">
               <div>
                 <span className="badge-manganese text-[10px]">NATIONAL CAPITAL ALLOCATION SIMULATOR</span>
-                <h3 className="font-display text-xl font-bold text-white mt-1">
+                <h3 className="font-display text-xl font-bold text-[#272A27] mt-1">
                   What If MOIL Invests ₹{nationalInvestCr} Crore Capital?
                 </h3>
               </div>
@@ -1388,7 +1388,7 @@ const ReserveRadarContent = () => {
             <div className="grid grid-cols-2 sm:grid-cols-5 gap-3 pt-2">
               <div className="p-3.5 rounded-xl bg-[#F0EBE2] border border-[#C8BFAF] space-y-1">
                 <span className="text-[10px] text-[#85877E] uppercase">Reserve Conversion</span>
-                <div className="text-lg font-bold text-sky-400">+{nationalWhatIf.reserveConversionMT} MT</div>
+                <div className="text-lg font-bold text-[#3D8C8A]">+{nationalWhatIf.reserveConversionMT} MT</div>
                 <div className="text-[10px] text-[#5F625C]">UNFC-333 to UNFC-111</div>
               </div>
 
@@ -1429,7 +1429,7 @@ const ReserveRadarContent = () => {
           <div className="flex justify-between items-center pb-4 border-b border-[#C8BFAF]">
             <div>
               <span className="badge-telemetry text-[10px]">VIRTUAL CORE DRILL PROBE</span>
-              <h3 className="font-display text-xl font-bold text-white mt-1">
+              <h3 className="font-display text-xl font-bold text-[#272A27] mt-1">
                 Depth-Dependent Stratigraphy &amp; Assayed Grade Curve
               </h3>
             </div>
@@ -1454,7 +1454,7 @@ const ReserveRadarContent = () => {
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-2">
             <div className="p-4 rounded-xl bg-[#F0EBE2] border border-[#C8BFAF]">
               <span className="text-[10px] text-[#85877E] uppercase">Stratum Formation</span>
-              <div className="text-base font-bold text-white mt-1">{geology.stratumLayer}</div>
+              <div className="text-base font-bold text-[#272A27] mt-1">{geology.stratumLayer}</div>
             </div>
             <div className="p-4 rounded-xl bg-[#F0EBE2] border border-[#C8BFAF]">
               <span className="text-[10px] text-[#85877E] uppercase">Assayed Grade</span>

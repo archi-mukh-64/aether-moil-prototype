@@ -14,7 +14,7 @@ const getReportBaseUrl = () => {
 async function fetchBlobWithFallback(endpoint) {
   const baseUrl = getReportBaseUrl();
   const url = `${baseUrl}${endpoint}`;
-  
+
   const res = await fetch(url, {
     headers: {
       'Accept': 'application/pdf, application/vnd.openxmlformats-officedocument.presentationml.presentation, */*'

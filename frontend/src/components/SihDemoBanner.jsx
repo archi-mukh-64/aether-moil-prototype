@@ -1,12 +1,12 @@
 import React from 'react';
 import { useApp } from '../context/AppContext.jsx';
-import { 
-  Play, 
-  RotateCcw, 
-  Sparkles, 
-  SlidersHorizontal, 
-  CheckCircle2, 
-  AlertTriangle, 
+import {
+  Play,
+  RotateCcw,
+  Sparkles,
+  SlidersHorizontal,
+  CheckCircle2,
+  AlertTriangle,
   ArrowRight,
   ShieldCheck,
   Zap,
@@ -14,12 +14,12 @@ import {
 } from 'lucide-react';
 
 export const SihDemoBanner = () => {
-  const { 
-    activeScenario, 
-    decisionStage, 
-    runScenario, 
-    resetDemo, 
-    setIsCommandDrawerOpen, 
+  const {
+    activeScenario,
+    decisionStage,
+    runScenario,
+    resetDemo,
+    setIsCommandDrawerOpen,
     setIsDecisionModalOpen,
     t,
     lang
@@ -31,7 +31,7 @@ export const SihDemoBanner = () => {
   return (
     <div className="w-full bg-gradient-to-r from-obsidian-950 via-obsidian-900 to-obsidian-950 border-b border-manganese-500/30 py-2.5 px-4 sm:px-6 lg:px-8 text-xs font-mono relative z-40 shadow-lg select-none">
       <div className="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-3">
-        
+
         {/* Left Status Tag */}
         <div className="flex items-center gap-2.5">
           <div className="flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-manganese-500/20 text-manganese-300 border border-manganese-500/40 text-[11px] font-bold">
