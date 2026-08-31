@@ -613,7 +613,7 @@ const EquipmentContent = () => {
             <Timer className="w-4 h-4" />
           </div>
           <div>
-            <span className="text-zinc-400 text-[10px] uppercase font-bold">OPERATIONAL BOTTLENECK RADAR:</span>
+            <span className="text-[#5F625C] text-[10px] uppercase font-bold">OPERATIONAL BOTTLENECK RADAR:</span>
             <div className="text-white font-bold text-xs flex items-center gap-2">
               <span>{bottleneckInfo.stage}</span>
               <span className={`px-2 py-0.2 rounded text-[9px] font-bold ${
@@ -626,7 +626,7 @@ const EquipmentContent = () => {
             </div>
           </div>
         </div>
-        <p className="text-zinc-300 text-xs max-w-xl">
+        <p className="text-[#272A27] text-xs max-w-xl">
           {bottleneckInfo.desc}
         </p>
       </div>
@@ -639,7 +639,7 @@ const EquipmentContent = () => {
           <div className="lg:col-span-5 space-y-3">
             <div className="flex items-center justify-between gap-2">
               <div className="relative flex-1">
-                <Search className="w-4 h-4 text-zinc-500 absolute left-3 top-2.5" />
+                <Search className="w-4 h-4 text-[#85877E] absolute left-3 top-2.5" />
                 <input
                   type="text"
                   placeholder="Filter by ID, OEM, or Type..."
@@ -652,7 +652,7 @@ const EquipmentContent = () => {
               <select
                 value={filterType}
                 onChange={(e) => setFilterType(e.target.value)}
-                className="px-2.5 py-1.5 rounded-xl bg-[#090e17] border border-[#18263c] text-xs text-zinc-300 focus:outline-none"
+                className="px-2.5 py-1.5 rounded-xl bg-[#090e17] border border-[#18263c] text-xs text-[#272A27] focus:outline-none"
               >
                 <option value="ALL">All Machinery</option>
                 <option value="EXCAVATOR">Excavators / Shovels</option>
@@ -694,13 +694,13 @@ const EquipmentContent = () => {
                             {asset.status}
                           </span>
                         </div>
-                        <div className="text-[10px] text-zinc-400 mt-0.5 truncate max-w-[200px]">{asset.name}</div>
-                        <div className="text-[9px] text-zinc-500 font-mono mt-0.5">{asset.location}</div>
+                        <div className="text-[10px] text-[#5F625C] mt-0.5 truncate max-w-[200px]">{asset.name}</div>
+                        <div className="text-[9px] text-[#85877E] font-mono mt-0.5">{asset.location}</div>
                       </div>
                     </div>
 
                     <div className="text-right flex flex-col items-end">
-                      <div className="text-[9px] text-zinc-500 uppercase">HEALTH</div>
+                      <div className="text-[9px] text-[#85877E] uppercase">HEALTH</div>
                       <div className="text-sm font-bold text-emerald-400">{asset.health}%</div>
                       <div className="text-[9px] text-amber-300 mt-0.5">{asset.rulHours} hrs RUL</div>
                     </div>
@@ -731,17 +731,17 @@ const EquipmentContent = () => {
                     }`}>
                       {activeAsset.status}
                     </span>
-                    <span className="px-2 py-0.5 rounded bg-zinc-800 text-zinc-300 text-[9px] font-bold">
+                    <span className="px-2 py-0.5 rounded bg-zinc-800 text-[#272A27] text-[9px] font-bold">
                       PRIORITY: {activeAsset.maintenancePriority}
                     </span>
                   </div>
                   <h2 className="text-base sm:text-lg font-bold text-white mt-1">{activeAsset.name}</h2>
-                  <div className="text-[10.5px] text-zinc-400">{activeAsset.id} • OEM: {activeAsset.oem} • Model: {activeAsset.model}</div>
+                  <div className="text-[10.5px] text-[#5F625C]">{activeAsset.id} • OEM: {activeAsset.oem} • Model: {activeAsset.model}</div>
                 </div>
               </div>
 
               <div className="text-right">
-                <div className="text-[10px] text-zinc-500 uppercase font-bold">HEALTH DIAL</div>
+                <div className="text-[10px] text-[#85877E] uppercase font-bold">HEALTH DIAL</div>
                 <div className="text-2xl font-bold text-emerald-400 flex items-center justify-end gap-1">
                   <Gauge className="w-5 h-5 text-emerald-400" />
                   {activeAsset.health}%
@@ -752,39 +752,39 @@ const EquipmentContent = () => {
             {/* Operating Parameters Grid */}
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 text-xs">
               <div className="p-2.5 rounded-xl bg-[#0c1422] border border-[#19263a]">
-                <div className="text-[9px] text-zinc-500 uppercase">{t?.fleet?.engineTemp || 'ENGINE TEMP'}</div>
+                <div className="text-[9px] text-[#85877E] uppercase">{t?.fleet?.engineTemp || 'ENGINE TEMP'}</div>
                 <div className="text-sm font-bold text-amber-300 mt-0.5 flex items-center gap-1">
                   <Thermometer className="w-3.5 h-3.5" />
                   {activeAsset.engineTempC}°C
                 </div>
-                <div className="text-[9px] text-zinc-400 mt-1">Normal: &lt; 85°C</div>
+                <div className="text-[9px] text-[#5F625C] mt-1">Normal: &lt; 85°C</div>
               </div>
 
               <div className="p-2.5 rounded-xl bg-[#0c1422] border border-[#19263a]">
-                <div className="text-[9px] text-zinc-500 uppercase">{t?.fleet?.hydraulicPressure || 'HYDRAULIC PRESSURE'}</div>
+                <div className="text-[9px] text-[#85877E] uppercase">{t?.fleet?.hydraulicPressure || 'HYDRAULIC PRESSURE'}</div>
                 <div className="text-sm font-bold text-sky-300 mt-0.5 flex items-center gap-1">
                   <Activity className="w-3.5 h-3.5" />
                   {activeAsset.hydraulicPressureBar} Bar
                 </div>
-                <div className="text-[9px] text-zinc-400 mt-1">Nominal: 200-340</div>
+                <div className="text-[9px] text-[#5F625C] mt-1">Nominal: 200-340</div>
               </div>
 
               <div className="p-2.5 rounded-xl bg-[#0c1422] border border-[#19263a]">
-                <div className="text-[9px] text-zinc-500 uppercase">{t?.fleet?.vibrationRms || 'VIBRATION RMS'}</div>
+                <div className="text-[9px] text-[#85877E] uppercase">{t?.fleet?.vibrationRms || 'VIBRATION RMS'}</div>
                 <div className="text-sm font-bold text-purple-300 mt-0.5 flex items-center gap-1">
                   <Zap className="w-3.5 h-3.5" />
                   {activeAsset.vibrationMms} mm/s
                 </div>
-                <div className="text-[9px] text-zinc-400 mt-1">ISO Zone A/B</div>
+                <div className="text-[9px] text-[#5F625C] mt-1">ISO Zone A/B</div>
               </div>
 
               <div className="p-2.5 rounded-xl bg-[#0c1422] border border-[#19263a]">
-                <div className="text-[9px] text-zinc-500 uppercase">{t?.fleet?.rulHours || 'ESTIMATED RUL'}</div>
+                <div className="text-[9px] text-[#85877E] uppercase">{t?.fleet?.rulHours || 'ESTIMATED RUL'}</div>
                 <div className="text-sm font-bold text-emerald-400 mt-0.5 flex items-center gap-1">
                   <TrendingUp className="w-3.5 h-3.5" />
                   {activeAsset.rulHours} hrs
                 </div>
-                <div className="text-[9px] text-zinc-400 mt-1">Conf: {activeAsset.rulConfidence}%</div>
+                <div className="text-[9px] text-[#5F625C] mt-1">Conf: {activeAsset.rulConfidence}%</div>
               </div>
             </div>
 
@@ -792,7 +792,7 @@ const EquipmentContent = () => {
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs">
               <div className="p-2.5 rounded-xl bg-[#0c1422] border border-emerald-900/40">
                 <div className="text-[9px] text-emerald-400 font-bold uppercase mb-1">POSITIVE OPERATING FACTORS</div>
-                <ul className="space-y-0.5 text-[11px] text-zinc-300">
+                <ul className="space-y-0.5 text-[11px] text-[#272A27]">
                   {activeAsset.strengths.map((s, i) => (
                     <li key={i} className="flex items-center gap-1 text-emerald-300">
                       <span>✓</span> <span>{s}</span>
@@ -803,7 +803,7 @@ const EquipmentContent = () => {
 
               <div className="p-2.5 rounded-xl bg-[#0c1422] border border-rose-900/40">
                 <div className="text-[9px] text-rose-400 font-bold uppercase mb-1">DEGRADATION PENALTIES</div>
-                <ul className="space-y-0.5 text-[11px] text-zinc-300">
+                <ul className="space-y-0.5 text-[11px] text-[#272A27]">
                   {activeAsset.penalties.map((p, i) => (
                     <li key={i} className="flex items-center gap-1 text-rose-300">
                       <span>⚠</span> <span>{p}</span>
@@ -819,14 +819,14 @@ const EquipmentContent = () => {
                 <Wrench className="w-3.5 h-3.5" />
                 <span>{t?.fleet?.workOrder || 'AI PRESCRIPTIVE WORK ORDER'}</span>
               </div>
-              <p className="text-zinc-300 text-xs leading-relaxed">
+              <p className="text-[#272A27] text-xs leading-relaxed">
                 {activeAsset.prescription}
               </p>
             </div>
 
             {/* Recent Machine Event Timeline */}
             <div className="p-3 rounded-xl bg-[#090e17] border border-[#18263c] space-y-1.5 text-xs">
-              <div className="text-[10px] text-zinc-400 font-bold uppercase tracking-wider">
+              <div className="text-[10px] text-[#5F625C] font-bold uppercase tracking-wider">
                 SCADA TELEMETRY EVENT TIMELINE (TODAY)
               </div>
               <div className="space-y-1">
@@ -834,7 +834,7 @@ const EquipmentContent = () => {
                   <div key={idx} className="flex items-center justify-between text-[11px] p-1.5 rounded-lg bg-[#0c1422] border border-[#18263c]">
                     <div className="flex items-center gap-2">
                       <span className="text-amber-400 font-bold">{ev.time}</span>
-                      <span className="text-zinc-200">{ev.event}</span>
+                      <span className="text-[#272A27]">{ev.event}</span>
                     </div>
                     <span className={`px-1.5 py-0.2 rounded text-[8.5px] font-bold ${
                       ev.type === 'alert' ? 'bg-rose-950 text-rose-300' : 'bg-emerald-950 text-emerald-300'
@@ -856,7 +856,7 @@ const EquipmentContent = () => {
           <div className="flex items-center justify-between pb-3 border-b border-[#18263c]">
             <div>
               <h3 className="text-base font-bold text-white">{t?.fleet?.cycleTitle || 'Komatsu-Inspired Load & Haul Cycle Telemetry'}</h3>
-              <p className="text-xs text-zinc-400">Complete 4-stage operational haulage cycle tracking payload utilization and cycle delays.</p>
+              <p className="text-xs text-[#5F625C]">Complete 4-stage operational haulage cycle tracking payload utilization and cycle delays.</p>
             </div>
             <span className="px-2.5 py-1 rounded-xl bg-amber-950 text-amber-300 border border-amber-800 text-xs font-bold">
               AVG CYCLE TIME: 18.2 MIN
@@ -867,22 +867,22 @@ const EquipmentContent = () => {
             <div className="p-4 rounded-xl bg-[#0c1422] border border-sky-800/40 space-y-1">
               <div className="text-[10px] text-sky-400 font-bold uppercase">{t?.fleet?.stageLoading || 'STAGE 1: LOADING'}</div>
               <div className="text-xl font-bold text-white">4.2 min</div>
-              <div className="text-xs text-zinc-400">Shovel Loading • 38T/pass</div>
+              <div className="text-xs text-[#5F625C]">Shovel Loading • 38T/pass</div>
             </div>
             <div className="p-4 rounded-xl bg-[#0c1422] border border-yellow-800/40 space-y-1">
               <div className="text-[10px] text-yellow-400 font-bold uppercase">{t?.fleet?.stageHauling || 'STAGE 2: HAULING'}</div>
               <div className="text-xl font-bold text-white">12.8 min</div>
-              <div className="text-xs text-zinc-400">28.5 km/h avg • East Ramp Corridor</div>
+              <div className="text-xs text-[#5F625C]">28.5 km/h avg • East Ramp Corridor</div>
             </div>
             <div className="p-4 rounded-xl bg-[#0c1422] border border-purple-800/40 space-y-1">
               <div className="text-[10px] text-purple-400 font-bold uppercase">{t?.fleet?.stageDumping || 'STAGE 3: DUMPING'}</div>
               <div className="text-xl font-bold text-white">1.5 min</div>
-              <div className="text-xs text-zinc-400">Primary Crusher Station</div>
+              <div className="text-xs text-[#5F625C]">Primary Crusher Station</div>
             </div>
             <div className="p-4 rounded-xl bg-[#0c1422] border border-emerald-800/40 space-y-1">
               <div className="text-[10px] text-emerald-400 font-bold uppercase">{t?.fleet?.stageReturn || 'STAGE 4: RETURN'}</div>
               <div className="text-xl font-bold text-white">9.1 min</div>
-              <div className="text-xs text-zinc-400">34.0 km/h avg • Empty Return Route</div>
+              <div className="text-xs text-[#5F625C]">34.0 km/h avg • Empty Return Route</div>
             </div>
           </div>
         </div>
@@ -894,13 +894,13 @@ const EquipmentContent = () => {
           <div className="flex items-center justify-between pb-3 border-b border-[#18263c]">
             <div>
               <h3 className="text-base font-bold text-white">{t?.fleet?.predictiveRul || 'Predictive RUL Matrix'}</h3>
-              <p className="text-xs text-zinc-400">Component Remaining Useful Life calculated from vibration harmonics, thermal stress, and engine hours.</p>
+              <p className="text-xs text-[#5F625C]">Component Remaining Useful Life calculated from vibration harmonics, thermal stress, and engine hours.</p>
             </div>
           </div>
 
           <div className="overflow-x-auto">
             <table className="w-full text-left text-xs font-mono">
-              <thead className="bg-[#0c1422] text-zinc-400 uppercase text-[10px] border-b border-[#18263c]">
+              <thead className="bg-[#0c1422] text-[#5F625C] uppercase text-[10px] border-b border-[#18263c]">
                 <tr>
                   <th className="p-2.5">Machine ID</th>
                   <th className="p-2.5">Category</th>
@@ -918,8 +918,8 @@ const EquipmentContent = () => {
                 {equipmentFleet.map(a => (
                   <tr key={a.id} className="hover:bg-[#0c1524] transition-colors">
                     <td className="p-2.5 font-bold text-white">{a.id}</td>
-                    <td className="p-2.5 text-zinc-300">{a.category}</td>
-                    <td className="p-2.5 text-zinc-400">{a.name}</td>
+                    <td className="p-2.5 text-[#272A27]">{a.category}</td>
+                    <td className="p-2.5 text-[#5F625C]">{a.name}</td>
                     <td className="p-2.5 text-sky-300">{a.utilizationPct}%</td>
                     <td className="p-2.5 text-purple-300">{a.vibrationMms} mm/s</td>
                     <td className="p-2.5 font-bold text-emerald-400">{a.health}%</td>
@@ -929,7 +929,7 @@ const EquipmentContent = () => {
                       <span className={`px-2 py-0.5 rounded text-[9px] font-bold ${
                         a.maintenancePriority === 'CRITICAL' ? 'bg-rose-950 text-rose-300' :
                         a.maintenancePriority === 'HIGH' ? 'bg-amber-950 text-amber-300' :
-                        'bg-zinc-800 text-zinc-300'
+                        'bg-zinc-800 text-[#272A27]'
                       }`}>
                         {a.maintenancePriority}
                       </span>
@@ -955,7 +955,7 @@ const EquipmentContent = () => {
           <div className="flex items-center justify-between pb-3 border-b border-[#18263c]">
             <div>
               <h3 className="text-base font-bold text-white">{t?.fleet?.fleetRankings || 'Multi-Dimensional Fleet Rankings'}</h3>
-              <p className="text-xs text-zinc-400">Transparent weighted formula incorporating health (35%), availability (20%), utilization (20%), vibration (15%), and RUL (10%).</p>
+              <p className="text-xs text-[#5F625C]">Transparent weighted formula incorporating health (35%), availability (20%), utilization (20%), vibration (15%), and RUL (10%).</p>
             </div>
           </div>
 
@@ -967,16 +967,16 @@ const EquipmentContent = () => {
                     idx === 0 ? 'bg-amber-500 text-black shadow-lg' :
                     idx === 1 ? 'bg-zinc-300 text-black' :
                     idx === 2 ? 'bg-amber-800 text-white' :
-                    'bg-zinc-800 text-zinc-400'
+                    'bg-zinc-800 text-[#5F625C]'
                   }`}>
                     #{idx + 1}
                   </div>
                   <div>
                     <div className="flex items-center gap-2">
                       <strong className="text-white text-xs">{m.name}</strong>
-                      <span className="text-[10px] text-zinc-400 font-mono">({m.id})</span>
+                      <span className="text-[10px] text-[#5F625C] font-mono">({m.id})</span>
                     </div>
-                    <div className="text-[10.5px] text-zinc-400 mt-0.5">
+                    <div className="text-[10.5px] text-[#5F625C] mt-0.5">
                       Strengths: <span className="text-emerald-300">{m.strengths.join(', ')}</span>
                     </div>
                   </div>
@@ -984,15 +984,15 @@ const EquipmentContent = () => {
 
                 <div className="flex items-center gap-4 text-xs font-mono">
                   <div>
-                    <div className="text-[9px] text-zinc-500 uppercase">HEALTH</div>
+                    <div className="text-[9px] text-[#85877E] uppercase">HEALTH</div>
                     <div className="font-bold text-emerald-400">{m.health}%</div>
                   </div>
                   <div>
-                    <div className="text-[9px] text-zinc-500 uppercase">UTILIZATION</div>
+                    <div className="text-[9px] text-[#85877E] uppercase">UTILIZATION</div>
                     <div className="font-bold text-sky-300">{m.utilizationPct}%</div>
                   </div>
                   <div>
-                    <div className="text-[9px] text-zinc-500 uppercase">FLEET SCORE</div>
+                    <div className="text-[9px] text-[#85877E] uppercase">FLEET SCORE</div>
                     <div className="text-base font-bold text-amber-300">{m.fleetScore}</div>
                   </div>
                 </div>
@@ -1008,7 +1008,7 @@ const EquipmentContent = () => {
           <div className="flex items-center justify-between pb-3 border-b border-[#18263c]">
             <div>
               <h3 className="text-base font-bold text-white">Side-by-Side Machine Comparison</h3>
-              <p className="text-xs text-zinc-400">Evaluate telemetry, vibration metrics, thermodynamic profiles, and RUL between two assets.</p>
+              <p className="text-xs text-[#5F625C]">Evaluate telemetry, vibration metrics, thermodynamic profiles, and RUL between two assets.</p>
             </div>
           </div>
 

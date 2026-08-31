@@ -2,32 +2,32 @@ import React, { useRef, useEffect, useState, useMemo } from 'react';
 import { useApp } from '../../context/AppContext.jsx';
 import { MINE_SPATIAL_REGISTRY } from './mapConfig.js';
 import { EquipmentIcon } from './EquipmentIcons.jsx';
-import { 
-  Compass, 
-  Layers, 
-  RotateCcw, 
-  Sparkles, 
-  Info, 
-  CheckCircle2, 
-  AlertCircle, 
-  Activity, 
-  Droplet, 
-  CloudRain, 
-  Sun, 
-  Maximize2, 
-  Radio, 
-  ArrowUp, 
-  ArrowDown 
+import {
+  Compass,
+  Layers,
+  RotateCcw,
+  Sparkles,
+  Info,
+  CheckCircle2,
+  AlertCircle,
+  Activity,
+  Droplet,
+  CloudRain,
+  Sun,
+  Maximize2,
+  Radio,
+  ArrowUp,
+  ArrowDown
 } from 'lucide-react';
 
-export const DigitalTwin3D = ({ 
-  mineId = 'balaghat', 
-  activeScenario, 
+export const DigitalTwin3D = ({
+  mineId = 'balaghat',
+  activeScenario,
   twinMode = 'OPERATIONAL', // 'TERRAIN', 'OPERATIONAL', 'GEOLOGICAL'
   undergroundPerspective = 'UNDERGROUND', // 'SURFACE', 'UNDERGROUND', 'SECTION'
   timeOfDay = '13:40',
   activeLayers = {},
-  onSelectAsset 
+  onSelectAsset
 }) => {
   const { t, lang } = useApp();
   const canvasRef = useRef(null);
@@ -90,7 +90,7 @@ export const DigitalTwin3D = ({
       const rawDepth = 140 + Math.sin(tick * 0.04) * 110;
       const isDesc = Math.cos(tick * 0.04) >= 0;
       const currentDepthVal = Math.round(rawDepth);
-      
+
       ctx.clearRect(0, 0, w, h);
 
       // =========================================================================
@@ -432,8 +432,8 @@ export const DigitalTwin3D = ({
 
       {/* 9. SHAFT HOIST STATUS HUD OVERLAY (For Underground Mines) */}
       {isUnderground && (undergroundPerspective === 'UNDERGROUND' || undergroundPerspective === 'SECTION') && (
-        <div className="absolute top-4 right-4 z-20 p-3 rounded-2xl bg-obsidian-950/90 border border-sky-500/40 backdrop-blur-md font-mono text-xs space-y-1.5 shadow-xl max-w-xs select-none">
-          <div className="flex items-center justify-between pb-1 border-b border-obsidian-800">
+        <div className="absolute top-4 right-4 z-20 p-3 rounded-2xl bg-[#F0EBE2]/90 border border-sky-500/40 backdrop-blur-md font-mono text-xs space-y-1.5 shadow-xl max-w-xs select-none">
+          <div className="flex items-center justify-between pb-1 border-b border-[#C8BFAF]">
             <span className="text-[10px] text-sky-400 font-bold uppercase">
               {lang === 'hi' ? 'शाफ्ट होइस्ट // सीमेंस 3.2MW' : lang === 'mr' ? 'शाफ्ट होइस्ट // सिमेन्स 3.2MW' : 'SHAFT HOIST // SIEMENS 3.2MW'}
             </span>
@@ -442,22 +442,22 @@ export const DigitalTwin3D = ({
             </span>
           </div>
           <div className="flex justify-between items-center text-[11px]">
-            <span className="text-zinc-400">{lang === 'hi' ? 'वर्तमान गहराई:' : lang === 'mr' ? 'सद्य खोली:' : 'Current Depth:'}</span>
+            <span className="text-[#5F625C]">{lang === 'hi' ? 'वर्तमान गहराई:' : lang === 'mr' ? 'सद्य खोली:' : 'Current Depth:'}</span>
             <strong className="text-white font-bold">-{cageInfo.depth} m</strong>
           </div>
           <div className="flex justify-between items-center text-[11px]">
-            <span className="text-zinc-400">{lang === 'hi' ? 'स्थिति:' : lang === 'mr' ? 'स्थिती:' : 'Status:'}</span>
+            <span className="text-[#5F625C]">{lang === 'hi' ? 'स्थिति:' : lang === 'mr' ? 'स्थिती:' : 'Status:'}</span>
             <span className="flex items-center gap-1 text-amber-400 font-bold">
               <ArrowDown className="w-3 h-3 animate-bounce" /> {cageInfo.dir === 'DESCENDING' ? (lang === 'hi' ? 'अवरोही' : lang === 'mr' ? 'खाली उतरत आहे' : 'DESCENDING') : cageInfo.dir} ({cageInfo.speed})
             </span>
           </div>
           <div className="flex justify-between items-center text-[11px]">
-            <span className="text-zinc-400">{lang === 'hi' ? 'लोड / पेलोड:' : lang === 'mr' ? 'भार / पेलोड:' : 'Load / Payload:'}</span>
+            <span className="text-[#5F625C]">{lang === 'hi' ? 'लोड / पेलोड:' : lang === 'mr' ? 'भार / पेलोड:' : 'Load / Payload:'}</span>
             <strong className="text-manganese-400 font-bold">{cageInfo.load}</strong>
           </div>
           <div className="flex justify-between items-center text-[11px]">
-            <span className="text-zinc-400">{lang === 'hi' ? 'गंतव्य:' : lang === 'mr' ? 'गंतव्य:' : 'Destination:'}</span>
-            <strong className="text-zinc-200">{cageInfo.dest}</strong>
+            <span className="text-[#5F625C]">{lang === 'hi' ? 'गंतव्य:' : lang === 'mr' ? 'गंतव्य:' : 'Destination:'}</span>
+            <strong className="text-[#272A27]">{cageInfo.dest}</strong>
           </div>
         </div>
       )}

@@ -1,24 +1,24 @@
 import React from 'react';
 import { useApp } from '../../context/AppContext.jsx';
-import { 
-  Activity, 
-  Server, 
-  Wifi, 
-  WifiOff, 
-  Cpu, 
-  CheckCircle2, 
-  ShieldCheck, 
+import {
+  Activity,
+  Server,
+  Wifi,
+  WifiOff,
+  Cpu,
+  CheckCircle2,
+  ShieldCheck,
   Layers,
   Radio
 } from 'lucide-react';
 
 export const SystemStatusBar = () => {
-  const { 
-    apiConnected, 
-    apiLastError, 
-    activeMine, 
-    activeScenario, 
-    lang 
+  const {
+    apiConnected,
+    apiLastError,
+    activeMine,
+    activeScenario,
+    lang
   } = useApp();
 
   return (

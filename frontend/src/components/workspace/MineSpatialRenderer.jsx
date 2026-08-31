@@ -1,15 +1,15 @@
 import React, { useState, useEffect, useRef, useMemo } from 'react';
 import { useApp } from '../../context/AppContext.jsx';
-import { 
-  Layers, 
-  Compass, 
-  X, 
-  Activity, 
-  Droplet, 
-  Cpu, 
-  Zap, 
-  AlertTriangle, 
-  CheckCircle2, 
+import {
+  Layers,
+  Compass,
+  X,
+  Activity,
+  Droplet,
+  Cpu,
+  Zap,
+  AlertTriangle,
+  CheckCircle2,
   Sparkles,
   Truck,
   RotateCcw
@@ -33,7 +33,7 @@ export const MineSpatialRenderer = () => {
     fleetCount: 32
   };
 
-  const isUnderground = currentMine.mineType?.toLowerCase().includes('underground') || 
+  const isUnderground = currentMine.mineType?.toLowerCase().includes('underground') ||
                         ['balaghat', 'gumgaon', 'chikla', 'ukwa', 'munsar', 'kandri'].includes(currentMine.id);
 
   const isScenario = Boolean(activeScenario);
@@ -301,10 +301,10 @@ export const MineSpatialRenderer = () => {
 
   return (
     <div className="relative w-full rounded-2xl bg-[#080b10] border border-[#161f2e] overflow-hidden shadow-2xl flex flex-col font-sans select-none">
-      
+
       {/* 1. TOP VIEWPORT CONTROLS BAR */}
       <div className="px-4 py-2.5 bg-[#0a0e14]/90 border-b border-[#141c2b] flex items-center justify-between z-20">
-        
+
         {/* Left Tabs: Spatial View, Local Chain, Time Series */}
         <div className="flex items-center gap-1 p-0.5 rounded-lg bg-[#0e141f] border border-[#1a2538]">
           {[
@@ -318,7 +318,7 @@ export const MineSpatialRenderer = () => {
               className={`px-3 py-1 rounded-md text-xs font-semibold font-mono transition-all ${
                 activeTab === tab.id
                   ? 'bg-[#182338] text-white shadow-sm border border-[#273752]'
-                  : 'text-zinc-400 hover:text-zinc-200'
+                  : 'text-[#5F625C] hover:text-[#272A27]'
               }`}
             >
               {tab.label}
@@ -328,7 +328,7 @@ export const MineSpatialRenderer = () => {
 
         {/* Right Controls: 3D/2D Mode & North Orientation Needle */}
         <div className="flex items-center gap-3">
-          
+
           {/* 3D / 2D Toggle */}
           <div className="flex items-center p-0.5 rounded-lg bg-[#0e141f] border border-[#1a2538] font-mono text-[11px]">
             {['3D', '2D'].map((d) => (
@@ -338,7 +338,7 @@ export const MineSpatialRenderer = () => {
                 className={`px-2.5 py-0.5 rounded font-bold transition-all ${
                   dimensionMode === d
                     ? 'bg-[#1e2c45] text-white'
-                    : 'text-zinc-500 hover:text-zinc-300'
+                    : 'text-[#85877E] hover:text-[#272A27]'
                 }`}
               >
                 {d}
@@ -348,7 +348,7 @@ export const MineSpatialRenderer = () => {
 
           {/* North Compass Indicator (Matching Reference Image) */}
           <div className="relative w-8 h-8 rounded-full bg-[#0e141f] border border-[#1f2c42] flex items-center justify-center shadow-inner">
-            <span className="absolute -top-1 font-mono text-[8px] font-bold text-zinc-400">N</span>
+            <span className="absolute -top-1 font-mono text-[8px] font-bold text-[#5F625C]">N</span>
             <svg className="w-5 h-5 -rotate-12" viewBox="0 0 24 24">
               <polygon points="12,2 16,12 12,9" fill="#ef4444" />
               <polygon points="12,2 8,12 12,9" fill="#f87171" />
@@ -362,12 +362,12 @@ export const MineSpatialRenderer = () => {
 
       {/* 2. MAIN DIGITAL TWIN SPATIAL VIEWPORT */}
       <div className="relative w-full h-[460px] sm:h-[500px] lg:h-[540px] bg-[#070a0f] overflow-hidden">
-        
+
         {/* Canvas Render Element */}
         <canvas ref={canvasRef} className="absolute inset-0 w-full h-full" />
 
         {/* 3D XYZ Axis Gizmo (Bottom-Left) */}
-        <div className="absolute bottom-3 left-4 flex flex-col items-start gap-0.5 font-mono text-[9px] text-zinc-500 pointer-events-none z-10">
+        <div className="absolute bottom-3 left-4 flex flex-col items-start gap-0.5 font-mono text-[9px] text-[#85877E] pointer-events-none z-10">
           <div className="flex items-center gap-1.5">
             <span className="text-blue-400 font-bold">Z</span>
             <span className="w-4 h-0.5 bg-blue-500" />
@@ -414,7 +414,7 @@ export const MineSpatialRenderer = () => {
           style={{ left: `${hudCards[1].x}%`, top: `${hudCards[1].y}%` }}
           className="absolute -translate-x-1/2 -translate-y-1/2 rounded-xl bg-[#0c121d]/95 border border-[#1e293b] shadow-[0_10px_30px_rgba(0,0,0,0.8)] overflow-hidden cursor-pointer hover:scale-105 transition-all z-20 w-36"
         >
-          <div className="px-2.5 py-1 bg-[#162133] text-zinc-300 font-mono text-[10px] font-extrabold uppercase tracking-wide">
+          <div className="px-2.5 py-1 bg-[#162133] text-[#272A27] font-mono text-[10px] font-extrabold uppercase tracking-wide">
             Bench
           </div>
           <div className="p-2.5 flex items-center justify-between gap-2">
@@ -437,7 +437,7 @@ export const MineSpatialRenderer = () => {
           style={{ left: `${hudCards[2].x}%`, top: `${hudCards[2].y}%` }}
           className="absolute -translate-x-1/2 -translate-y-1/2 rounded-xl bg-[#0c121d]/95 border border-[#1e293b] shadow-[0_10px_30px_rgba(0,0,0,0.8)] overflow-hidden cursor-pointer hover:scale-105 transition-all z-20 w-28"
         >
-          <div className="px-2.5 py-1 bg-[#162133] text-zinc-300 font-mono text-[10px] font-extrabold uppercase tracking-wide">
+          <div className="px-2.5 py-1 bg-[#162133] text-[#272A27] font-mono text-[10px] font-extrabold uppercase tracking-wide">
             Process
           </div>
           <div className="p-2.5 flex items-center justify-center">
@@ -463,7 +463,7 @@ export const MineSpatialRenderer = () => {
           <div className="p-2.5 flex items-center justify-between gap-2">
             {/* LED Vertical Equalizer Bars */}
             <div className="space-y-0.5">
-              <div className="text-[8px] font-mono text-zinc-400">BP: 98 | EP: 20</div>
+              <div className="text-[8px] font-mono text-[#5F625C]">BP: 98 | EP: 20</div>
               <div className="flex gap-1">
                 <div className="w-3 h-6 bg-rose-950 rounded-sm overflow-hidden flex flex-col justify-end p-0.5">
                   <div className="w-full h-5 bg-rose-500 rounded-sm" />
@@ -491,7 +491,7 @@ export const MineSpatialRenderer = () => {
           style={{ left: `${hudCards[4].x}%`, top: `${hudCards[4].y}%` }}
           className="absolute -translate-x-1/2 -translate-y-1/2 rounded-lg bg-[#0c121d]/95 border border-[#1e293b] shadow-xl p-2 cursor-pointer hover:scale-105 transition-all z-20 w-24"
         >
-          <div className="text-[9px] font-mono text-zinc-400 font-bold uppercase">COS</div>
+          <div className="text-[9px] font-mono text-[#5F625C] font-bold uppercase">COS</div>
           <div className="flex items-center justify-between gap-1.5 mt-0.5">
             <span className="font-mono text-xs font-extrabold text-white">0%</span>
             <div className="w-8 h-1.5 bg-[#141b27] rounded-full overflow-hidden">
@@ -507,7 +507,7 @@ export const MineSpatialRenderer = () => {
           <div className="absolute top-4 right-4 w-80 p-4 rounded-xl bg-[#0c121d]/95 border border-[#1f2c42] shadow-2xl backdrop-blur-xl z-30 font-sans text-xs animate-scale-up">
             <div className="flex items-center justify-between pb-2 border-b border-[#182338]">
               <span className="font-bold text-white uppercase text-xs">{activeCard.details.name}</span>
-              <button onClick={() => setActiveCard(null)} className="w-5 h-5 rounded hover:bg-[#182338] text-zinc-400 hover:text-white flex items-center justify-center">
+              <button onClick={() => setActiveCard(null)} className="w-5 h-5 rounded hover:bg-[#182338] text-[#5F625C] hover:text-white flex items-center justify-center">
                 <X className="w-3.5 h-3.5" />
               </button>
             </div>
@@ -517,8 +517,8 @@ export const MineSpatialRenderer = () => {
                 if (k === 'name') return null;
                 return (
                   <div key={k} className="flex justify-between py-0.5 border-b border-[#141c2b]">
-                    <span className="text-zinc-500 uppercase">{k}:</span>
-                    <strong className="text-zinc-200">{v}</strong>
+                    <span className="text-[#85877E] uppercase">{k}:</span>
+                    <strong className="text-[#272A27]">{v}</strong>
                   </div>
                 );
               })}

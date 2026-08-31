@@ -1,13 +1,13 @@
 import React from 'react';
 import { useApp } from '../../context/AppContext.jsx';
-import { 
-  X, 
-  ShieldCheck, 
-  Activity, 
-  TrendingUp, 
-  Cpu, 
-  AlertTriangle, 
-  Building2, 
+import {
+  X,
+  ShieldCheck,
+  Activity,
+  TrendingUp,
+  Cpu,
+  AlertTriangle,
+  Building2,
   Award,
   Sparkles
 } from 'lucide-react';
@@ -23,12 +23,12 @@ export const ExecutiveCommandModal = ({ isOpen, onClose }) => {
   const avgGrade = (OFFICIAL_MOIL_MINES.reduce((acc, m) => acc + (m.baseGradeNum || 40), 0) / OFFICIAL_MOIL_MINES.length).toFixed(1);
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-obsidian-950/85 backdrop-blur-xl animate-fade-in font-mono text-xs select-none">
-      <div 
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-[#F0EBE2]/85 backdrop-blur-xl animate-fade-in font-mono text-xs select-none">
+      <div
         className="w-full max-w-5xl max-h-[90vh] rounded-2xl bg-[#0a0e14] border border-[#1e293b] shadow-2xl flex flex-col overflow-hidden animate-scale-up"
         onClick={(e) => e.stopPropagation()}
       >
-        
+
         {/* Header */}
         <div className="p-5 border-b border-[#141b27] flex items-center justify-between bg-[#070a0f]">
           <div className="flex items-center gap-3">
@@ -47,7 +47,7 @@ export const ExecutiveCommandModal = ({ isOpen, onClose }) => {
 
           <button
             onClick={onClose}
-            className="w-8 h-8 rounded-lg bg-[#141b27] hover:bg-[#1f2c42] text-zinc-400 hover:text-white flex items-center justify-center"
+            className="w-8 h-8 rounded-lg bg-[#141b27] hover:bg-[#1f2c42] text-[#5F625C] hover:text-white flex items-center justify-center"
           >
             <X className="w-4 h-4" />
           </button>
@@ -56,7 +56,7 @@ export const ExecutiveCommandModal = ({ isOpen, onClose }) => {
         {/* Aggregate KPI Strip */}
         <div className="p-6 grid grid-cols-2 md:grid-cols-4 gap-4 bg-[#080b10] border-b border-[#141b27]">
           <div className="p-3.5 rounded-xl bg-[#0c1017] border border-[#1a2333] space-y-1">
-            <span className="text-zinc-500 text-[10px] uppercase block">
+            <span className="text-[#85877E] text-[10px] uppercase block">
               {lang === 'hi' ? 'कुल नेटवर्क उत्पादन लक्ष्य' : lang === 'mr' ? 'एकूण नेटवर्क उत्पादन उद्दिष्ट' : 'Total Network Output Target'}
             </span>
             <div className="text-xl font-bold text-white">{totalTarget.toLocaleString()} T/day</div>
@@ -64,27 +64,27 @@ export const ExecutiveCommandModal = ({ isOpen, onClose }) => {
           </div>
 
           <div className="p-3.5 rounded-xl bg-[#0c1017] border border-[#1a2333] space-y-1">
-            <span className="text-zinc-500 text-[10px] uppercase block">
+            <span className="text-[#85877E] text-[10px] uppercase block">
               {lang === 'hi' ? 'उद्यम एचईएमएम फ्लीट' : lang === 'mr' ? 'उपक्रम एचईएमएम फ्लीट' : 'Enterprise HEMM Fleet'}
             </span>
             <div className="text-xl font-bold text-white">{totalFleet} Units</div>
-            <span className="text-[10px] text-zinc-400">{lang === 'hi' ? '91% नेटवर्क उपलब्धता' : lang === 'mr' ? '91% नेटवर्क उपलब्धता' : '91% Network Availability'}</span>
+            <span className="text-[10px] text-[#5F625C]">{lang === 'hi' ? '91% नेटवर्क उपलब्धता' : lang === 'mr' ? '91% नेटवर्क उपलब्धता' : '91% Network Availability'}</span>
           </div>
 
           <div className="p-3.5 rounded-xl bg-[#0c1017] border border-[#1a2333] space-y-1">
-            <span className="text-zinc-500 text-[10px] uppercase block">
+            <span className="text-[#85877E] text-[10px] uppercase block">
               {lang === 'hi' ? 'औसत नेटवर्क अयस्क ग्रेड' : lang === 'mr' ? 'सरासरी नेटवर्क खनिज प्रत' : 'Average Network Ore Grade'}
             </span>
             <div className="text-xl font-bold text-amber-400">{avgGrade}% Mn</div>
-            <span className="text-[10px] text-zinc-400">{lang === 'hi' ? 'उच्च-ग्रेड ब्राउनाइट प्रमुख' : lang === 'mr' ? 'उच्च-प्रत ब्राउनाइट प्रमुख' : 'High-Grade Braunite Dominant'}</span>
+            <span className="text-[10px] text-[#5F625C]">{lang === 'hi' ? 'उच्च-ग्रेड ब्राउनाइट प्रमुख' : lang === 'mr' ? 'उच्च-प्रत ब्राउनाइट प्रमुख' : 'High-Grade Braunite Dominant'}</span>
           </div>
 
           <div className="p-3.5 rounded-xl bg-[#0c1017] border border-[#1a2333] space-y-1">
-            <span className="text-zinc-500 text-[10px] uppercase block">
+            <span className="text-[#85877E] text-[10px] uppercase block">
               {lang === 'hi' ? 'एआई मॉडल गवर्नेंस' : lang === 'mr' ? 'एआय मॉडेल गव्हर्नन्स' : 'AI Model Governance'}
             </span>
             <div className="text-xl font-bold text-teal-400">94.8% {t?.common?.trust || 'Trust'}</div>
-            <span className="text-[10px] text-zinc-400">{lang === 'hi' ? 'डीजीएमएस ट्रैसेबिलिटी सक्रिय' : lang === 'mr' ? 'डीजीएमएस नियम पालन सक्रिय' : 'DGMS Traceability Active'}</span>
+            <span className="text-[10px] text-[#5F625C]">{lang === 'hi' ? 'डीजीएमएस ट्रैसेबिलिटी सक्रिय' : lang === 'mr' ? 'डीजीएमएस नियम पालन सक्रिय' : 'DGMS Traceability Active'}</span>
           </div>
         </div>
 
@@ -108,7 +108,7 @@ export const ExecutiveCommandModal = ({ isOpen, onClose }) => {
               >
                 <div>
                   <div className="font-bold text-white text-xs">{m.name}</div>
-                  <div className="text-[10px] text-zinc-400 mt-0.5">
+                  <div className="text-[10px] text-[#5F625C] mt-0.5">
                     {m.district}, {m.state} • {m.mineType}
                   </div>
                   <div className="text-[10px] text-amber-400 mt-0.5">
@@ -120,7 +120,7 @@ export const ExecutiveCommandModal = ({ isOpen, onClose }) => {
                   <span className="px-2 py-0.5 rounded text-[10px] font-bold bg-teal-500/20 text-teal-300 border border-teal-500/30">
                     {t?.common?.optimal || 'NOMINAL'}
                   </span>
-                  <div className="text-[10px] text-zinc-500 mt-1">{lang === 'hi' ? 'चुनने के लिए क्लिक करें →' : lang === 'mr' ? 'निवडण्यासाठी क्लिक करा →' : 'Click to Switch →'}</div>
+                  <div className="text-[10px] text-[#85877E] mt-1">{lang === 'hi' ? 'चुनने के लिए क्लिक करें →' : lang === 'mr' ? 'निवडण्यासाठी क्लिक करा →' : 'Click to Switch →'}</div>
                 </div>
               </div>
             ))}

@@ -1,25 +1,25 @@
 import React, { useRef, useEffect, useState, useMemo } from 'react';
-import { 
-  Camera, 
-  Eye, 
-  Play, 
-  Pause, 
-  RotateCcw, 
-  Sparkles, 
-  Zap, 
-  Droplet, 
-  Wrench, 
-  Truck, 
-  Layers, 
-  ShieldCheck, 
-  AlertTriangle, 
-  Maximize2, 
+import {
+  Camera,
+  Eye,
+  Play,
+  Pause,
+  RotateCcw,
+  Sparkles,
+  Zap,
+  Droplet,
+  Wrench,
+  Truck,
+  Layers,
+  ShieldCheck,
+  AlertTriangle,
+  Maximize2,
   Minimize2,
-  Compass, 
-  Activity, 
-  ArrowRight, 
-  CloudRain, 
-  Sun, 
+  Compass,
+  Activity,
+  ArrowRight,
+  CloudRain,
+  Sun,
   Globe2,
   TrendingUp,
   TrendingDown,
@@ -563,7 +563,7 @@ export const LivingMineSimulation = ({
 
         // Multi-Tier Terraced Benches (+345m down to +240m pit floor)
         if (layers.terrain) {
-          const benchColors = isRainy 
+          const benchColors = isRainy
             ? ['#182232', '#131b28', '#0e1520', '#080d16']
             : ['#202d42', '#182436', '#121d2c', '#0c1420'];
 
@@ -780,10 +780,10 @@ export const LivingMineSimulation = ({
     <div className="space-y-4">
       {/* 1. Main Viewport Container */}
       <div className="relative w-full rounded-3xl overflow-hidden border border-[#22334e] shadow-2xl bg-[#060a12] select-none font-mono text-xs text-zinc-100">
-        
+
         {/* Canvas Viewport */}
-        <canvas 
-          ref={canvasRef} 
+        <canvas
+          ref={canvasRef}
           className="w-full h-[540px] block cursor-crosshair"
         />
 
@@ -809,27 +809,27 @@ export const LivingMineSimulation = ({
         {/* Time Machine Slider Drawer */}
         {isTimeMachineOpen && (
           <div className="absolute top-16 right-4 z-30 w-72 p-4 rounded-2xl bg-[#0b1220]/95 border border-[#1e2f4a] shadow-2xl backdrop-blur-md space-y-2 select-none">
-            <div className="flex justify-between items-center text-[10px] text-zinc-400 font-bold">
+            <div className="flex justify-between items-center text-[10px] text-[#5F625C] font-bold">
               <span>{lang === 'hi' ? 'उपग्रह विकास (2018-2026)' : lang === 'mr' ? 'उपग्रह उत्क्रांती (2018-2026)' : 'SATELLITE EVOLUTION (2018-2026)'}</span>
               <span className="text-amber-400">{historicalYear}</span>
             </div>
-            <input 
-              type="range" 
-              min="2018" 
-              max="2026" 
+            <input
+              type="range"
+              min="2018"
+              max="2026"
               step="1"
-              value={historicalYear} 
+              value={historicalYear}
               onChange={(e) => setHistoricalYear(parseInt(e.target.value))}
-              className="w-full h-1.5 bg-obsidian-950 rounded-lg appearance-none cursor-pointer accent-amber-500"
+              className="w-full h-1.5 bg-[#F0EBE2] rounded-lg appearance-none cursor-pointer accent-amber-500"
             />
-            <div className="flex justify-between text-[8.5px] text-zinc-500">
+            <div className="flex justify-between text-[8.5px] text-[#85877E]">
               <span>2018</span>
               <span>2020</span>
               <span>2022</span>
               <span>2024</span>
               <span>2026</span>
             </div>
-            <div className="p-2 rounded-xl bg-obsidian-900 border border-obsidian-800 text-[9.5px] text-zinc-300 space-y-0.5">
+            <div className="p-2 rounded-xl bg-[#F5F1E9] border border-[#C8BFAF] text-[9.5px] text-[#272A27] space-y-0.5">
               <div>{lang === 'hi' ? 'पदचिह्न:' : lang === 'mr' ? 'क्षेत्रफळ:' : 'Footprint:'} <strong className="text-white">{Math.round(140.8 + (historicalYear - 2018) * 4.8)} Ha</strong></div>
               <div>{lang === 'hi' ? 'पुनर्प्राप्त:' : lang === 'mr' ? 'पुनर्प्राप्त:' : 'Reclaimed:'} <strong className="text-emerald-400">+{Math.round(1.9 * (historicalYear - 2018))} Ha</strong></div>
             </div>
@@ -839,7 +839,7 @@ export const LivingMineSimulation = ({
 
       {/* 2. Interactive Fleet & SCADA Telemetry Badge Strip */}
       <div className="p-3.5 rounded-2xl bg-[#0b1220] border border-[#1e2f4a] shadow-xl flex flex-wrap items-center justify-between gap-2 font-mono text-xs select-none">
-        <div className="flex items-center gap-2 text-zinc-400 text-[10.5px]">
+        <div className="flex items-center gap-2 text-[#5F625C] text-[10.5px]">
           <Gauge className="w-3.5 h-3.5 text-amber-400" />
           <span className="font-bold uppercase tracking-wider">
             {lang === 'hi' ? 'उपकरण स्काडा जांचने के लिए क्लिक करें:' : lang === 'mr' ? 'उपकरण स्काडा तपासण्यासाठी क्लिक करा:' : 'CLICK TO INSPECT EQUIPMENT SCADA:'}
@@ -859,11 +859,11 @@ export const LivingMineSimulation = ({
             <button
               key={item.id}
               onClick={() => setActiveInspector(item)}
-              className="px-2.5 py-1 rounded-xl bg-[#121c2c] border border-[#1e2f4a] text-zinc-300 hover:text-white hover:border-amber-400 hover:bg-[#1a283e] transition flex items-center gap-1.5"
+              className="px-2.5 py-1 rounded-xl bg-[#121c2c] border border-[#1e2f4a] text-[#272A27] hover:text-white hover:border-amber-400 hover:bg-[#1a283e] transition flex items-center gap-1.5"
             >
               <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
               <strong className="text-amber-400 font-bold">{item.id}</strong>
-              <span className="text-zinc-500">|</span>
+              <span className="text-[#85877E]">|</span>
               <span>{item.speed}</span>
             </button>
           ))}
@@ -879,9 +879,9 @@ export const LivingMineSimulation = ({
                 <Truck className="w-5 h-5" />
                 <strong className="text-white text-sm">{activeInspector.id} // {activeInspector.name}</strong>
               </div>
-              <button 
+              <button
                 onClick={() => setActiveInspector(null)}
-                className="p-1 rounded-lg text-zinc-400 hover:text-white"
+                className="p-1 rounded-lg text-[#5F625C] hover:text-white"
               >
                 <X className="w-4 h-4" />
               </button>
@@ -889,27 +889,27 @@ export const LivingMineSimulation = ({
 
             <div className="grid grid-cols-2 gap-2.5 text-xs">
               <div className="p-2.5 rounded-xl bg-[#121c2c] border border-[#1e2f4a]">
-                <span className="text-zinc-400 text-[10px] block">{lang === 'hi' ? 'परिचालन गति / क्षमता' : lang === 'mr' ? 'ऑपरेटिंग वेग / क्षमता' : 'Operating Speed / Capacity'}</span>
+                <span className="text-[#5F625C] text-[10px] block">{lang === 'hi' ? 'परिचालन गति / क्षमता' : lang === 'mr' ? 'ऑपरेटिंग वेग / क्षमता' : 'Operating Speed / Capacity'}</span>
                 <strong className="text-white">{activeInspector.speed}</strong>
               </div>
               <div className="p-2.5 rounded-xl bg-[#121c2c] border border-[#1e2f4a]">
-                <span className="text-zinc-400 text-[10px] block">{lang === 'hi' ? 'लाइव पेलोड भरण' : lang === 'mr' ? 'थेट पेलोड भरणा' : 'Live Payload Fill'}</span>
+                <span className="text-[#5F625C] text-[10px] block">{lang === 'hi' ? 'लाइव पेलोड भरण' : lang === 'mr' ? 'थेट पेलोड भरणा' : 'Live Payload Fill'}</span>
                 <strong className="text-emerald-400">{activeInspector.payload}</strong>
               </div>
               <div className="p-2.5 rounded-xl bg-[#121c2c] border border-[#1e2f4a]">
-                <span className="text-zinc-400 text-[10px] block">{lang === 'hi' ? 'इंजन / कोर तापमान' : lang === 'mr' ? 'इंजिन / कोर तापमान' : 'Engine / Core Temp'}</span>
+                <span className="text-[#5F625C] text-[10px] block">{lang === 'hi' ? 'इंजन / कोर तापमान' : lang === 'mr' ? 'इंजिन / कोर तापमान' : 'Engine / Core Temp'}</span>
                 <strong className="text-amber-400">{activeInspector.engineTemp}</strong>
               </div>
               <div className="p-2.5 rounded-xl bg-[#121c2c] border border-[#1e2f4a]">
-                <span className="text-zinc-400 text-[10px] block">{lang === 'hi' ? 'स्पेक्ट्रल कंपन' : lang === 'mr' ? 'स्पेक्ट्रल कंपन' : 'Spectral Vibration'}</span>
+                <span className="text-[#5F625C] text-[10px] block">{lang === 'hi' ? 'स्पेक्ट्रल कंपन' : lang === 'mr' ? 'स्पेक्ट्रल कंपन' : 'Spectral Vibration'}</span>
                 <strong className="text-white">{activeInspector.vibration}</strong>
               </div>
               <div className="p-2.5 rounded-xl bg-[#121c2c] border border-[#1e2f4a]">
-                <span className="text-zinc-400 text-[10px] block">{lang === 'hi' ? 'अनुमानित आरयूएल' : lang === 'mr' ? 'अंदाजित आरयूएल' : 'Predictive RUL'}</span>
+                <span className="text-[#5F625C] text-[10px] block">{lang === 'hi' ? 'अनुमानित आरयूएल' : lang === 'mr' ? 'अंदाजित आरयूएल' : 'Predictive RUL'}</span>
                 <strong className="text-sky-400">{activeInspector.rulHours} {lang === 'hi' ? 'परिचालन घंटे' : lang === 'mr' ? 'ऑपरेटिंग तास' : 'Operating Hours'}</strong>
               </div>
               <div className="p-2.5 rounded-xl bg-[#121c2c] border border-[#1e2f4a]">
-                <span className="text-zinc-400 text-[10px] block">{lang === 'hi' ? 'उपप्रणाली स्वास्थ्य' : lang === 'mr' ? 'उपप्रणाली आरोग्य' : 'Subsystem Health'}</span>
+                <span className="text-[#5F625C] text-[10px] block">{lang === 'hi' ? 'उपप्रणाली स्वास्थ्य' : lang === 'mr' ? 'उपप्रणाली आरोग्य' : 'Subsystem Health'}</span>
                 <strong className="text-emerald-400">{activeInspector.health}% {lang === 'hi' ? 'सामान्य' : lang === 'mr' ? 'सामान्य' : 'Nominal'}</strong>
               </div>
             </div>

@@ -20,7 +20,7 @@ export const MINE_SPATIAL_REGISTRY = {
     spatialSeed: 101,
     oreGrade: '44.2% Mn (High-Grade Braunite)',
     waterTableDepth: '-140m Horizon',
-    
+
     // Unique Topographic Benches & Spatial Contours
     benches: [
       { rx: 0.44, ry: 0.35, yOff: -0.06, rl: '+340m RL', color: '#685c4e', stroke: '#857564' },

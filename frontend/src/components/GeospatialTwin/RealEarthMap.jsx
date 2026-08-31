@@ -4,14 +4,14 @@ import L from 'leaflet';
 import { useApp } from '../../context/AppContext.jsx';
 import { MINE_SPATIAL_REGISTRY } from './mapConfig.js';
 import { EquipmentIcon } from './EquipmentIcons.jsx';
-import { 
-  Globe2, 
-  MapPin, 
-  Layers, 
-  Radio, 
-  Truck, 
-  Compass, 
-  Sparkles, 
+import {
+  Globe2,
+  MapPin,
+  Layers,
+  Radio,
+  Truck,
+  Compass,
+  Sparkles,
   Droplet,
   Zap,
   Building
@@ -28,10 +28,10 @@ function MapCenterController({ center, zoom }) {
   return null;
 }
 
-export const RealEarthMap = ({ 
-  mineId = 'balaghat', 
-  activeLayers = {}, 
-  activeScenario, 
+export const RealEarthMap = ({
+  mineId = 'balaghat',
+  activeLayers = {},
+  activeScenario,
   onSelectAsset,
   onSelectSensor,
   onSelectLocation
@@ -161,7 +161,7 @@ export const RealEarthMap = ({
               }}
             >
               <Popup className="custom-leaflet-popup">
-                <div className="p-2 font-mono text-xs text-zinc-200">
+                <div className="p-2 font-mono text-xs text-[#272A27]">
                   <div className="font-bold text-white">{asset.name}</div>
                   <div className="text-[10px] text-emerald-400">{t?.common?.health || 'Health'}: {asset.health}% • {t?.common?.temp || 'Temp'}: {asset.temp}</div>
                 </div>
@@ -201,12 +201,12 @@ export const RealEarthMap = ({
       </MapContainer>
 
       {/* Real Earth Compass & Scale Bar */}
-      <div className="absolute top-3 left-3 z-10 p-2 rounded-xl bg-[#090f19]/90 border border-[#18263c] backdrop-blur-md font-mono text-[10px] text-zinc-300 space-y-1">
+      <div className="absolute top-3 left-3 z-10 p-2 rounded-xl bg-[#090f19]/90 border border-[#18263c] backdrop-blur-md font-mono text-[10px] text-[#272A27] space-y-1">
         <div className="flex items-center gap-1 text-sky-400 font-bold">
           <Globe2 className="w-3.5 h-3.5" />
           <span>{lang === 'hi' ? 'वास्तविक उपग्रह बेसमैप' : lang === 'mr' ? 'वास्तविक उपग्रह बेस-मॅप' : 'REAL SATELLITE BASMAP'}</span>
         </div>
-        <div className="text-[9px] text-zinc-400">{lang === 'hi' ? 'ईएसआरआई / सेंटिनल-2 ऑर्थोफोटो' : lang === 'mr' ? 'ईएसआरआय / सेंटिनेल-2 ऑर्थोफोटो' : 'ESRI / SENTINEL-2 ORTHOPHOTO'}</div>
+        <div className="text-[9px] text-[#5F625C]">{lang === 'hi' ? 'ईएसआरआई / सेंटिनल-2 ऑर्थोफोटो' : lang === 'mr' ? 'ईएसआरआय / सेंटिनेल-2 ऑर्थोफोटो' : 'ESRI / SENTINEL-2 ORTHOPHOTO'}</div>
       </div>
     </div>
   );

@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { useApp } from '../../context/AppContext.jsx';
-import { 
-  Activity, 
-  Truck, 
-  Droplet, 
-  Cpu, 
-  Fuel, 
-  Sparkles, 
-  ShieldCheck, 
-  HeartHandshake 
+import {
+  Activity,
+  Truck,
+  Droplet,
+  Cpu,
+  Fuel,
+  Sparkles,
+  ShieldCheck,
+  HeartHandshake
 } from 'lucide-react';
 
 export const RightTelemetryRail = () => {
@@ -125,10 +125,10 @@ export const RightTelemetryRail = () => {
 
   return (
     <aside className="w-full lg:w-[260px] xl:w-[270px] flex-shrink-0 flex flex-col gap-2.5 font-sans select-none">
-      
+
       {/* Title */}
       <div className="p-3 rounded-xl bg-[#0c1017] border border-[#1a2333] flex items-center justify-between">
-        <span className="text-[10px] text-zinc-400 font-mono uppercase font-bold tracking-wider">
+        <span className="text-[10px] text-[#5F625C] font-mono uppercase font-bold tracking-wider">
           {ws.liveTelemetry || 'LIVE TELEMETRY'}
         </span>
         <span className="w-2 h-2 rounded-full bg-teal-400 animate-pulse" />
@@ -148,14 +148,14 @@ export const RightTelemetryRail = () => {
                   <Icon className="w-3.5 h-3.5" />
                 </div>
                 <div className="min-w-0">
-                  <div className="text-[10px] text-zinc-400 font-sans truncate leading-tight">
+                  <div className="text-[10px] text-[#5F625C] font-sans truncate leading-tight">
                     {row.label}
                   </div>
                   <div className="flex items-baseline gap-1 mt-0.5">
                     <span className={`font-mono text-base font-extrabold ${row.valColor || 'text-white'}`}>
                       {row.val}
                     </span>
-                    <span className="text-[10px] text-zinc-500 font-mono">
+                    <span className="text-[10px] text-[#85877E] font-mono">
                       {row.unit}
                     </span>
                   </div>
@@ -183,7 +183,7 @@ export const RightTelemetryRail = () => {
       </div>
 
       {/* Footer Timestamp */}
-      <div className="p-2 rounded-lg bg-[#080b10] border border-[#141b27] flex items-center justify-between text-[10px] font-mono text-zinc-500">
+      <div className="p-2 rounded-lg bg-[#080b10] border border-[#141b27] flex items-center justify-between text-[10px] font-mono text-[#85877E]">
         <span>{ws.lastUpdated || 'Last Updated'}: {lastUpdated}</span>
         <span className="text-teal-400 font-bold flex items-center gap-1">
           <span className="w-1.5 h-1.5 rounded-full bg-teal-400" />

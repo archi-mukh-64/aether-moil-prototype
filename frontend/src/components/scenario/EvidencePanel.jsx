@@ -1,14 +1,14 @@
 import React from 'react';
 import { useApp } from '../../context/AppContext.jsx';
-import { 
-  Sparkles, 
-  ArrowUpRight, 
-  ArrowDownRight, 
-  HelpCircle, 
-  Info, 
-  Layers, 
-  Cpu, 
-  Activity 
+import {
+  Sparkles,
+  ArrowUpRight,
+  ArrowDownRight,
+  HelpCircle,
+  Info,
+  Layers,
+  Cpu,
+  Activity
 } from 'lucide-react';
 
 export const EvidencePanel = () => {
@@ -20,9 +20,9 @@ export const EvidencePanel = () => {
 
   return (
     <div className="panel-surface p-6 sm:p-8 border border-manganese-500/30 font-mono text-xs space-y-6 shadow-2xl animate-fade-in select-none">
-      
+
       {/* Header */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-4 border-b border-obsidian-800 gap-2">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-4 border-b border-[#C8BFAF] gap-2">
         <div className="flex items-center gap-2.5">
           <div className="w-8 h-8 rounded-lg bg-manganese-500/20 border border-manganese-500/30 flex items-center justify-center">
             <Sparkles className="w-4 h-4 text-manganese-400" />
@@ -37,12 +37,12 @@ export const EvidencePanel = () => {
           </div>
         </div>
 
-        <div className="px-2.5 py-1 rounded-lg bg-obsidian-950 border border-obsidian-800 text-[10px] text-manganese-400 font-bold self-start sm:self-auto">
+        <div className="px-2.5 py-1 rounded-lg bg-[#F0EBE2] border border-[#C8BFAF] text-[10px] text-manganese-400 font-bold self-start sm:self-auto">
           <span>{lang === 'hi' ? 'विशेषता एट्रिब्यूशन (सिम्युलेटेड SHAP)' : lang === 'mr' ? 'वैशिष्ट्य ॲट्रिब्युशन (सिम्युलेटेड SHAP)' : 'FEATURE ATTRIBUTION (SIMULATED SHAP)'}</span>
         </div>
       </div>
 
-      <p className="text-zinc-400 font-sans text-xs leading-relaxed">
+      <p className="text-[#5F625C] font-sans text-xs leading-relaxed">
         {lang === 'hi' ? 'योगात्मक स्थानीय विशेषता एट्रिब्यूशन द्वारा परिमाणित रैंक किए गए मूल कारण चालक। अपारदर्शी भविष्यवाणी के बजाय कारण व्याख्यात्मकता प्रदर्शित करता है।' :
          lang === 'mr' ? 'स्थानिक वैशिष्ट्य ॲट्रिब्युशनद्वारे मोजलेले क्रमवारी केलेले मूळ कारण घटक. अपारदर्शक अंदाजाऐवजी कारणात्मक स्पष्टीकरण प्रदर्शित करते.' :
          'Ranked root-cause drivers quantified by additive local feature attribution. Demonstrates causal interpretability rather than opaque prediction.'}
@@ -52,21 +52,21 @@ export const EvidencePanel = () => {
       <div className="space-y-3 font-mono">
         {factors.map((f) => {
           const isElevating = f.direction === 'risk_elevating';
-          
+
           return (
             <div
               key={f.rank}
-              className="p-4 rounded-xl bg-obsidian-950/80 border border-obsidian-800/90 space-y-2.5 hover:border-obsidian-700 transition-all"
+              className="p-4 rounded-xl bg-[#F0EBE2] border border-[#C8BFAF]/90 space-y-2.5 hover:border-[#C8BFAF] transition-all"
             >
               {/* Factor Title & Impact */}
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
                 <div className="flex items-center gap-3">
-                  <span className="w-6 h-6 rounded-md bg-obsidian-800 border border-obsidian-700 flex items-center justify-center text-[10px] font-bold text-manganese-400 flex-shrink-0">
+                  <span className="w-6 h-6 rounded-md bg-[#C8BFAF] border border-[#C8BFAF] flex items-center justify-center text-[10px] font-bold text-manganese-400 flex-shrink-0">
                     {f.rank}
                   </span>
                   <div>
                     <span className="font-bold text-white text-xs">{f.factor}</span>
-                    <span className="text-[10px] text-zinc-500 ml-2">({f.category})</span>
+                    <span className="text-[10px] text-[#85877E] ml-2">({f.category})</span>
                   </div>
                 </div>
 
@@ -81,14 +81,14 @@ export const EvidencePanel = () => {
                     )}
                     <span>{isElevating ? `+${f.impactPct}%` : `-${f.impactPct}%`}</span>
                   </div>
-                  <span className="text-[10px] text-zinc-500 uppercase">
+                  <span className="text-[10px] text-[#85877E] uppercase">
                     {isElevating ? (lang === 'hi' ? 'जोखिम योगदान' : lang === 'mr' ? 'जोखीम योगदान' : 'Risk Contrib') : (lang === 'hi' ? 'बफर ऑफसेट' : lang === 'mr' ? 'बफर ऑफसेट' : 'Buffer Offset')}
                   </span>
                 </div>
               </div>
 
               {/* Progress Bar Representation */}
-              <div className="w-full h-2 bg-obsidian-900 rounded-full overflow-hidden border border-obsidian-850">
+              <div className="w-full h-2 bg-[#F5F1E9] rounded-full overflow-hidden border border-obsidian-850">
                 <div
                   className={`h-full rounded-full transition-all duration-700 ${
                     isElevating ? 'bg-gradient-to-r from-hazard-600 to-hazard-400' : 'bg-gradient-to-r from-telemetry-600 to-telemetry-400'
@@ -98,7 +98,7 @@ export const EvidencePanel = () => {
               </div>
 
               {/* Technical Detail Explainer */}
-              <div className="text-[11px] text-zinc-400 font-sans leading-tight">
+              <div className="text-[11px] text-[#5F625C] font-sans leading-tight">
                 {f.detail}
               </div>
             </div>

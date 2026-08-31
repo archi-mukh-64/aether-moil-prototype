@@ -1,23 +1,23 @@
 import React, { useState, useEffect } from 'react';
 import { useApp } from '../../context/AppContext.jsx';
-import { 
-  Layers, 
-  ChevronDown, 
-  Activity, 
-  Award, 
-  DollarSign, 
-  ShieldCheck, 
-  Leaf, 
-  TrendingUp, 
-  TrendingDown 
+import {
+  Layers,
+  ChevronDown,
+  Activity,
+  Award,
+  DollarSign,
+  ShieldCheck,
+  Leaf,
+  TrendingUp,
+  TrendingDown
 } from 'lucide-react';
 
 export const LeftKpiRail = () => {
-  const { 
-    activeMine, 
-    activeScenario, 
-    selectedMineId, 
-    setSelectedMineId, 
+  const {
+    activeMine,
+    activeScenario,
+    selectedMineId,
+    setSelectedMineId,
     officialMines,
     t,
     lang
@@ -124,7 +124,7 @@ export const LeftKpiRail = () => {
 
   return (
     <aside className="w-full lg:w-[280px] xl:w-[290px] flex-shrink-0 flex flex-col gap-3 font-sans text-xs select-none">
-      
+
       {/* 1. ACTIVE MINE SELECTOR CARD */}
       <div className="relative">
         <button
@@ -136,18 +136,18 @@ export const LeftKpiRail = () => {
               <Layers className="w-4 h-4 text-amber-400" />
             </div>
             <div className="min-w-0">
-              <div className="text-[10px] text-zinc-500 font-mono uppercase font-bold tracking-wider">
+              <div className="text-[10px] text-[#85877E] font-mono uppercase font-bold tracking-wider">
                 {ws.activeMine || 'Active Mine'}
               </div>
               <div className="text-sm font-bold text-white truncate">
                 {currentMine.name}
               </div>
-              <div className="text-[11px] text-zinc-400 truncate">
+              <div className="text-[11px] text-[#5F625C] truncate">
                 {currentMine.state}
               </div>
             </div>
           </div>
-          <ChevronDown className="w-4 h-4 text-zinc-500 flex-shrink-0" />
+          <ChevronDown className="w-4 h-4 text-[#85877E] flex-shrink-0" />
         </button>
 
         {/* Dropdown Menu */}
@@ -167,11 +167,11 @@ export const LeftKpiRail = () => {
                   className={`w-full text-left px-2.5 py-1.5 rounded text-xs flex items-center justify-between transition-colors ${
                     selectedMineId === m.id
                       ? 'bg-amber-500/20 text-amber-300 font-bold'
-                      : 'text-zinc-300 hover:bg-[#141c2b]'
+                      : 'text-[#272A27] hover:bg-[#141c2b]'
                   }`}
                 >
                   <span className="truncate">{m.name}</span>
-                  <span className="text-[10px] text-zinc-500 pl-2">{m.averageMnGrade || m.oreGrade}%</span>
+                  <span className="text-[10px] text-[#85877E] pl-2">{m.averageMnGrade || m.oreGrade}%</span>
                 </button>
               ))}
             </div>
@@ -181,7 +181,7 @@ export const LeftKpiRail = () => {
 
       {/* 2. PRODUCTION ACHIEVEMENT */}
       <div className="p-4 rounded-xl bg-[#0c1017] border border-[#1a2333] space-y-3.5 shadow-sm">
-        <div className="text-[10px] text-zinc-400 font-mono uppercase font-bold tracking-wider">
+        <div className="text-[10px] text-[#5F625C] font-mono uppercase font-bold tracking-wider">
           {ws.prodAchievement || 'PRODUCTION ACHIEVEMENT'}
         </div>
 
@@ -214,7 +214,7 @@ export const LeftKpiRail = () => {
                 className="transition-all duration-700"
               />
             </svg>
-            
+
             {/* Center Percentage Display */}
             <div className="absolute bottom-0 inset-x-0 flex flex-col items-center justify-center pb-1">
               <span className="text-3xl font-extrabold text-white tracking-tight font-sans">
@@ -229,7 +229,7 @@ export const LeftKpiRail = () => {
               <div className="text-base font-bold text-white font-mono">
                 {achievedT.toLocaleString()} T
               </div>
-              <div className="text-[10px] text-zinc-500 uppercase font-mono">
+              <div className="text-[10px] text-[#85877E] uppercase font-mono">
                 {ws.achieved || 'Achieved'}
               </div>
             </div>
@@ -237,7 +237,7 @@ export const LeftKpiRail = () => {
               <div className="text-base font-bold text-white font-mono">
                 {dailyTarget.toLocaleString()} T
               </div>
-              <div className="text-[10px] text-zinc-500 uppercase font-mono">
+              <div className="text-[10px] text-[#85877E] uppercase font-mono">
                 {ws.dailyTarget || 'Daily Target'}
               </div>
             </div>
@@ -246,19 +246,19 @@ export const LeftKpiRail = () => {
           {/* Time Remaining & Shift Boxes */}
           <div className="grid grid-cols-2 gap-2 w-full pt-2">
             <div className="p-2 rounded-lg bg-[#080b10] border border-[#141b27] text-center">
-              <div className="text-[9px] text-zinc-500 uppercase font-mono">
+              <div className="text-[9px] text-[#85877E] uppercase font-mono">
                 {ws.timeRemaining || 'Time Remaining'}
               </div>
-              <div className="text-xs font-bold text-zinc-200 font-mono mt-0.5">
+              <div className="text-xs font-bold text-[#272A27] font-mono mt-0.5">
                 {timeRemaining}
               </div>
             </div>
 
             <div className="p-2 rounded-lg bg-[#080b10] border border-[#141b27] text-center">
-              <div className="text-[9px] text-zinc-500 uppercase font-mono">
+              <div className="text-[9px] text-[#85877E] uppercase font-mono">
                 {ws.shift || 'Shift'}
               </div>
-              <div className="text-xs font-bold text-zinc-200 font-mono mt-0.5">
+              <div className="text-xs font-bold text-[#272A27] font-mono mt-0.5">
                 {ws.shiftA || 'A Shift'}
               </div>
             </div>
@@ -269,9 +269,9 @@ export const LeftKpiRail = () => {
 
       {/* 3. KEY PERFORMANCE (vs Target) */}
       <div className="p-4 rounded-xl bg-[#0c1017] border border-[#1a2333] space-y-2.5 shadow-sm font-mono text-xs">
-        <div className="flex justify-between items-center text-[10px] text-zinc-400 uppercase font-bold tracking-wider pb-1">
+        <div className="flex justify-between items-center text-[10px] text-[#5F625C] uppercase font-bold tracking-wider pb-1">
           <span>{ws.keyPerformance || 'KEY PERFORMANCE'}</span>
-          <span className="text-zinc-500 font-normal">{ws.vsTarget || 'vs Target'}</span>
+          <span className="text-[#85877E] font-normal">{ws.vsTarget || 'vs Target'}</span>
         </div>
 
         <div className="space-y-2 pt-0.5">
@@ -281,12 +281,12 @@ export const LeftKpiRail = () => {
               <div key={item.id} className="flex items-center justify-between gap-2">
                 <div className="flex items-center gap-1.5 w-24 flex-shrink-0">
                   <Icon className={`w-3 h-3 ${item.iconColor}`} />
-                  <span className="text-[11px] text-zinc-300 truncate font-sans font-medium">{item.name}</span>
+                  <span className="text-[11px] text-[#272A27] truncate font-sans font-medium">{item.name}</span>
                 </div>
 
                 {/* Horizontal Progress Bar */}
                 <div className="flex-1 h-1.5 bg-[#141b27] rounded-full overflow-hidden">
-                  <div 
+                  <div
                     className={`h-full ${item.color} rounded-full transition-all duration-500`}
                     style={{ width: item.width }}
                   />
@@ -309,12 +309,12 @@ export const LeftKpiRail = () => {
 
       {/* 4. RISK OVERVIEW */}
       <div className="p-4 rounded-xl bg-[#0c1017] border border-[#1a2333] space-y-3 shadow-sm font-mono text-xs">
-        <div className="text-[10px] text-zinc-400 uppercase font-bold tracking-wider">
+        <div className="text-[10px] text-[#5F625C] uppercase font-bold tracking-wider">
           {ws.riskOverview || 'RISK OVERVIEW'}
         </div>
 
         <div className="flex items-center gap-4">
-          
+
           {/* Donut Chart with Center HIGH % */}
           <div className="relative w-20 h-20 flex items-center justify-center flex-shrink-0">
             <svg className="w-20 h-20 -rotate-90" viewBox="0 0 100 100">
@@ -333,7 +333,7 @@ export const LeftKpiRail = () => {
               />
             </svg>
             <div className="absolute inset-0 flex flex-col items-center justify-center text-center">
-              <span className="text-[9px] text-zinc-400 font-bold uppercase">{ws.high ? ws.high.toUpperCase() : 'HIGH'}</span>
+              <span className="text-[9px] text-[#5F625C] font-bold uppercase">{ws.high ? ws.high.toUpperCase() : 'HIGH'}</span>
               <span className="text-sm font-extrabold text-white font-mono leading-none">
                 {riskHigh}%
               </span>
@@ -345,7 +345,7 @@ export const LeftKpiRail = () => {
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-1.5">
                 <span className="w-2 h-2 rounded-full bg-rose-500" />
-                <span className="text-zinc-300">{ws.high || 'High'}</span>
+                <span className="text-[#272A27]">{ws.high || 'High'}</span>
               </div>
               <span className="text-white font-bold">{riskHigh}%</span>
             </div>
@@ -353,7 +353,7 @@ export const LeftKpiRail = () => {
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-1.5">
                 <span className="w-2 h-2 rounded-full bg-amber-400" />
-                <span className="text-zinc-300">{ws.medium || 'Medium'}</span>
+                <span className="text-[#272A27]">{ws.medium || 'Medium'}</span>
               </div>
               <span className="text-white font-bold">{riskMed}%</span>
             </div>
@@ -361,7 +361,7 @@ export const LeftKpiRail = () => {
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-1.5">
                 <span className="w-2 h-2 rounded-full bg-teal-400" />
-                <span className="text-zinc-300">{ws.low || 'Low'}</span>
+                <span className="text-[#272A27]">{ws.low || 'Low'}</span>
               </div>
               <span className="text-white font-bold">{riskLow}%</span>
             </div>

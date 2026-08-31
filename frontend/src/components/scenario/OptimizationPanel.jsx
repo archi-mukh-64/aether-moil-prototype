@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import { useApp } from '../../context/AppContext.jsx';
-import { 
-  Sliders, 
-  CheckCircle2, 
-  AlertTriangle, 
-  ArrowRight, 
-  TrendingDown, 
-  TrendingUp, 
+import {
+  Sliders,
+  CheckCircle2,
+  AlertTriangle,
+  ArrowRight,
+  TrendingDown,
+  TrendingUp,
   Zap,
   Sparkles
 } from 'lucide-react';
@@ -58,9 +58,9 @@ export const OptimizationPanel = () => {
 
   return (
     <div className="panel-surface p-6 sm:p-8 border border-cyan-500/30 font-mono text-xs space-y-6 shadow-2xl animate-fade-in select-none">
-      
+
       {/* Header */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-4 border-b border-obsidian-800 gap-2">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-4 border-b border-[#C8BFAF] gap-2">
         <div className="flex items-center gap-2.5">
           <div className="w-8 h-8 rounded-lg bg-cyan-500/20 border border-cyan-500/30 flex items-center justify-center">
             <Sliders className="w-4 h-4 text-cyan-400" />
@@ -80,7 +80,7 @@ export const OptimizationPanel = () => {
         </div>
       </div>
 
-      <p className="text-zinc-400 font-sans text-xs leading-relaxed">
+      <p className="text-[#5F625C] font-sans text-xs leading-relaxed">
         {lang === 'hi'
           ? 'प्रणाली वैधानिक बाधाओं, लागतों और डाउनटाइम के विरुद्ध कई व्यवहार्य परिचालनों का मूल्यांकन करके वैश्विक पैरेटो इष्टतम प्रतिक्रिया की पहचान करती है।'
           : lang === 'mr'
@@ -106,8 +106,8 @@ export const OptimizationPanel = () => {
                 isAiOptimal
                   ? 'bg-telemetry-950/15 border-telemetry-500/50 shadow-lg ring-1 ring-telemetry-400/30'
                   : isSelected
-                  ? 'bg-obsidian-850 border-manganese-500/50'
-                  : 'bg-obsidian-950/70 border-obsidian-800 hover:border-obsidian-700'
+                  ? 'bg-[#DDD4C5] border-manganese-500/50'
+                  : 'bg-[#F0EBE2]/70 border-[#C8BFAF] hover:border-[#C8BFAF]'
               }`}
             >
               <div>
@@ -122,36 +122,36 @@ export const OptimizationPanel = () => {
                   )}
                 </div>
 
-                <div className="font-sans text-xs text-zinc-300 font-semibold mb-2">
+                <div className="font-sans text-xs text-[#272A27] font-semibold mb-2">
                   {subTitle}
                 </div>
 
-                <p className="text-[11px] text-zinc-400 font-sans leading-relaxed mb-4">
+                <p className="text-[11px] text-[#5F625C] font-sans leading-relaxed mb-4">
                   {opt.description || 'Optimized parameters for local shift conditions.'}
                 </p>
               </div>
 
               {/* Metrics Breakdown */}
-              <div className="space-y-2 pt-3 border-t border-obsidian-800 text-[11px] font-mono">
+              <div className="space-y-2 pt-3 border-t border-[#C8BFAF] text-[11px] font-mono">
                 <div className="flex justify-between">
-                  <span className="text-zinc-500">{lang === 'hi' ? 'अपेक्षित हानि:' : lang === 'mr' ? 'अपेक्षित तूट:' : 'Expected Loss:'}</span>
+                  <span className="text-[#85877E]">{lang === 'hi' ? 'अपेक्षित हानि:' : lang === 'mr' ? 'अपेक्षित तूट:' : 'Expected Loss:'}</span>
                   <strong className={isAiOptimal ? 'text-telemetry-400' : 'text-hazard-400'}>
                     {opt.expectedLossPct || '-3.2%'} ({opt.expectedLossTonnes || 200} T)
                   </strong>
                 </div>
 
                 <div className="flex justify-between">
-                  <span className="text-zinc-500">{lang === 'hi' ? 'अपेक्षित डाउनटाइम:' : lang === 'mr' ? 'अपेक्षित डाउनटाइम:' : 'Expected Downtime:'}</span>
-                  <strong className="text-zinc-300">{opt.expectedDowntime || '2 Hours'}</strong>
+                  <span className="text-[#85877E]">{lang === 'hi' ? 'अपेक्षित डाउनटाइम:' : lang === 'mr' ? 'अपेक्षित डाउनटाइम:' : 'Expected Downtime:'}</span>
+                  <strong className="text-[#272A27]">{opt.expectedDowntime || '2 Hours'}</strong>
                 </div>
 
                 <div className="flex justify-between">
-                  <span className="text-zinc-500">{lang === 'hi' ? 'अनुमानित लागत:' : lang === 'mr' ? 'अंदाजित खर्च:' : 'Estimated Cost:'}</span>
-                  <strong className="text-zinc-300">{opt.costEstimate || '₹3.2 Lakh'}</strong>
+                  <span className="text-[#85877E]">{lang === 'hi' ? 'अनुमानित लागत:' : lang === 'mr' ? 'अंदाजित खर्च:' : 'Estimated Cost:'}</span>
+                  <strong className="text-[#272A27]">{opt.costEstimate || '₹3.2 Lakh'}</strong>
                 </div>
 
                 <div className="flex justify-between">
-                  <span className="text-zinc-500">{lang === 'hi' ? 'मॉडल विश्वास:' : lang === 'mr' ? 'मॉडेल विश्वास:' : 'Model Confidence:'}</span>
+                  <span className="text-[#85877E]">{lang === 'hi' ? 'मॉडल विश्वास:' : lang === 'mr' ? 'मॉडेल विश्वास:' : 'Model Confidence:'}</span>
                   <strong className="text-telemetry-400">{opt.confidence || '96.8%'}</strong>
                 </div>
               </div>

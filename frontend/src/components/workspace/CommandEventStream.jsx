@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { useApp } from '../../context/AppContext.jsx';
-import { 
-  Terminal, 
-  Activity, 
-  AlertTriangle, 
-  CheckCircle2, 
-  Zap, 
+import {
+  Terminal,
+  Activity,
+  AlertTriangle,
+  CheckCircle2,
+  Zap,
   Radio,
   Clock
 } from 'lucide-react';
@@ -56,7 +56,7 @@ export const CommandEventStream = () => {
       <div className="flex items-center justify-between pb-2 border-b border-[#141c2b]">
         <div className="flex items-center gap-2">
           <Terminal className="w-3.5 h-3.5 text-amber-400" />
-          <span className="text-[10px] text-zinc-300 font-bold uppercase tracking-wider">
+          <span className="text-[10px] text-[#272A27] font-bold uppercase tracking-wider">
             {ws.eventStreamTitle || 'REAL-TIME OPERATIONAL EVENT STREAM & INCIDENT AUDIT'}
           </span>
         </div>
@@ -82,25 +82,25 @@ export const CommandEventStream = () => {
                   : isHigh
                   ? 'bg-amber-950/25 border-amber-500/40 text-amber-200'
                   : isWarning
-                  ? 'bg-amber-950/20 border-amber-500/30 text-zinc-200'
+                  ? 'bg-amber-950/20 border-amber-500/30 text-[#272A27]'
                   : isResolved
                   ? 'bg-teal-950/30 border-teal-500/40 text-teal-200'
-                  : 'bg-[#080b10] border-[#141b27] text-zinc-300'
+                  : 'bg-[#080b10] border-[#141b27] text-[#272A27]'
               }`}
             >
               <div className="flex items-center gap-2.5 truncate">
-                <span className="text-zinc-500 text-[10px]">{ev.time}</span>
+                <span className="text-[#85877E] text-[10px]">{ev.time}</span>
                 <span className={`px-1.5 py-0.2 rounded text-[9px] font-bold ${
                   isCritical ? 'bg-rose-500/20 text-rose-300' :
                   isHigh ? 'bg-amber-500/20 text-amber-300' :
-                  isResolved ? 'bg-teal-500/20 text-teal-300' : 'bg-zinc-800 text-zinc-400'
+                  isResolved ? 'bg-teal-500/20 text-teal-300' : 'bg-zinc-800 text-[#5F625C]'
                 }`}>
                   {ev.type}
                 </span>
                 <span className="truncate">{ev.message}</span>
               </div>
 
-              <span className="text-[9px] text-zinc-500 uppercase flex-shrink-0">
+              <span className="text-[9px] text-[#85877E] uppercase flex-shrink-0">
                 {ev.id}
               </span>
             </div>

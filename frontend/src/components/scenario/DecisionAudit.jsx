@@ -1,11 +1,11 @@
 import React from 'react';
 import { useApp } from '../../context/AppContext.jsx';
-import { 
-  FileCheck, 
-  ShieldCheck, 
-  MapPin, 
-  Clock, 
-  UserCheck, 
+import {
+  FileCheck,
+  ShieldCheck,
+  MapPin,
+  Clock,
+  UserCheck,
   ExternalLink,
   ChevronRight
 } from 'lucide-react';
@@ -34,16 +34,16 @@ export const DecisionAudit = () => {
   ];
 
   return (
-    <div className="panel-surface p-6 sm:p-8 border border-obsidian-800 font-mono text-xs space-y-6 shadow-2xl animate-fade-in select-none">
-      
+    <div className="panel-surface p-6 sm:p-8 border border-[#C8BFAF] font-mono text-xs space-y-6 shadow-2xl animate-fade-in select-none">
+
       {/* Header */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-4 border-b border-obsidian-800 gap-2">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-4 border-b border-[#C8BFAF] gap-2">
         <div className="flex items-center gap-2.5">
-          <div className="w-8 h-8 rounded-lg bg-obsidian-800 border border-obsidian-700 flex items-center justify-center">
+          <div className="w-8 h-8 rounded-lg bg-[#C8BFAF] border border-[#C8BFAF] flex items-center justify-center">
             <FileCheck className="w-4 h-4 text-manganese-400" />
           </div>
           <div>
-            <div className="text-[10px] text-zinc-500 font-bold uppercase tracking-wider">
+            <div className="text-[10px] text-[#85877E] font-bold uppercase tracking-wider">
               {dlog.stepLabel || 'STEP 7 // DECISION AUDIT & REGULATORY LEDGER'}
             </div>
             <h3 className="font-display text-lg font-bold text-white">
@@ -74,18 +74,18 @@ export const DecisionAudit = () => {
           return (
             <div
               key={log.id}
-              className="p-4 rounded-xl bg-obsidian-950/80 border border-obsidian-800/90 space-y-3"
+              className="p-4 rounded-xl bg-[#F0EBE2] border border-[#C8BFAF]/90 space-y-3"
             >
               <div className="flex flex-wrap items-center justify-between gap-2 pb-2 border-b border-obsidian-850">
                 <div className="flex items-center gap-2">
                   <span className="font-bold text-manganese-400">{log.id}</span>
-                  <span className="text-zinc-600">•</span>
+                  <span className="text-[#85877E]">•</span>
                   <span className="text-white font-bold flex items-center gap-1">
                     <MapPin className="w-3 h-3 text-manganese-400" />
                     {log.mine}
                   </span>
-                  <span className="text-zinc-600">•</span>
-                  <span className="text-zinc-400">{log.timestamp}</span>
+                  <span className="text-[#85877E]">•</span>
+                  <span className="text-[#5F625C]">{log.timestamp}</span>
                 </div>
 
                 <span className={`px-2.5 py-0.5 rounded text-[10px] font-bold border ${statusColor}`}>
@@ -95,28 +95,28 @@ export const DecisionAudit = () => {
 
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 text-[11px]">
                 <div>
-                  <span className="text-zinc-500 block text-[10px] uppercase">{dlog.detectedEvent || 'Detected Event:'}</span>
+                  <span className="text-[#85877E] block text-[10px] uppercase">{dlog.detectedEvent || 'Detected Event:'}</span>
                   <strong className="text-white">{log.detectedEvent || log.scenario}</strong>
                 </div>
 
                 <div>
-                  <span className="text-zinc-500 block text-[10px] uppercase">{dlog.authorizedAction || 'Authorized Action:'}</span>
+                  <span className="text-[#85877E] block text-[10px] uppercase">{dlog.authorizedAction || 'Authorized Action:'}</span>
                   <strong className="text-manganese-300">{log.recommendation}</strong>
                 </div>
 
                 <div>
-                  <span className="text-zinc-500 block text-[10px] uppercase">{dlog.realizedProtection || 'Realized Protection:'}</span>
+                  <span className="text-[#85877E] block text-[10px] uppercase">{dlog.realizedProtection || 'Realized Protection:'}</span>
                   <strong className="text-telemetry-300">{log.realizedOutcome || log.expectedImpact}</strong>
                 </div>
               </div>
 
-              <div className="pt-2 border-t border-obsidian-850 flex items-center justify-between text-[10px] text-zinc-400">
+              <div className="pt-2 border-t border-obsidian-850 flex items-center justify-between text-[10px] text-[#5F625C]">
                 <div className="flex items-center gap-1.5">
                   <UserCheck className="w-3.5 h-3.5 text-manganese-400" />
-                  <span>{dlog.operator || 'Operator:'} <strong className="text-zinc-200">{log.operatorName}</strong></span>
+                  <span>{dlog.operator || 'Operator:'} <strong className="text-[#272A27]">{log.operatorName}</strong></span>
                 </div>
                 {log.operatorNote && (
-                  <span className="text-zinc-300 italic truncate max-w-xs">"{log.operatorNote}"</span>
+                  <span className="text-[#272A27] italic truncate max-w-xs">"{log.operatorNote}"</span>
                 )}
               </div>
             </div>

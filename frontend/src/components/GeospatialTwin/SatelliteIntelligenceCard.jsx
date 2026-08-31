@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
 import { useApp } from '../../context/AppContext.jsx';
 import { MINE_SPATIAL_REGISTRY } from './mapConfig.js';
-import { 
-  Globe2, 
-  Sparkles, 
-  Calendar, 
-  TrendingUp, 
-  Droplet, 
-  Layers, 
-  Compass, 
+import {
+  Globe2,
+  Sparkles,
+  Calendar,
+  TrendingUp,
+  Droplet,
+  Layers,
+  Compass,
   Info,
   ChevronRight,
   ShieldCheck,
@@ -34,8 +34,8 @@ export const SatelliteIntelligenceCard = ({ mineId = 'balaghat' }) => {
   const currentTimeline = changeTimeline.find(t => t.year === selectedYear) || changeTimeline[2];
 
   return (
-    <div className="p-4 rounded-2xl bg-[#090e17]/95 border border-[#1a283e] backdrop-blur-md font-mono text-xs text-zinc-200 space-y-3 shadow-2xl">
-      
+    <div className="p-4 rounded-2xl bg-[#090e17]/95 border border-[#1a283e] backdrop-blur-md font-mono text-xs text-[#272A27] space-y-3 shadow-2xl">
+
       {/* Header */}
       <div className="flex items-center justify-between pb-2 border-b border-[#141f30]">
         <div className="flex items-center gap-2">
@@ -54,7 +54,7 @@ export const SatelliteIntelligenceCard = ({ mineId = 'balaghat' }) => {
 
       {/* Spectral Layer Selector */}
       <div className="space-y-1.5">
-        <div className="text-[10px] text-zinc-400 font-bold uppercase flex items-center justify-between">
+        <div className="text-[10px] text-[#5F625C] font-bold uppercase flex items-center justify-between">
           <span>{geo.spectralBandAnalysis || 'SPECTRAL BAND ANALYSIS'}</span>
           <span className="text-sky-300 font-bold">{satelliteSpectralMode}</span>
         </div>
@@ -71,7 +71,7 @@ export const SatelliteIntelligenceCard = ({ mineId = 'balaghat' }) => {
               className={`py-1 px-1.5 rounded-lg border text-center text-[10px] font-bold transition-all ${
                 satelliteSpectralMode === m.id
                   ? 'bg-sky-950 text-sky-300 border-sky-500 shadow'
-                  : 'bg-[#0b121e] border-[#182436] text-zinc-400 hover:text-white'
+                  : 'bg-[#0b121e] border-[#182436] text-[#5F625C] hover:text-white'
               }`}
             >
               {m.label}
@@ -82,7 +82,7 @@ export const SatelliteIntelligenceCard = ({ mineId = 'balaghat' }) => {
 
       {/* 3-Year Surface Disturbance Timeline Selector */}
       <div className="space-y-1.5">
-        <div className="text-[10px] text-zinc-400 font-bold uppercase flex items-center justify-between">
+        <div className="text-[10px] text-[#5F625C] font-bold uppercase flex items-center justify-between">
           <span>{geo.surfaceChangeDetection || 'SURFACE CHANGE DETECTION (2024 → 2026)'}</span>
           <span className="text-amber-400">{geo.active || 'ACTIVE'}: {selectedYear}</span>
         </div>
@@ -94,11 +94,11 @@ export const SatelliteIntelligenceCard = ({ mineId = 'balaghat' }) => {
               className={`p-2 rounded-xl border text-center transition-all ${
                 selectedYear === t.year
                   ? 'bg-[#15233b] border-emerald-500/60 text-white shadow'
-                  : 'bg-[#0b121e] border-[#182436] text-zinc-400 hover:text-zinc-200'
+                  : 'bg-[#0b121e] border-[#182436] text-[#5F625C] hover:text-[#272A27]'
               }`}
             >
               <div className="text-xs font-bold">{t.year}</div>
-              <div className="text-[9px] text-zinc-500 truncate">{t.label}</div>
+              <div className="text-[9px] text-[#85877E] truncate">{t.label}</div>
               <div className="text-[8.5px] text-emerald-400 mt-0.5">{t.disturbedDiff}</div>
             </button>
           ))}
@@ -107,7 +107,7 @@ export const SatelliteIntelligenceCard = ({ mineId = 'balaghat' }) => {
 
       {/* Before / After Interactive Split Bar */}
       <div className="p-2.5 rounded-xl bg-[#0c1422] border border-[#182636] space-y-1.5">
-        <div className="flex justify-between text-[10px] font-bold text-zinc-400">
+        <div className="flex justify-between text-[10px] font-bold text-[#5F625C]">
           <span>2024 BASELINE ({100 - compareSplit}%)</span>
           <span className="text-amber-400">2026 ACTIVE ({compareSplit}%)</span>
         </div>
@@ -119,7 +119,7 @@ export const SatelliteIntelligenceCard = ({ mineId = 'balaghat' }) => {
           onChange={(e) => setCompareSplit(parseInt(e.target.value, 10))}
           className="w-full h-1.5 bg-zinc-800 rounded-lg appearance-none cursor-pointer accent-amber-400"
         />
-        <div className="text-[9px] text-zinc-500 text-center">
+        <div className="text-[9px] text-[#85877E] text-center">
           {geo.sliderDesc || 'Interactive multi-temporal change detection slider'}
         </div>
       </div>
@@ -127,26 +127,26 @@ export const SatelliteIntelligenceCard = ({ mineId = 'balaghat' }) => {
       {/* Satellite Spectral Metrics Grid */}
       <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 text-[11px]">
         <div className="p-2 rounded-xl bg-[#0c1422] border border-[#182636]">
-          <div className="text-[9px] text-zinc-500 uppercase">{geo.activeFootprint || 'ACTIVE FOOTPRINT'}</div>
+          <div className="text-[9px] text-[#85877E] uppercase">{geo.activeFootprint || 'ACTIVE FOOTPRINT'}</div>
           <div className="text-sm font-bold text-white mt-0.5">{currentTimeline.areaHa.toFixed(1)} Ha</div>
           <div className="text-[9px] text-emerald-400 mt-0.5">{geo.leaseBound || 'Lease Bound'}</div>
         </div>
 
         <div className="p-2 rounded-xl bg-[#0c1422] border border-[#182636]">
-          <div className="text-[9px] text-zinc-500 uppercase">{geo.vegetationIndex || 'VEGETATION INDEX'}</div>
+          <div className="text-[9px] text-[#85877E] uppercase">{geo.vegetationIndex || 'VEGETATION INDEX'}</div>
           <div className="text-sm font-bold text-sky-300 mt-0.5">NDVI {currentTimeline.ndvi}</div>
-          <div className="text-[9px] text-zinc-400 mt-0.5">{geo.bufferZone || 'Buffer Zone'}</div>
+          <div className="text-[9px] text-[#5F625C] mt-0.5">{geo.bufferZone || 'Buffer Zone'}</div>
         </div>
 
         <div className="p-2 rounded-xl bg-[#0c1422] border border-[#182636] col-span-2 sm:col-span-1">
-          <div className="text-[9px] text-zinc-500 uppercase">{geo.swirMineralIndex || 'SWIR MINERAL INDEX'}</div>
+          <div className="text-[9px] text-[#85877E] uppercase">{geo.swirMineralIndex || 'SWIR MINERAL INDEX'}</div>
           <div className="text-sm font-bold text-amber-300 mt-0.5">0.412 SWIR</div>
           <div className="text-[9px] text-amber-400 mt-0.5">{geo.brauniteSignature || 'Braunite Signature'}</div>
         </div>
       </div>
 
       <div className="p-2 rounded-xl bg-[#0b1320] border border-[#1c2e4a] flex items-center justify-between text-[10.5px]">
-        <span className="text-zinc-400">{geo.demElevation || 'DEM ELEVATION RELIEF'}:</span>
+        <span className="text-[#5F625C]">{geo.demElevation || 'DEM ELEVATION RELIEF'}:</span>
         <strong className="text-white">{mineConfig.elevation} (SRTM 30m Global)</strong>
       </div>
     </div>

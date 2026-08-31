@@ -40,12 +40,12 @@ export const AetherLoadingScreen = ({ onComplete }) => {
   };
 
   return (
-    <div className="fixed inset-0 z-[100] bg-[#0F172A] flex items-center justify-center p-4 select-none">
-      
+    <div className="fixed inset-0 z-[99999] bg-[#0F172A] flex items-center justify-center p-4 select-none">
+
       {/* Background Subtle Geological Grid */}
       <div className="absolute inset-0 bg-[radial-gradient(#334155_1px,transparent_1px)] [background-size:24px_24px] opacity-20 pointer-events-none" />
 
-      <motion.div 
+      <motion.div
         initial={{ opacity: 0, scale: 0.95 }}
         animate={{ opacity: 1, scale: 1 }}
         className="relative max-w-lg w-full bg-[#1E293B] border border-[#334155] rounded-2xl p-6 sm:p-8 shadow-2xl space-y-6 text-slate-100"

@@ -44,13 +44,13 @@ export const MainLayout = () => {
     setIsReportModalOpen
   } = useApp();
 
+  // 0. Completely Isolated Boot Initialization Screen
+  if (showBootScreen) {
+    return <AetherLoadingScreen onComplete={handleBootComplete} />;
+  }
+
   return (
     <div className="min-h-screen flex bg-[#E8E1D5] text-[#272A27] font-sans selection:bg-[#C46A32]/30 selection:text-[#6C3214]">
-
-      {/* Optional Boot Initialization Screen */}
-      {showBootScreen && (
-        <AetherLoadingScreen onComplete={handleBootComplete} />
-      )}
 
       {/* 1. Collapsible Mineral Rail Sidebar */}
       <Sidebar

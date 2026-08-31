@@ -1,13 +1,13 @@
 import React, { useMemo } from 'react';
 import { useApp } from '../../context/AppContext.jsx';
-import { 
-  ResponsiveContainer, 
-  BarChart, 
-  Bar, 
-  XAxis, 
-  YAxis, 
-  CartesianGrid, 
-  Tooltip 
+import {
+  ResponsiveContainer,
+  BarChart,
+  Bar,
+  XAxis,
+  YAxis,
+  CartesianGrid,
+  Tooltip
 } from 'recharts';
 
 export const HourlyProductionChart = () => {
@@ -25,9 +25,9 @@ export const HourlyProductionChart = () => {
   // Discrete 24-hour cycle chart data matching reference image
   const chartData = useMemo(() => {
     const hours = [
-      '07:00', '08:00', '09:00', '10:00', '11:00', '12:00', 
-      '13:00', '14:00', '15:00', '16:00', '19:00', '19:00', 
-      '20:00', '21:00', '22:00', '23:00', '00:00', '01:00', 
+      '07:00', '08:00', '09:00', '10:00', '11:00', '12:00',
+      '13:00', '14:00', '15:00', '16:00', '19:00', '19:00',
+      '20:00', '21:00', '22:00', '23:00', '00:00', '01:00',
       '02:00', '03:00', '04:00', '05:00'
     ];
 
@@ -55,19 +55,19 @@ export const HourlyProductionChart = () => {
 
   return (
     <div className="p-3.5 sm:p-4 rounded-xl bg-[#0c1017] border border-[#1a2333] space-y-2.5 font-mono text-xs shadow-sm select-none">
-      
+
       {/* Title & Legend Header */}
       <div className="flex items-center justify-between">
-        <div className="text-[11px] text-zinc-300 uppercase font-bold tracking-wider">
+        <div className="text-[11px] text-[#272A27] uppercase font-bold tracking-wider">
           {ws.hourlyTitle || 'HOURLY PRODUCTION vs TARGET'}
         </div>
 
         <div className="flex items-center gap-4 text-[10px]">
-          <div className="flex items-center gap-1.5 text-zinc-400">
+          <div className="flex items-center gap-1.5 text-[#5F625C]">
             <span className="w-2.5 h-2.5 rounded-sm bg-[#2563eb]" />
             <span>{ws.targetLegend || 'Target'}</span>
           </div>
-          <div className="flex items-center gap-1.5 text-zinc-400">
+          <div className="flex items-center gap-1.5 text-[#5F625C]">
             <span className="w-2.5 h-2.5 rounded-sm bg-[#e11d48]" />
             <span>{ws.actualLegend || 'Actual'}</span>
           </div>

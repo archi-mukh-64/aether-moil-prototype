@@ -280,7 +280,7 @@ const ScenarioLabPageContent = () => {
               <Layers className="w-4 h-4" />
               <span>{sc?.multiMatrixTitle || '4-WAY CROSS-SCENARIO STRESS MATRIX'} // {getLocalizedMineName(currentMine, lang).toUpperCase()}</span>
             </div>
-            <button onClick={() => setIsMultiScenarioOpen(false)} className="text-zinc-400 hover:text-white">
+            <button onClick={() => setIsMultiScenarioOpen(false)} className="text-[#5F625C] hover:text-white">
               <X className="w-4 h-4" />
             </button>
           </div>
@@ -297,17 +297,17 @@ const ScenarioLabPageContent = () => {
                 </div>
 
                 <div className="space-y-1 text-xs">
-                  <div className="flex justify-between text-zinc-400">
+                  <div className="flex justify-between text-[#5F625C]">
                     <span>{sc?.revenueExposure || 'Revenue Exposure'}:</span>
                     <strong className="text-white">₹{data.revenueAtRiskCrore} {comm?.cr || 'Cr'}</strong>
                   </div>
-                  <div className="flex justify-between text-zinc-400">
+                  <div className="flex justify-between text-[#5F625C]">
                     <span>{sc?.riskLevel || 'Risk Level'}:</span>
                     <strong className={data.lossPct > 40 ? 'text-rose-400' : 'text-amber-400'}>
                       {data.kpiComparison[5].scenario}
                     </strong>
                   </div>
-                  <div className="flex justify-between text-zinc-400">
+                  <div className="flex justify-between text-[#5F625C]">
                     <span>{sc?.primaryAction || 'Primary Action'}:</span>
                     <span className="text-sky-300 text-[10px] truncate max-w-[120px]">{data.recommendations[0].title}</span>
                   </div>
@@ -323,9 +323,9 @@ const ScenarioLabPageContent = () => {
 
         {/* Production at Risk */}
         <div className="p-4 rounded-2xl bg-[#080d1a] border border-[#1b2a41] shadow-xl space-y-1">
-          <span className="text-[10px] text-zinc-400 uppercase tracking-wider block">{sc?.kpiProdAtRisk || 'Production at Risk'}</span>
+          <span className="text-[10px] text-[#5F625C] uppercase tracking-wider block">{sc?.kpiProdAtRisk || 'Production at Risk'}</span>
           <div className="text-xl sm:text-2xl font-black text-rose-400">
-            -{scenarioResult.lossTonnage.toLocaleString()} <span className="text-xs font-normal text-zinc-400">{comm?.tpd || 'TPD'}</span>
+            -{scenarioResult.lossTonnage.toLocaleString()} <span className="text-xs font-normal text-[#5F625C]">{comm?.tpd || 'TPD'}</span>
           </div>
           <span className="text-[10px] text-rose-400/80 block">
             -{scenarioResult.lossPct}% {sc?.ofQuota || 'of Daily Quota'}
@@ -334,18 +334,18 @@ const ScenarioLabPageContent = () => {
 
         {/* Revenue Exposure */}
         <div className="p-4 rounded-2xl bg-[#080d1a] border border-[#1b2a41] shadow-xl space-y-1">
-          <span className="text-[10px] text-zinc-400 uppercase tracking-wider block">{sc?.kpiRevExposure || 'Revenue Exposure'}</span>
+          <span className="text-[10px] text-[#5F625C] uppercase tracking-wider block">{sc?.kpiRevExposure || 'Revenue Exposure'}</span>
           <div className="text-xl sm:text-2xl font-black text-amber-400">
-            ₹{scenarioResult.revenueAtRiskCrore} <span className="text-xs font-normal text-zinc-400">{comm?.cr || 'Cr'}</span>
+            ₹{scenarioResult.revenueAtRiskCrore} <span className="text-xs font-normal text-[#5F625C]">{comm?.cr || 'Cr'}</span>
           </div>
-          <span className="text-[10px] text-zinc-400 block">
+          <span className="text-[10px] text-[#5F625C] block">
             ₹{scenarioResult.revenueAtRiskLakh} {comm?.lakh || 'Lakhs'} / {lang === 'hi' ? 'दिन' : lang === 'mr' ? 'दिवस' : 'Day'}
           </span>
         </div>
 
         {/* Fleet Availability */}
         <div className="p-4 rounded-2xl bg-[#080d1a] border border-[#1b2a41] shadow-xl space-y-1">
-          <span className="text-[10px] text-zinc-400 uppercase tracking-wider block">{sc?.kpiFleetAvail || 'Fleet Availability'}</span>
+          <span className="text-[10px] text-[#5F625C] uppercase tracking-wider block">{sc?.kpiFleetAvail || 'Fleet Availability'}</span>
           <div className="text-xl sm:text-2xl font-black text-white">
             {scenarioResult.kpiComparison[1].scenario}
           </div>
@@ -356,7 +356,7 @@ const ScenarioLabPageContent = () => {
 
         {/* Crusher Utilisation */}
         <div className="p-4 rounded-2xl bg-[#080d1a] border border-[#1b2a41] shadow-xl space-y-1">
-          <span className="text-[10px] text-zinc-400 uppercase tracking-wider block">{sc?.kpiCrusherUtil || 'Crusher Utilisation'}</span>
+          <span className="text-[10px] text-[#5F625C] uppercase tracking-wider block">{sc?.kpiCrusherUtil || 'Crusher Utilisation'}</span>
           <div className="text-xl sm:text-2xl font-black text-white">
             {scenarioResult.kpiComparison[2].scenario}
           </div>
@@ -367,22 +367,22 @@ const ScenarioLabPageContent = () => {
 
         {/* Safety Risk & Recovery */}
         <div className="p-4 rounded-2xl bg-[#080d1a] border border-[#1b2a41] shadow-xl space-y-1">
-          <span className="text-[10px] text-zinc-400 uppercase tracking-wider block">{sc?.kpiSafetyRisk || 'Safety Risk Index'}</span>
+          <span className="text-[10px] text-[#5F625C] uppercase tracking-wider block">{sc?.kpiSafetyRisk || 'Safety Risk Index'}</span>
           <div className="text-xl sm:text-2xl font-black text-amber-400">
             {scenarioResult.kpiComparison[5].scenario.split(' ')[0]}
           </div>
-          <span className="text-[10px] text-zinc-400 block">
+          <span className="text-[10px] text-[#5F625C] block">
             {comm?.downtime || 'Downtime'}: {scenarioResult.kpiComparison[4].scenario}
           </span>
         </div>
 
         {/* 95% Confidence Interval */}
         <div className="p-4 rounded-2xl bg-[#080d1a] border border-[#1b2a41] shadow-xl space-y-1">
-          <span className="text-[10px] text-zinc-400 uppercase tracking-wider block">{sc?.kpiConfidence || 'Model Confidence'}</span>
+          <span className="text-[10px] text-[#5F625C] uppercase tracking-wider block">{sc?.kpiConfidence || 'Model Confidence'}</span>
           <div className="text-xl sm:text-2xl font-black text-emerald-400">
             {scenarioResult.confidenceInterval.confidencePct}%
           </div>
-          <span className="text-[10px] text-zinc-400 block">
+          <span className="text-[10px] text-[#5F625C] block">
             [{scenarioResult.confidenceInterval.lowerBound} - {scenarioResult.confidenceInterval.upperBound} {comm?.tons || 'T'}]
           </span>
         </div>
@@ -395,7 +395,7 @@ const ScenarioLabPageContent = () => {
             <Workflow className="w-4 h-4" />
             <span>{sc?.causalTitle || 'CAUSE → EFFECT → ACTION ENGINE // MULTI-VECTOR CAUSAL PROPAGATION'}</span>
           </div>
-          <span className="text-[10px] text-zinc-400">{sc?.causalSubtitle || 'CLICK ANY NODE TO INSPECT ROOT CAUSES'}</span>
+          <span className="text-[10px] text-[#5F625C]">{sc?.causalSubtitle || 'CLICK ANY NODE TO INSPECT ROOT CAUSES'}</span>
         </div>
 
         {/* Horizontal Pipeline Steps */}
@@ -419,9 +419,9 @@ const ScenarioLabPageContent = () => {
                   <span className={`w-2 h-2 rounded-full ${step.status === 'CRITICAL' ? 'bg-rose-500' : step.status === 'OPTIMAL' ? 'bg-emerald-400' : 'bg-amber-400'}`} />
                 </div>
                 <strong className="text-white text-xs block truncate mb-1">{step.title}</strong>
-                <span className="text-[10px] text-zinc-400 block line-clamp-2">{step.detail}</span>
+                <span className="text-[10px] text-[#5F625C] block line-clamp-2">{step.detail}</span>
                 <div className="mt-2 pt-2 border-t border-[#1e2f4a] flex justify-between text-[9px]">
-                  <span className="text-zinc-500">{sc?.impact || 'Impact'}</span>
+                  <span className="text-[#85877E]">{sc?.impact || 'Impact'}</span>
                   <strong className="text-amber-300">{step.impactMetric}</strong>
                 </div>
               </div>
@@ -434,14 +434,14 @@ const ScenarioLabPageContent = () => {
           <div className="p-4 rounded-2xl bg-[#0e1728] border border-amber-400/40 text-xs space-y-2">
             <div className="flex justify-between items-center text-amber-400 font-bold">
               <span>{sc?.causalDossierTitle || 'DEEP ROOT CAUSE DIAGNOSIS'}: {scenarioResult.causalChain[activeCausalNode].stage}</span>
-              <button onClick={() => setActiveCausalNode(null)} className="text-zinc-400 hover:text-white">
+              <button onClick={() => setActiveCausalNode(null)} className="text-[#5F625C] hover:text-white">
                 <X className="w-4 h-4" />
               </button>
             </div>
-            <p className="text-zinc-300">
+            <p className="text-[#272A27]">
               {scenarioResult.causalChain[activeCausalNode].detail}
             </p>
-            <div className="text-[10px] text-zinc-400 flex gap-4">
+            <div className="text-[10px] text-[#5F625C] flex gap-4">
               <span>{sc?.sensorVerified || 'Sensor Verification'}: <strong className="text-white">3σ Anomaly Validated</strong></span>
               <span>{sc?.propagationVel || 'Propagation Velocity'}: <strong className="text-amber-300">12.4 min</strong></span>
             </div>
@@ -462,7 +462,7 @@ const ScenarioLabPageContent = () => {
           <div className="overflow-x-auto">
             <table className="w-full text-xs text-left">
               <thead>
-                <tr className="text-[10px] text-zinc-400 uppercase border-b border-[#1e2f4a]">
+                <tr className="text-[10px] text-[#5F625C] uppercase border-b border-[#1e2f4a]">
                   <th className="pb-2">{sc?.tableKpi || 'Operational KPI'}</th>
                   <th className="pb-2 text-center">{sc?.tableNormal || 'Baseline Normal'}</th>
                   <th className="pb-2 text-center">{sc?.tableScenario || 'Scenario State'}</th>
@@ -472,8 +472,8 @@ const ScenarioLabPageContent = () => {
               <tbody className="divide-y divide-[#152238]">
                 {scenarioResult.kpiComparison.map((row, idx) => (
                   <tr key={idx} className="hover:bg-[#0f192b]">
-                    <td className="py-2.5 text-zinc-200 font-bold">{row.kpi}</td>
-                    <td className="py-2.5 text-center text-zinc-400">{row.normal}</td>
+                    <td className="py-2.5 text-[#272A27] font-bold">{row.kpi}</td>
+                    <td className="py-2.5 text-center text-[#5F625C]">{row.normal}</td>
                     <td className="py-2.5 text-center text-white font-bold">{row.scenario}</td>
                     <td className={`py-2.5 text-right font-bold ${row.isNegative ? 'text-rose-400' : 'text-emerald-400'}`}>
                       {row.delta}
@@ -492,7 +492,7 @@ const ScenarioLabPageContent = () => {
               <TrendingDown className="w-4 h-4" />
               <span>{sc?.waterfallTitle || 'PRODUCTION SHORTFALL LOSS WATERFALL'}</span>
             </div>
-            <span className="text-[10px] text-zinc-400">{sc?.waterfallSubtitle || 'CLICK LOSS TO INSPECT'}</span>
+            <span className="text-[10px] text-[#5F625C]">{sc?.waterfallSubtitle || 'CLICK LOSS TO INSPECT'}</span>
           </div>
 
           <div className="space-y-2.5 pt-2">
@@ -514,7 +514,7 @@ const ScenarioLabPageContent = () => {
                   className="space-y-1 cursor-pointer hover:opacity-90 transition"
                 >
                   <div className="flex justify-between text-xs font-bold">
-                    <span className={item.isFinal ? 'text-amber-400 font-black' : item.isAdd ? 'text-emerald-400' : 'text-zinc-300'}>
+                    <span className={item.isFinal ? 'text-amber-400 font-black' : item.isAdd ? 'text-emerald-400' : 'text-[#272A27]'}>
                       {item.label}
                     </span>
                     <span className={item.isLoss ? 'text-rose-400' : 'text-white'}>
@@ -545,21 +545,21 @@ const ScenarioLabPageContent = () => {
 
           {/* Exposure Breakdown */}
           <div className="p-4 rounded-2xl bg-[#0e1728] border border-[#1e2f4a] space-y-2 text-xs">
-            <span className="text-[10px] text-zinc-400 uppercase font-bold block">{sc?.exposureTitle || 'Financial Exposure'}</span>
+            <span className="text-[10px] text-[#5F625C] uppercase font-bold block">{sc?.exposureTitle || 'Financial Exposure'}</span>
             <div className="flex justify-between border-b border-[#1e2f4a] pb-1">
-              <span className="text-zinc-400">{sc?.dailyLoss || 'Daily Revenue at Risk'}:</span>
+              <span className="text-[#5F625C]">{sc?.dailyLoss || 'Daily Revenue at Risk'}:</span>
               <strong className="text-rose-400">₹{scenarioResult.financialModel.dailyLossLakh} {comm?.lakh || 'L'}/{lang === 'hi' ? 'दिन' : lang === 'mr' ? 'दिवस' : 'Day'}</strong>
             </div>
             <div className="flex justify-between border-b border-[#1e2f4a] pb-1">
-              <span className="text-zinc-400">{sc?.monthlyLoss || 'Monthly Projected Loss'}:</span>
+              <span className="text-[#5F625C]">{sc?.monthlyLoss || 'Monthly Projected Loss'}:</span>
               <strong className="text-rose-400">₹{scenarioResult.financialModel.monthlyLossCrore} {comm?.cr || 'Cr'}</strong>
             </div>
             <div className="flex justify-between border-b border-[#1e2f4a] pb-1">
-              <span className="text-zinc-400">{sc?.additionalOpex || 'Additional Opex (Pumps/Fuel)'}:</span>
+              <span className="text-[#5F625C]">{sc?.additionalOpex || 'Additional Opex (Pumps/Fuel)'}:</span>
               <strong className="text-amber-400">₹{scenarioResult.financialModel.additionalOpexLakh} {comm?.lakh || 'L'}</strong>
             </div>
             <div className="flex justify-between">
-              <span className="text-zinc-400">{sc?.recoveryCapex || 'Recovery Capex / Maintenance'}:</span>
+              <span className="text-[#5F625C]">{sc?.recoveryCapex || 'Recovery Capex / Maintenance'}:</span>
               <strong className="text-white">₹{scenarioResult.financialModel.maintenanceCapexLakh} {comm?.lakh || 'L'}</strong>
             </div>
           </div>
@@ -567,14 +567,14 @@ const ScenarioLabPageContent = () => {
           {/* Without vs With AETHER Intervention */}
           <div className="p-4 rounded-2xl bg-[#0e1728] border border-[#1e2f4a] space-y-3 text-xs md:col-span-2 flex flex-col justify-between">
             <div>
-              <span className="text-[10px] text-zinc-400 uppercase font-bold block mb-2">{sc?.roiTitle || 'AETHER Intervention ROI'}</span>
+              <span className="text-[10px] text-[#5F625C] uppercase font-bold block mb-2">{sc?.roiTitle || 'AETHER Intervention ROI'}</span>
               <div className="grid grid-cols-3 gap-2 text-center">
                 <div className="p-2.5 rounded-xl bg-[#142033] border border-rose-500/30">
-                  <span className="text-[9.5px] text-zinc-400 block">{sc?.withoutIntervention || 'Without Intervention'}</span>
+                  <span className="text-[9.5px] text-[#5F625C] block">{sc?.withoutIntervention || 'Without Intervention'}</span>
                   <strong className="text-rose-400 text-sm">-₹{scenarioResult.financialModel.withoutInterventionLossCrore} {comm?.cr || 'Cr'}</strong>
                 </div>
                 <div className="p-2.5 rounded-xl bg-[#142033] border border-amber-500/30">
-                  <span className="text-[9.5px] text-zinc-400 block">{sc?.withIntervention || 'With AETHER Dispatch'}</span>
+                  <span className="text-[9.5px] text-[#5F625C] block">{sc?.withIntervention || 'With AETHER Dispatch'}</span>
                   <strong className="text-amber-400 text-sm">-₹{scenarioResult.financialModel.withInterventionLossCrore} {comm?.cr || 'Cr'}</strong>
                 </div>
                 <div className="p-2.5 rounded-xl bg-emerald-500/10 border border-emerald-500/40">
@@ -584,7 +584,7 @@ const ScenarioLabPageContent = () => {
               </div>
             </div>
 
-            <div className="text-[10.5px] text-zinc-400 bg-[#121c2c] p-2.5 rounded-xl border border-[#1e2f4a]">
+            <div className="text-[10.5px] text-[#5F625C] bg-[#121c2c] p-2.5 rounded-xl border border-[#1e2f4a]">
               💡 <strong>{sc?.decisionInsight || 'Decision Support Insight'}:</strong> {lang === 'hi'
                 ? `प्रोटोकॉल ${scenarioResult.recommendations[0].actionId} लागू करने से +${scenarioResult.recommendations[0].expectedRecoveryTPD} टीपीडी बहाल होता है, जिससे शमन लागत पर 12.4 गुना आरओआई प्राप्त होता है।`
                 : lang === 'mr'
@@ -602,7 +602,7 @@ const ScenarioLabPageContent = () => {
             <Sparkles className="w-4 h-4" />
             <span>{sc?.aiRecommendationsTitle || 'AETHER AI RECOMMENDED INTERVENTIONS // OPTIMIZATION MATRIX'}</span>
           </div>
-          <span className="text-[10px] text-zinc-400">{sc?.aiRecommendationsSubtitle || 'RANKED BY ESTIMATED YIELD RECOVERY'}</span>
+          <span className="text-[10px] text-[#5F625C]">{sc?.aiRecommendationsSubtitle || 'RANKED BY ESTIMATED YIELD RECOVERY'}</span>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
@@ -621,27 +621,27 @@ const ScenarioLabPageContent = () => {
                   <span className="px-2 py-0.5 rounded-md bg-amber-500/20 text-amber-300 text-[10px] font-bold">
                     {sc?.rank || 'RANK'} {rec.rank}
                   </span>
-                  <span className="text-[10px] text-zinc-400">{rec.actionId}</span>
+                  <span className="text-[10px] text-[#5F625C]">{rec.actionId}</span>
                 </div>
 
                 <strong className="text-white text-sm block">{rec.title}</strong>
-                <p className="text-[10.5px] text-zinc-400">{rec.description}</p>
+                <p className="text-[10.5px] text-[#5F625C]">{rec.description}</p>
 
                 <div className="grid grid-cols-2 gap-1.5 pt-2 border-t border-[#1e2f4a] text-[10px]">
                   <div>
-                    <span className="text-zinc-500 block">{sc?.expectedRecovery || 'Expected Recovery'}</span>
+                    <span className="text-[#85877E] block">{sc?.expectedRecovery || 'Expected Recovery'}</span>
                     <strong className="text-emerald-400">+{rec.expectedRecoveryTPD} {comm?.tpd || 'TPD'}</strong>
                   </div>
                   <div>
-                    <span className="text-zinc-500 block">{sc?.execTime || 'Execution Time'}</span>
+                    <span className="text-[#85877E] block">{sc?.execTime || 'Execution Time'}</span>
                     <strong className="text-white">{rec.implementationTime}</strong>
                   </div>
                   <div>
-                    <span className="text-zinc-500 block">{sc?.mitigationCost || 'Mitigation Cost'}</span>
+                    <span className="text-[#85877E] block">{sc?.mitigationCost || 'Mitigation Cost'}</span>
                     <strong className="text-amber-400">₹{rec.costLakh} {comm?.lakh || 'L'}</strong>
                   </div>
                   <div>
-                    <span className="text-zinc-500 block">{sc?.confidence || 'Confidence'}</span>
+                    <span className="text-[#85877E] block">{sc?.confidence || 'Confidence'}</span>
                     <strong className="text-sky-400">{rec.confidence}%</strong>
                   </div>
                 </div>
@@ -651,7 +651,7 @@ const ScenarioLabPageContent = () => {
                   className={`w-full py-2 rounded-xl font-bold text-[10.5px] transition ${
                     isApplied
                       ? 'bg-emerald-500 text-obsidian-950 hover:bg-emerald-400'
-                      : 'bg-[#182942] text-zinc-300 hover:bg-[#223755] hover:text-white'
+                      : 'bg-[#182942] text-[#272A27] hover:bg-[#223755] hover:text-white'
                   }`}
                 >
                   {isApplied ? (sc?.authorizedBtn || '✓ INTERVENTION AUTHORIZED') : (sc?.authorizeBtn || 'AUTHORIZE INTERVENTION')}
@@ -685,24 +685,24 @@ const ScenarioLabPageContent = () => {
 
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 text-[10.5px]">
             <div className="p-2 rounded-xl bg-[#0e1728] border border-[#1e2f4a]">
-              <span className="text-zinc-400 block text-[9.5px]">{sc?.ndviVigour || 'Spectral NDVI (Vigour)'}</span>
+              <span className="text-[#5F625C] block text-[9.5px]">{sc?.ndviVigour || 'Spectral NDVI (Vigour)'}</span>
               <strong className="text-emerald-400">{scenarioResult.satelliteEvidence.ndviValue}</strong>
             </div>
             <div className="p-2 rounded-xl bg-[#0e1728] border border-[#1e2f4a]">
-              <span className="text-zinc-400 block text-[9.5px]">{sc?.ndwiWater || 'Moisture NDWI (Water)'}</span>
+              <span className="text-[#5F625C] block text-[9.5px]">{sc?.ndwiWater || 'Moisture NDWI (Water)'}</span>
               <strong className="text-sky-400">{scenarioResult.satelliteEvidence.ndwiValue}</strong>
             </div>
             <div className="p-2 rounded-xl bg-[#0e1728] border border-[#1e2f4a]">
-              <span className="text-zinc-400 block text-[9.5px]">{sc?.soilSaturation || 'Soil Saturation'}</span>
+              <span className="text-[#5F625C] block text-[9.5px]">{sc?.soilSaturation || 'Soil Saturation'}</span>
               <strong className="text-amber-400">{scenarioResult.satelliteEvidence.soilMoisturePct}%</strong>
             </div>
             <div className="p-2 rounded-xl bg-[#0e1728] border border-[#1e2f4a]">
-              <span className="text-zinc-400 block text-[9.5px]">{sc?.pitDisturbedArea || 'Pit Disturbed Area'}</span>
+              <span className="text-[#5F625C] block text-[9.5px]">{sc?.pitDisturbedArea || 'Pit Disturbed Area'}</span>
               <strong className="text-white">{scenarioResult.satelliteEvidence.disturbedAreaHa} Ha</strong>
             </div>
           </div>
 
-          <p className="text-[11px] text-zinc-300 bg-[#0e1728] p-3 rounded-xl border border-[#1e2f4a]">
+          <p className="text-[11px] text-[#272A27] bg-[#0e1728] p-3 rounded-xl border border-[#1e2f4a]">
             {scenarioResult.satelliteEvidence.observationSummary}
           </p>
         </div>
@@ -726,7 +726,7 @@ const ScenarioLabPageContent = () => {
                 </span>
                 <div className="space-y-0.5 flex-1">
                   <strong className="text-white text-xs block">{m.event}</strong>
-                  <span className="text-zinc-400 text-[10.5px] block">{m.detail}</span>
+                  <span className="text-[#5F625C] text-[10.5px] block">{m.detail}</span>
                 </div>
               </div>
             ))}
@@ -744,7 +744,7 @@ const ScenarioLabPageContent = () => {
             {scenarioResult.shapDrivers.map((driver, idx) => (
               <div key={idx} className="space-y-1">
                 <div className="flex justify-between text-xs font-bold">
-                  <span className="text-zinc-300">{driver.name}</span>
+                  <span className="text-[#272A27]">{driver.name}</span>
                   <span className="text-amber-400">{driver.contributionPct}%</span>
                 </div>
                 <div className="w-full h-2 rounded-full bg-[#0e1728]">
@@ -757,7 +757,7 @@ const ScenarioLabPageContent = () => {
             ))}
           </div>
 
-          <div className="p-3 rounded-xl bg-[#0e1728] border border-[#1e2f4a] text-[10.5px] text-zinc-400">
+          <div className="p-3 rounded-xl bg-[#0e1728] border border-[#1e2f4a] text-[10.5px] text-[#5F625C]">
             {sc?.shapInsight || 'GBM TreeSHAP attribution demonstrates that haulage traction degradation is the primary bottleneck vector under this stress state.'}
           </div>
         </div>
@@ -774,13 +774,13 @@ const ScenarioLabPageContent = () => {
           {scenarioHistory.map(entry => (
             <div key={entry.id} className="p-3 rounded-xl bg-[#0e1728] border border-[#1e2f4a] flex justify-between items-center">
               <div>
-                <span className="text-[9.5px] text-zinc-500 block">{entry.date}</span>
+                <span className="text-[9.5px] text-[#85877E] block">{entry.date}</span>
                 <strong className="text-white text-xs block">{entry.mineName}</strong>
                 <span className="text-amber-400 text-[10.5px]">{entry.scenarioName}</span>
               </div>
               <div className="text-right">
                 <span className="text-rose-400 font-bold block">-{entry.lossT} {comm?.tons || 'T'}</span>
-                <span className="text-zinc-400 text-[10px]">₹{entry.revenueL} {comm?.lakh || 'L'}</span>
+                <span className="text-[#5F625C] text-[10px]">₹{entry.revenueL} {comm?.lakh || 'L'}</span>
               </div>
             </div>
           ))}

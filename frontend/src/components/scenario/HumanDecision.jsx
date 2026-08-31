@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import { useApp } from '../../context/AppContext.jsx';
-import { 
-  UserCheck, 
-  ShieldCheck, 
-  CheckCircle2, 
-  AlertTriangle, 
-  Zap, 
-  FileText, 
-  Clock, 
+import {
+  UserCheck,
+  ShieldCheck,
+  CheckCircle2,
+  AlertTriangle,
+  Zap,
+  FileText,
+  Clock,
   Sliders
 } from 'lucide-react';
 
@@ -43,9 +43,9 @@ export const HumanDecision = () => {
 
   return (
     <div className="panel-surface p-6 sm:p-8 border border-telemetry-500/40 bg-gradient-to-b from-telemetry-950/15 via-obsidian-900 to-obsidian-950 font-mono text-xs space-y-6 shadow-2xl animate-fade-in select-none">
-      
+
       {/* Header */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-4 border-b border-obsidian-800 gap-2">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-4 border-b border-[#C8BFAF] gap-2">
         <div className="flex items-center gap-2.5">
           <div className="w-8 h-8 rounded-lg bg-telemetry-500/20 border border-telemetry-500/30 flex items-center justify-center">
             <UserCheck className="w-4 h-4 text-telemetry-400" />
@@ -68,8 +68,8 @@ export const HumanDecision = () => {
       {/* Decision Status Card if already decided */}
       {(isApproved || isModified || isRejected) && (
         <div className={`p-4 rounded-xl border flex items-center justify-between gap-4 ${
-          isRejected 
-            ? 'bg-hazard-950/20 border-hazard-500/40 text-hazard-300' 
+          isRejected
+            ? 'bg-hazard-950/20 border-hazard-500/40 text-hazard-300'
             : 'bg-telemetry-950/20 border-telemetry-500/40 text-telemetry-300'
         }`}>
           <div className="flex items-center gap-3">
@@ -80,13 +80,13 @@ export const HumanDecision = () => {
                 {isModified && (lang === 'hi' ? 'ऑपरेटर संशोधनों के साथ प्रेषण अधिकृत' : lang === 'mr' ? 'ऑपरेटर सुधारणेसह प्रेषण अधिकृत' : 'DISPATCH AUTHORIZED WITH OPERATOR MODIFICATIONS')}
                 {isRejected && (lang === 'hi' ? 'ऑपरेटर द्वारा एआई सिफारिश ओवरराइड' : lang === 'mr' ? 'ऑपरेटरद्वारे एआय शिफारस ओव्हरराइड' : 'AI RECOMMENDATION OVERRIDDEN BY OPERATOR')}
               </div>
-              <div className="text-[11px] text-zinc-400 font-sans mt-0.5">
-                {lang === 'hi' ? 'हस्ताक्षरकर्ता:' : lang === 'mr' ? 'स्वाक्षरीकर्ता:' : 'Sign-off recorded by'} <strong className="text-zinc-200">{operatorName}</strong> • {new Date().toLocaleTimeString()} IST.
+              <div className="text-[11px] text-[#5F625C] font-sans mt-0.5">
+                {lang === 'hi' ? 'हस्ताक्षरकर्ता:' : lang === 'mr' ? 'स्वाक्षरीकर्ता:' : 'Sign-off recorded by'} <strong className="text-[#272A27]">{operatorName}</strong> • {new Date().toLocaleTimeString()} IST.
               </div>
             </div>
           </div>
 
-          <span className="px-3 py-1 rounded bg-obsidian-950 border border-obsidian-800 text-[10px] font-bold text-white">
+          <span className="px-3 py-1 rounded bg-[#F0EBE2] border border-[#C8BFAF] text-[10px] font-bold text-white">
             {decisionStage}
           </span>
         </div>
@@ -95,26 +95,26 @@ export const HumanDecision = () => {
       {/* Operator Form (when awaiting decision or modifying) */}
       {!isApproved && !isModified && !isRejected && (
         <div className="space-y-4">
-          
-          <div className="p-4 rounded-xl bg-obsidian-950/80 border border-obsidian-800 space-y-3">
+
+          <div className="p-4 rounded-xl bg-[#F0EBE2] border border-[#C8BFAF] space-y-3">
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
-                <label className="text-[10px] text-zinc-400 uppercase tracking-wider block mb-1">
+                <label className="text-[10px] text-[#5F625C] uppercase tracking-wider block mb-1">
                   {lang === 'hi' ? 'नामित शिफ्ट पर्यवेक्षक / संचालन नियंत्रक:' : lang === 'mr' ? 'नियुक्त शिफ्ट पर्यवेक्षक / ऑपरेशन्स नियंत्रक:' : 'Designated Shift Supervisor / Operations Controller:'}
                 </label>
                 <input
                   type="text"
                   value={operatorName}
                   onChange={(e) => setOperatorName(e.target.value)}
-                  className="w-full px-3 py-2 rounded-lg bg-obsidian-900 border border-obsidian-750 text-white font-mono text-xs focus:border-manganese-500 outline-none"
+                  className="w-full px-3 py-2 rounded-lg bg-[#F5F1E9] border border-[#C8BFAF] text-white font-mono text-xs focus:border-manganese-500 outline-none"
                 />
               </div>
 
               <div>
-                <label className="text-[10px] text-zinc-400 uppercase tracking-wider block mb-1">
+                <label className="text-[10px] text-[#5F625C] uppercase tracking-wider block mb-1">
                   {lang === 'hi' ? 'वैधानिक शिफ्ट समय मुहर:' : lang === 'mr' ? 'वैधानिक शिफ्ट वेळ मुहर:' : 'Statutory Shift Timestamp:'}
                 </label>
-                <div className="px-3 py-2 rounded-lg bg-obsidian-900 border border-obsidian-750 text-zinc-300 font-mono text-xs flex items-center justify-between">
+                <div className="px-3 py-2 rounded-lg bg-[#F5F1E9] border border-[#C8BFAF] text-[#272A27] font-mono text-xs flex items-center justify-between">
                   <span>{new Date().toLocaleTimeString()} IST</span>
                   <span className="text-telemetry-400 font-bold">{ws.shiftA || 'Shift A Active'}</span>
                 </div>
@@ -131,12 +131,12 @@ export const HumanDecision = () => {
                   value={customParams}
                   onChange={(e) => setCustomParams(e.target.value)}
                   placeholder={lang === 'hi' ? 'उदा. क्रशर थ्रॉटल 220 TPH करें; 2 डंपर तैनात करें।' : lang === 'mr' ? 'उदा. क्रशर थ्रॉटल 220 TPH करा; 2 डंपर तैनात करा.' : 'e.g. Throttle CR-01 to 220 TPH instead of 210 TPH; engage 2 dumpers instead of 4.'}
-                  className="w-full px-3 py-2 rounded-lg bg-obsidian-900 border border-manganese-500/50 text-white font-mono text-xs focus:border-manganese-400 outline-none"
+                  className="w-full px-3 py-2 rounded-lg bg-[#F5F1E9] border border-manganese-500/50 text-white font-mono text-xs focus:border-manganese-400 outline-none"
                 />
               </div>
             ) : (
               <div>
-                <label className="text-[10px] text-zinc-400 uppercase tracking-wider block mb-1">
+                <label className="text-[10px] text-[#5F625C] uppercase tracking-wider block mb-1">
                   {lang === 'hi' ? 'ऑपरेटर शिफ्ट लेजर नोट्स (वैकल्पिक):' : lang === 'mr' ? 'ऑपरेटर शिफ्ट नोंदवही नोट्स (पर्यायी):' : 'Operator Shift Ledger Notes (Optional):'}
                 </label>
                 <input
@@ -144,7 +144,7 @@ export const HumanDecision = () => {
                   value={operatorNotes}
                   onChange={(e) => setOperatorNotes(e.target.value)}
                   placeholder={lang === 'hi' ? 'उदा. पंप AP-04 लाइन दबाव सत्यापित; वायरलेस प्रसारण पूर्ण।' : lang === 'mr' ? 'उदा. पंप AP-04 लाइन दाब तपासला; वायरलेस संदेश पूर्ण.' : 'e.g. Verified pump AP-04 line pressure; VHF broadcast complete.'}
-                  className="w-full px-3 py-2 rounded-lg bg-obsidian-900 border border-obsidian-750 text-zinc-200 font-sans text-xs focus:border-manganese-500 outline-none"
+                  className="w-full px-3 py-2 rounded-lg bg-[#F5F1E9] border border-[#C8BFAF] text-[#272A27] font-sans text-xs focus:border-manganese-500 outline-none"
                 />
               </div>
             )}
@@ -154,7 +154,7 @@ export const HumanDecision = () => {
           <div className="flex flex-col sm:flex-row items-center justify-between gap-3 pt-2">
             <button
               onClick={handleReject}
-              className="w-full sm:w-auto px-5 py-2.5 rounded-xl bg-obsidian-850 hover:bg-hazard-500/20 text-zinc-400 hover:text-hazard-300 border border-obsidian-700 font-bold text-xs uppercase tracking-wide transition-colors"
+              className="w-full sm:w-auto px-5 py-2.5 rounded-xl bg-[#DDD4C5] hover:bg-hazard-500/20 text-[#5F625C] hover:text-hazard-300 border border-[#C8BFAF] font-bold text-xs uppercase tracking-wide transition-colors"
             >
               {lang === 'hi' ? '[ अस्वीकार / मैनुअल ओवरराइड ]' : lang === 'mr' ? '[ नकार / मॅन्युअल ओव्हरराइड ]' : '[ REJECT / MANUAL OVERRIDE ]'}
             </button>
@@ -164,7 +164,7 @@ export const HumanDecision = () => {
                 <>
                   <button
                     onClick={() => setIsModifying(false)}
-                    className="w-full sm:w-auto px-5 py-2.5 rounded-xl bg-obsidian-800 text-zinc-300 font-bold text-xs uppercase"
+                    className="w-full sm:w-auto px-5 py-2.5 rounded-xl bg-[#C8BFAF] text-[#272A27] font-bold text-xs uppercase"
                   >
                     {comm.cancel || 'Cancel'}
                   </button>
@@ -179,7 +179,7 @@ export const HumanDecision = () => {
                 <>
                   <button
                     onClick={() => setIsModifying(true)}
-                    className="w-full sm:w-auto px-6 py-2.5 rounded-xl bg-obsidian-800 hover:bg-obsidian-750 text-manganese-300 border border-obsidian-700 font-bold text-xs uppercase tracking-wide transition-colors"
+                    className="w-full sm:w-auto px-6 py-2.5 rounded-xl bg-[#C8BFAF] hover:bg-obsidian-750 text-manganese-300 border border-[#C8BFAF] font-bold text-xs uppercase tracking-wide transition-colors"
                   >
                     {lang === 'hi' ? '[ पैरामीटर संशोधित करें ]' : lang === 'mr' ? '[ पॅरामीटर्स सुधारा ]' : '[ MODIFY PARAMETERS ]'}
                   </button>

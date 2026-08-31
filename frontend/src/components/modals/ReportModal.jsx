@@ -1,15 +1,15 @@
 import React, { useState } from 'react';
 import { useApp } from '../../context/AppContext.jsx';
 import { reportApi } from '../../services/api/reportApi.js';
-import { 
-  FileText, 
-  Download, 
-  X, 
-  CheckCircle2, 
-  Loader2, 
-  Layers, 
-  ShieldCheck, 
-  MapPin, 
+import {
+  FileText,
+  Download,
+  X,
+  CheckCircle2,
+  Loader2,
+  Layers,
+  ShieldCheck,
+  MapPin,
   Sparkles,
   Server,
   FileCheck,
@@ -72,8 +72,8 @@ export const ReportModal = ({ isOpen, onClose }) => {
 
   return (
     <div className="fixed inset-0 z-[150] flex items-center justify-center p-4 bg-black/80 backdrop-blur-md animate-in fade-in duration-200 font-sans">
-      <div className="relative w-full max-w-xl rounded-2xl bg-[#0f172a] border border-[#1e293b] shadow-2xl p-6 text-zinc-200 font-mono">
-        
+      <div className="relative w-full max-w-xl rounded-2xl bg-[#0f172a] border border-[#1e293b] shadow-2xl p-6 text-[#272A27] font-mono">
+
         {/* Modal Header */}
         <div className="flex items-center justify-between border-b border-zinc-800 pb-4">
           <div className="flex items-center gap-3">
@@ -84,14 +84,14 @@ export const ReportModal = ({ isOpen, onClose }) => {
               <h2 className="text-base font-bold text-white tracking-wide">
                 {mod.reportTitle || 'MOIL MINING INTELLIGENCE REPORT'}
               </h2>
-              <p className="text-xs text-zinc-400">
+              <p className="text-xs text-[#5F625C]">
                 {mod.reportSubtitle || 'Authoritative Multi-Mine Telemetry & Executive Deck'}
               </p>
             </div>
           </div>
-          <button 
+          <button
             onClick={onClose}
-            className="p-1.5 rounded-lg text-zinc-400 hover:text-white hover:bg-zinc-800 transition-colors"
+            className="p-1.5 rounded-lg text-[#5F625C] hover:text-white hover:bg-zinc-800 transition-colors"
           >
             <X className="w-5 h-5" />
           </button>
@@ -99,10 +99,10 @@ export const ReportModal = ({ isOpen, onClose }) => {
 
         {/* Modal Body */}
         <div className="mt-5 space-y-4 text-xs">
-          
+
           {/* Format Selection: PDF vs PPTX */}
           <div>
-            <label className="text-[11px] font-bold text-zinc-400 uppercase tracking-wider block mb-2">
+            <label className="text-[11px] font-bold text-[#5F625C] uppercase tracking-wider block mb-2">
               {mod.exportFormat || 'Export Format'}
             </label>
             <div className="grid grid-cols-2 gap-2">
@@ -112,7 +112,7 @@ export const ReportModal = ({ isOpen, onClose }) => {
                 className={`p-3 rounded-xl border flex items-center justify-between transition-all ${
                   reportFormat === 'PDF'
                     ? 'bg-[#1e293b] border-amber-500 text-white'
-                    : 'bg-[#0b1220] border-zinc-800 text-zinc-400 hover:border-zinc-700'
+                    : 'bg-[#0b1220] border-zinc-800 text-[#5F625C] hover:border-zinc-700'
                 }`}
               >
                 <div className="flex items-center gap-2">
@@ -128,7 +128,7 @@ export const ReportModal = ({ isOpen, onClose }) => {
                 className={`p-3 rounded-xl border flex items-center justify-between transition-all ${
                   reportFormat === 'PPTX'
                     ? 'bg-[#1e293b] border-amber-500 text-white'
-                    : 'bg-[#0b1220] border-zinc-800 text-zinc-400 hover:border-zinc-700'
+                    : 'bg-[#0b1220] border-zinc-800 text-[#5F625C] hover:border-zinc-700'
                 }`}
               >
                 <div className="flex items-center gap-2">
@@ -142,7 +142,7 @@ export const ReportModal = ({ isOpen, onClose }) => {
 
           {/* Report Scope Selection */}
           <div>
-            <label className="text-[11px] font-bold text-zinc-400 uppercase tracking-wider block mb-2">
+            <label className="text-[11px] font-bold text-[#5F625C] uppercase tracking-wider block mb-2">
               {mod.scopeSelection || 'Report Scope Selection'}
             </label>
             <div className="grid grid-cols-3 gap-2">
@@ -158,11 +158,11 @@ export const ReportModal = ({ isOpen, onClose }) => {
                   className={`p-2.5 rounded-xl border text-left transition-all ${
                     reportScope === s.id
                       ? 'bg-[#1e293b] border-amber-500 text-white shadow'
-                      : 'bg-[#0b1220] border-zinc-800 text-zinc-400 hover:border-zinc-700'
+                      : 'bg-[#0b1220] border-zinc-800 text-[#5F625C] hover:border-zinc-700'
                   }`}
                 >
                   <div className="font-bold text-xs">{s.label}</div>
-                  <div className="text-[9px] text-zinc-500 mt-0.5">{s.desc}</div>
+                  <div className="text-[9px] text-[#85877E] mt-0.5">{s.desc}</div>
                 </button>
               ))}
             </div>
@@ -170,7 +170,7 @@ export const ReportModal = ({ isOpen, onClose }) => {
 
           {/* Multilingual Localization Selector */}
           <div>
-            <label className="text-[11px] font-bold text-zinc-400 uppercase tracking-wider block mb-2">
+            <label className="text-[11px] font-bold text-[#5F625C] uppercase tracking-wider block mb-2">
               {mod.docLang || 'Document Language / भाषा'}
             </label>
             <div className="grid grid-cols-3 gap-2">
@@ -186,7 +186,7 @@ export const ReportModal = ({ isOpen, onClose }) => {
                   className={`p-2 rounded-xl border text-center transition-all ${
                     selectedLanguage === l.code
                       ? 'bg-[#1e293b] border-sky-500 text-sky-300 font-bold'
-                      : 'bg-[#0b1220] border-zinc-800 text-zinc-400 hover:text-white'
+                      : 'bg-[#0b1220] border-zinc-800 text-[#5F625C] hover:text-white'
                   }`}
                 >
                   {l.label}
@@ -202,11 +202,11 @@ export const ReportModal = ({ isOpen, onClose }) => {
                 <Loader2 className="w-4 h-4 animate-spin" />
                 <span>{mod.generating || 'GENERATING AUTHORITATIVE DOCUMENT...'}</span>
               </div>
-              <div className="text-[11px] text-zinc-300">
+              <div className="text-[11px] text-[#272A27]">
                 {steps[progressStep]}
               </div>
               <div className="w-full h-1.5 bg-zinc-800 rounded-full overflow-hidden">
-                <div 
+                <div
                   className="h-full bg-amber-500 transition-all duration-300"
                   style={{ width: `${((progressStep + 1) / steps.length) * 100}%` }}
                 />
@@ -227,7 +227,7 @@ export const ReportModal = ({ isOpen, onClose }) => {
         <div className="mt-6 flex items-center justify-end gap-3 border-t border-zinc-800 pt-4">
           <button
             onClick={onClose}
-            className="px-4 py-2 rounded-xl border border-zinc-700 text-zinc-300 hover:bg-zinc-800 text-xs transition-colors"
+            className="px-4 py-2 rounded-xl border border-zinc-700 text-[#272A27] hover:bg-zinc-800 text-xs transition-colors"
           >
             {mod.close || comm.close || 'Close'}
           </button>

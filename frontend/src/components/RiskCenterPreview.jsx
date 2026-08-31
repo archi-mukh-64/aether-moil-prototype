@@ -4,14 +4,14 @@ import { useApp } from '../context/AppContext.jsx';
 import { alertApi } from '../services/api/alertApi.js';
 import { feedbackApi } from '../services/api/feedbackApi.js';
 import { generateRiskMatrix, CANONICAL_MOIL_THREATS } from '../services/riskEngine.js';
-import { 
-  AlertTriangle, 
-  ShieldAlert, 
-  ArrowUpRight, 
-  CheckCircle2, 
-  Zap, 
-  Clock, 
-  MapPin, 
+import {
+  AlertTriangle,
+  ShieldAlert,
+  ArrowUpRight,
+  CheckCircle2,
+  Zap,
+  Clock,
+  MapPin,
   Filter,
   Layers,
   ChevronRight,
@@ -35,23 +35,23 @@ import {
 } from 'lucide-react';
 
 export const RiskCenterPreview = () => {
-  const { 
-    t, 
-    lang, 
-    activeMine, 
+  const {
+    t,
+    lang,
+    activeMine,
     selectedMineId,
-    mines, 
-    activeScenarioId, 
+    mines,
+    activeScenarioId,
     scenarioSeverity,
     auditLogs,
     setAuditLogs
   } = useApp();
 
   // 1. Canonical Threat Dataset (Single Source of Truth)
-  const [canonicalThreats, setCanonicalThreats] = useState(() => 
+  const [canonicalThreats, setCanonicalThreats] = useState(() =>
     generateRiskMatrix('all', activeScenarioId ? { scenarioId: activeScenarioId, severity: scenarioSeverity } : null)
   );
-  
+
   // 2. Active Filter States
   const [selectedMineFilter, setSelectedMineFilter] = useState('ALL');
   const [selectedStatus, setSelectedStatus] = useState('ALL');
@@ -78,7 +78,7 @@ export const RiskCenterPreview = () => {
         scenario: activeScenarioId || undefined,
         scenario_severity: scenarioSeverity || undefined
       };
-      
+
       const res = await alertApi.listAlerts(params);
       if (res && Array.isArray(res.alerts) && res.alerts.length > 0) {
         // Merge with existing acknowledgement / resolution overrides if any
@@ -161,7 +161,7 @@ export const RiskCenterPreview = () => {
     // Filter 4: Keyword Multi-Term Search
     if (searchQuery && searchQuery.trim()) {
       const q = searchQuery.trim().toLowerCase();
-      list = list.filter(t => 
+      list = list.filter(t =>
         (t.title || '').toLowerCase().includes(q) ||
         (t.description || '').toLowerCase().includes(q) ||
         (t.primaryDriver || '').toLowerCase().includes(q) ||
@@ -219,52 +219,52 @@ export const RiskCenterPreview = () => {
   // Dynamic Severity Spectrum Tab Counts
   const severitySpectrum = useMemo(() => {
     return [
-      { 
-        id: 'ALL', 
-        label: lang === 'hi' ? 'सभी खतरे' : lang === 'mr' ? 'सर्व धोके' : 'ALL THREAT VECTORS', 
-        count: mineScopedThreats.length, 
-        color: 'text-zinc-300' 
+      {
+        id: 'ALL',
+        label: lang === 'hi' ? 'सभी खतरे' : lang === 'mr' ? 'सर्व धोके' : 'ALL THREAT VECTORS',
+        count: mineScopedThreats.length,
+        color: 'text-[#272A27]'
       },
-      { 
-        id: 'CRITICAL', 
-        label: lang === 'hi' ? 'गंभीर' : lang === 'mr' ? 'गंभीर' : 'CRITICAL', 
-        count: mineScopedThreats.filter(r => (r.severity || r.level || '').toUpperCase() === 'CRITICAL').length, 
-        color: 'text-hazard-400', 
-        bg: 'bg-hazard-500/15 border-hazard-500/40' 
+      {
+        id: 'CRITICAL',
+        label: lang === 'hi' ? 'गंभीर' : lang === 'mr' ? 'गंभीर' : 'CRITICAL',
+        count: mineScopedThreats.filter(r => (r.severity || r.level || '').toUpperCase() === 'CRITICAL').length,
+        color: 'text-hazard-400',
+        bg: 'bg-hazard-500/15 border-hazard-500/40'
       },
-      { 
-        id: 'HIGH', 
-        label: lang === 'hi' ? 'उच्च' : lang === 'mr' ? 'उच्च' : 'HIGH', 
-        count: mineScopedThreats.filter(r => (r.severity || r.level || '').toUpperCase() === 'HIGH').length, 
-        color: 'text-manganese-400', 
-        bg: 'bg-manganese-500/15 border-manganese-500/40' 
+      {
+        id: 'HIGH',
+        label: lang === 'hi' ? 'उच्च' : lang === 'mr' ? 'उच्च' : 'HIGH',
+        count: mineScopedThreats.filter(r => (r.severity || r.level || '').toUpperCase() === 'HIGH').length,
+        color: 'text-manganese-400',
+        bg: 'bg-manganese-500/15 border-manganese-500/40'
       },
-      { 
-        id: 'ELEVATED', 
-        label: lang === 'hi' ? 'बढ़ा हुआ' : lang === 'mr' ? 'वाढलेला' : 'ELEVATED', 
-        count: mineScopedThreats.filter(r => (r.severity || r.level || '').toUpperCase() === 'ELEVATED').length, 
-        color: 'text-amber-400', 
-        bg: 'bg-amber-500/15 border-amber-500/40' 
+      {
+        id: 'ELEVATED',
+        label: lang === 'hi' ? 'बढ़ा हुआ' : lang === 'mr' ? 'वाढलेला' : 'ELEVATED',
+        count: mineScopedThreats.filter(r => (r.severity || r.level || '').toUpperCase() === 'ELEVATED').length,
+        color: 'text-amber-400',
+        bg: 'bg-amber-500/15 border-amber-500/40'
       },
-      { 
-        id: 'MEDIUM', 
-        label: lang === 'hi' ? 'मध्यम / निगरानी' : lang === 'mr' ? 'मध्यम / देखरेख' : 'MEDIUM / WATCH', 
+      {
+        id: 'MEDIUM',
+        label: lang === 'hi' ? 'मध्यम / निगरानी' : lang === 'mr' ? 'मध्यम / देखरेख' : 'MEDIUM / WATCH',
         count: mineScopedThreats.filter(r => {
           const s = (r.severity || r.level || '').toUpperCase();
           return s === 'MEDIUM' || s === 'WATCH';
-        }).length, 
-        color: 'text-radar-400', 
-        bg: 'bg-radar-500/15 border-radar-500/40' 
+        }).length,
+        color: 'text-radar-400',
+        bg: 'bg-radar-500/15 border-radar-500/40'
       },
-      { 
-        id: 'LOW', 
-        label: lang === 'hi' ? 'सामान्य' : lang === 'mr' ? 'सामान्य' : 'LOW / NOMINAL', 
+      {
+        id: 'LOW',
+        label: lang === 'hi' ? 'सामान्य' : lang === 'mr' ? 'सामान्य' : 'LOW / NOMINAL',
         count: mineScopedThreats.filter(r => {
           const s = (r.severity || r.level || '').toUpperCase();
           return s === 'LOW' || s === 'NOMINAL' || s === 'NORMAL';
-        }).length, 
-        color: 'text-telemetry-400', 
-        bg: 'bg-telemetry-500/15 border-telemetry-500/40' 
+        }).length,
+        color: 'text-telemetry-400',
+        bg: 'bg-telemetry-500/15 border-telemetry-500/40'
       },
     ];
   }, [mineScopedThreats, lang]);
@@ -284,7 +284,7 @@ export const RiskCenterPreview = () => {
   const handleAcknowledge = async (threatId) => {
     setActionLoading(true);
     const now = new Date().toISOString();
-    
+
     // Instant Optimistic Reactive Update
     setCanonicalThreats(prev => prev.map(t => {
       if (t.id === threatId) {
@@ -349,7 +349,7 @@ export const RiskCenterPreview = () => {
   const handleResolve = async (threatId) => {
     setActionLoading(true);
     const now = new Date().toISOString();
-    
+
     // Instant Optimistic Reactive Update
     setCanonicalThreats(prev => prev.map(t => {
       if (t.id === threatId) {
@@ -414,7 +414,7 @@ export const RiskCenterPreview = () => {
   const handleEscalate = async (threatId) => {
     setActionLoading(true);
     const now = new Date().toISOString();
-    
+
     // Instant Optimistic Reactive Update
     setCanonicalThreats(prev => prev.map(t => {
       if (t.id === threatId) {
@@ -478,18 +478,18 @@ export const RiskCenterPreview = () => {
 
   return (
     <section className="command-container py-12 select-none">
-      
+
       {/* Section Header with Live Status & Refresh Button */}
-      <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4 border-b border-obsidian-800 pb-6">
+      <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4 border-b border-[#C8BFAF] pb-6">
         <div>
           <div className="badge-hazard mb-2">
             <AlertTriangle className="w-3.5 h-3.5 text-hazard-400 animate-pulse" />
             <span>{lang === 'hi' ? 'परिचालन जोखिम एवं खतरा मैट्रिक्स' : lang === 'mr' ? 'ऑपरेशनल जोखीम व धोका मॅट्रिक्स' : 'OPERATIONAL RISK & THREAT MATRIX'}</span>
           </div>
-          <h2 className="font-display text-2xl sm:text-4xl font-extrabold tracking-tight text-white">
+          <h2 className="font-display text-2xl sm:text-4xl font-extrabold tracking-tight text-[#272A27]">
             {lang === 'hi' ? 'परिचालन जोखिम नियंत्रण केंद्र' : lang === 'mr' ? 'ऑपरेशनल जोखीम नियंत्रण केंद्र' : 'Operational Risk Center'}
           </h2>
-          <p className="text-xs sm:text-sm text-zinc-400 mt-1 max-w-2xl font-mono">
+          <p className="text-xs sm:text-sm text-[#5F625C] mt-1 max-w-2xl font-mono">
             {lang === 'hi' ? `वास्तविक समय बहु-सेंसर खतरा आकलन जो हाइड्रो-जियोलॉजी, उपकरण हार्मोनिक्स, और ढुलाई चक्रों की निगरानी करता है।` :
              lang === 'mr' ? `थेट वेळ बहु-सेन्सर धोका मूल्यांकन जे हायड्रो-भूविज्ञान, उपकरण सुसंगती आणि वाहतूक चक्रांवर लक्ष ठेवते.` :
              `Real-time multi-sensor threat assessment tracking hydrogeology, equipment harmonics, and haulage cycles across active assets.`}
@@ -501,16 +501,16 @@ export const RiskCenterPreview = () => {
           <button
             onClick={() => loadThreats(true)}
             disabled={loading || refreshing}
-            className="px-3.5 py-2 rounded-xl bg-obsidian-900 border border-obsidian-750 hover:border-manganese-500/50 hover:bg-obsidian-850 font-mono text-xs text-zinc-300 flex items-center gap-2 transition-all shadow-sm"
+            className="px-3.5 py-2 rounded-xl bg-[#F5F1E9] border border-[#C8BFAF] hover:border-manganese-500/50 hover:bg-[#DDD4C5] font-mono text-xs text-[#272A27] flex items-center gap-2 transition-all shadow-sm"
           >
             <RefreshCw className={`w-3.5 h-3.5 text-manganese-400 ${refreshing ? 'animate-spin' : ''}`} />
             <span>{refreshing ? (lang === 'hi' ? 'ताज़ा हो रहा है...' : lang === 'mr' ? 'रिफ्रेश होत आहे...' : 'REFRESHING...') : (lang === 'hi' ? 'ताज़ा करें' : lang === 'mr' ? 'रिफ्रेश करा' : 'REFRESH')}</span>
           </button>
 
           {/* Active Threats Counter */}
-          <div className="px-3.5 py-2 rounded-xl bg-obsidian-900 border border-obsidian-750 font-mono text-xs text-zinc-300 flex items-center gap-2 shadow-sm">
+          <div className="px-3.5 py-2 rounded-xl bg-[#F5F1E9] border border-[#C8BFAF] font-mono text-xs text-[#272A27] flex items-center gap-2 shadow-sm">
             <span className="w-2 h-2 rounded-full bg-hazard-400 animate-ping" />
-            <span><strong className="text-white">{totalActiveThreats}</strong> {lang === 'hi' ? 'सक्रिय खतरे' : lang === 'mr' ? 'सक्रिय धोके' : 'ACTIVE THREATS'}</span>
+            <span><strong className="text-[#272A27]">{totalActiveThreats}</strong> {lang === 'hi' ? 'सक्रिय खतरे' : lang === 'mr' ? 'सक्रिय धोके' : 'ACTIVE THREATS'}</span>
           </div>
 
           {/* Production At Risk Metric */}
@@ -523,61 +523,61 @@ export const RiskCenterPreview = () => {
 
       {/* Filter Controls Row */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 mb-6 font-mono text-xs">
-        
+
         {/* Mine Selector Filter */}
-        <div className="p-3 rounded-xl bg-obsidian-900/90 border border-obsidian-750 flex items-center gap-3 shadow-inner hover:border-obsidian-650 transition-colors">
+        <div className="p-3 rounded-xl bg-[#F0EBE2] border border-[#C8BFAF] flex items-center gap-3 shadow-inner hover:border-[#85877E] transition-colors">
           <MapPin className="w-4 h-4 text-manganese-400 flex-shrink-0" />
           <div className="flex-1">
-            <div className="text-[10px] text-zinc-500 uppercase font-bold tracking-wider">{lang === 'hi' ? 'खदान फ़िल्टर' : lang === 'mr' ? 'खाण फिल्टर' : 'MINE FILTER'}</div>
+            <div className="text-[10px] text-[#85877E] uppercase font-bold tracking-wider">{lang === 'hi' ? 'खदान फ़िल्टर' : lang === 'mr' ? 'खाण फिल्टर' : 'MINE FILTER'}</div>
             <select
               value={selectedMineFilter}
               onChange={(e) => setSelectedMineFilter(e.target.value)}
               aria-label="Filter Alerts by MOIL Mine Asset"
-              className="w-full bg-transparent text-white font-bold outline-none text-xs cursor-pointer mt-0.5"
+              className="w-full bg-transparent text-[#272A27] font-bold outline-none text-xs cursor-pointer mt-0.5"
             >
-              <option value="ALL" className="bg-obsidian-950 text-white">{lang === 'hi' ? 'सभी 10 मॉयल खदानें' : lang === 'mr' ? 'सर्व 10 मॉयल खाणी' : 'ALL 10 MOIL MINES'}</option>
+              <option value="ALL" className="bg-[#F0EBE2] text-[#272A27]">{lang === 'hi' ? 'सभी 10 मॉयल खदानें' : lang === 'mr' ? 'सर्व 10 मॉयल खाणी' : 'ALL 10 MOIL MINES'}</option>
               {mines && mines.map(m => (
-                <option key={m.id} value={m.id} className="bg-obsidian-950 text-white">{m.name}</option>
+                <option key={m.id} value={m.id} className="bg-[#F0EBE2] text-[#272A27]">{m.name}</option>
               ))}
             </select>
           </div>
         </div>
 
         {/* Status Filter */}
-        <div className="p-3 rounded-xl bg-obsidian-900/90 border border-obsidian-750 flex items-center gap-3 shadow-inner hover:border-obsidian-650 transition-colors">
+        <div className="p-3 rounded-xl bg-[#F0EBE2] border border-[#C8BFAF] flex items-center gap-3 shadow-inner hover:border-[#85877E] transition-colors">
           <Activity className="w-4 h-4 text-sky-400 flex-shrink-0" />
           <div className="flex-1">
-            <div className="text-[10px] text-zinc-500 uppercase font-bold tracking-wider">{lang === 'hi' ? 'स्थिति फ़िल्टर' : lang === 'mr' ? 'स्थिती फिल्टर' : 'STATUS FILTER'}</div>
+            <div className="text-[10px] text-[#85877E] uppercase font-bold tracking-wider">{lang === 'hi' ? 'स्थिति फ़िल्टर' : lang === 'mr' ? 'स्थिती फिल्टर' : 'STATUS FILTER'}</div>
             <select
               value={selectedStatus}
               onChange={(e) => setSelectedStatus(e.target.value)}
               aria-label="Filter Alerts by Operational Lifecycle Status"
-              className="w-full bg-transparent text-white font-bold outline-none text-xs cursor-pointer mt-0.5"
+              className="w-full bg-transparent text-[#272A27] font-bold outline-none text-xs cursor-pointer mt-0.5"
             >
-              <option value="ALL" className="bg-obsidian-950 text-white">{lang === 'hi' ? 'सभी स्थितियाँ' : lang === 'mr' ? 'सर्व स्थिती' : 'ALL STATUSES'}</option>
-              <option value="ACTIVE" className="bg-obsidian-950 text-hazard-400 font-bold">{lang === 'hi' ? 'सक्रिय (ACTIVE)' : lang === 'mr' ? 'सक्रिय (ACTIVE)' : 'ACTIVE'}</option>
-              <option value="ACKNOWLEDGED" className="bg-obsidian-950 text-amber-400 font-bold">{lang === 'hi' ? 'स्वीकृत (ACKNOWLEDGED)' : lang === 'mr' ? 'स्वीकृत (ACKNOWLEDGED)' : 'ACKNOWLEDGED'}</option>
-              <option value="RESOLVED" className="bg-obsidian-950 text-emerald-400 font-bold">{lang === 'hi' ? 'हल किया गया (RESOLVED)' : lang === 'mr' ? 'सोडवले गेले (RESOLVED)' : 'RESOLVED'}</option>
-              <option value="ESCALATED" className="bg-obsidian-950 text-purple-400 font-bold">{lang === 'hi' ? 'अग्रेषित (ESCALATED)' : lang === 'mr' ? 'पाठवले गेले (ESCALATED)' : 'ESCALATED'}</option>
+              <option value="ALL" className="bg-[#F0EBE2] text-[#272A27]">{lang === 'hi' ? 'सभी स्थितियाँ' : lang === 'mr' ? 'सर्व स्थिती' : 'ALL STATUSES'}</option>
+              <option value="ACTIVE" className="bg-[#F0EBE2] text-hazard-400 font-bold">{lang === 'hi' ? 'सक्रिय (ACTIVE)' : lang === 'mr' ? 'सक्रिय (ACTIVE)' : 'ACTIVE'}</option>
+              <option value="ACKNOWLEDGED" className="bg-[#F0EBE2] text-amber-400 font-bold">{lang === 'hi' ? 'स्वीकृत (ACKNOWLEDGED)' : lang === 'mr' ? 'स्वीकृत (ACKNOWLEDGED)' : 'ACKNOWLEDGED'}</option>
+              <option value="RESOLVED" className="bg-[#F0EBE2] text-emerald-400 font-bold">{lang === 'hi' ? 'हल किया गया (RESOLVED)' : lang === 'mr' ? 'सोडवले गेले (RESOLVED)' : 'RESOLVED'}</option>
+              <option value="ESCALATED" className="bg-[#F0EBE2] text-purple-400 font-bold">{lang === 'hi' ? 'अग्रेषित (ESCALATED)' : lang === 'mr' ? 'पाठवले गेले (ESCALATED)' : 'ESCALATED'}</option>
             </select>
           </div>
         </div>
 
         {/* Keyword Search Input */}
-        <div className="lg:col-span-2 p-3 rounded-xl bg-obsidian-900/90 border border-obsidian-750 flex items-center gap-3 shadow-inner hover:border-obsidian-650 transition-colors">
-          <Search className="w-4 h-4 text-zinc-400 flex-shrink-0" />
+        <div className="lg:col-span-2 p-3 rounded-xl bg-[#F0EBE2] border border-[#C8BFAF] flex items-center gap-3 shadow-inner hover:border-[#85877E] transition-colors">
+          <Search className="w-4 h-4 text-[#5F625C] flex-shrink-0" />
           <div className="flex-1">
-            <div className="text-[10px] text-zinc-500 uppercase font-bold tracking-wider">{lang === 'hi' ? 'खोज' : lang === 'mr' ? 'शोध' : 'SEARCH THREAT INTELLIGENCE'}</div>
+            <div className="text-[10px] text-[#85877E] uppercase font-bold tracking-wider">{lang === 'hi' ? 'खोज' : lang === 'mr' ? 'शोध' : 'SEARCH THREAT INTELLIGENCE'}</div>
             <input
               type="text"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               placeholder={lang === 'hi' ? 'शीर्षक, सेंसर आईडी, उपकरण, खदान या विवरण खोजें...' : lang === 'mr' ? 'शीर्षक, सेन्सर आयडी, उपकरण किंवा तपशील शोधा...' : 'Search title, sensor ID, equipment, mine, or telemetry...'}
-              className="w-full bg-transparent text-white placeholder:text-zinc-500 outline-none text-xs mt-0.5"
+              className="w-full bg-transparent text-[#272A27] placeholder:text-[#85877E] outline-none text-xs mt-0.5"
             />
           </div>
           {searchQuery && (
-            <button onClick={() => setSearchQuery('')} className="text-zinc-500 hover:text-white p-1">
+            <button onClick={() => setSearchQuery('')} className="text-[#85877E] hover:text-[#272A27] p-1">
               <XCircle className="w-4 h-4" />
             </button>
           )}
@@ -585,7 +585,7 @@ export const RiskCenterPreview = () => {
       </div>
 
       {/* Horizontal Severity Spectrum Filter Bar */}
-      <div className="p-1.5 rounded-2xl bg-obsidian-900/90 border border-obsidian-750 mb-8 shadow-xl overflow-x-auto no-scrollbar">
+      <div className="p-1.5 rounded-2xl bg-[#F0EBE2] border border-[#C8BFAF] mb-8 shadow-xl overflow-x-auto no-scrollbar">
         <div className="flex items-center justify-between min-w-[720px] gap-2">
           {severitySpectrum.map((s) => {
             const isSelected = selectedSeverity === s.id;
@@ -595,13 +595,13 @@ export const RiskCenterPreview = () => {
                 onClick={() => setSelectedSeverity(s.id)}
                 className={`flex-1 py-2.5 px-3 rounded-xl text-xs font-mono font-bold transition-all flex items-center justify-center gap-2 ${
                   isSelected
-                    ? `${s.bg || 'bg-obsidian-800 border-obsidian-600 text-white'} border shadow-md`
-                    : 'text-zinc-400 hover:text-zinc-200 hover:bg-obsidian-850/60'
+                    ? `${s.bg || 'bg-[#C8BFAF] border-obsidian-600 text-[#272A27]'} border shadow-md`
+                    : 'text-[#5F625C] hover:text-[#272A27] hover:bg-[#DDD4C5]/60'
                 }`}
               >
                 <span className={s.color}>{s.label}</span>
                 <span className={`px-2 py-0.5 rounded-full text-[10px] font-mono font-bold ${
-                  isSelected ? 'bg-obsidian-950 text-white border border-obsidian-700' : 'bg-obsidian-950/80 text-zinc-400'
+                  isSelected ? 'bg-[#F0EBE2] text-[#272A27] border border-[#C8BFAF]' : 'bg-[#F0EBE2] text-[#5F625C]'
                 }`}>
                   {s.count}
                 </span>
@@ -621,14 +621,14 @@ export const RiskCenterPreview = () => {
 
       {/* Empty State */}
       {!loading && derivedThreats.length === 0 && (
-        <div className="p-12 rounded-2xl bg-obsidian-950 border border-obsidian-800 text-center font-mono space-y-3">
+        <div className="p-12 rounded-2xl bg-[#F0EBE2] border border-[#C8BFAF] text-center font-mono space-y-3">
           <ShieldCheck className="w-12 h-12 text-emerald-400 mx-auto opacity-80" />
-          <h3 className="text-white text-base font-bold">
+          <h3 className="text-[#272A27] text-base font-bold">
             {lang === 'hi' ? 'कोई परिचालन खतरा नहीं मिला' : lang === 'mr' ? 'कोणताही ऑपरेशनल धोका आढळला नाही' : 'No Operational Threats Found'}
           </h3>
-          <p className="text-zinc-400 text-xs max-w-md mx-auto">
-            {lang === 'hi' ? 'वर्तमान फ़िल्टर मानदंडों के लिए सभी प्रणालियाँ सामान्य हैं। (0 खतरे मेल खाते हैं)' : 
-             lang === 'mr' ? 'सध्याच्या फिल्टर निकषांसाठी सर्व यंत्रणा सामान्य आहेत. (0 धोके जुळतात)' : 
+          <p className="text-[#5F625C] text-xs max-w-md mx-auto">
+            {lang === 'hi' ? 'वर्तमान फ़िल्टर मानदंडों के लिए सभी प्रणालियाँ सामान्य हैं। (0 खतरे मेल खाते हैं)' :
+             lang === 'mr' ? 'सध्याच्या फिल्टर निकषांसाठी सर्व यंत्रणा सामान्य आहेत. (0 धोके जुळतात)' :
              '0 operational threats match the selected mine, status, severity, or search query filter combination.'}
           </p>
           {(selectedMineFilter !== 'ALL' || selectedStatus !== 'ALL' || selectedSeverity !== 'ALL' || searchQuery) && (
@@ -639,7 +639,7 @@ export const RiskCenterPreview = () => {
                 setSelectedSeverity('ALL');
                 setSearchQuery('');
               }}
-              className="mt-3 px-4 py-2 rounded-xl bg-obsidian-850 hover:bg-obsidian-750 text-xs text-manganese-400 font-bold border border-obsidian-700 transition-colors inline-flex items-center gap-2"
+              className="mt-3 px-4 py-2 rounded-xl bg-[#DDD4C5] hover:bg-obsidian-750 text-xs text-manganese-400 font-bold border border-[#C8BFAF] transition-colors inline-flex items-center gap-2"
             >
               <RefreshCw className="w-3.5 h-3.5" />
               <span>{lang === 'hi' ? 'सभी फ़िल्टर रीसेट करें' : lang === 'mr' ? 'सर्व फिल्टर रीसेट करा' : 'Reset All Filters'}</span>
@@ -651,7 +651,7 @@ export const RiskCenterPreview = () => {
       {/* Visual Threat Objects List */}
       <div className="space-y-4 font-mono text-xs">
         {derivedThreats.map((risk) => {
-          let borderGlow = 'border-obsidian-750 hover:border-telemetry-500/40 bg-obsidian-900/60';
+          let borderGlow = 'border-[#C8BFAF] hover:border-telemetry-500/40 bg-[#F5F1E9]';
           let impactColor = 'text-telemetry-400';
           let severityPill = 'bg-telemetry-500/15 text-telemetry-400 border-telemetry-500/30';
 
@@ -665,7 +665,7 @@ export const RiskCenterPreview = () => {
             impactColor = 'text-manganese-400';
             severityPill = 'bg-manganese-500/20 text-manganese-300 border-manganese-500/40 font-bold';
           } else if (levelUpper === 'WATCH' || levelUpper === 'MEDIUM') {
-            borderGlow = 'border-radar-500/30 hover:border-radar-500/60 bg-obsidian-900/60';
+            borderGlow = 'border-radar-500/30 hover:border-radar-500/60 bg-[#F5F1E9]';
             impactColor = 'text-radar-400';
             severityPill = 'bg-radar-500/20 text-radar-300 border-radar-500/40';
           }
@@ -682,37 +682,37 @@ export const RiskCenterPreview = () => {
               className={`p-6 rounded-2xl border ${borderGlow} backdrop-blur-xl transition-all duration-300 hover:scale-[1.002]`}
             >
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
-                
+
                 {/* Left 4 Cols: Mine, Equipment & Threat Metadata */}
                 <div className="lg:col-span-4 space-y-2">
                   <div className="flex flex-wrap items-center gap-2">
-                    <span className="font-bold text-zinc-400">{risk.id}</span>
+                    <span className="font-bold text-[#5F625C]">{risk.id}</span>
                     <span className={`px-2 py-0.5 rounded text-[10px] border ${severityPill}`}>
                       {levelUpper}
                     </span>
                     <span className={`px-2 py-0.5 rounded text-[10px] border ${statusBadge}`}>
                       {statusUpper}
                     </span>
-                    <span className="text-[10px] text-zinc-500 flex items-center gap-1">
+                    <span className="text-[10px] text-[#85877E] flex items-center gap-1">
                       <Clock className="w-3 h-3" />
                       {lastUpdatedTime}
                     </span>
                   </div>
 
-                  <h3 className="text-base font-bold text-white flex items-center gap-2">
+                  <h3 className="text-base font-bold text-[#272A27] flex items-center gap-2">
                     <MapPin className="w-4 h-4 text-manganese-400 flex-shrink-0" />
                     <span>{risk.mineName || risk.mine_name || risk.mine || 'Balaghat Mine'}</span>
-                    <span className="text-xs text-zinc-500 font-normal">({risk.state || 'MOIL Central'})</span>
+                    <span className="text-xs text-[#85877E] font-normal">({risk.state || 'MOIL Central'})</span>
                   </h3>
 
-                  <div className="text-[11px] text-zinc-400 space-y-1">
+                  <div className="text-[11px] text-[#5F625C] space-y-1">
                     <div>
-                      <span>{lang === 'hi' ? 'श्रेणी:' : lang === 'mr' ? 'वर्गवारी:' : 'Category:'} <strong className="text-zinc-200">{risk.category}</strong></span>
-                      <span className="mx-2 text-zinc-600">•</span>
+                      <span>{lang === 'hi' ? 'श्रेणी:' : lang === 'mr' ? 'वर्गवारी:' : 'Category:'} <strong className="text-[#272A27]">{risk.category}</strong></span>
+                      <span className="mx-2 text-[#85877E]">•</span>
                       <span>{lang === 'hi' ? 'सेंसर:' : lang === 'mr' ? 'सेन्सर:' : 'Sensor:'} <strong className="text-sky-300">{risk.sensorId || risk.sensor_id || 'SCADA'} ({risk.sensorType || risk.sensor_type || 'Telemetry'})</strong></span>
                     </div>
                     {(risk.affectedEquipment || risk.affected_equipment) && (
-                      <div className="text-zinc-400">
+                      <div className="text-[#5F625C]">
                         <span>{lang === 'hi' ? 'उपकरण:' : lang === 'mr' ? 'उपकरण:' : 'Asset:'} <strong className="text-amber-300">{risk.affectedEquipment || risk.affected_equipment}</strong></span>
                       </div>
                     )}
@@ -721,12 +721,12 @@ export const RiskCenterPreview = () => {
 
                 {/* Middle 5 Cols: Primary Root Cause & Mitigating Action */}
                 <div className="lg:col-span-5 space-y-2.5">
-                  <div className="p-3 rounded-xl bg-obsidian-950/80 border border-obsidian-800">
-                    <div className="text-[10px] text-zinc-500 uppercase tracking-wider mb-0.5 font-bold flex items-center gap-1.5">
-                      <Activity className="w-3 h-3 text-zinc-400" />
+                  <div className="p-3 rounded-xl bg-[#F0EBE2] border border-[#C8BFAF]">
+                    <div className="text-[10px] text-[#85877E] uppercase tracking-wider mb-0.5 font-bold flex items-center gap-1.5">
+                      <Activity className="w-3 h-3 text-[#5F625C]" />
                       <span>{risk.title || (lang === 'hi' ? 'मूल कारण विसंगति' : lang === 'mr' ? 'मूळ कारण विसंगती' : 'Root Cause Anomaly')}</span>
                     </div>
-                    <div className="text-zinc-200 font-sans text-xs leading-relaxed">
+                    <div className="text-[#272A27] font-sans text-xs leading-relaxed">
                       {risk.description || risk.primaryDriver}
                     </div>
                   </div>
@@ -743,13 +743,13 @@ export const RiskCenterPreview = () => {
                 </div>
 
                 {/* Right 3 Cols: Impact Metrics & Interactive Workflow Actions */}
-                <div className="lg:col-span-3 flex flex-col justify-between items-start lg:items-end gap-3 text-left lg:text-right border-t lg:border-t-0 lg:border-l border-obsidian-800 pt-4 lg:pt-0 lg:pl-6">
+                <div className="lg:col-span-3 flex flex-col justify-between items-start lg:items-end gap-3 text-left lg:text-right border-t lg:border-t-0 lg:border-l border-[#C8BFAF] pt-4 lg:pt-0 lg:pl-6">
                   <div>
-                    <div className="text-[10px] text-zinc-500 uppercase font-bold">{lang === 'hi' ? 'जोखिम स्कोर / वित्तीय जोखिम' : lang === 'mr' ? 'जोखीम स्कोअर / आर्थिक जोखीम' : 'Risk Score / Financial Exposure'}</div>
+                    <div className="text-[10px] text-[#85877E] uppercase font-bold">{lang === 'hi' ? 'जोखिम स्कोर / वित्तीय जोखिम' : lang === 'mr' ? 'जोखीम स्कोअर / आर्थिक जोखीम' : 'Risk Score / Financial Exposure'}</div>
                     <div className={`text-base font-bold ${impactColor}`}>
                       {risk.riskScore || risk.risk_score ? `${risk.riskScore || risk.risk_score}% Threat Score` : risk.expectedImpact}
                     </div>
-                    <div className="text-[11px] text-zinc-400 mt-0.5">
+                    <div className="text-[11px] text-[#5F625C] mt-0.5">
                       <span>Impact: <strong className="text-hazard-300">-{risk.productionImpactTpd || risk.production_impact_tpd || 0} T/day</strong> ({risk.financialExposure || risk.financial_exposure || '₹0.50 Cr'})</span>
                     </div>
                   </div>
@@ -791,7 +791,7 @@ export const RiskCenterPreview = () => {
 
                     <Link
                       to="/protocol"
-                      className="px-3 py-1.5 rounded-lg bg-obsidian-800 hover:bg-obsidian-750 text-manganese-400 hover:text-manganese-300 font-bold border border-obsidian-700 transition-colors text-[11px] flex items-center justify-center gap-1 shadow-sm"
+                      className="px-3 py-1.5 rounded-lg bg-[#C8BFAF] hover:bg-obsidian-750 text-manganese-400 hover:text-manganese-300 font-bold border border-[#C8BFAF] transition-colors text-[11px] flex items-center justify-center gap-1 shadow-sm"
                     >
                       <span>{lang === 'hi' ? 'प्रोटोकॉल' : lang === 'mr' ? 'प्रोटोकॉल' : 'Protocol'}</span>
                       <ChevronRight className="w-3.5 h-3.5" />

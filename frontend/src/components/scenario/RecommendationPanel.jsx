@@ -1,11 +1,11 @@
 import React from 'react';
 import { useApp } from '../../context/AppContext.jsx';
-import { 
-  Zap, 
-  Clock, 
-  ShieldCheck, 
-  CheckCircle2, 
-  AlertTriangle, 
+import {
+  Zap,
+  Clock,
+  ShieldCheck,
+  CheckCircle2,
+  AlertTriangle,
   ArrowRight,
   UserCheck
 } from 'lucide-react';
@@ -31,9 +31,9 @@ export const RecommendationPanel = () => {
 
   return (
     <div className="panel-surface p-6 sm:p-8 border border-manganese-500/40 bg-gradient-to-b from-manganese-950/10 via-obsidian-900 to-obsidian-950 font-mono text-xs space-y-6 shadow-2xl animate-fade-in select-none">
-      
+
       {/* Step Header */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-4 border-b border-obsidian-800 gap-2">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-4 border-b border-[#C8BFAF] gap-2">
         <div className="flex items-center gap-2.5">
           <div className="w-8 h-8 rounded-lg bg-manganese-500/20 border border-manganese-500/30 flex items-center justify-center">
             <Zap className="w-4 h-4 text-manganese-400" />
@@ -64,7 +64,7 @@ export const RecommendationPanel = () => {
       </div>
 
       {/* Main Prescription Callout */}
-      <div className="p-5 rounded-xl bg-obsidian-950/90 border border-manganese-500/30 space-y-3">
+      <div className="p-5 rounded-xl bg-[#F0EBE2]/90 border border-manganese-500/30 space-y-3">
         <div className="flex items-center justify-between">
           <span className="text-manganese-400 font-bold tracking-wider uppercase text-xs">
             {rec.actionId} • {rec.title}
@@ -74,20 +74,20 @@ export const RecommendationPanel = () => {
           </span>
         </div>
 
-        <div className="text-zinc-200 font-sans text-xs whitespace-pre-line leading-relaxed pl-2 border-l-2 border-manganese-500/50">
+        <div className="text-[#272A27] font-sans text-xs whitespace-pre-line leading-relaxed pl-2 border-l-2 border-manganese-500/50">
           {rec.whatToDo}
         </div>
       </div>
 
       {/* Triad Telemetry Matrix */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-        
+
         {/* Why */}
-        <div className="p-4 rounded-xl bg-obsidian-950/80 border border-obsidian-800 space-y-1.5">
-          <div className="text-[10px] text-zinc-500 uppercase tracking-wider font-bold">
+        <div className="p-4 rounded-xl bg-[#F0EBE2] border border-[#C8BFAF] space-y-1.5">
+          <div className="text-[10px] text-[#85877E] uppercase tracking-wider font-bold">
             {lang === 'hi' ? 'यह कार्रवाई क्यों?' : lang === 'mr' ? 'ही कृती का?' : 'WHY THIS ACTION?'}
           </div>
-          <p className="text-[11px] text-zinc-300 font-sans leading-relaxed">
+          <p className="text-[11px] text-[#272A27] font-sans leading-relaxed">
             {rec.why}
           </p>
         </div>
@@ -103,14 +103,14 @@ export const RecommendationPanel = () => {
         </div>
 
         {/* Time to Intervene */}
-        <div className="p-4 rounded-xl bg-obsidian-950/80 border border-obsidian-800 space-y-1.5">
-          <div className="text-[10px] text-zinc-500 uppercase tracking-wider font-bold">
+        <div className="p-4 rounded-xl bg-[#F0EBE2] border border-[#C8BFAF] space-y-1.5">
+          <div className="text-[10px] text-[#85877E] uppercase tracking-wider font-bold">
             {scen.execTime || 'TIME TO INTERVENE'}
           </div>
           <div className="text-base font-bold text-manganese-400">
             {rec.timeToIntervene}
           </div>
-          <div className="text-[10px] text-zinc-500">
+          <div className="text-[10px] text-[#85877E]">
             {lang === 'hi' ? 'पूर्व-विफलता समय-सीमा' : lang === 'mr' ? 'बिघाड-पूर्व वेळ खिडकी' : 'Pre-Failure Window'}
           </div>
         </div>
@@ -119,8 +119,8 @@ export const RecommendationPanel = () => {
 
       {/* Action Bar */}
       {!isApproved && (
-        <div className="p-4 rounded-xl bg-obsidian-950/90 border border-obsidian-800 flex flex-col sm:flex-row items-center justify-between gap-3">
-          <span className="text-[11px] text-zinc-400">
+        <div className="p-4 rounded-xl bg-[#F0EBE2]/90 border border-[#C8BFAF] flex flex-col sm:flex-row items-center justify-between gap-3">
+          <span className="text-[11px] text-[#5F625C]">
             {lang === 'hi' ? 'खदान प्रेषण को मापदंड भेजने से पहले मानव अनुमोदन आवश्यक है।' : lang === 'mr' ? 'खाण प्रेषणाला पॅरामीटर्स पाठवण्यापूर्वी मानवी मंजुरी आवश्यक आहे.' : 'Human approval required before parameters are sent to mine dispatch.'}
           </span>
 

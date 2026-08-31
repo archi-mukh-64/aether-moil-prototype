@@ -431,7 +431,7 @@ const AnalyticsPageContent = () => {
               className={`px-3 py-1.5 rounded-xl font-bold transition-all whitespace-nowrap ${
                 activeTab === tab.id
                   ? 'bg-[#1a2b47] text-sky-300 border border-sky-500/50 shadow'
-                  : 'text-zinc-400 hover:text-white hover:bg-obsidian-800'
+                  : 'text-[#5F625C] hover:text-white hover:bg-[#C8BFAF]'
               }`}
             >
               {tab.label}
@@ -440,7 +440,7 @@ const AnalyticsPageContent = () => {
         </div>
 
         {/* Date Range Selector */}
-        <div className="flex items-center p-1 rounded-xl bg-obsidian-950 border border-obsidian-800">
+        <div className="flex items-center p-1 rounded-xl bg-[#F0EBE2] border border-[#C8BFAF]">
           {['7D', '30D', '90D', '6M', '1Y'].map(r => (
             <button
               key={r}
@@ -448,7 +448,7 @@ const AnalyticsPageContent = () => {
               className={`px-2.5 py-1 rounded-lg font-bold text-[11px] transition-all ${
                 dateRange === r
                   ? 'bg-manganese-500 text-obsidian-950 shadow'
-                  : 'text-zinc-400 hover:text-white'
+                  : 'text-[#5F625C] hover:text-white'
               }`}
             >
               {r}
@@ -462,7 +462,7 @@ const AnalyticsPageContent = () => {
       {/* ========================================================================= */}
       {(activeTab === 'ALL' || activeTab === 'BRAIN') && (
         <div className="panel-surface p-6 sm:p-8 border border-sky-500/40 shadow-2xl space-y-6">
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-4 border-b border-obsidian-800 gap-3">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-4 border-b border-[#C8BFAF] gap-3">
             <div className="flex items-center gap-2.5">
               <div className="p-2 rounded-xl bg-sky-950 border border-sky-500/40 text-sky-400">
                 <BrainCircuit className="w-5 h-5" />
@@ -482,38 +482,38 @@ const AnalyticsPageContent = () => {
           </div>
 
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 font-mono text-xs">
-            <div className="p-3 rounded-xl bg-obsidian-950 border border-obsidian-800">
-              <span className="text-zinc-500 uppercase text-[10px]">Production Health</span>
+            <div className="p-3 rounded-xl bg-[#F0EBE2] border border-[#C8BFAF]">
+              <span className="text-[#85877E] uppercase text-[10px]">Production Health</span>
               <div className="text-base font-bold text-emerald-400 mt-1">98.2% (Nominal)</div>
             </div>
-            <div className="p-3 rounded-xl bg-obsidian-950 border border-obsidian-800">
-              <span className="text-zinc-500 uppercase text-[10px]">Equipment Fleet</span>
+            <div className="p-3 rounded-xl bg-[#F0EBE2] border border-[#C8BFAF]">
+              <span className="text-[#85877E] uppercase text-[10px]">Equipment Fleet</span>
               <div className="text-base font-bold text-sky-400 mt-1">{currentMine.fleetAvailabilityBase}% Avail</div>
             </div>
-            <div className="p-3 rounded-xl bg-obsidian-950 border border-obsidian-800">
-              <span className="text-zinc-500 uppercase text-[10px]">Geological Quality</span>
+            <div className="p-3 rounded-xl bg-[#F0EBE2] border border-[#C8BFAF]">
+              <span className="text-[#85877E] uppercase text-[10px]">Geological Quality</span>
               <div className="text-base font-bold text-amber-400 mt-1">{currentMine.oreGrade} High Grade</div>
             </div>
-            <div className="p-3 rounded-xl bg-obsidian-950 border border-obsidian-800">
-              <span className="text-zinc-500 uppercase text-[10px]">Satellite Compliance</span>
+            <div className="p-3 rounded-xl bg-[#F0EBE2] border border-[#C8BFAF]">
+              <span className="text-[#85877E] uppercase text-[10px]">Satellite Compliance</span>
               <div className="text-base font-bold text-cyan-400 mt-1">0.38 NDVI (Buffer OK)</div>
             </div>
           </div>
 
           {/* "What Will Happen Next?" Forecast Timeline */}
           <div className="space-y-3 pt-2">
-            <h4 className="text-xs font-bold text-zinc-300 uppercase tracking-wider font-mono">
+            <h4 className="text-xs font-bold text-[#272A27] uppercase tracking-wider font-mono">
               "WHAT WILL HAPPEN NEXT?" // MULTI-HORIZON OPERATIONAL PROJECTION
             </h4>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3 font-mono text-xs">
               {brainHorizons.map(h => (
-                <div key={h.horizon} className="p-4 rounded-xl bg-obsidian-950 border border-obsidian-800 space-y-1.5">
+                <div key={h.horizon} className="p-4 rounded-xl bg-[#F0EBE2] border border-[#C8BFAF] space-y-1.5">
                   <div className="flex justify-between items-center text-[10px]">
                     <strong className="text-sky-400">{h.horizon}</strong>
                     <span className="text-emerald-400 font-bold">{h.confidence} CI</span>
                   </div>
                   <div className="font-bold text-white text-[11px]">{h.event}</div>
-                  <p className="text-zinc-400 text-[10px] font-sans">{h.impact}</p>
+                  <p className="text-[#5F625C] text-[10px] font-sans">{h.impact}</p>
                 </div>
               ))}
             </div>
@@ -526,7 +526,7 @@ const AnalyticsPageContent = () => {
       {/* ========================================================================= */}
       {(activeTab === 'ALL' || activeTab === 'WHATIF') && (
         <div className="panel-surface p-6 sm:p-8 border border-amber-500/40 shadow-2xl space-y-6">
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-4 border-b border-obsidian-800 gap-3">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-4 border-b border-[#C8BFAF] gap-3">
             <div className="flex items-center gap-2.5">
               <div className="p-2 rounded-xl bg-amber-950 border border-amber-500/40 text-amber-400">
                 <HelpCircle className="w-5 h-5" />
@@ -540,14 +540,14 @@ const AnalyticsPageContent = () => {
                 </h3>
               </div>
             </div>
-            <span className="text-xs font-mono text-zinc-400">{currentMine.name} Stress Matrix</span>
+            <span className="text-xs font-mono text-[#5F625C]">{currentMine.name} Stress Matrix</span>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 font-mono text-xs">
             {/* Input Sliders */}
             <div className="lg:col-span-6 space-y-4">
               <div className="space-y-2">
-                <label className="text-zinc-300 flex justify-between">
+                <label className="text-[#272A27] flex justify-between">
                   <span>What if Crusher Output Falls:</span>
                   <strong className="text-amber-400 font-bold">-{whatIfCrusherThrottle}% Throttle</strong>
                 </label>
@@ -557,12 +557,12 @@ const AnalyticsPageContent = () => {
                   max="60"
                   value={whatIfCrusherThrottle}
                   onChange={(e) => setWhatIfCrusherThrottle(parseInt(e.target.value))}
-                  className="w-full h-2 bg-obsidian-950 rounded-lg appearance-none cursor-pointer accent-amber-500"
+                  className="w-full h-2 bg-[#F0EBE2] rounded-lg appearance-none cursor-pointer accent-amber-500"
                 />
               </div>
 
               <div className="space-y-2">
-                <label className="text-zinc-300 flex justify-between">
+                <label className="text-[#272A27] flex justify-between">
                   <span>What if Monsoon Rainfall Surges:</span>
                   <strong className="text-sky-400 font-bold">+{whatIfMonsoonRainfall} mm / hr</strong>
                 </label>
@@ -572,12 +572,12 @@ const AnalyticsPageContent = () => {
                   max="120"
                   value={whatIfMonsoonRainfall}
                   onChange={(e) => setWhatIfMonsoonRainfall(parseInt(e.target.value))}
-                  className="w-full h-2 bg-obsidian-950 rounded-lg appearance-none cursor-pointer accent-sky-500"
+                  className="w-full h-2 bg-[#F0EBE2] rounded-lg appearance-none cursor-pointer accent-sky-500"
                 />
               </div>
 
               <div className="space-y-2">
-                <label className="text-zinc-300 flex justify-between">
+                <label className="text-[#272A27] flex justify-between">
                   <span>What if Haul Ramp Delay Increases:</span>
                   <strong className="text-rose-400 font-bold">+{whatIfHaulDelay} mins / trip</strong>
                 </label>
@@ -587,27 +587,27 @@ const AnalyticsPageContent = () => {
                   max="45"
                   value={whatIfHaulDelay}
                   onChange={(e) => setWhatIfHaulDelay(parseInt(e.target.value))}
-                  className="w-full h-2 bg-obsidian-950 rounded-lg appearance-none cursor-pointer accent-rose-500"
+                  className="w-full h-2 bg-[#F0EBE2] rounded-lg appearance-none cursor-pointer accent-rose-500"
                 />
               </div>
             </div>
 
             {/* Simulation Dynamic Output */}
-            <div className="lg:col-span-6 p-5 rounded-2xl bg-obsidian-950 border border-obsidian-800 space-y-3 flex flex-col justify-between">
+            <div className="lg:col-span-6 p-5 rounded-2xl bg-[#F0EBE2] border border-[#C8BFAF] space-y-3 flex flex-col justify-between">
               <div className="flex justify-between items-center pb-2 border-b border-obsidian-850">
-                <span className="text-zinc-400">Projected Daily Yield:</span>
+                <span className="text-[#5F625C]">Projected Daily Yield:</span>
                 <strong className="text-lg font-bold text-white">{whatIfResults.projectedYield.toLocaleString()} T <span className="text-xs text-rose-400">(-{whatIfResults.totalLost} T)</span></strong>
               </div>
               <div className="flex justify-between items-center pb-2 border-b border-obsidian-850">
-                <span className="text-zinc-400">Estimated Value at Risk:</span>
+                <span className="text-[#5F625C]">Estimated Value at Risk:</span>
                 <strong className="text-base font-bold text-rose-400">₹{whatIfResults.revImpactCr} Cr</strong>
               </div>
               <div className="flex justify-between items-center pb-2 border-b border-obsidian-850">
-                <span className="text-zinc-400">ROM Stockpile Accumulation:</span>
+                <span className="text-[#5F625C]">ROM Stockpile Accumulation:</span>
                 <strong className="text-base font-bold text-amber-400">+{whatIfResults.stockpileBuildT} Tonnes</strong>
               </div>
               <div className="flex justify-between items-center">
-                <span className="text-zinc-400">Expected Recovery Time:</span>
+                <span className="text-[#5F625C]">Expected Recovery Time:</span>
                 <strong className="text-base font-bold text-emerald-400">{whatIfResults.recoveryHours} Hours</strong>
               </div>
             </div>
@@ -620,7 +620,7 @@ const AnalyticsPageContent = () => {
       {/* ========================================================================= */}
       {(activeTab === 'ALL' || activeTab === 'CAUSE_EFFECT') && (
         <div className="panel-surface p-6 sm:p-8 border border-sky-500/40 shadow-2xl space-y-6">
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-4 border-b border-obsidian-800 gap-3">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-4 border-b border-[#C8BFAF] gap-3">
             <div className="flex items-center gap-2.5">
               <div className="p-2 rounded-xl bg-sky-950 border border-sky-500/40 text-sky-400">
                 <Workflow className="w-5 h-5" />
@@ -639,31 +639,31 @@ const AnalyticsPageContent = () => {
 
           <div className="space-y-4">
             {causeEffectWorkflows.map(wf => (
-              <div key={wf.id} className="p-5 rounded-2xl bg-obsidian-950 border border-obsidian-800 space-y-3 font-mono text-xs">
+              <div key={wf.id} className="p-5 rounded-2xl bg-[#F0EBE2] border border-[#C8BFAF] space-y-3 font-mono text-xs">
                 <div className="flex justify-between items-center pb-2 border-b border-obsidian-850">
                   <strong className="text-white text-sm">{wf.title}</strong>
                   <span className="px-2 py-0.5 rounded bg-amber-950 text-amber-300 border border-amber-800 text-[10px] font-bold">{wf.id}</span>
                 </div>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
-                  <div className="p-3 rounded-xl bg-obsidian-900 border border-obsidian-800">
-                    <span className="text-zinc-500 uppercase text-[9px]">1. SCADA Observation</span>
-                    <p className="text-zinc-200 text-[11px] mt-1">{wf.obs}</p>
+                  <div className="p-3 rounded-xl bg-[#F5F1E9] border border-[#C8BFAF]">
+                    <span className="text-[#85877E] uppercase text-[9px]">1. SCADA Observation</span>
+                    <p className="text-[#272A27] text-[11px] mt-1">{wf.obs}</p>
                   </div>
-                  <div className="p-3 rounded-xl bg-obsidian-900 border border-obsidian-800">
-                    <span className="text-zinc-500 uppercase text-[9px]">2. Probable Root Cause</span>
+                  <div className="p-3 rounded-xl bg-[#F5F1E9] border border-[#C8BFAF]">
+                    <span className="text-[#85877E] uppercase text-[9px]">2. Probable Root Cause</span>
                     <p className="text-amber-400 text-[11px] mt-1">{wf.cause}</p>
                   </div>
-                  <div className="p-3 rounded-xl bg-obsidian-900 border border-obsidian-800">
-                    <span className="text-zinc-500 uppercase text-[9px]">3. Operational Impact</span>
+                  <div className="p-3 rounded-xl bg-[#F5F1E9] border border-[#C8BFAF]">
+                    <span className="text-[#85877E] uppercase text-[9px]">3. Operational Impact</span>
                     <p className="text-sky-300 text-[11px] mt-1">{wf.opImpact}</p>
                   </div>
-                  <div className="p-3 rounded-xl bg-obsidian-900 border border-obsidian-800">
-                    <span className="text-zinc-500 uppercase text-[9px]">4. Production &amp; Value at Risk</span>
+                  <div className="p-3 rounded-xl bg-[#F5F1E9] border border-[#C8BFAF]">
+                    <span className="text-[#85877E] uppercase text-[9px]">4. Production &amp; Value at Risk</span>
                     <p className="text-rose-400 text-[11px] mt-1">{wf.prodImpact} ({wf.finImpact})</p>
                   </div>
-                  <div className="p-3 rounded-xl bg-obsidian-900 border border-obsidian-800 lg:col-span-2">
-                    <span className="text-zinc-500 uppercase text-[9px]">5. Recommended Intervention &amp; Benefit</span>
+                  <div className="p-3 rounded-xl bg-[#F5F1E9] border border-[#C8BFAF] lg:col-span-2">
+                    <span className="text-[#85877E] uppercase text-[9px]">5. Recommended Intervention &amp; Benefit</span>
                     <p className="text-emerald-400 text-[11px] font-sans font-bold mt-1">{wf.action} &rarr; {wf.benefit}</p>
                   </div>
                 </div>
@@ -675,8 +675,8 @@ const AnalyticsPageContent = () => {
 
       {/* 4. SIX EXECUTIVE KPI SUMMARY TILES */}
       <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4 font-mono text-xs">
-        <div className="panel-surface p-5 border border-obsidian-750 space-y-2">
-          <div className="flex items-center justify-between text-zinc-500 text-[10px] uppercase font-bold">
+        <div className="panel-surface p-5 border border-[#C8BFAF] space-y-2">
+          <div className="flex items-center justify-between text-[#85877E] text-[10px] uppercase font-bold">
             <span>Daily Output</span>
             <Activity className="w-3.5 h-3.5 text-manganese-400" />
           </div>
@@ -684,13 +684,13 @@ const AnalyticsPageContent = () => {
             {analytics.production?.actualProduction?.toLocaleString() || currentMine.baselineProduction.toLocaleString()} T
           </div>
           <div className="flex items-center justify-between text-[11px]">
-            <span className="text-zinc-400">Target:</span>
-            <strong className="text-zinc-200">{currentMine.productionTarget.toLocaleString()} T</strong>
+            <span className="text-[#5F625C]">Target:</span>
+            <strong className="text-[#272A27]">{currentMine.productionTarget.toLocaleString()} T</strong>
           </div>
         </div>
 
-        <div className="panel-surface p-5 border border-obsidian-750 space-y-2">
-          <div className="flex items-center justify-between text-zinc-500 text-[10px] uppercase font-bold">
+        <div className="panel-surface p-5 border border-[#C8BFAF] space-y-2">
+          <div className="flex items-center justify-between text-[#85877E] text-[10px] uppercase font-bold">
             <span>Achievement</span>
             <TrendingUp className="w-3.5 h-3.5 text-telemetry-400" />
           </div>
@@ -698,13 +698,13 @@ const AnalyticsPageContent = () => {
             {analytics.production?.achievementPct || 100}%
           </div>
           <div className="flex items-center justify-between text-[11px]">
-            <span className="text-zinc-400">Trend:</span>
-            <strong className="text-zinc-200">{analytics.production?.trend7Day || '+2.4% MoM'}</strong>
+            <span className="text-[#5F625C]">Trend:</span>
+            <strong className="text-[#272A27]">{analytics.production?.trend7Day || '+2.4% MoM'}</strong>
           </div>
         </div>
 
-        <div className="panel-surface p-5 border border-obsidian-750 space-y-2">
-          <div className="flex items-center justify-between text-zinc-500 text-[10px] uppercase font-bold">
+        <div className="panel-surface p-5 border border-[#C8BFAF] space-y-2">
+          <div className="flex items-center justify-between text-[#85877E] text-[10px] uppercase font-bold">
             <span>Mn Grade</span>
             <Layers className="w-3.5 h-3.5 text-manganese-400" />
           </div>
@@ -712,13 +712,13 @@ const AnalyticsPageContent = () => {
             {currentMine.baseGradeNum}%
           </div>
           <div className="flex items-center justify-between text-[11px]">
-            <span className="text-zinc-400">SiO₂:</span>
-            <strong className="text-zinc-300">{currentMine.silicaBasePct}% ({currentMine.phosphorusBasePct}% P)</strong>
+            <span className="text-[#5F625C]">SiO₂:</span>
+            <strong className="text-[#272A27]">{currentMine.silicaBasePct}% ({currentMine.phosphorusBasePct}% P)</strong>
           </div>
         </div>
 
-        <div className="panel-surface p-5 border border-obsidian-750 space-y-2">
-          <div className="flex items-center justify-between text-zinc-500 text-[10px] uppercase font-bold">
+        <div className="panel-surface p-5 border border-[#C8BFAF] space-y-2">
+          <div className="flex items-center justify-between text-[#85877E] text-[10px] uppercase font-bold">
             <span>Recovery Rate</span>
             <CheckCircle2 className="w-3.5 h-3.5 text-telemetry-400" />
           </div>
@@ -726,13 +726,13 @@ const AnalyticsPageContent = () => {
             {analytics.production?.recoveryRate || `${currentMine.recoveryRatePct}%`}
           </div>
           <div className="flex items-center justify-between text-[11px]">
-            <span className="text-zinc-400">Status:</span>
+            <span className="text-[#5F625C]">Status:</span>
             <strong className="text-emerald-400">DGMS Calibrated</strong>
           </div>
         </div>
 
-        <div className="panel-surface p-5 border border-obsidian-750 space-y-2">
-          <div className="flex items-center justify-between text-zinc-500 text-[10px] uppercase font-bold">
+        <div className="panel-surface p-5 border border-[#C8BFAF] space-y-2">
+          <div className="flex items-center justify-between text-[#85877E] text-[10px] uppercase font-bold">
             <span>Fleet Health</span>
             <Cpu className="w-3.5 h-3.5 text-manganese-400" />
           </div>
@@ -740,13 +740,13 @@ const AnalyticsPageContent = () => {
             {analytics.equipment?.fleetAvailability || `${currentMine.fleetAvailabilityBase}%`}
           </div>
           <div className="flex items-center justify-between text-[11px]">
-            <span className="text-zinc-400">Total Fleet:</span>
+            <span className="text-[#5F625C]">Total Fleet:</span>
             <strong className="text-white">{currentMine.fleetCount} HEMM Units</strong>
           </div>
         </div>
 
-        <div className="panel-surface p-5 border border-obsidian-750 space-y-2">
-          <div className="flex items-center justify-between text-zinc-500 text-[10px] uppercase font-bold">
+        <div className="panel-surface p-5 border border-[#C8BFAF] space-y-2">
+          <div className="flex items-center justify-between text-[#85877E] text-[10px] uppercase font-bold">
             <span>AI Risk Level</span>
             <ShieldCheck className="w-3.5 h-3.5 text-telemetry-400" />
           </div>
@@ -754,7 +754,7 @@ const AnalyticsPageContent = () => {
             {isScenarioActive ? 'ELEVATED' : 'NOMINAL'}
           </div>
           <div className="flex items-center justify-between text-[11px]">
-            <span className="text-zinc-400">Shortfall Prob:</span>
+            <span className="text-[#5F625C]">Shortfall Prob:</span>
             <strong className={isScenarioActive ? 'text-hazard-400' : 'text-emerald-400'}>
               {analytics.production?.shortfallProb || currentMine.shortfallRisk}
             </strong>
@@ -768,12 +768,12 @@ const AnalyticsPageContent = () => {
       {(activeTab === 'ALL' || activeTab === 'PRODUCTION') && (
         <div className="space-y-6">
           {/* Production Trajectory Chart */}
-          <div className="panel-surface p-6 sm:p-8 border border-obsidian-750 shadow-2xl space-y-6">
-            <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-6 border-b border-obsidian-800 gap-4">
+          <div className="panel-surface p-6 sm:p-8 border border-[#C8BFAF] shadow-2xl space-y-6">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-6 border-b border-[#C8BFAF] gap-4">
               <div>
                 <div className="flex items-center gap-2 mb-1">
                   <span className="badge-telemetry font-mono text-[10px]">GBM TIME-SERIES MODEL</span>
-                  <span className="text-xs font-mono text-zinc-400">Historical Output &amp; 14-Day AI Forecast ({dateRange})</span>
+                  <span className="text-xs font-mono text-[#5F625C]">Historical Output &amp; 14-Day AI Forecast ({dateRange})</span>
                 </div>
                 <h3 className="font-display text-2xl font-bold text-white">
                   Production Trajectory &amp; Forecast Confidence Envelope (95% CI)
@@ -812,15 +812,15 @@ const AnalyticsPageContent = () => {
           </div>
 
           {/* Production Loss Attribution Waterfall */}
-          <div className="panel-surface p-6 sm:p-8 border border-obsidian-750 shadow-2xl space-y-6">
-            <div className="flex items-center justify-between pb-4 border-b border-obsidian-800">
+          <div className="panel-surface p-6 sm:p-8 border border-[#C8BFAF] shadow-2xl space-y-6">
+            <div className="flex items-center justify-between pb-4 border-b border-[#C8BFAF]">
               <div>
                 <span className="badge-hazard text-[10px] font-mono">LOSS ATTRIBUTION WATERFALL</span>
                 <h3 className="font-display text-xl font-bold text-white mt-1">
                   Target Quota vs Root-Cause Loss Attribution Breakdown
                 </h3>
               </div>
-              <span className="text-xs font-mono text-zinc-400">Target: {currentMine.productionTarget.toLocaleString()} TPD</span>
+              <span className="text-xs font-mono text-[#5F625C]">Target: {currentMine.productionTarget.toLocaleString()} TPD</span>
             </div>
 
             <div className="h-64 w-full">
@@ -846,8 +846,8 @@ const AnalyticsPageContent = () => {
       {/* 5B. TAB: SHIFT INTELLIGENCE */}
       {/* ========================================================================= */}
       {(activeTab === 'ALL' || activeTab === 'SHIFT') && (
-        <div className="panel-surface p-6 sm:p-8 border border-obsidian-750 shadow-2xl space-y-6">
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-4 border-b border-obsidian-800 gap-3">
+        <div className="panel-surface p-6 sm:p-8 border border-[#C8BFAF] shadow-2xl space-y-6">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-4 border-b border-[#C8BFAF] gap-3">
             <div>
               <span className="badge-telemetry text-[10px] font-mono">SHIFT INTELLIGENCE // 3-SHIFT ROTATION</span>
               <h3 className="font-display text-xl font-bold text-white mt-1">
@@ -859,26 +859,26 @@ const AnalyticsPageContent = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 font-mono text-xs">
             {shiftData.map((sh, idx) => (
-              <div key={sh.shift} className="p-5 rounded-2xl bg-obsidian-950 border border-obsidian-800 space-y-3">
+              <div key={sh.shift} className="p-5 rounded-2xl bg-[#F0EBE2] border border-[#C8BFAF] space-y-3">
                 <div className="flex justify-between items-center pb-2 border-b border-obsidian-850">
                   <strong className="text-white text-sm">{sh.shift}</strong>
                   <span className={`px-2 py-0.5 rounded text-[10px] font-bold ${sh.status === 'OPTIMAL' ? 'bg-emerald-950 text-emerald-300 border border-emerald-800' : 'bg-amber-950 text-amber-300 border border-amber-800'}`}>
                     {sh.eff}
                   </span>
                 </div>
-                <div className="flex justify-between text-zinc-400">
+                <div className="flex justify-between text-[#5F625C]">
                   <span>Actual Output:</span>
-                  <strong className="text-white">{sh.actual.toLocaleString()} T <span className="text-[10px] text-zinc-500">(Target: {sh.target} T)</span></strong>
+                  <strong className="text-white">{sh.actual.toLocaleString()} T <span className="text-[10px] text-[#85877E]">(Target: {sh.target} T)</span></strong>
                 </div>
-                <div className="flex justify-between text-zinc-400">
+                <div className="flex justify-between text-[#5F625C]">
                   <span>Extraction Rate:</span>
                   <strong className="text-sky-400">{sh.tph} Tonnes / Hour</strong>
                 </div>
-                <div className="flex justify-between text-zinc-400">
+                <div className="flex justify-between text-[#5F625C]">
                   <span>Fleet Utilization:</span>
                   <strong className="text-emerald-400">{sh.util}</strong>
                 </div>
-                <div className="flex justify-between text-zinc-400">
+                <div className="flex justify-between text-[#5F625C]">
                   <span>Logged Downtime:</span>
                   <strong className="text-amber-400">{sh.downtime}</strong>
                 </div>
@@ -893,19 +893,19 @@ const AnalyticsPageContent = () => {
       {/* ========================================================================= */}
       {(activeTab === 'ALL' || activeTab === 'BOTTLENECK') && (
         <div className="panel-surface p-6 sm:p-8 border border-amber-500/40 shadow-2xl space-y-6">
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-4 border-b border-obsidian-800 gap-3">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-4 border-b border-[#C8BFAF] gap-3">
             <div>
               <span className="badge-hazard text-[10px] font-mono">AUTOMATED BOTTLENECK ENGINE</span>
               <h3 className="font-display text-xl font-bold text-white mt-1">
                 Extraction Flow Throttle &amp; Recommended Operational Actions
               </h3>
             </div>
-            <span className="text-xs font-mono text-zinc-400">Active Limiting Factor: <strong className="text-amber-400">Crusher Sizing Line</strong></span>
+            <span className="text-xs font-mono text-[#5F625C]">Active Limiting Factor: <strong className="text-amber-400">Crusher Sizing Line</strong></span>
           </div>
 
           <div className="overflow-x-auto">
             <table className="w-full text-left font-mono text-xs">
-              <thead className="bg-[#0f172a] text-zinc-400 border-b border-obsidian-800 uppercase text-[10px]">
+              <thead className="bg-[#0f172a] text-[#5F625C] border-b border-[#C8BFAF] uppercase text-[10px]">
                 <tr>
                   <th className="py-3 px-4">Extraction Stage</th>
                   <th className="py-3 px-4">Capacity Load</th>
@@ -914,9 +914,9 @@ const AnalyticsPageContent = () => {
                   <th className="py-3 px-4">Recommended Intervention</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-obsidian-800 text-zinc-200">
+              <tbody className="divide-y divide-obsidian-800 text-[#272A27]">
                 {bottleneckData.map(b => (
-                  <tr key={b.stage} className="hover:bg-obsidian-800/50 transition-colors">
+                  <tr key={b.stage} className="hover:bg-[#C8BFAF]/50 transition-colors">
                     <td className="py-3 px-4 font-bold text-white">{b.stage}</td>
                     <td className="py-3 px-4 font-bold text-sky-400">{b.load}</td>
                     <td className="py-3 px-4">
@@ -924,7 +924,7 @@ const AnalyticsPageContent = () => {
                         {b.status}
                       </span>
                     </td>
-                    <td className="py-3 px-4 text-zinc-400">{b.limitFactor}</td>
+                    <td className="py-3 px-4 text-[#5F625C]">{b.limitFactor}</td>
                     <td className="py-3 px-4 text-emerald-400 font-sans font-bold">{b.action}</td>
                   </tr>
                 ))}
@@ -940,17 +940,17 @@ const AnalyticsPageContent = () => {
       {(activeTab === 'ALL' || activeTab === 'DOWNTIME') && (
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 font-mono text-xs">
           {/* Downtime Breakdown */}
-          <div className="lg:col-span-6 panel-surface p-6 sm:p-8 border border-obsidian-750 shadow-2xl space-y-4">
-            <div className="flex justify-between items-center pb-3 border-b border-obsidian-800">
+          <div className="lg:col-span-6 panel-surface p-6 sm:p-8 border border-[#C8BFAF] shadow-2xl space-y-4">
+            <div className="flex justify-between items-center pb-3 border-b border-[#C8BFAF]">
               <h3 className="font-display text-lg font-bold text-white">Downtime Root-Cause Allocation</h3>
-              <span className="text-[10px] text-zinc-400">Total Downtime: 15.0 hrs / month</span>
+              <span className="text-[10px] text-[#5F625C]">Total Downtime: 15.0 hrs / month</span>
             </div>
             <div className="space-y-2.5">
               {downtimeData.map(d => (
-                <div key={d.category} className="p-3 rounded-xl bg-obsidian-950 border border-obsidian-800 flex justify-between items-center">
+                <div key={d.category} className="p-3 rounded-xl bg-[#F0EBE2] border border-[#C8BFAF] flex justify-between items-center">
                   <div>
                     <strong className="text-white">{d.category}</strong>
-                    <div className="text-[10px] text-zinc-500">{d.hours} hrs ({d.pct}% of total)</div>
+                    <div className="text-[10px] text-[#85877E]">{d.hours} hrs ({d.pct}% of total)</div>
                   </div>
                   <span className="text-rose-400 font-bold">{d.costLakhs} Loss</span>
                 </div>
@@ -960,20 +960,20 @@ const AnalyticsPageContent = () => {
 
           {/* Cost Intelligence */}
           <div className="lg:col-span-6 panel-surface p-6 sm:p-8 border border-emerald-500/40 shadow-2xl space-y-4">
-            <div className="flex justify-between items-center pb-3 border-b border-obsidian-800">
+            <div className="flex justify-between items-center pb-3 border-b border-[#C8BFAF]">
               <h3 className="font-display text-lg font-bold text-white">Extraction Cost &amp; Profit Margin</h3>
               <span className="text-[10px] text-emerald-400 font-bold">₹14,200 / Tonne Realization</span>
             </div>
             <div className="space-y-3">
-              <div className="p-4 rounded-xl bg-obsidian-950 border border-obsidian-800 flex justify-between items-center">
-                <span className="text-zinc-400">Total Unit Extraction Cost:</span>
+              <div className="p-4 rounded-xl bg-[#F0EBE2] border border-[#C8BFAF] flex justify-between items-center">
+                <span className="text-[#5F625C]">Total Unit Extraction Cost:</span>
                 <strong className="text-xl font-bold text-amber-400">{costData.costPerTonne}</strong>
               </div>
               <div className="grid grid-cols-2 gap-2 text-[11px]">
-                <div className="p-2.5 rounded-lg bg-obsidian-950 border border-obsidian-850">Fuel: <strong className="text-white">{costData.fuelCost}</strong></div>
-                <div className="p-2.5 rounded-lg bg-obsidian-950 border border-obsidian-850">Maintenance: <strong className="text-white">{costData.maintenanceCost}</strong></div>
-                <div className="p-2.5 rounded-lg bg-obsidian-950 border border-obsidian-850">Power/Explosives: <strong className="text-white">{costData.powerExplosives}</strong></div>
-                <div className="p-2.5 rounded-lg bg-obsidian-950 border border-obsidian-850">Downtime Impact: <strong className="text-rose-400">{costData.downtimeLossCost}</strong></div>
+                <div className="p-2.5 rounded-lg bg-[#F0EBE2] border border-obsidian-850">Fuel: <strong className="text-white">{costData.fuelCost}</strong></div>
+                <div className="p-2.5 rounded-lg bg-[#F0EBE2] border border-obsidian-850">Maintenance: <strong className="text-white">{costData.maintenanceCost}</strong></div>
+                <div className="p-2.5 rounded-lg bg-[#F0EBE2] border border-obsidian-850">Power/Explosives: <strong className="text-white">{costData.powerExplosives}</strong></div>
+                <div className="p-2.5 rounded-lg bg-[#F0EBE2] border border-obsidian-850">Downtime Impact: <strong className="text-rose-400">{costData.downtimeLossCost}</strong></div>
               </div>
               <div className="p-4 rounded-xl bg-emerald-950/40 border border-emerald-500/40 flex justify-between items-center">
                 <span className="text-emerald-300">Net Operating Margin:</span>
@@ -988,8 +988,8 @@ const AnalyticsPageContent = () => {
       {/* 6. TAB: EQUIPMENT & PREDICTIVE RUL */}
       {/* ========================================================================= */}
       {(activeTab === 'ALL' || activeTab === 'EQUIPMENT') && (
-        <div className="panel-surface p-6 sm:p-8 border border-obsidian-750 shadow-2xl space-y-6">
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-4 border-b border-obsidian-800 gap-3">
+        <div className="panel-surface p-6 sm:p-8 border border-[#C8BFAF] shadow-2xl space-y-6">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-4 border-b border-[#C8BFAF] gap-3">
             <div>
               <span className="badge-manganese text-[10px] font-mono">KOMATSU FLEET DIAGNOSTICS</span>
               <h3 className="font-display text-xl font-bold text-white mt-1">
@@ -1002,7 +1002,7 @@ const AnalyticsPageContent = () => {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 font-mono text-xs">
             {/* Machine Selector List */}
             <div className="lg:col-span-4 space-y-2">
-              <span className="text-zinc-500 uppercase text-[10px]">Select Machine Asset:</span>
+              <span className="text-[#85877E] uppercase text-[10px]">Select Machine Asset:</span>
               {machineList.map(m => (
                 <div
                   key={m.id}
@@ -1010,7 +1010,7 @@ const AnalyticsPageContent = () => {
                   className={`p-3 rounded-xl border cursor-pointer transition-all ${
                     activeMachine.id === m.id
                       ? 'bg-[#15233b] border-manganese-500 text-white shadow'
-                      : 'bg-obsidian-950 border-obsidian-800 text-zinc-400 hover:border-zinc-700'
+                      : 'bg-[#F0EBE2] border-[#C8BFAF] text-[#5F625C] hover:border-zinc-700'
                   }`}
                 >
                   <div className="flex justify-between items-center">
@@ -1023,7 +1023,7 @@ const AnalyticsPageContent = () => {
                       {m.priority}
                     </span>
                   </div>
-                  <div className="flex justify-between text-[10px] text-zinc-400 mt-1">
+                  <div className="flex justify-between text-[10px] text-[#5F625C] mt-1">
                     <span>Health: <strong className="text-emerald-400">{m.health}%</strong></span>
                     <span>RUL: <strong className="text-white">{m.rul}</strong></span>
                   </div>
@@ -1032,33 +1032,33 @@ const AnalyticsPageContent = () => {
             </div>
 
             {/* Selected Machine Detailed Diagnostic Inspector */}
-            <div className="lg:col-span-8 p-6 rounded-2xl bg-obsidian-950 border border-obsidian-800 space-y-4">
+            <div className="lg:col-span-8 p-6 rounded-2xl bg-[#F0EBE2] border border-[#C8BFAF] space-y-4">
               <div className="flex justify-between items-center pb-3 border-b border-obsidian-850">
                 <div>
                   <h4 className="font-bold text-white text-base">{activeMachine.name}</h4>
                   <span className="text-[10px] text-manganese-400 font-bold">{activeMachine.id} • {activeMachine.hours} Operating Time</span>
                 </div>
                 <div className="text-right">
-                  <div className="text-[10px] text-zinc-500 uppercase">Estimated RUL</div>
+                  <div className="text-[10px] text-[#85877E] uppercase">Estimated RUL</div>
                   <div className="text-xl font-bold text-emerald-400">{activeMachine.rul}</div>
                 </div>
               </div>
 
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
-                <div className="p-3 rounded-xl bg-obsidian-900 border border-obsidian-800">
-                  <div className="text-[10px] text-zinc-500 uppercase">VIBRATION RMS</div>
+                <div className="p-3 rounded-xl bg-[#F5F1E9] border border-[#C8BFAF]">
+                  <div className="text-[10px] text-[#85877E] uppercase">VIBRATION RMS</div>
                   <div className="text-lg font-bold text-sky-400 mt-1">{activeMachine.vib}</div>
                 </div>
-                <div className="p-3 rounded-xl bg-obsidian-900 border border-obsidian-800">
-                  <div className="text-[10px] text-zinc-500 uppercase">TEMPERATURE</div>
+                <div className="p-3 rounded-xl bg-[#F5F1E9] border border-[#C8BFAF]">
+                  <div className="text-[10px] text-[#85877E] uppercase">TEMPERATURE</div>
                   <div className="text-lg font-bold text-amber-400 mt-1">{activeMachine.temp}</div>
                 </div>
-                <div className="p-3 rounded-xl bg-obsidian-900 border border-obsidian-800">
-                  <div className="text-[10px] text-zinc-500 uppercase">HYDRAULIC OIL</div>
-                  <div className="text-lg font-bold text-zinc-200 mt-1">{activeMachine.oil}</div>
+                <div className="p-3 rounded-xl bg-[#F5F1E9] border border-[#C8BFAF]">
+                  <div className="text-[10px] text-[#85877E] uppercase">HYDRAULIC OIL</div>
+                  <div className="text-lg font-bold text-[#272A27] mt-1">{activeMachine.oil}</div>
                 </div>
-                <div className="p-3 rounded-xl bg-obsidian-900 border border-obsidian-800">
-                  <div className="text-[10px] text-zinc-500 uppercase">FAILURE PROB</div>
+                <div className="p-3 rounded-xl bg-[#F5F1E9] border border-[#C8BFAF]">
+                  <div className="text-[10px] text-[#85877E] uppercase">FAILURE PROB</div>
                   <div className="text-lg font-bold text-rose-400 mt-1">{activeMachine.failProb}%</div>
                 </div>
               </div>
@@ -1071,15 +1071,15 @@ const AnalyticsPageContent = () => {
       {/* 7. TAB: TELEMETRY FFT & SENSOR CORRELATIONS */}
       {/* ========================================================================= */}
       {(activeTab === 'ALL' || activeTab === 'TELEMETRY') && (
-        <div className="panel-surface p-6 sm:p-8 border border-obsidian-750 shadow-2xl space-y-6">
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-4 border-b border-obsidian-800 gap-3">
+        <div className="panel-surface p-6 sm:p-8 border border-[#C8BFAF] shadow-2xl space-y-6">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-4 border-b border-[#C8BFAF] gap-3">
             <div>
               <span className="badge-telemetry text-[10px] font-mono">VIBRATION FFT HARMONIC ANALYSIS</span>
               <h3 className="font-display text-xl font-bold text-white mt-1">
                 Fast Fourier Transform (FFT) Spectrum &amp; Sensor Cross-Correlation
               </h3>
             </div>
-            <span className="text-xs font-mono text-zinc-400">Target Asset: <strong className="text-white">{activeMachine.name}</strong></span>
+            <span className="text-xs font-mono text-[#5F625C]">Target Asset: <strong className="text-white">{activeMachine.name}</strong></span>
           </div>
 
           <div className="h-64 w-full">
@@ -1095,16 +1095,16 @@ const AnalyticsPageContent = () => {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 font-mono text-xs pt-2">
-            <div className="p-3 rounded-xl bg-obsidian-950 border border-obsidian-800">
-              <span className="text-zinc-500 uppercase text-[10px]">Vibration &harr; Temp Correlation</span>
+            <div className="p-3 rounded-xl bg-[#F0EBE2] border border-[#C8BFAF]">
+              <span className="text-[#85877E] uppercase text-[10px]">Vibration &harr; Temp Correlation</span>
               <div className="text-base font-bold text-emerald-400 mt-1">r = +0.88 (Strong Linear)</div>
             </div>
-            <div className="p-3 rounded-xl bg-obsidian-950 border border-obsidian-800">
-              <span className="text-zinc-500 uppercase text-[10px]">Vibration &harr; Hydraulic Pressure</span>
+            <div className="p-3 rounded-xl bg-[#F0EBE2] border border-[#C8BFAF]">
+              <span className="text-[#85877E] uppercase text-[10px]">Vibration &harr; Hydraulic Pressure</span>
               <div className="text-base font-bold text-sky-400 mt-1">r = -0.42 (Moderate Negative)</div>
             </div>
-            <div className="p-3 rounded-xl bg-obsidian-950 border border-obsidian-800">
-              <span className="text-zinc-500 uppercase text-[10px]">Harmonic Anomaly Threshold</span>
+            <div className="p-3 rounded-xl bg-[#F0EBE2] border border-[#C8BFAF]">
+              <span className="text-[#85877E] uppercase text-[10px]">Harmonic Anomaly Threshold</span>
               <div className="text-base font-bold text-amber-400 mt-1">4.5 mm/s (ISO 10816-3 Standard)</div>
             </div>
           </div>
@@ -1115,20 +1115,20 @@ const AnalyticsPageContent = () => {
       {/* 8. TAB: RISK MATRIX & HEATMAP */}
       {/* ========================================================================= */}
       {(activeTab === 'ALL' || activeTab === 'RISK') && (
-        <div className="panel-surface p-6 sm:p-8 border border-obsidian-750 shadow-2xl space-y-6">
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-4 border-b border-obsidian-800 gap-3">
+        <div className="panel-surface p-6 sm:p-8 border border-[#C8BFAF] shadow-2xl space-y-6">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-4 border-b border-[#C8BFAF] gap-3">
             <div>
               <span className="badge-hazard text-[10px] font-mono">MINE RISK MATRIX &amp; HEATMAP</span>
               <h3 className="font-display text-xl font-bold text-white mt-1">
                 7-Domain Multi-Risk Matrix &amp; Operational Vulnerability Score
               </h3>
             </div>
-            <span className="text-xs font-mono text-zinc-400">DGMS MMR-1961 Calibrated</span>
+            <span className="text-xs font-mono text-[#5F625C]">DGMS MMR-1961 Calibrated</span>
           </div>
 
           <div className="overflow-x-auto">
             <table className="w-full text-left font-mono text-xs">
-              <thead className="bg-[#0f172a] text-zinc-400 border-b border-obsidian-800 uppercase text-[10px]">
+              <thead className="bg-[#0f172a] text-[#5F625C] border-b border-[#C8BFAF] uppercase text-[10px]">
                 <tr>
                   <th className="py-3 px-4">Risk Domain</th>
                   <th className="py-3 px-4">Probability (%)</th>
@@ -1139,14 +1139,14 @@ const AnalyticsPageContent = () => {
                   <th className="py-3 px-4">Contributing Factors</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-obsidian-800 text-zinc-200">
+              <tbody className="divide-y divide-obsidian-800 text-[#272A27]">
                 {riskDomains.map(r => (
-                  <tr key={r.id} className="hover:bg-obsidian-800/50 transition-colors">
+                  <tr key={r.id} className="hover:bg-[#C8BFAF]/50 transition-colors">
                     <td className="py-3 px-4 font-bold text-white">{r.name}</td>
                     <td className="py-3 px-4">{r.prob}%</td>
                     <td className="py-3 px-4">{r.impact} / 5</td>
                     <td className="py-3 px-4 font-bold text-amber-400">{r.score}</td>
-                    <td className="py-3 px-4 text-zinc-300">{r.trend}</td>
+                    <td className="py-3 px-4 text-[#272A27]">{r.trend}</td>
                     <td className="py-3 px-4">
                       <span className={`px-2 py-0.5 rounded text-[10px] font-bold ${
                         r.level === 'CRITICAL' ? 'bg-rose-950 text-rose-300 border border-rose-800' :
@@ -1156,7 +1156,7 @@ const AnalyticsPageContent = () => {
                         {r.level}
                       </span>
                     </td>
-                    <td className="py-3 px-4 text-zinc-400 text-[11px] max-w-xs truncate">{r.factors}</td>
+                    <td className="py-3 px-4 text-[#5F625C] text-[11px] max-w-xs truncate">{r.factors}</td>
                   </tr>
                 ))}
               </tbody>
@@ -1169,27 +1169,27 @@ const AnalyticsPageContent = () => {
       {/* 9. TAB: SCENARIO LAB INSIDE ANALYTICS */}
       {/* ========================================================================= */}
       {(activeTab === 'ALL' || activeTab === 'SCENARIO') && (
-        <div className="panel-surface p-6 sm:p-8 border border-obsidian-750 shadow-2xl space-y-6">
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-4 border-b border-obsidian-800 gap-3">
+        <div className="panel-surface p-6 sm:p-8 border border-[#C8BFAF] shadow-2xl space-y-6">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-4 border-b border-[#C8BFAF] gap-3">
             <div>
               <span className="badge-telemetry text-[10px] font-mono">SCENARIO LAB ANALYTICS</span>
               <h3 className="font-display text-xl font-bold text-white mt-1">
                 4-Scenario Stress Permutation &amp; Revenue Sensitivity Matrix
               </h3>
             </div>
-            <span className="text-xs font-mono text-zinc-400">{currentMine.name} Stress Model</span>
+            <span className="text-xs font-mono text-[#5F625C]">{currentMine.name} Stress Model</span>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 font-mono text-xs">
             {scenarioComparisonData.map((s, idx) => (
-              <div key={s.scenario} className="p-4 rounded-xl bg-obsidian-950 border border-obsidian-800 space-y-2">
+              <div key={s.scenario} className="p-4 rounded-xl bg-[#F0EBE2] border border-[#C8BFAF] space-y-2">
                 <span className="text-[10px] text-manganese-400 font-bold uppercase">{s.scenario}</span>
-                <div className="text-lg font-bold text-white">{s.yield.toLocaleString()} T <span className="text-xs text-zinc-400">(-{s.loss} T)</span></div>
-                <div className="text-[11px] text-zinc-400 flex justify-between">
+                <div className="text-lg font-bold text-white">{s.yield.toLocaleString()} T <span className="text-xs text-[#5F625C]">(-{s.loss} T)</span></div>
+                <div className="text-[11px] text-[#5F625C] flex justify-between">
                   <span>Recovery Time:</span>
                   <strong className="text-white">{s.recoveryHrs} Hours</strong>
                 </div>
-                <div className="text-[11px] text-zinc-400 flex justify-between">
+                <div className="text-[11px] text-[#5F625C] flex justify-between">
                   <span>Projected Revenue Loss:</span>
                   <strong className="text-rose-400">{s.revLossCr} Cr</strong>
                 </div>
@@ -1204,7 +1204,7 @@ const AnalyticsPageContent = () => {
       {/* ========================================================================= */}
       {(activeTab === 'ALL' || activeTab === 'EO') && (
         <div className="panel-surface p-6 sm:p-8 border border-emerald-500/40 shadow-2xl space-y-6">
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-4 border-b border-obsidian-800 gap-3">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-4 border-b border-[#C8BFAF] gap-3">
             <div className="flex items-center gap-2.5">
               <div className="p-2 rounded-xl bg-emerald-950 border border-emerald-500/40 text-emerald-400">
                 <Globe2 className="w-5 h-5" />
@@ -1224,26 +1224,26 @@ const AnalyticsPageContent = () => {
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 font-mono text-xs">
-            <div className="p-4 rounded-xl bg-obsidian-950 border border-obsidian-800 space-y-2">
-              <span className="text-zinc-500 uppercase text-[10px]">1. 3-Year Disturbance Trend</span>
+            <div className="p-4 rounded-xl bg-[#F0EBE2] border border-[#C8BFAF] space-y-2">
+              <span className="text-[#85877E] uppercase text-[10px]">1. 3-Year Disturbance Trend</span>
               <div className="text-base font-bold text-white">2024: 162.4 Ha &rarr; 2026: {currentMine.leaseAreaHa} Ha</div>
               <p className="text-[11px] text-emerald-400 font-sans">+13.6% active extraction footprint expansion within authorized lease boundary.</p>
             </div>
 
-            <div className="p-4 rounded-xl bg-obsidian-950 border border-obsidian-800 space-y-2">
-              <span className="text-zinc-500 uppercase text-[10px]">2. Mean NDVI Vegetation Index</span>
+            <div className="p-4 rounded-xl bg-[#F0EBE2] border border-[#C8BFAF] space-y-2">
+              <span className="text-[#85877E] uppercase text-[10px]">2. Mean NDVI Vegetation Index</span>
               <div className="text-base font-bold text-sky-300">NDVI 0.38 (Stable Buffer)</div>
-              <p className="text-[11px] text-zinc-400 font-sans">Green belt afforestation compliance maintained along perimeter.</p>
+              <p className="text-[11px] text-[#5F625C] font-sans">Green belt afforestation compliance maintained along perimeter.</p>
             </div>
 
-            <div className="p-4 rounded-xl bg-obsidian-950 border border-obsidian-800 space-y-2">
-              <span className="text-zinc-500 uppercase text-[10px]">3. NDWI Moisture Anomaly</span>
+            <div className="p-4 rounded-xl bg-[#F0EBE2] border border-[#C8BFAF] space-y-2">
+              <span className="text-[#85877E] uppercase text-[10px]">3. NDWI Moisture Anomaly</span>
               <div className="text-base font-bold text-cyan-300">0.22 (Low Moisture Risk)</div>
-              <p className="text-[11px] text-zinc-400 font-sans">Pit sump dewatering pumps operating at nominal 35% load.</p>
+              <p className="text-[11px] text-[#5F625C] font-sans">Pit sump dewatering pumps operating at nominal 35% load.</p>
             </div>
 
-            <div className="p-4 rounded-xl bg-obsidian-950 border border-obsidian-800 space-y-2">
-              <span className="text-zinc-500 uppercase text-[10px]">4. SWIR Mineral Signature</span>
+            <div className="p-4 rounded-xl bg-[#F0EBE2] border border-[#C8BFAF] space-y-2">
+              <span className="text-[#85877E] uppercase text-[10px]">4. SWIR Mineral Signature</span>
               <div className="text-base font-bold text-amber-300">0.412 SWIR Band 11/12 Peak</div>
               <p className="text-[11px] text-amber-400 font-sans">High-grade Braunite manganese spectral absorption confirmed.</p>
             </div>
@@ -1255,20 +1255,20 @@ const AnalyticsPageContent = () => {
       {/* 11. TAB: CROSS-MINE BENCHMARKING & NATIONAL RANKING */}
       {/* ========================================================================= */}
       {(activeTab === 'ALL' || activeTab === 'BENCHMARK') && (
-        <div className="panel-surface p-6 sm:p-8 border border-obsidian-750 shadow-2xl space-y-6">
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-4 border-b border-obsidian-800 gap-3">
+        <div className="panel-surface p-6 sm:p-8 border border-[#C8BFAF] shadow-2xl space-y-6">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-4 border-b border-[#C8BFAF] gap-3">
             <div>
               <span className="badge-manganese text-[10px] font-mono">CROSS-MINE BENCHMARKING &amp; NATIONAL RANKING</span>
               <h3 className="font-display text-xl font-bold text-white mt-1">
                 Multi-Asset Operational &amp; Geological Comparison (10 Canonical Mines)
               </h3>
             </div>
-            <span className="text-xs font-mono text-zinc-400">Sorted by National Quota</span>
+            <span className="text-xs font-mono text-[#5F625C]">Sorted by National Quota</span>
           </div>
 
           <div className="overflow-x-auto">
             <table className="w-full text-left font-mono text-xs">
-              <thead className="bg-[#0f172a] text-zinc-400 border-b border-obsidian-800 uppercase text-[10px]">
+              <thead className="bg-[#0f172a] text-[#5F625C] border-b border-[#C8BFAF] uppercase text-[10px]">
                 <tr>
                   <th className="py-3 px-4">Mine Asset</th>
                   <th className="py-3 px-4">Type / State</th>
@@ -1281,25 +1281,25 @@ const AnalyticsPageContent = () => {
                   <th className="py-3 px-4">Satellite Footprint</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-obsidian-800 text-zinc-200">
+              <tbody className="divide-y divide-obsidian-800 text-[#272A27]">
                 {mineList.map((m, idx) => (
-                  <tr key={m.id} className={`hover:bg-obsidian-800/50 transition-colors ${selectedMineId === m.id ? 'bg-[#15233b]/60 text-white font-bold' : ''}`}>
+                  <tr key={m.id} className={`hover:bg-[#C8BFAF]/50 transition-colors ${selectedMineId === m.id ? 'bg-[#15233b]/60 text-white font-bold' : ''}`}>
                     <td className="py-3 px-4 flex items-center gap-2">
                       <span className="w-2 h-2 rounded-full bg-manganese-400" />
                       <span>{m.name}</span>
                     </td>
-                    <td className="py-3 px-4 text-zinc-400">{m.mineType} ({m.state})</td>
+                    <td className="py-3 px-4 text-[#5F625C]">{m.mineType} ({m.state})</td>
                     <td className="py-3 px-4 font-bold text-white">{m.productionTarget?.toLocaleString()} T</td>
                     <td className="py-3 px-4 text-manganese-400 font-bold">{m.oreGrade}</td>
                     <td className="py-3 px-4 text-emerald-400 font-bold">{m.crusherHealthBase || 92}%</td>
                     <td className="py-3 px-4 text-sky-400">{m.fleetAvailabilityBase || 88}%</td>
-                    <td className="py-3 px-4 text-zinc-300">48-62 Days</td>
+                    <td className="py-3 px-4 text-[#272A27]">48-62 Days</td>
                     <td className="py-3 px-4">
                       <span className="px-2 py-0.5 rounded bg-emerald-950 text-emerald-300 border border-emerald-800 text-[10px]">
                         {m.shortfallRisk || 'LOW'}
                       </span>
                     </td>
-                    <td className="py-3 px-4 text-zinc-300">{m.leaseAreaHa} Ha</td>
+                    <td className="py-3 px-4 text-[#272A27]">{m.leaseAreaHa} Ha</td>
                   </tr>
                 ))}
               </tbody>
@@ -1310,8 +1310,8 @@ const AnalyticsPageContent = () => {
 
       {/* 12. DYNAMIC METALLURGICAL BLENDING SOLVER */}
       {(activeTab === 'ALL' || activeTab === 'PRODUCTION') && (
-        <div className="panel-surface p-6 sm:p-8 border border-obsidian-750 shadow-2xl space-y-6">
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-6 border-b border-obsidian-800 gap-4">
+        <div className="panel-surface p-6 sm:p-8 border border-[#C8BFAF] shadow-2xl space-y-6">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-6 border-b border-[#C8BFAF] gap-4">
             <div>
               <div className="badge-manganese mb-2 font-mono text-[10px]">
                 <Sliders className="w-3.5 h-3.5 text-manganese-400" />
@@ -1320,13 +1320,13 @@ const AnalyticsPageContent = () => {
               <h3 className="font-display text-2xl font-bold text-white">
                 Manganese Ore Grade Blending Optimizer
               </h3>
-              <p className="text-xs font-mono text-zinc-400 mt-1 max-w-2xl">
+              <p className="text-xs font-mono text-[#5F625C] mt-1 max-w-2xl">
                 Simulates linear blending between active feed (<strong className="text-white">{currentMine.name}</strong>) and complementary MOIL mine reserves to satisfy steel plant specifications.
               </p>
             </div>
 
             <div className="text-left sm:text-right font-mono text-xs">
-              <span className="text-zinc-500 uppercase">Target Spec Envelope:</span>
+              <span className="text-[#85877E] uppercase">Target Spec Envelope:</span>
               <div className="text-sm font-bold text-white">&ge;40.0% Mn • &le;14.5% SiO₂ • &le;0.12% P</div>
             </div>
           </div>
@@ -1335,7 +1335,7 @@ const AnalyticsPageContent = () => {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 font-mono text-xs">
             <div className="lg:col-span-6 space-y-6">
               <div className="space-y-3">
-                <label className="text-zinc-300 flex justify-between">
+                <label className="text-[#272A27] flex justify-between">
                   <span>Blend Ratio ({currentMine.shortName || currentMine.name}):</span>
                   <strong className="text-manganese-400 font-bold">{blendRatio}% Primary / {100 - blendRatio}% Partner</strong>
                 </label>
@@ -1345,12 +1345,12 @@ const AnalyticsPageContent = () => {
                   max="90"
                   value={blendRatio}
                   onChange={(e) => setBlendRatio(parseInt(e.target.value))}
-                  className="w-full h-2 bg-obsidian-950 rounded-lg appearance-none cursor-pointer accent-manganese-500"
+                  className="w-full h-2 bg-[#F0EBE2] rounded-lg appearance-none cursor-pointer accent-manganese-500"
                 />
               </div>
 
               <div className="space-y-2">
-                <label className="text-zinc-300">Select Complementary Partner Mine:</label>
+                <label className="text-[#272A27]">Select Complementary Partner Mine:</label>
                 <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
                   {mineList.filter(m => m.id !== currentMine.id).slice(0, 6).map((m) => (
                     <button
@@ -1359,7 +1359,7 @@ const AnalyticsPageContent = () => {
                       className={`p-2 rounded-xl border text-left transition-all ${
                         blendPartnerId === m.id
                           ? 'bg-[#15233b] border-manganese-500 text-white shadow'
-                          : 'bg-obsidian-950 border-obsidian-800 text-zinc-400 hover:text-zinc-200'
+                          : 'bg-[#F0EBE2] border-[#C8BFAF] text-[#5F625C] hover:text-[#272A27]'
                       }`}
                     >
                       <div className="font-bold text-[11px] truncate">{m.shortName || m.name}</div>
@@ -1371,21 +1371,21 @@ const AnalyticsPageContent = () => {
             </div>
 
             {/* Blend Output Metric Card */}
-            <div className="lg:col-span-6 p-6 rounded-2xl bg-obsidian-950 border border-obsidian-800 space-y-4 flex flex-col justify-between">
+            <div className="lg:col-span-6 p-6 rounded-2xl bg-[#F0EBE2] border border-[#C8BFAF] space-y-4 flex flex-col justify-between">
               <div className="flex justify-between items-center pb-3 border-b border-obsidian-850">
-                <span className="text-zinc-400">Blended Manganese Grade:</span>
+                <span className="text-[#5F625C]">Blended Manganese Grade:</span>
                 <strong className="text-xl font-bold text-manganese-400">{blendedMnGrade}% Mn</strong>
               </div>
               <div className="flex justify-between items-center pb-3 border-b border-obsidian-850">
-                <span className="text-zinc-400">Blended Silica (SiO₂):</span>
-                <strong className="text-base font-bold text-zinc-200">{blendedSilica}%</strong>
+                <span className="text-[#5F625C]">Blended Silica (SiO₂):</span>
+                <strong className="text-base font-bold text-[#272A27]">{blendedSilica}%</strong>
               </div>
               <div className="flex justify-between items-center pb-3 border-b border-obsidian-850">
-                <span className="text-zinc-400">Blended Phosphorus (P):</span>
-                <strong className="text-base font-bold text-zinc-200">{blendedP}%</strong>
+                <span className="text-[#5F625C]">Blended Phosphorus (P):</span>
+                <strong className="text-base font-bold text-[#272A27]">{blendedP}%</strong>
               </div>
               <div className="flex justify-between items-center">
-                <span className="text-zinc-400">Commercial Daily Value:</span>
+                <span className="text-[#5F625C]">Commercial Daily Value:</span>
                 <strong className="text-xl font-bold text-telemetry-400">₹{blendedValueCr} Cr / Day</strong>
               </div>
             </div>

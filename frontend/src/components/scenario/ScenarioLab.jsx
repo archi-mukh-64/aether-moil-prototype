@@ -11,15 +11,15 @@ import { WhatIfSimulation } from './WhatIfSimulation.jsx';
 import { HumanDecision } from './HumanDecision.jsx';
 import { DecisionAudit } from './DecisionAudit.jsx';
 import { PipelineInspector } from './PipelineInspector.jsx';
-import { 
-  SlidersHorizontal, 
-  Radio, 
-  TrendingDown, 
-  Sparkles, 
-  Zap, 
-  Sliders, 
-  TrendingUp, 
-  UserCheck, 
+import {
+  SlidersHorizontal,
+  Radio,
+  TrendingDown,
+  Sparkles,
+  Zap,
+  Sliders,
+  TrendingUp,
+  UserCheck,
   FileCheck,
   ChevronRight,
   ShieldCheck,
@@ -46,9 +46,9 @@ export const ScenarioLab = () => {
 
   return (
     <section className="command-container py-12 space-y-8 select-none">
-      
+
       {/* Section Title */}
-      <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-6 border-b border-obsidian-800">
+      <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-6 border-b border-[#C8BFAF]">
         <div>
           <div className="badge-manganese mb-3">
             <SlidersHorizontal className="w-3 h-3 text-manganese-400" />
@@ -57,7 +57,7 @@ export const ScenarioLab = () => {
           <h2 className="font-display text-3xl sm:text-5xl font-extrabold text-white">
             {scenT.pageTitle || 'Operational Scenario Lab'}
           </h2>
-          <p className="text-sm sm:text-base text-zinc-400 mt-2 max-w-3xl font-normal">
+          <p className="text-sm sm:text-base text-[#5F625C] mt-2 max-w-3xl font-normal">
             {lang === 'hi' ? 'वास्तविक परिचालन तनाव इंजेक्ट करके संपूर्ण मॉयल निर्णय पाइपलाइन का प्रत्यक्ष अनुभव करें: आधारभूत स्थिति बनाम तनाव, दहलीज पहचान, सिम्युलेटेड भविष्यवाणी, विशेषता एट्रिब्यूशन, एवं ऑपरेटर प्रेषण प्राधिकरण।' :
              lang === 'mr' ? 'प्रत्यक्ष ऑपरेशनल ताण इंजेक्ट करून संपूर्ण मॉयल निर्णय पाइपलाइनचा अनुभव घ्या: पायाभूत स्थिती वि. ताण, मर्यादा शोध, सिम्युलेटेड अंदाज, वैशिष्ट्य ॲट्रिब्युशन व ऑपरेटर प्रेषण अधिकृती.' :
              'Inject real-world operational stress to witness the full MOIL Decision Pipeline: baseline state vs injected stress, threshold detection, simulated prediction, feature attribution, and operator dispatch authorization.'}
@@ -65,7 +65,7 @@ export const ScenarioLab = () => {
         </div>
 
         {/* Step Filter Navigation Strip */}
-        <div className="flex items-center gap-1.5 p-1 rounded-xl bg-obsidian-900 border border-obsidian-750 self-start md:self-auto overflow-x-auto no-scrollbar font-mono text-xs">
+        <div className="flex items-center gap-1.5 p-1 rounded-xl bg-[#F5F1E9] border border-[#C8BFAF] self-start md:self-auto overflow-x-auto no-scrollbar font-mono text-xs">
           {steps.map((tab) => (
             <button
               key={tab.id}
@@ -73,7 +73,7 @@ export const ScenarioLab = () => {
               className={`px-3 py-1.5 rounded-lg font-bold transition-all whitespace-nowrap ${
                 activeStepTab === tab.id
                   ? 'bg-manganese-500 text-obsidian-950 shadow-sm'
-                  : 'text-zinc-400 hover:text-zinc-200'
+                  : 'text-[#5F625C] hover:text-[#272A27]'
               }`}
             >
               {tab.label}
@@ -91,7 +91,7 @@ export const ScenarioLab = () => {
       {/* Active Step Panels Progression */}
       {activeScenario && (
         <div className="space-y-8 animate-fade-in">
-          
+
           {(activeStepTab === 'ALL' || activeStepTab === 'INSPECTOR') && (
             <PipelineInspector />
           )}

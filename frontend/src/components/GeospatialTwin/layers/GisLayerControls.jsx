@@ -1,21 +1,21 @@
 import React from 'react';
 import { useApp } from '../../../context/AppContext.jsx';
-import { 
+import {
   Globe2,
   Mountain,
-  MapPin, 
-  Layers, 
-  Truck, 
-  Activity, 
+  MapPin,
+  Layers,
+  Truck,
+  Activity,
   TrendingUp,
-  Sparkles, 
+  Sparkles,
   Boxes,
   Compass,
   Zap,
   Building,
-  Droplet, 
-  ShieldAlert, 
-  CloudRain, 
+  Droplet,
+  ShieldAlert,
+  CloudRain,
   Radio,
   BarChart2,
   AlertTriangle
@@ -42,7 +42,7 @@ export const GisLayerControls = ({ activeLayers = {}, onToggleLayer }) => {
         { id: 'crusher', label: lang === 'hi' ? 'प्राथमिक साइजिंग क्रशर' : lang === 'mr' ? 'प्राथमिक क्रशर स्टेशन' : 'Primary Sizing Crushers', icon: Zap, color: 'text-purple-400' },
         { id: 'stockpile', label: lang === 'hi' ? 'आरओएम एवं मिश्रण स्टॉकपाइल' : lang === 'mr' ? 'आरओएम व साठा स्टॉकपाइल' : 'ROM & Blending Stockpiles', icon: Boxes, color: 'text-orange-400' },
         { id: 'sump', label: lang === 'hi' ? 'सम्प एवं डीवाटरिंग नेटवर्क' : lang === 'mr' ? 'सम्प व उपसा नेटवर्क' : 'Sump & Dewatering Network', icon: Droplet, color: 'text-teal-400' },
-        { id: 'infrastructure', label: lang === 'hi' ? 'कार्यशालाएं एवं संयंत्र' : lang === 'mr' ? 'कार्यशाळा व संयंत्र' : 'Workshops & Plant Facilities', icon: Building, color: 'text-zinc-400' }
+        { id: 'infrastructure', label: lang === 'hi' ? 'कार्यशालाएं एवं संयंत्र' : lang === 'mr' ? 'कार्यशाळा व संयंत्र' : 'Workshops & Plant Facilities', icon: Building, color: 'text-[#5F625C]' }
       ]
     },
     {
@@ -61,7 +61,7 @@ export const GisLayerControls = ({ activeLayers = {}, onToggleLayer }) => {
 
   return (
     <div className="p-3 rounded-2xl bg-[#090e17]/95 border border-[#1a2538] backdrop-blur-md space-y-3 font-mono text-[11px] select-none max-h-[460px] overflow-y-auto custom-scrollbar shadow-2xl">
-      <div className="flex items-center justify-between pb-2 border-b border-[#141c2b] text-[10px] text-zinc-400 font-bold uppercase tracking-wider">
+      <div className="flex items-center justify-between pb-2 border-b border-[#141c2b] text-[10px] text-[#5F625C] font-bold uppercase tracking-wider">
         <span>{lang === 'hi' ? 'जीआईएस इंजीनियरिंग परतें (18)' : lang === 'mr' ? 'जीआयएस अभियांत्रिकी स्तर (18)' : 'GIS ENGINEERING LAYERS (18)'}</span>
         <span className="px-1.5 py-0.5 rounded bg-sky-950/80 text-sky-400 border border-sky-800 text-[9px]">
           {lang === 'hi' ? 'इंटरैक्टिव' : lang === 'mr' ? 'इंटरअॅक्टिव्ह' : 'INTERACTIVE'}
@@ -71,7 +71,7 @@ export const GisLayerControls = ({ activeLayers = {}, onToggleLayer }) => {
       <div className="space-y-3">
         {layerGroups.map((grp) => (
           <div key={grp.group} className="space-y-1">
-            <div className="text-[9px] font-bold tracking-widest text-zinc-500 uppercase px-1">
+            <div className="text-[9px] font-bold tracking-widest text-[#85877E] uppercase px-1">
               {grp.group}
             </div>
             <div className="space-y-0.5">
@@ -85,11 +85,11 @@ export const GisLayerControls = ({ activeLayers = {}, onToggleLayer }) => {
                     className={`w-full px-2 py-1.5 rounded-lg flex items-center justify-between transition-all ${
                       isActive
                         ? 'bg-[#131d2e] text-zinc-100 border border-[#1e2d44]'
-                        : 'text-zinc-500 hover:text-zinc-300 hover:bg-[#0c121c] border border-transparent'
+                        : 'text-[#85877E] hover:text-[#272A27] hover:bg-[#0c121c] border border-transparent'
                     }`}
                   >
                     <div className="flex items-center gap-2 truncate">
-                      <Icon className={`w-3.5 h-3.5 flex-shrink-0 ${isActive ? l.color : 'text-zinc-600'}`} />
+                      <Icon className={`w-3.5 h-3.5 flex-shrink-0 ${isActive ? l.color : 'text-[#85877E]'}`} />
                       <span className="truncate text-[10.5px]">{l.label}</span>
                     </div>
                     <div className={`w-2 h-2 rounded-full transition-all ${
