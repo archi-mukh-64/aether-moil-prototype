@@ -838,9 +838,9 @@ export const LivingMineSimulation = ({
       </div>
 
       {/* 2. Interactive Fleet & SCADA Telemetry Badge Strip */}
-      <div className="p-3.5 rounded-2xl bg-[#0b1220] border border-[#1e2f4a] shadow-xl flex flex-wrap items-center justify-between gap-2 font-mono text-xs select-none">
+      <div className="p-3.5 rounded-2xl bg-[#F0EBE2] border border-[#C8BFAF] shadow-mineral-sm flex flex-wrap items-center justify-between gap-2 font-mono text-xs select-none">
         <div className="flex items-center gap-2 text-[#5F625C] text-[10.5px]">
-          <Gauge className="w-3.5 h-3.5 text-amber-400" />
+          <Gauge className="w-3.5 h-3.5 text-[#C46A32]" />
           <span className="font-bold uppercase tracking-wider">
             {lang === 'hi' ? 'उपकरण स्काडा जांचने के लिए क्लिक करें:' : lang === 'mr' ? 'उपकरण स्काडा तपासण्यासाठी क्लिक करा:' : 'CLICK TO INSPECT EQUIPMENT SCADA:'}
           </span>
@@ -859,12 +859,12 @@ export const LivingMineSimulation = ({
             <button
               key={item.id}
               onClick={() => setActiveInspector(item)}
-              className="px-2.5 py-1 rounded-xl bg-[#121c2c] border border-[#1e2f4a] text-[#272A27] hover:text-[#272A27] hover:border-amber-400 hover:bg-[#1a283e] transition flex items-center gap-1.5"
+              className="px-2.5 py-1 rounded-xl bg-[#F5F1E9] border border-[#C8BFAF] text-[#272A27] hover:border-[#C46A32] hover:bg-[#E8E1D5] transition flex items-center gap-1.5 cursor-pointer shadow-2xs"
             >
-              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
-              <strong className="text-amber-400 font-bold">{item.id}</strong>
+              <span className="w-1.5 h-1.5 rounded-full bg-[#2D7A4D]" />
+              <strong className="text-[#C46A32] font-bold">{item.id}</strong>
               <span className="text-[#85877E]">|</span>
-              <span>{item.speed}</span>
+              <span className="text-[#5F625C]">{item.speed}</span>
             </button>
           ))}
         </div>
@@ -872,51 +872,51 @@ export const LivingMineSimulation = ({
 
       {/* 3. Interactive Machine Inspector Modal */}
       {activeInspector && (
-        <div className="fixed inset-0 z-50 bg-black/70 backdrop-blur-sm flex items-center justify-center p-4 select-none">
-          <div className="w-full max-w-md p-6 rounded-3xl bg-[#0b1220] border border-[#1e2f4a] shadow-2xl space-y-4 font-mono text-xs">
-            <div className="flex justify-between items-center pb-2 border-b border-[#1e2f4a]">
-              <div className="flex items-center gap-2 text-amber-400">
+        <div className="fixed inset-0 z-50 bg-black/50 backdrop-blur-xs flex items-center justify-center p-4 select-none">
+          <div className="w-full max-w-md p-6 rounded-3xl bg-[#F0EBE2] border border-[#C8BFAF] shadow-2xl space-y-4 font-mono text-xs text-[#272A27]">
+            <div className="flex justify-between items-center pb-2 border-b border-[#DDD4C5]">
+              <div className="flex items-center gap-2 text-[#C46A32]">
                 <Truck className="w-5 h-5" />
-                <strong className="text-white text-sm">{activeInspector.id} // {activeInspector.name}</strong>
+                <strong className="text-[#272A27] text-sm">{activeInspector.id} // {activeInspector.name}</strong>
               </div>
               <button
                 onClick={() => setActiveInspector(null)}
-                className="p-1 rounded-lg text-[#5F625C] hover:text-[#272A27]"
+                className="p-1 rounded-lg text-[#5F625C] hover:text-[#272A27] cursor-pointer"
               >
                 <X className="w-4 h-4" />
               </button>
             </div>
 
             <div className="grid grid-cols-2 gap-2.5 text-xs">
-              <div className="p-2.5 rounded-xl bg-[#121c2c] border border-[#1e2f4a]">
+              <div className="p-2.5 rounded-xl bg-[#F5F1E9] border border-[#C8BFAF]">
                 <span className="text-[#5F625C] text-[10px] block">{lang === 'hi' ? 'परिचालन गति / क्षमता' : lang === 'mr' ? 'ऑपरेटिंग वेग / क्षमता' : 'Operating Speed / Capacity'}</span>
-                <strong className="text-[#272A27]">{activeInspector.speed}</strong>
+                <strong className="text-[#272A27] font-bold">{activeInspector.speed}</strong>
               </div>
-              <div className="p-2.5 rounded-xl bg-[#121c2c] border border-[#1e2f4a]">
+              <div className="p-2.5 rounded-xl bg-[#F5F1E9] border border-[#C8BFAF]">
                 <span className="text-[#5F625C] text-[10px] block">{lang === 'hi' ? 'लाइव पेलोड भरण' : lang === 'mr' ? 'थेट पेलोड भरणा' : 'Live Payload Fill'}</span>
-                <strong className="text-emerald-400">{activeInspector.payload}</strong>
+                <strong className="text-[#2D7A4D] font-bold">{activeInspector.payload}</strong>
               </div>
-              <div className="p-2.5 rounded-xl bg-[#121c2c] border border-[#1e2f4a]">
+              <div className="p-2.5 rounded-xl bg-[#F5F1E9] border border-[#C8BFAF]">
                 <span className="text-[#5F625C] text-[10px] block">{lang === 'hi' ? 'इंजन / कोर तापमान' : lang === 'mr' ? 'इंजिन / कोर तापमान' : 'Engine / Core Temp'}</span>
-                <strong className="text-amber-400">{activeInspector.engineTemp}</strong>
+                <strong className="text-[#C46A32] font-bold">{activeInspector.engineTemp}</strong>
               </div>
-              <div className="p-2.5 rounded-xl bg-[#121c2c] border border-[#1e2f4a]">
+              <div className="p-2.5 rounded-xl bg-[#F5F1E9] border border-[#C8BFAF]">
                 <span className="text-[#5F625C] text-[10px] block">{lang === 'hi' ? 'स्पेक्ट्रल कंपन' : lang === 'mr' ? 'स्पेक्ट्रल कंपन' : 'Spectral Vibration'}</span>
-                <strong className="text-[#272A27]">{activeInspector.vibration}</strong>
+                <strong className="text-[#272A27] font-bold">{activeInspector.vibration}</strong>
               </div>
-              <div className="p-2.5 rounded-xl bg-[#121c2c] border border-[#1e2f4a]">
+              <div className="p-2.5 rounded-xl bg-[#F5F1E9] border border-[#C8BFAF]">
                 <span className="text-[#5F625C] text-[10px] block">{lang === 'hi' ? 'अनुमानित आरयूएल' : lang === 'mr' ? 'अंदाजित आरयूएल' : 'Predictive RUL'}</span>
-                <strong className="text-sky-400">{activeInspector.rulHours} {lang === 'hi' ? 'परिचालन घंटे' : lang === 'mr' ? 'ऑपरेटिंग तास' : 'Operating Hours'}</strong>
+                <strong className="text-[#1D558B] font-bold">{activeInspector.rulHours} {lang === 'hi' ? 'परिचालन घंटे' : lang === 'mr' ? 'ऑपरेटिंग तास' : 'Operating Hours'}</strong>
               </div>
-              <div className="p-2.5 rounded-xl bg-[#121c2c] border border-[#1e2f4a]">
+              <div className="p-2.5 rounded-xl bg-[#F5F1E9] border border-[#C8BFAF]">
                 <span className="text-[#5F625C] text-[10px] block">{lang === 'hi' ? 'उपप्रणाली स्वास्थ्य' : lang === 'mr' ? 'उपप्रणाली आरोग्य' : 'Subsystem Health'}</span>
-                <strong className="text-emerald-400">{activeInspector.health}% {lang === 'hi' ? 'सामान्य' : lang === 'mr' ? 'सामान्य' : 'Nominal'}</strong>
+                <strong className="text-[#2D7A4D] font-bold">{activeInspector.health}% {lang === 'hi' ? 'सामान्य' : lang === 'mr' ? 'सामान्य' : 'Nominal'}</strong>
               </div>
             </div>
 
             <button
               onClick={() => setActiveInspector(null)}
-              className="w-full py-2.5 rounded-xl bg-amber-500 text-obsidian-950 font-bold text-xs hover:bg-amber-400 transition"
+              className="w-full py-2.5 rounded-xl bg-[#C46A32] hover:bg-[#B05924] text-white font-bold text-xs uppercase tracking-wider transition cursor-pointer shadow-xs"
             >
               {lang === 'hi' ? 'डायग्नोस्टिक शीट बंद करें' : lang === 'mr' ? 'निदान पत्रक बंद करा' : 'CLOSE DIAGNOSTIC SHEET'}
             </button>

@@ -106,7 +106,7 @@ export const HumanDecision = () => {
                   type="text"
                   value={operatorName}
                   onChange={(e) => setOperatorName(e.target.value)}
-                  className="w-full px-3 py-2 rounded-lg bg-[#F5F1E9] border border-[#C8BFAF] text-white font-mono text-xs focus:border-manganese-500 outline-none"
+                  className="w-full px-3 py-2 rounded-lg bg-[#F5F1E9] border border-[#C8BFAF] text-[#272A27] font-mono text-xs focus:border-[#C46A32] outline-none"
                 />
               </div>
 
@@ -131,7 +131,7 @@ export const HumanDecision = () => {
                   value={customParams}
                   onChange={(e) => setCustomParams(e.target.value)}
                   placeholder={lang === 'hi' ? 'उदा. क्रशर थ्रॉटल 220 TPH करें; 2 डंपर तैनात करें।' : lang === 'mr' ? 'उदा. क्रशर थ्रॉटल 220 TPH करा; 2 डंपर तैनात करा.' : 'e.g. Throttle CR-01 to 220 TPH instead of 210 TPH; engage 2 dumpers instead of 4.'}
-                  className="w-full px-3 py-2 rounded-lg bg-[#F5F1E9] border border-manganese-500/50 text-white font-mono text-xs focus:border-manganese-400 outline-none"
+                  className="w-full px-3 py-2 rounded-lg bg-[#F5F1E9] border border-manganese-500/50 text-[#272A27] placeholder-[#85877E] font-mono text-xs focus:border-[#C46A32] outline-none"
                 />
               </div>
             ) : (

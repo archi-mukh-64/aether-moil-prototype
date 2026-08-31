@@ -52,16 +52,16 @@ export const CommandEventStream = () => {
   }, [activeScenario, activeMine, decisionStage, ws]);
 
   return (
-    <div className="p-4 rounded-xl bg-[#0c1017] border border-[#1a2333] font-mono text-xs space-y-3 select-none">
-      <div className="flex items-center justify-between pb-2 border-b border-[#141c2b]">
+    <div className="p-4 rounded-xl bg-[#F0EBE2] border border-[#C8BFAF] font-mono text-xs space-y-3 select-none shadow-xs">
+      <div className="flex items-center justify-between pb-2 border-b border-[#DDD4C5]">
         <div className="flex items-center gap-2">
-          <Terminal className="w-3.5 h-3.5 text-amber-400" />
+          <Terminal className="w-3.5 h-3.5 text-[#C46A32]" />
           <span className="text-[10px] text-[#272A27] font-bold uppercase tracking-wider">
             {ws.eventStreamTitle || 'REAL-TIME OPERATIONAL EVENT STREAM & INCIDENT AUDIT'}
           </span>
         </div>
-        <div className="flex items-center gap-1.5 text-[10px] text-teal-400 font-bold">
-          <span className="w-1.5 h-1.5 rounded-full bg-teal-400 animate-pulse" />
+        <div className="flex items-center gap-1.5 text-[10px] text-[#2D7A4D] font-bold">
+          <span className="w-1.5 h-1.5 rounded-full bg-[#2D7A4D] animate-pulse" />
           <span>{ws.liveAuditFeed || 'LIVE AUDIT FEED'}</span>
         </div>
       </div>
@@ -78,30 +78,29 @@ export const CommandEventStream = () => {
               key={ev.id}
               className={`px-3 py-2 rounded-lg flex items-center justify-between gap-3 text-[11px] border transition-all ${
                 isCritical
-                  ? 'bg-rose-950/30 border-rose-500/40 text-rose-200'
+                  ? 'bg-[#FBF0EE] border-[#EAA29A] text-[#8F2D24]'
                   : isHigh
-                  ? 'bg-amber-950/25 border-amber-500/40 text-amber-200'
+                  ? 'bg-[#FDF6E9] border-[#F2C97D] text-[#8F6518]'
                   : isWarning
-                  ? 'bg-amber-950/20 border-amber-500/30 text-[#272A27]'
+                  ? 'bg-[#FDF6E9] border-[#F2C97D] text-[#8F6518]'
                   : isResolved
-                  ? 'bg-teal-950/30 border-teal-500/40 text-teal-200'
-                  : 'bg-[#080b10] border-[#141b27] text-[#272A27]'
+                  ? 'bg-[#EEF5F0] border-[#9DC4A5] text-[#355239]'
+                  : 'bg-[#F5F1E9] border-[#DDD4C5] text-[#272A27]'
               }`}
             >
               <div className="flex items-center gap-2.5 truncate">
-                <span className="text-[#85877E] text-[10px]">{ev.time}</span>
+                <span className="text-[#85877E] text-[10px] font-mono">{ev.time}</span>
                 <span className={`px-1.5 py-0.2 rounded text-[9px] font-bold ${
-                  isCritical ? 'bg-rose-500/20 text-rose-300' :
-                  isHigh ? 'bg-amber-500/20 text-amber-300' :
-                  isResolved ? 'bg-teal-500/20 text-teal-300' : 'bg-zinc-800 text-[#5F625C]'
+                  isCritical ? 'bg-[#C84B3F]/20 text-[#8F2D24]' :
+                  isHigh ? 'bg-[#C46A32]/20 text-[#8F6518]' :
+                  isResolved ? 'bg-[#2D7A4D]/20 text-[#355239]' : 'bg-[#DDD4C5] text-[#5F625C]'
                 }`}>
                   {ev.type}
                 </span>
-                <span className="truncate">{ev.message}</span>
+                <span className="truncate font-sans font-medium">{ev.message}</span>
               </div>
-
-              <span className="text-[9px] text-[#85877E] uppercase flex-shrink-0">
-                {ev.id}
+              <span className="text-[9px] text-[#85877E] uppercase font-mono hidden sm:inline flex-shrink-0">
+                {ev.severity}
               </span>
             </div>
           );

@@ -74,14 +74,14 @@ export const DecisionAudit = () => {
           return (
             <div
               key={log.id}
-              className="p-4 rounded-xl bg-[#F0EBE2] border border-[#C8BFAF]/90 space-y-3"
+              className="p-4 rounded-xl bg-[#F0EBE2] border border-[#C8BFAF] space-y-3"
             >
-              <div className="flex flex-wrap items-center justify-between gap-2 pb-2 border-b border-obsidian-850">
+              <div className="flex flex-wrap items-center justify-between gap-2 pb-2 border-b border-[#DDD4C5]">
                 <div className="flex items-center gap-2">
-                  <span className="font-bold text-manganese-400">{log.id}</span>
+                  <span className="font-bold text-[#C46A32]">{log.id}</span>
                   <span className="text-[#85877E]">•</span>
-                  <span className="text-white font-bold flex items-center gap-1">
-                    <MapPin className="w-3 h-3 text-manganese-400" />
+                  <span className="text-[#272A27] font-bold flex items-center gap-1">
+                    <MapPin className="w-3 h-3 text-[#C46A32]" />
                     {log.mine}
                   </span>
                   <span className="text-[#85877E]">•</span>
@@ -101,12 +101,12 @@ export const DecisionAudit = () => {
 
                 <div>
                   <span className="text-[#85877E] block text-[10px] uppercase">{dlog.authorizedAction || 'Authorized Action:'}</span>
-                  <strong className="text-manganese-300">{log.recommendation}</strong>
+                  <strong className="text-[#8F4418]">{log.recommendation}</strong>
                 </div>
 
                 <div>
                   <span className="text-[#85877E] block text-[10px] uppercase">{dlog.realizedProtection || 'Realized Protection:'}</span>
-                  <strong className="text-telemetry-300">{log.realizedOutcome || log.expectedImpact}</strong>
+                  <strong className="text-[#2D7A4D]">{log.realizedOutcome || log.expectedImpact}</strong>
                 </div>
               </div>
 

@@ -1436,19 +1436,52 @@ const ReserveRadarContent = () => {
             <span className="text-xs text-manganese-400 font-bold">{drillDepth}m Current Depth</span>
           </div>
 
-          <div className="space-y-3">
-            <label className="text-[#272A27] flex justify-between">
-              <span>Adjust Probe Drilling Depth:</span>
-              <strong className="text-manganese-400 text-sm font-bold">-{drillDepth} m Horizon</strong>
-            </label>
-            <input
-              type="range"
-              min="20"
-              max="350"
-              value={drillDepth}
-              onChange={(e) => setDrillDepth(parseInt(e.target.value))}
-              className="w-full h-2 bg-[#F0EBE2] rounded-lg appearance-none cursor-pointer accent-manganese-500"
-            />
+          <div className="p-5 rounded-2xl bg-[#F5F1E9] border border-[#C8BFAF] space-y-4">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+              <div>
+                <span className="text-[10px] text-[#85877E] uppercase font-bold tracking-wider block">
+                  Interactive Depth Transducer
+                </span>
+                <label htmlFor="core-drill-depth-slider" className="text-sm font-bold text-[#272A27]">
+                  Adjust Probe Drilling Depth
+                </label>
+              </div>
+              <div className="flex items-center gap-2 px-3 py-1.5 rounded-xl bg-[#F0EBE2] border border-[#C8BFAF] self-start sm:self-auto shadow-xs">
+                <span className="text-[10px] text-[#5F625C] font-mono">SELECTED HORIZON:</span>
+                <strong className="text-sm font-mono font-bold text-[#C46A32]">-{drillDepth} m Level</strong>
+              </div>
+            </div>
+
+            {/* Premium Horizontal Slider Track Container */}
+            <div className="space-y-2 pt-1">
+              <div className="relative flex items-center w-full h-8 cursor-pointer">
+                {/* Visual Inactive Track Background */}
+                <div className="absolute left-0 right-0 h-2.5 rounded-full bg-[#DDD4C5] border border-[#C8BFAF] overflow-hidden pointer-events-none">
+                  {/* Active Progress Portion */}
+                  <div
+                    className="h-full bg-gradient-to-r from-[#C46A32] to-[#D58552] transition-all duration-75"
+                    style={{ width: `${((drillDepth - 20) / (350 - 20)) * 100}%` }}
+                  />
+                </div>
+                {/* Native Range Input with transparent background and centered interactive thumb */}
+                <input
+                  id="core-drill-depth-slider"
+                  type="range"
+                  min="20"
+                  max="350"
+                  value={drillDepth}
+                  onChange={(e) => setDrillDepth(parseInt(e.target.value))}
+                  className="relative z-10 w-full h-8 bg-transparent appearance-none cursor-pointer focus:outline-none aether-core-drill-slider"
+                />
+              </div>
+
+              {/* Endpoint & Reference Horizon Labels */}
+              <div className="flex justify-between items-center text-[10px] font-mono text-[#85877E] px-1">
+                <span>20m (Near Surface)</span>
+                <span>185m (Holmes Shaft Horizon)</span>
+                <span>350m (Deep Stope Footwall)</span>
+              </div>
+            </div>
           </div>
 
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-2">

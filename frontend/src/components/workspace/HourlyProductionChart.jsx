@@ -54,21 +54,21 @@ export const HourlyProductionChart = () => {
   }, [dailyTarget, isScenario]);
 
   return (
-    <div className="p-3.5 sm:p-4 rounded-xl bg-[#0c1017] border border-[#1a2333] space-y-2.5 font-mono text-xs shadow-sm select-none">
+    <div className="p-3.5 sm:p-4 rounded-xl bg-[#F0EBE2] border border-[#C8BFAF] space-y-2.5 font-mono text-xs shadow-xs select-none">
 
       {/* Title & Legend Header */}
       <div className="flex items-center justify-between">
         <div className="text-[11px] text-[#272A27] uppercase font-bold tracking-wider">
-          {ws.hourlyTitle || 'HOURLY PRODUCTION vs TARGET'}
+          {ws.hourlyTitle || 'HOURLY EXTRACTION vs TARGET'}
         </div>
 
         <div className="flex items-center gap-4 text-[10px]">
           <div className="flex items-center gap-1.5 text-[#5F625C]">
-            <span className="w-2.5 h-2.5 rounded-sm bg-[#2563eb]" />
+            <span className="w-2.5 h-2.5 rounded-sm bg-[#1D558B]" />
             <span>{ws.targetLegend || 'Target'}</span>
           </div>
           <div className="flex items-center gap-1.5 text-[#5F625C]">
-            <span className="w-2.5 h-2.5 rounded-sm bg-[#e11d48]" />
+            <span className="w-2.5 h-2.5 rounded-sm bg-[#C46A32]" />
             <span>{ws.actualLegend || 'Actual'}</span>
           </div>
         </div>
@@ -78,21 +78,21 @@ export const HourlyProductionChart = () => {
       <div className="h-32 sm:h-36 w-full pt-1">
         <ResponsiveContainer width="100%" height="100%">
           <BarChart data={chartData} margin={{ top: 5, right: 5, left: -25, bottom: 0 }}>
-            <CartesianGrid strokeDasharray="3 3" stroke="#141c2b" vertical={false} />
-            <XAxis dataKey="hour" stroke="#475569" fontSize={9} tickLine={false} />
-            <YAxis stroke="#475569" fontSize={9} tickLine={false} tickFormatter={(v) => v >= 1000 ? `${Math.round(v / 1000)}K` : `${v}`} />
+            <CartesianGrid strokeDasharray="3 3" stroke="#DDD4C5" vertical={false} />
+            <XAxis dataKey="hour" stroke="#85877E" fontSize={9} tickLine={false} />
+            <YAxis stroke="#85877E" fontSize={9} tickLine={false} tickFormatter={(v) => v >= 1000 ? `${Math.round(v / 1000)}K` : `${v}`} />
             <Tooltip
               contentStyle={{
-                backgroundColor: '#0a0e14',
-                borderColor: '#1e293b',
+                backgroundColor: '#F5F1E9',
+                borderColor: '#C8BFAF',
                 borderRadius: '8px',
-                color: '#fff',
+                color: '#272A27',
                 fontSize: '11px',
                 fontFamily: 'JetBrains Mono'
               }}
             />
-            <Bar dataKey="Target" fill="#2563eb" radius={[2, 2, 0, 0]} opacity={0.8} />
-            <Bar dataKey="Actual" fill="#e11d48" radius={[2, 2, 0, 0]} />
+            <Bar dataKey="Target" fill="#1D558B" radius={[2, 2, 0, 0]} opacity={0.85} />
+            <Bar dataKey="Actual" fill="#C46A32" radius={[2, 2, 0, 0]} />
           </BarChart>
         </ResponsiveContainer>
       </div>

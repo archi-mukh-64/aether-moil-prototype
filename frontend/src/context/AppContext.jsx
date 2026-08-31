@@ -515,11 +515,17 @@ export const AppProvider = ({ children }) => {
     const scenSlug = {
       'MONSOON': 'HEAVY_MONSOON',
       'CRUSHER': 'CRUSHER_SEIZURE',
+      'FLEET': 'FLEET_BREAKDOWN',
+      'GRADE': 'GRADE_VARIATION',
+      'DISCOVERY': 'EXPLORATION_SIGNAL',
       'MULTI_RISK': 'MULTI_RISK_CRISIS',
       'HEAVY_MONSOON': 'HEAVY_MONSOON',
       'CRUSHER_SEIZURE': 'CRUSHER_SEIZURE',
+      'FLEET_BREAKDOWN': 'FLEET_BREAKDOWN',
+      'GRADE_VARIATION': 'GRADE_VARIATION',
+      'EXPLORATION_SIGNAL': 'EXPLORATION_SIGNAL',
       'MULTI_RISK_CRISIS': 'MULTI_RISK_CRISIS'
-    }[scenarioId] || 'HEAVY_MONSOON';
+    }[scenarioId] || scenarioId || 'HEAVY_MONSOON';
 
     try {
       const simResult = await scenarioApi.simulateScenario({
@@ -541,9 +547,11 @@ export const AppProvider = ({ children }) => {
   };
 
   // Reset Baseline Operations via Backend API
-  const resetBaseline = async () => {
+  const resetBaseline = useCallback(async () => {
     setActiveScenarioId(null);
     setBackendScenarioData(null);
+    setScenarioSeverity('MEDIUM');
+    setScenarioTimeHorizon('24 HOURS');
     setDecisionStage('BASELINE');
     setLastApprovedAction(null);
 
@@ -556,13 +564,13 @@ export const AppProvider = ({ children }) => {
       // ignore
     }
     syncMineFromBackend(selectedMineId);
-  };
+  }, [selectedMineId, syncMineFromBackend]);
 
   // Human-in-the-Loop: Approve Prescription (Syncs to backend SQLite audit log)
   const approveDecision = async (operatorName = 'Chief Mining Engineer', operatorRole = 'Shift In-Charge') => {
     if (!activeScenario) return;
 
-    const logId = `LOG-${Math.floor(1000 + Math.random() * 9000)}`;
+    const logId = `LOG-${Date.now().toString().slice(-4)}${auditLogs.length + 1}`;
     const newLog = {
       id: logId,
       timestamp: `${new Date().toLocaleDateString('en-GB')} ${new Date().toLocaleTimeString('en-US', { hour12: false })} IST`,
@@ -613,7 +621,7 @@ export const AppProvider = ({ children }) => {
   const modifyDecision = async (modifications, operatorName = 'Chief Mining Engineer', operatorNote = 'Adjusted parameters for local shift conditions.') => {
     if (!activeScenario) return;
 
-    const logId = `LOG-${Math.floor(1000 + Math.random() * 9000)}`;
+    const logId = `LOG-${Date.now().toString().slice(-4)}${auditLogs.length + 1}`;
     const newLog = {
       id: logId,
       timestamp: `${new Date().toLocaleDateString('en-GB')} ${new Date().toLocaleTimeString('en-US', { hour12: false })} IST`,
@@ -667,7 +675,7 @@ export const AppProvider = ({ children }) => {
   const rejectDecision = async (reason = 'Manual controller override based on visual pit inspection.', operatorName = 'Chief Mining Engineer') => {
     if (!activeScenario) return;
 
-    const logId = `LOG-${Math.floor(1000 + Math.random() * 9000)}`;
+    const logId = `LOG-${Date.now().toString().slice(-4)}${auditLogs.length + 1}`;
     const newLog = {
       id: logId,
       timestamp: `${new Date().toLocaleDateString('en-GB')} ${new Date().toLocaleTimeString('en-US', { hour12: false })} IST`,
@@ -769,7 +777,9 @@ export const AppProvider = ({ children }) => {
     setScenario,
     setScenarioId: setScenario,
     scenarioSeverity,
+    setScenarioSeverity,
     scenarioTimeHorizon,
+    setScenarioTimeHorizon,
     decisionStage,
     lastApprovedAction,
     auditLogs,
@@ -779,6 +789,7 @@ export const AppProvider = ({ children }) => {
     setIntelligenceMode,
     runScenario,
     resetBaseline,
+    resetDemo: resetBaseline,
     approveDecision,
     modifyDecision,
     rejectDecision,

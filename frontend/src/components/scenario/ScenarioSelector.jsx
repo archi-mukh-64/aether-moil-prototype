@@ -66,8 +66,27 @@ export const ScenarioSelector = () => {
     }
   };
 
+  const handleSeveritySelect = (sev) => {
+    setScenarioSeverity(sev);
+    if (activeScenarioId) {
+      runScenario(activeScenarioId, sev, scenarioTimeHorizon);
+    }
+  };
+
+  const handleHorizonSelect = (h) => {
+    setScenarioTimeHorizon(h);
+    if (activeScenarioId) {
+      runScenario(activeScenarioId, scenarioSeverity, h);
+    }
+  };
+
   const handleRun = () => {
     runScenario(selectedScenarioKey, scenarioSeverity, scenarioTimeHorizon);
+  };
+
+  const handleReset = () => {
+    resetDemo();
+    setSelectedScenarioKey('MONSOON');
   };
 
   const isMlMode = intelligenceMode === 'ML_MODEL';
@@ -151,7 +170,7 @@ export const ScenarioSelector = () => {
               onClick={() => setSelectedMineId(m.id)}
               className={`p-2.5 rounded-xl border text-left transition-all ${
                 selectedMineId === m.id
-                  ? 'bg-manganese-500/15 border-manganese-500/60 text-white ring-1 ring-manganese-400/40 shadow-sm'
+                  ? 'bg-[#C46A32]/15 border-[#C46A32] text-[#8F4418] ring-1 ring-[#C46A32]/40 shadow-xs font-bold'
                   : 'bg-[#F5F1E9] border-[#C8BFAF] text-[#5F625C] hover:text-[#272A27] hover:bg-[#DDD4C5]'
               }`}
             >
@@ -211,7 +230,7 @@ export const ScenarioSelector = () => {
             {['LOW', 'MEDIUM', 'HIGH', 'CRITICAL'].map((sev) => (
               <button
                 key={sev}
-                onClick={() => setScenarioSeverity(sev)}
+                onClick={() => handleSeveritySelect(sev)}
                 className={`flex-1 py-1.5 rounded-lg text-[10px] font-bold transition-all ${
                   scenarioSeverity === sev
                     ? 'bg-manganese-500 text-obsidian-950 shadow-sm'
@@ -236,7 +255,7 @@ export const ScenarioSelector = () => {
             {['6 HOURS', '24 HOURS', '7 DAYS'].map((h) => (
               <button
                 key={h}
-                onClick={() => setScenarioTimeHorizon(h)}
+                onClick={() => handleHorizonSelect(h)}
                 className={`flex-1 py-1.5 rounded-lg text-[10px] font-bold transition-all ${
                   scenarioTimeHorizon === h
                     ? 'bg-telemetry-500 text-obsidian-950 shadow-sm'
@@ -264,7 +283,7 @@ export const ScenarioSelector = () => {
         </button>
 
         <button
-          onClick={resetDemo}
+          onClick={handleReset}
           className="w-full sm:w-auto px-6 py-3 rounded-xl bg-[#DDD4C5] hover:bg-[#C8BFAF] text-[#5F625C] hover:text-[#272A27] font-bold text-xs font-mono uppercase tracking-wide border border-[#C8BFAF] transition-colors flex items-center justify-center gap-1.5"
         >
           <RotateCcw className="w-3.5 h-3.5" />

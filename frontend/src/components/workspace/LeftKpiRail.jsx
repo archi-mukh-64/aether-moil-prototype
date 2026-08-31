@@ -71,8 +71,8 @@ export const LeftKpiRail = () => {
       icon: Activity,
       val: isScenario ? '-18.5%' : '+21.5%',
       isPositive: !isScenario,
-      color: isScenario ? 'bg-rose-500' : 'bg-teal-400',
-      iconColor: isScenario ? 'text-rose-400' : 'text-teal-400',
+      color: isScenario ? 'bg-[#C84B3F]' : 'bg-[#2D7A4D]',
+      iconColor: isScenario ? 'text-[#C84B3F]' : 'text-[#2D7A4D]',
       width: isScenario ? '38%' : '78%'
     },
     {
@@ -81,8 +81,8 @@ export const LeftKpiRail = () => {
       icon: Award,
       val: isScenario && activeScenario.scenarioId === 'GRADE' ? '-16.4%' : '-12.0%',
       isPositive: false,
-      color: 'bg-rose-500',
-      iconColor: 'text-amber-400',
+      color: 'bg-[#C84B3F]',
+      iconColor: 'text-[#C46A32]',
       width: '42%'
     },
     {
@@ -91,8 +91,8 @@ export const LeftKpiRail = () => {
       icon: DollarSign,
       val: isScenario ? '-14.2%' : '-8.7%',
       isPositive: false,
-      color: 'bg-rose-500',
-      iconColor: 'text-amber-400',
+      color: 'bg-[#C84B3F]',
+      iconColor: 'text-[#C46A32]',
       width: '35%'
     },
     {
@@ -101,8 +101,8 @@ export const LeftKpiRail = () => {
       icon: ShieldCheck,
       val: '+30.0%',
       isPositive: true,
-      color: 'bg-teal-400',
-      iconColor: 'text-teal-400',
+      color: 'bg-[#2D7A4D]',
+      iconColor: 'text-[#2D7A4D]',
       width: '88%'
     },
     {
@@ -111,8 +111,8 @@ export const LeftKpiRail = () => {
       icon: Leaf,
       val: '+10.2%',
       isPositive: true,
-      color: 'bg-teal-400',
-      iconColor: 'text-teal-400',
+      color: 'bg-[#2D7A4D]',
+      iconColor: 'text-[#2D7A4D]',
       width: '65%'
     }
   ];
@@ -123,23 +123,23 @@ export const LeftKpiRail = () => {
   const riskLow = isScenario ? 8 : 24;
 
   return (
-    <aside className="w-full lg:w-[280px] xl:w-[290px] flex-shrink-0 flex flex-col gap-3 font-sans text-xs select-none">
+    <aside className="w-full flex-shrink-0 flex flex-col gap-3 font-sans text-xs select-none">
 
       {/* 1. ACTIVE MINE SELECTOR CARD */}
       <div className="relative">
         <button
           onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-          className="w-full p-3.5 rounded-xl bg-[#0c1017] border border-[#1a2333] hover:border-amber-500/40 transition-all flex items-center justify-between text-left shadow-sm"
+          className="w-full p-3.5 rounded-xl bg-[#F0EBE2] border border-[#C8BFAF] hover:border-[#C46A32] transition-all flex items-center justify-between text-left shadow-xs cursor-pointer"
         >
           <div className="flex items-center gap-3 min-w-0">
-            <div className="w-8 h-8 rounded-lg bg-[#141b27] border border-amber-500/30 flex items-center justify-center flex-shrink-0">
-              <Layers className="w-4 h-4 text-amber-400" />
+            <div className="w-8 h-8 rounded-lg bg-[#E8E1D5] border border-[#C8BFAF] flex items-center justify-center flex-shrink-0">
+              <Layers className="w-4 h-4 text-[#C46A32]" />
             </div>
             <div className="min-w-0">
               <div className="text-[10px] text-[#85877E] font-mono uppercase font-bold tracking-wider">
                 {ws.activeMine || 'Active Mine'}
               </div>
-              <div className="text-sm font-bold text-white truncate">
+              <div className="text-sm font-bold text-[#272A27] truncate">
                 {currentMine.name}
               </div>
               <div className="text-[11px] text-[#5F625C] truncate">
@@ -147,13 +147,13 @@ export const LeftKpiRail = () => {
               </div>
             </div>
           </div>
-          <ChevronDown className="w-4 h-4 text-[#85877E] flex-shrink-0" />
+          <ChevronDown className={`w-4 h-4 text-[#85877E] flex-shrink-0 transition-transform ${isDropdownOpen ? 'rotate-180' : ''}`} />
         </button>
 
         {/* Dropdown Menu */}
         {isDropdownOpen && (
-          <div className="absolute top-full left-0 right-0 mt-1.5 max-h-72 overflow-y-auto rounded-xl bg-[#0a0e14] border border-[#1f293d] shadow-2xl p-1.5 z-50 no-scrollbar font-mono text-xs">
-            <div className="px-2.5 py-1 text-[10px] uppercase tracking-wider text-amber-400 font-bold border-b border-[#172030]">
+          <div className="absolute top-full left-0 right-0 mt-1.5 max-h-72 overflow-y-auto rounded-xl bg-[#F5F1E9] border border-[#C8BFAF] shadow-xl p-1.5 z-50 no-scrollbar font-mono text-xs">
+            <div className="px-2.5 py-1 text-[10px] uppercase tracking-wider text-[#C46A32] font-bold border-b border-[#DDD4C5]">
               {ws.network10Mines || 'MOIL Mine Network (10 Mines)'}
             </div>
             <div className="mt-1 space-y-0.5">
@@ -164,14 +164,14 @@ export const LeftKpiRail = () => {
                     setSelectedMineId(m.id);
                     setIsDropdownOpen(false);
                   }}
-                  className={`w-full text-left px-2.5 py-1.5 rounded text-xs flex items-center justify-between transition-colors ${
+                  className={`w-full text-left px-2.5 py-1.5 rounded-lg text-xs flex items-center justify-between transition-colors cursor-pointer ${
                     selectedMineId === m.id
-                      ? 'bg-amber-500/20 text-amber-300 font-bold'
-                      : 'text-[#272A27] hover:bg-[#141c2b]'
+                      ? 'bg-[#C46A32]/15 text-[#8F4418] font-bold border border-[#C46A32]/40'
+                      : 'text-[#272A27] hover:bg-[#E8E1D5]'
                   }`}
                 >
                   <span className="truncate">{m.name}</span>
-                  <span className="text-[10px] text-[#85877E] pl-2">{m.averageMnGrade || m.oreGrade}%</span>
+                  <span className="text-[10px] text-[#85877E] pl-2 font-mono">{m.averageMnGrade || m.oreGrade}%</span>
                 </button>
               ))}
             </div>
@@ -180,7 +180,7 @@ export const LeftKpiRail = () => {
       </div>
 
       {/* 2. PRODUCTION ACHIEVEMENT */}
-      <div className="p-4 rounded-xl bg-[#0c1017] border border-[#1a2333] space-y-3.5 shadow-sm">
+      <div className="p-4 rounded-xl bg-[#F0EBE2] border border-[#C8BFAF] space-y-3.5 shadow-xs">
         <div className="text-[10px] text-[#5F625C] font-mono uppercase font-bold tracking-wider">
           {ws.prodAchievement || 'PRODUCTION ACHIEVEMENT'}
         </div>
@@ -195,7 +195,7 @@ export const LeftKpiRail = () => {
                 cy="50"
                 r="40"
                 fill="transparent"
-                stroke="#16202f"
+                stroke="#DDD4C5"
                 strokeWidth="10"
                 strokeDasharray="251.2"
                 strokeDashoffset="125.6"
@@ -206,7 +206,7 @@ export const LeftKpiRail = () => {
                 cy="50"
                 r="40"
                 fill="transparent"
-                stroke={isScenario ? '#ef4444' : '#10b981'}
+                stroke={isScenario ? '#C84B3F' : '#2D7A4D'}
                 strokeWidth="10"
                 strokeDasharray="251.2"
                 strokeDashoffset={251.2 - (achievementPct / 100) * 125.6}
@@ -217,7 +217,7 @@ export const LeftKpiRail = () => {
 
             {/* Center Percentage Display */}
             <div className="absolute bottom-0 inset-x-0 flex flex-col items-center justify-center pb-1">
-              <span className="text-3xl font-extrabold text-white tracking-tight font-sans">
+              <span className="text-3xl font-extrabold text-[#272A27] tracking-tight font-sans">
                 {achievementPct}%
               </span>
             </div>
@@ -226,7 +226,7 @@ export const LeftKpiRail = () => {
           {/* Achieved vs Daily Target Tonnage */}
           <div className="w-full flex justify-between items-center px-2 pt-2 text-center">
             <div>
-              <div className="text-base font-bold text-white font-mono">
+              <div className="text-base font-bold text-[#272A27] font-mono">
                 {achievedT.toLocaleString()} T
               </div>
               <div className="text-[10px] text-[#85877E] uppercase font-mono">
@@ -234,7 +234,7 @@ export const LeftKpiRail = () => {
               </div>
             </div>
             <div className="text-right">
-              <div className="text-base font-bold text-white font-mono">
+              <div className="text-base font-bold text-[#272A27] font-mono">
                 {dailyTarget.toLocaleString()} T
               </div>
               <div className="text-[10px] text-[#85877E] uppercase font-mono">
@@ -245,7 +245,7 @@ export const LeftKpiRail = () => {
 
           {/* Time Remaining & Shift Boxes */}
           <div className="grid grid-cols-2 gap-2 w-full pt-2">
-            <div className="p-2 rounded-lg bg-[#080b10] border border-[#141b27] text-center">
+            <div className="p-2 rounded-lg bg-[#F5F1E9] border border-[#C8BFAF] text-center">
               <div className="text-[9px] text-[#85877E] uppercase font-mono">
                 {ws.timeRemaining || 'Time Remaining'}
               </div>
@@ -253,53 +253,43 @@ export const LeftKpiRail = () => {
                 {timeRemaining}
               </div>
             </div>
-
-            <div className="p-2 rounded-lg bg-[#080b10] border border-[#141b27] text-center">
+            <div className="p-2 rounded-lg bg-[#F5F1E9] border border-[#C8BFAF] text-center">
               <div className="text-[9px] text-[#85877E] uppercase font-mono">
-                {ws.shift || 'Shift'}
+                {ws.shiftCycle || 'Shift Cycle'}
               </div>
               <div className="text-xs font-bold text-[#272A27] font-mono mt-0.5">
-                {ws.shiftA || 'A Shift'}
+                Shift A (Day)
               </div>
             </div>
           </div>
-
         </div>
       </div>
 
-      {/* 3. KEY PERFORMANCE (vs Target) */}
-      <div className="p-4 rounded-xl bg-[#0c1017] border border-[#1a2333] space-y-2.5 shadow-sm font-mono text-xs">
-        <div className="flex justify-between items-center text-[10px] text-[#5F625C] uppercase font-bold tracking-wider pb-1">
-          <span>{ws.keyPerformance || 'KEY PERFORMANCE'}</span>
-          <span className="text-[#85877E] font-normal">{ws.vsTarget || 'vs Target'}</span>
+      {/* 3. KEY PERFORMANCE INDICATORS */}
+      <div className="p-4 rounded-xl bg-[#F0EBE2] border border-[#C8BFAF] space-y-3 shadow-xs">
+        <div className="text-[10px] text-[#5F625C] font-mono uppercase font-bold tracking-wider">
+          {ws.keyPerformance || 'KEY PERFORMANCE INDICATORS'}
         </div>
 
-        <div className="space-y-2 pt-0.5">
-          {keyPerformance.map((item) => {
-            const Icon = item.icon;
+        <div className="space-y-2.5">
+          {keyPerformance.map((kpi) => {
+            const Icon = kpi.icon;
             return (
-              <div key={item.id} className="flex items-center justify-between gap-2">
-                <div className="flex items-center gap-1.5 w-24 flex-shrink-0">
-                  <Icon className={`w-3 h-3 ${item.iconColor}`} />
-                  <span className="text-[11px] text-[#272A27] truncate font-sans font-medium">{item.name}</span>
+              <div key={kpi.id} className="space-y-1">
+                <div className="flex items-center justify-between text-xs font-mono">
+                  <div className="flex items-center gap-1.5">
+                    <Icon className={`w-3.5 h-3.5 ${kpi.iconColor}`} />
+                    <span className="text-[#5F625C]">{kpi.name}</span>
+                  </div>
+                  <span className={`font-bold ${kpi.isPositive ? 'text-[#2D7A4D]' : 'text-[#C84B3F]'}`}>
+                    {kpi.val}
+                  </span>
                 </div>
-
-                {/* Horizontal Progress Bar */}
-                <div className="flex-1 h-1.5 bg-[#141b27] rounded-full overflow-hidden">
+                <div className="w-full h-1.5 rounded-full bg-[#DDD4C5] overflow-hidden">
                   <div
-                    className={`h-full ${item.color} rounded-full transition-all duration-500`}
-                    style={{ width: item.width }}
+                    className={`h-full ${kpi.color} rounded-full transition-all duration-500`}
+                    style={{ width: kpi.width }}
                   />
-                </div>
-
-                {/* Delta Percentage */}
-                <div className={`w-14 text-right text-[11px] font-bold flex items-center justify-end gap-0.5 ${item.isPositive ? 'text-teal-400' : 'text-rose-400'}`}>
-                  <span>{item.val}</span>
-                  {item.isPositive ? (
-                    <TrendingUp className="w-3 h-3 flex-shrink-0" />
-                  ) : (
-                    <TrendingDown className="w-3 h-3 flex-shrink-0" />
-                  )}
                 </div>
               </div>
             );
@@ -307,66 +297,45 @@ export const LeftKpiRail = () => {
         </div>
       </div>
 
-      {/* 4. RISK OVERVIEW */}
-      <div className="p-4 rounded-xl bg-[#0c1017] border border-[#1a2333] space-y-3 shadow-sm font-mono text-xs">
-        <div className="text-[10px] text-[#5F625C] uppercase font-bold tracking-wider">
-          {ws.riskOverview || 'RISK OVERVIEW'}
+      {/* 4. SHIFT RISK OVERVIEW */}
+      <div className="p-4 rounded-xl bg-[#F0EBE2] border border-[#C8BFAF] space-y-3 shadow-xs">
+        <div className="text-[10px] text-[#5F625C] font-mono uppercase font-bold tracking-wider">
+          {ws.riskOverview || 'SHIFT RISK OVERVIEW'}
         </div>
 
-        <div className="flex items-center gap-4">
-
-          {/* Donut Chart with Center HIGH % */}
-          <div className="relative w-20 h-20 flex items-center justify-center flex-shrink-0">
-            <svg className="w-20 h-20 -rotate-90" viewBox="0 0 100 100">
-              <circle cx="50" cy="50" r="36" fill="transparent" stroke="#16202f" strokeWidth="12" />
-              {/* High Segment */}
-              <circle
-                cx="50"
-                cy="50"
-                r="36"
-                fill="transparent"
-                stroke="#f43f5e"
-                strokeWidth="12"
-                strokeDasharray="226"
-                strokeDashoffset={226 - (riskHigh / 100) * 226}
-                strokeLinecap="round"
-              />
-            </svg>
-            <div className="absolute inset-0 flex flex-col items-center justify-center text-center">
-              <span className="text-[9px] text-[#5F625C] font-bold uppercase">{ws.high ? ws.high.toUpperCase() : 'HIGH'}</span>
-              <span className="text-sm font-extrabold text-white font-mono leading-none">
-                {riskHigh}%
-              </span>
+        <div className="space-y-2">
+          {/* High Risk Bar */}
+          <div className="space-y-1">
+            <div className="flex justify-between text-[11px] font-mono">
+              <span className="text-[#8F2D24] font-bold">High Threat Exposure</span>
+              <span className="text-[#272A27] font-bold">{riskHigh}%</span>
+            </div>
+            <div className="w-full h-1.5 rounded-full bg-[#DDD4C5] overflow-hidden">
+              <div className="h-full bg-[#C84B3F] rounded-full" style={{ width: `${riskHigh}%` }} />
             </div>
           </div>
 
-          {/* Legend Items */}
-          <div className="flex-1 space-y-1.5 text-xs">
-            <div className="flex items-center justify-between">
-              <div className="flex items-center gap-1.5">
-                <span className="w-2 h-2 rounded-full bg-rose-500" />
-                <span className="text-[#272A27]">{ws.high || 'High'}</span>
-              </div>
-              <span className="text-white font-bold">{riskHigh}%</span>
+          {/* Moderate Risk Bar */}
+          <div className="space-y-1">
+            <div className="flex justify-between text-[11px] font-mono">
+              <span className="text-[#8F6518] font-bold">Moderate Operational Drift</span>
+              <span className="text-[#272A27] font-bold">{riskMed}%</span>
             </div>
-
-            <div className="flex items-center justify-between">
-              <div className="flex items-center gap-1.5">
-                <span className="w-2 h-2 rounded-full bg-amber-400" />
-                <span className="text-[#272A27]">{ws.medium || 'Medium'}</span>
-              </div>
-              <span className="text-white font-bold">{riskMed}%</span>
-            </div>
-
-            <div className="flex items-center justify-between">
-              <div className="flex items-center gap-1.5">
-                <span className="w-2 h-2 rounded-full bg-teal-400" />
-                <span className="text-[#272A27]">{ws.low || 'Low'}</span>
-              </div>
-              <span className="text-white font-bold">{riskLow}%</span>
+            <div className="w-full h-1.5 rounded-full bg-[#DDD4C5] overflow-hidden">
+              <div className="h-full bg-[#C46A32] rounded-full" style={{ width: `${riskMed}%` }} />
             </div>
           </div>
 
+          {/* Low Risk Bar */}
+          <div className="space-y-1">
+            <div className="flex justify-between text-[11px] font-mono">
+              <span className="text-[#2D7A4D] font-bold">Low Risk Systems Nominal</span>
+              <span className="text-[#272A27] font-bold">{riskLow}%</span>
+            </div>
+            <div className="w-full h-1.5 rounded-full bg-[#DDD4C5] overflow-hidden">
+              <div className="h-full bg-[#2D7A4D] rounded-full" style={{ width: `${riskLow}%` }} />
+            </div>
+          </div>
         </div>
       </div>
 

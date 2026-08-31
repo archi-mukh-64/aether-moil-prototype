@@ -607,14 +607,14 @@ const EquipmentContent = () => {
       </div>
 
       {/* 3. BOTTLENECK RADAR BANNER */}
-      <div className="p-3 rounded-xl bg-[#0b1220] border border-[#1c2e4a] flex flex-wrap items-center justify-between gap-3 text-xs">
+      <div className="p-3 rounded-xl bg-[#F0EBE2] border border-[#C8BFAF] flex flex-wrap items-center justify-between gap-3 text-xs">
         <div className="flex items-center gap-2">
           <div className="p-1.5 rounded-lg bg-amber-950 text-amber-400 border border-amber-600/40">
             <Timer className="w-4 h-4" />
           </div>
           <div>
             <span className="text-[#5F625C] text-[10px] uppercase font-bold">OPERATIONAL BOTTLENECK RADAR:</span>
-            <div className="text-white font-bold text-xs flex items-center gap-2">
+            <div className="text-[#272A27] font-bold text-xs flex items-center gap-2">
               <span>{bottleneckInfo.stage}</span>
               <span className={`px-2 py-0.2 rounded text-[9px] font-bold ${
                 bottleneckInfo.severity === 'CRITICAL' ? 'bg-rose-950 text-rose-300 border border-rose-800' :
@@ -645,14 +645,14 @@ const EquipmentContent = () => {
                   placeholder="Filter by ID, OEM, or Type..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  className="w-full pl-9 pr-3 py-1.5 rounded-xl bg-[#090e17] border border-[#18263c] text-xs text-white placeholder-zinc-500 focus:outline-none focus:border-amber-500"
+                  className="w-full pl-9 pr-3 py-1.5 rounded-xl bg-[#F0EBE2] border border-[#C8BFAF] text-xs text-white placeholder-[#85877E] focus:outline-none focus:border-amber-500"
                 />
               </div>
 
               <select
                 value={filterType}
                 onChange={(e) => setFilterType(e.target.value)}
-                className="px-2.5 py-1.5 rounded-xl bg-[#090e17] border border-[#18263c] text-xs text-[#272A27] focus:outline-none"
+                className="px-2.5 py-1.5 rounded-xl bg-[#F0EBE2] border border-[#C8BFAF] text-xs text-[#272A27] focus:outline-none"
               >
                 <option value="ALL">All Machinery</option>
                 <option value="EXCAVATOR">Excavators / Shovels</option>
@@ -673,17 +673,17 @@ const EquipmentContent = () => {
                     onClick={() => setSelectedAssetId(asset.id)}
                     className={`w-full p-3 rounded-xl border text-left transition-all flex items-center justify-between gap-3 ${
                       isSelected
-                        ? 'bg-[#15233b] border-amber-500/80 shadow-md'
-                        : 'bg-[#090e17] border-[#18263c] hover:bg-[#0d1522] hover:border-zinc-700'
+                        ? 'bg-[#E8E1D5] border-2 border-[#C46A32] shadow-md'
+                        : 'bg-[#F0EBE2] border-[#C8BFAF] hover:bg-[#E8E1D5] hover:border-[#85877E]'
                     }`}
                   >
                     <div className="flex items-center gap-3">
-                      <div className="p-2 rounded-lg bg-[#0c1422] border border-[#1c2e4a] text-amber-400">
+                      <div className="p-2 rounded-lg bg-[#F5F1E9] border border-[#C8BFAF] text-amber-400">
                         <EquipmentIcon type={asset.category} className="w-5 h-5" />
                       </div>
                       <div>
                         <div className="flex items-center gap-2">
-                          <span className="font-bold text-xs text-white">{asset.id}</span>
+                          <span className="font-bold text-xs text-[#272A27]">{asset.id}</span>
                           <span className={`px-1.5 py-0.2 rounded text-[8.5px] font-bold ${
                             asset.status === 'CRITICAL'
                               ? 'bg-rose-950 text-rose-300 border border-rose-800'
@@ -711,12 +711,12 @@ const EquipmentContent = () => {
           </div>
 
           {/* Right Selected Machine Digital Health Card (7 Cols) */}
-          <div className="lg:col-span-7 p-4 sm:p-5 rounded-2xl bg-[#090e17] border border-[#18263c] space-y-4">
+          <div className="lg:col-span-7 p-4 sm:p-5 rounded-2xl bg-[#F0EBE2] border border-[#C8BFAF] space-y-4">
 
             {/* Header with Silhouette & Quick State */}
-            <div className="flex items-start justify-between pb-3 border-b border-[#18263c]">
+            <div className="flex items-start justify-between pb-3 border-b border-[#C8BFAF]">
               <div className="flex items-center gap-3">
-                <div className="p-3 rounded-xl bg-[#0c1422] border border-[#1c2e4a] text-amber-400">
+                <div className="p-3 rounded-xl bg-[#F5F1E9] border border-[#C8BFAF] text-amber-400">
                   <EquipmentIcon type={activeAsset.category} className="w-8 h-8" />
                 </div>
                 <div>
@@ -731,11 +731,11 @@ const EquipmentContent = () => {
                     }`}>
                       {activeAsset.status}
                     </span>
-                    <span className="px-2 py-0.5 rounded bg-zinc-800 text-[#272A27] text-[9px] font-bold">
+                    <span className="px-2 py-0.5 rounded bg-[#DDD4C5] text-[#272A27] text-[9px] font-bold">
                       PRIORITY: {activeAsset.maintenancePriority}
                     </span>
                   </div>
-                  <h2 className="text-base sm:text-lg font-bold text-white mt-1">{activeAsset.name}</h2>
+                  <h2 className="text-base sm:text-lg font-bold text-[#272A27] mt-1">{activeAsset.name}</h2>
                   <div className="text-[10.5px] text-[#5F625C]">{activeAsset.id} • OEM: {activeAsset.oem} • Model: {activeAsset.model}</div>
                 </div>
               </div>
@@ -751,7 +751,7 @@ const EquipmentContent = () => {
 
             {/* Operating Parameters Grid */}
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 text-xs">
-              <div className="p-2.5 rounded-xl bg-[#0c1422] border border-[#19263a]">
+              <div className="p-2.5 rounded-xl bg-[#F5F1E9] border border-[#C8BFAF]">
                 <div className="text-[9px] text-[#85877E] uppercase">{t?.fleet?.engineTemp || 'ENGINE TEMP'}</div>
                 <div className="text-sm font-bold text-amber-300 mt-0.5 flex items-center gap-1">
                   <Thermometer className="w-3.5 h-3.5" />
@@ -760,7 +760,7 @@ const EquipmentContent = () => {
                 <div className="text-[9px] text-[#5F625C] mt-1">Normal: &lt; 85°C</div>
               </div>
 
-              <div className="p-2.5 rounded-xl bg-[#0c1422] border border-[#19263a]">
+              <div className="p-2.5 rounded-xl bg-[#F5F1E9] border border-[#C8BFAF]">
                 <div className="text-[9px] text-[#85877E] uppercase">{t?.fleet?.hydraulicPressure || 'HYDRAULIC PRESSURE'}</div>
                 <div className="text-sm font-bold text-sky-300 mt-0.5 flex items-center gap-1">
                   <Activity className="w-3.5 h-3.5" />
@@ -769,7 +769,7 @@ const EquipmentContent = () => {
                 <div className="text-[9px] text-[#5F625C] mt-1">Nominal: 200-340</div>
               </div>
 
-              <div className="p-2.5 rounded-xl bg-[#0c1422] border border-[#19263a]">
+              <div className="p-2.5 rounded-xl bg-[#F5F1E9] border border-[#C8BFAF]">
                 <div className="text-[9px] text-[#85877E] uppercase">{t?.fleet?.vibrationRms || 'VIBRATION RMS'}</div>
                 <div className="text-sm font-bold text-purple-300 mt-0.5 flex items-center gap-1">
                   <Zap className="w-3.5 h-3.5" />
@@ -778,7 +778,7 @@ const EquipmentContent = () => {
                 <div className="text-[9px] text-[#5F625C] mt-1">ISO Zone A/B</div>
               </div>
 
-              <div className="p-2.5 rounded-xl bg-[#0c1422] border border-[#19263a]">
+              <div className="p-2.5 rounded-xl bg-[#F5F1E9] border border-[#C8BFAF]">
                 <div className="text-[9px] text-[#85877E] uppercase">{t?.fleet?.rulHours || 'ESTIMATED RUL'}</div>
                 <div className="text-sm font-bold text-emerald-400 mt-0.5 flex items-center gap-1">
                   <TrendingUp className="w-3.5 h-3.5" />
@@ -790,7 +790,7 @@ const EquipmentContent = () => {
 
             {/* Strengths and Penalties Breakdown */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs">
-              <div className="p-2.5 rounded-xl bg-[#0c1422] border border-emerald-900/40">
+              <div className="p-2.5 rounded-xl bg-[#F5F1E9] border border-emerald-900/40">
                 <div className="text-[9px] text-emerald-400 font-bold uppercase mb-1">POSITIVE OPERATING FACTORS</div>
                 <ul className="space-y-0.5 text-[11px] text-[#272A27]">
                   {activeAsset.strengths.map((s, i) => (
@@ -801,7 +801,7 @@ const EquipmentContent = () => {
                 </ul>
               </div>
 
-              <div className="p-2.5 rounded-xl bg-[#0c1422] border border-rose-900/40">
+              <div className="p-2.5 rounded-xl bg-[#F5F1E9] border border-rose-900/40">
                 <div className="text-[9px] text-rose-400 font-bold uppercase mb-1">DEGRADATION PENALTIES</div>
                 <ul className="space-y-0.5 text-[11px] text-[#272A27]">
                   {activeAsset.penalties.map((p, i) => (
@@ -814,7 +814,7 @@ const EquipmentContent = () => {
             </div>
 
             {/* Prescriptive Work Order */}
-            <div className="p-3 rounded-xl bg-[#0b1320] border border-[#1c2e4a] space-y-1 text-xs">
+            <div className="p-3 rounded-xl bg-[#F5F1E9] border border-[#C8BFAF] space-y-1 text-xs">
               <div className="text-[10px] text-amber-400 font-bold uppercase tracking-wider flex items-center gap-1.5">
                 <Wrench className="w-3.5 h-3.5" />
                 <span>{t?.fleet?.workOrder || 'AI PRESCRIPTIVE WORK ORDER'}</span>
@@ -825,13 +825,13 @@ const EquipmentContent = () => {
             </div>
 
             {/* Recent Machine Event Timeline */}
-            <div className="p-3 rounded-xl bg-[#090e17] border border-[#18263c] space-y-1.5 text-xs">
+            <div className="p-3 rounded-xl bg-[#F0EBE2] border border-[#C8BFAF] space-y-1.5 text-xs">
               <div className="text-[10px] text-[#5F625C] font-bold uppercase tracking-wider">
                 SCADA TELEMETRY EVENT TIMELINE (TODAY)
               </div>
               <div className="space-y-1">
                 {activeAsset.recentEvents.map((ev, idx) => (
-                  <div key={idx} className="flex items-center justify-between text-[11px] p-1.5 rounded-lg bg-[#0c1422] border border-[#18263c]">
+                  <div key={idx} className="flex items-center justify-between text-[11px] p-1.5 rounded-lg bg-[#F5F1E9] border border-[#C8BFAF]">
                     <div className="flex items-center gap-2">
                       <span className="text-amber-400 font-bold">{ev.time}</span>
                       <span className="text-[#272A27]">{ev.event}</span>
@@ -852,10 +852,10 @@ const EquipmentContent = () => {
 
       {/* 5. LOAD & HAUL CYCLE MONITORING VIEW */}
       {fleetTab === 'CYCLE_MONITOR' && (
-        <div className="p-5 rounded-2xl bg-[#090e17] border border-[#18263c] space-y-4">
-          <div className="flex items-center justify-between pb-3 border-b border-[#18263c]">
+        <div className="p-5 rounded-2xl bg-[#F0EBE2] border border-[#C8BFAF] space-y-4">
+          <div className="flex items-center justify-between pb-3 border-b border-[#C8BFAF]">
             <div>
-              <h3 className="text-base font-bold text-white">{t?.fleet?.cycleTitle || 'Komatsu-Inspired Load & Haul Cycle Telemetry'}</h3>
+              <h3 className="text-base font-bold text-[#272A27]">{t?.fleet?.cycleTitle || 'Komatsu-Inspired Load & Haul Cycle Telemetry'}</h3>
               <p className="text-xs text-[#5F625C]">Complete 4-stage operational haulage cycle tracking payload utilization and cycle delays.</p>
             </div>
             <span className="px-2.5 py-1 rounded-xl bg-amber-950 text-amber-300 border border-amber-800 text-xs font-bold">
@@ -864,24 +864,24 @@ const EquipmentContent = () => {
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-4 gap-3">
-            <div className="p-4 rounded-xl bg-[#0c1422] border border-sky-800/40 space-y-1">
+            <div className="p-4 rounded-xl bg-[#F5F1E9] border border-sky-800/40 space-y-1">
               <div className="text-[10px] text-sky-400 font-bold uppercase">{t?.fleet?.stageLoading || 'STAGE 1: LOADING'}</div>
-              <div className="text-xl font-bold text-white">4.2 min</div>
+              <div className="text-xl font-bold text-[#272A27]">4.2 min</div>
               <div className="text-xs text-[#5F625C]">Shovel Loading • 38T/pass</div>
             </div>
-            <div className="p-4 rounded-xl bg-[#0c1422] border border-yellow-800/40 space-y-1">
+            <div className="p-4 rounded-xl bg-[#F5F1E9] border border-yellow-800/40 space-y-1">
               <div className="text-[10px] text-yellow-400 font-bold uppercase">{t?.fleet?.stageHauling || 'STAGE 2: HAULING'}</div>
-              <div className="text-xl font-bold text-white">12.8 min</div>
+              <div className="text-xl font-bold text-[#272A27]">12.8 min</div>
               <div className="text-xs text-[#5F625C]">28.5 km/h avg • East Ramp Corridor</div>
             </div>
-            <div className="p-4 rounded-xl bg-[#0c1422] border border-purple-800/40 space-y-1">
+            <div className="p-4 rounded-xl bg-[#F5F1E9] border border-purple-800/40 space-y-1">
               <div className="text-[10px] text-purple-400 font-bold uppercase">{t?.fleet?.stageDumping || 'STAGE 3: DUMPING'}</div>
-              <div className="text-xl font-bold text-white">1.5 min</div>
+              <div className="text-xl font-bold text-[#272A27]">1.5 min</div>
               <div className="text-xs text-[#5F625C]">Primary Crusher Station</div>
             </div>
-            <div className="p-4 rounded-xl bg-[#0c1422] border border-emerald-800/40 space-y-1">
+            <div className="p-4 rounded-xl bg-[#F5F1E9] border border-emerald-800/40 space-y-1">
               <div className="text-[10px] text-emerald-400 font-bold uppercase">{t?.fleet?.stageReturn || 'STAGE 4: RETURN'}</div>
-              <div className="text-xl font-bold text-white">9.1 min</div>
+              <div className="text-xl font-bold text-[#272A27]">9.1 min</div>
               <div className="text-xs text-[#5F625C]">34.0 km/h avg • Empty Return Route</div>
             </div>
           </div>
@@ -890,17 +890,17 @@ const EquipmentContent = () => {
 
       {/* 6. PREDICTIVE RUL MATRIX VIEW */}
       {fleetTab === 'MAINTENANCE_RUL' && (
-        <div className="p-5 rounded-2xl bg-[#090e17] border border-[#18263c] space-y-4">
-          <div className="flex items-center justify-between pb-3 border-b border-[#18263c]">
+        <div className="p-5 rounded-2xl bg-[#F0EBE2] border border-[#C8BFAF] space-y-4">
+          <div className="flex items-center justify-between pb-3 border-b border-[#C8BFAF]">
             <div>
-              <h3 className="text-base font-bold text-white">{t?.fleet?.predictiveRul || 'Predictive RUL Matrix'}</h3>
+              <h3 className="text-base font-bold text-[#272A27]">{t?.fleet?.predictiveRul || 'Predictive RUL Matrix'}</h3>
               <p className="text-xs text-[#5F625C]">Component Remaining Useful Life calculated from vibration harmonics, thermal stress, and engine hours.</p>
             </div>
           </div>
 
           <div className="overflow-x-auto">
             <table className="w-full text-left text-xs font-mono">
-              <thead className="bg-[#0c1422] text-[#5F625C] uppercase text-[10px] border-b border-[#18263c]">
+              <thead className="bg-[#F5F1E9] text-[#5F625C] uppercase text-[10px] border-b border-[#C8BFAF]">
                 <tr>
                   <th className="p-2.5">Machine ID</th>
                   <th className="p-2.5">Category</th>
@@ -917,7 +917,7 @@ const EquipmentContent = () => {
               <tbody className="divide-y divide-[#141f32]">
                 {equipmentFleet.map(a => (
                   <tr key={a.id} className="hover:bg-[#0c1524] transition-colors">
-                    <td className="p-2.5 font-bold text-white">{a.id}</td>
+                    <td className="p-2.5 font-bold text-[#272A27]">{a.id}</td>
                     <td className="p-2.5 text-[#272A27]">{a.category}</td>
                     <td className="p-2.5 text-[#5F625C]">{a.name}</td>
                     <td className="p-2.5 text-sky-300">{a.utilizationPct}%</td>
@@ -929,7 +929,7 @@ const EquipmentContent = () => {
                       <span className={`px-2 py-0.5 rounded text-[9px] font-bold ${
                         a.maintenancePriority === 'CRITICAL' ? 'bg-rose-950 text-rose-300' :
                         a.maintenancePriority === 'HIGH' ? 'bg-amber-950 text-amber-300' :
-                        'bg-zinc-800 text-[#272A27]'
+                        'bg-[#DDD4C5] text-[#272A27]'
                       }`}>
                         {a.maintenancePriority}
                       </span>
@@ -951,17 +951,17 @@ const EquipmentContent = () => {
 
       {/* 7. DYNAMIC FLEET RANKINGS VIEW */}
       {fleetTab === 'ANALYTICS' && (
-        <div className="p-5 rounded-2xl bg-[#090e17] border border-[#18263c] space-y-4">
-          <div className="flex items-center justify-between pb-3 border-b border-[#18263c]">
+        <div className="p-5 rounded-2xl bg-[#F0EBE2] border border-[#C8BFAF] space-y-4">
+          <div className="flex items-center justify-between pb-3 border-b border-[#C8BFAF]">
             <div>
-              <h3 className="text-base font-bold text-white">{t?.fleet?.fleetRankings || 'Multi-Dimensional Fleet Rankings'}</h3>
+              <h3 className="text-base font-bold text-[#272A27]">{t?.fleet?.fleetRankings || 'Multi-Dimensional Fleet Rankings'}</h3>
               <p className="text-xs text-[#5F625C]">Transparent weighted formula incorporating health (35%), availability (20%), utilization (20%), vibration (15%), and RUL (10%).</p>
             </div>
           </div>
 
           <div className="space-y-3">
             {rankedFleet.map((m, idx) => (
-              <div key={m.id} className="p-3.5 rounded-xl bg-[#0c1422] border border-[#19263a] flex flex-wrap items-center justify-between gap-3">
+              <div key={m.id} className="p-3.5 rounded-xl bg-[#F5F1E9] border border-[#C8BFAF] flex flex-wrap items-center justify-between gap-3">
                 <div className="flex items-center gap-3">
                   <div className={`w-8 h-8 rounded-xl font-bold flex items-center justify-center text-sm ${
                     idx === 0 ? 'bg-amber-500 text-black shadow-lg' :
@@ -973,7 +973,7 @@ const EquipmentContent = () => {
                   </div>
                   <div>
                     <div className="flex items-center gap-2">
-                      <strong className="text-white text-xs">{m.name}</strong>
+                      <strong className="text-[#272A27] text-xs">{m.name}</strong>
                       <span className="text-[10px] text-[#5F625C] font-mono">({m.id})</span>
                     </div>
                     <div className="text-[10.5px] text-[#5F625C] mt-0.5">
@@ -1004,23 +1004,23 @@ const EquipmentContent = () => {
 
       {/* 8. MACHINE COMPARISON VIEW */}
       {fleetTab === 'COMPARISON' && (
-        <div className="p-5 rounded-2xl bg-[#090e17] border border-[#18263c] space-y-4">
-          <div className="flex items-center justify-between pb-3 border-b border-[#18263c]">
+        <div className="p-5 rounded-2xl bg-[#F0EBE2] border border-[#C8BFAF] space-y-4">
+          <div className="flex items-center justify-between pb-3 border-b border-[#C8BFAF]">
             <div>
-              <h3 className="text-base font-bold text-white">Side-by-Side Machine Comparison</h3>
+              <h3 className="text-base font-bold text-[#272A27]">Side-by-Side Machine Comparison</h3>
               <p className="text-xs text-[#5F625C]">Evaluate telemetry, vibration metrics, thermodynamic profiles, and RUL between two assets.</p>
             </div>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {/* Machine A */}
-            <div className="p-4 rounded-xl bg-[#0c1422] border border-sky-800/40 space-y-3">
+            <div className="p-4 rounded-xl bg-[#F5F1E9] border border-sky-800/40 space-y-3">
               <div className="flex items-center justify-between">
                 <span className="text-sky-400 font-bold text-xs">ASSET A</span>
                 <select
                   value={compareAssetA.id}
                   onChange={(e) => setCompareIdA(e.target.value)}
-                  className="px-2.5 py-1 rounded-lg bg-[#090e17] border border-sky-700 text-xs text-white"
+                  className="px-2.5 py-1 rounded-lg bg-[#F0EBE2] border border-[#C8BFAF] text-xs text-white"
                 >
                   {equipmentFleet.map(a => <option key={a.id} value={a.id}>{a.id} - {a.name}</option>)}
                 </select>
@@ -1033,18 +1033,18 @@ const EquipmentContent = () => {
                 <div className="flex justify-between border-b border-zinc-800 pb-1"><span>Vibration RMS:</span> <strong className="text-purple-300">{compareAssetA.vibrationMms} mm/s</strong></div>
                 <div className="flex justify-between border-b border-zinc-800 pb-1"><span>Engine Temp:</span> <strong className="text-amber-300">{compareAssetA.engineTempC}°C</strong></div>
                 <div className="flex justify-between border-b border-zinc-800 pb-1"><span>Hydraulic Pressure:</span> <strong className="text-sky-300">{compareAssetA.hydraulicPressureBar} Bar</strong></div>
-                <div className="flex justify-between"><span>Utilization:</span> <strong className="text-white">{compareAssetA.utilizationPct}%</strong></div>
+                <div className="flex justify-between"><span>Utilization:</span> <strong className="text-[#272A27]">{compareAssetA.utilizationPct}%</strong></div>
               </div>
             </div>
 
             {/* Machine B */}
-            <div className="p-4 rounded-xl bg-[#0c1422] border border-amber-800/40 space-y-3">
+            <div className="p-4 rounded-xl bg-[#F5F1E9] border border-amber-800/40 space-y-3">
               <div className="flex items-center justify-between">
                 <span className="text-amber-400 font-bold text-xs">ASSET B</span>
                 <select
                   value={compareAssetB.id}
                   onChange={(e) => setCompareIdB(e.target.value)}
-                  className="px-2.5 py-1 rounded-lg bg-[#090e17] border border-amber-700 text-xs text-white"
+                  className="px-2.5 py-1 rounded-lg bg-[#F0EBE2] border border-[#C8BFAF] text-xs text-white"
                 >
                   {equipmentFleet.map(a => <option key={a.id} value={a.id}>{a.id} - {a.name}</option>)}
                 </select>
@@ -1057,7 +1057,7 @@ const EquipmentContent = () => {
                 <div className="flex justify-between border-b border-zinc-800 pb-1"><span>Vibration RMS:</span> <strong className="text-purple-300">{compareAssetB.vibrationMms} mm/s</strong></div>
                 <div className="flex justify-between border-b border-zinc-800 pb-1"><span>Engine Temp:</span> <strong className="text-amber-300">{compareAssetB.engineTempC}°C</strong></div>
                 <div className="flex justify-between border-b border-zinc-800 pb-1"><span>Hydraulic Pressure:</span> <strong className="text-sky-300">{compareAssetB.hydraulicPressureBar} Bar</strong></div>
-                <div className="flex justify-between"><span>Utilization:</span> <strong className="text-white">{compareAssetB.utilizationPct}%</strong></div>
+                <div className="flex justify-between"><span>Utilization:</span> <strong className="text-[#272A27]">{compareAssetB.utilizationPct}%</strong></div>
               </div>
             </div>
           </div>
