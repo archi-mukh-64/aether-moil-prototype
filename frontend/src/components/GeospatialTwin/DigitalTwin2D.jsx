@@ -538,21 +538,21 @@ export const DigitalTwin2D = ({
       <div className="absolute bottom-4 left-4 z-20 flex items-center gap-1 p-1 rounded-xl bg-[#0c1422]/90 border border-[#1c2c46] backdrop-blur-md">
         <button
           onClick={() => setZoomLevel(prev => Math.min(2.0, prev + 0.2))}
-          className="p-1.5 rounded-lg text-[#5F625C] hover:text-white hover:bg-zinc-800"
+          className="p-1.5 rounded-lg text-[#5F625C] hover:text-[#272A27] hover:bg-zinc-800"
           title="Zoom In"
         >
           <ZoomIn className="w-3.5 h-3.5" />
         </button>
         <button
           onClick={() => setZoomLevel(prev => Math.max(0.6, prev - 0.2))}
-          className="p-1.5 rounded-lg text-[#5F625C] hover:text-white hover:bg-zinc-800"
+          className="p-1.5 rounded-lg text-[#5F625C] hover:text-[#272A27] hover:bg-zinc-800"
           title="Zoom Out"
         >
           <ZoomOut className="w-3.5 h-3.5" />
         </button>
         <button
           onClick={() => setZoomLevel(1.0)}
-          className="p-1.5 rounded-lg text-[#5F625C] hover:text-white hover:bg-zinc-800"
+          className="p-1.5 rounded-lg text-[#5F625C] hover:text-[#272A27] hover:bg-zinc-800"
           title="Reset Zoom"
         >
           <RotateCcw className="w-3.5 h-3.5" />

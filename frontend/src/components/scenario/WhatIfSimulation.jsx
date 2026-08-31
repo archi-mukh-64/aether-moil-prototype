@@ -33,7 +33,7 @@ export const WhatIfSimulation = () => {
             <div className="text-[10px] text-telemetry-400 font-bold uppercase tracking-wider">
               STEP 6 // WHAT-IF OUTCOME SIMULATION
             </div>
-            <h3 className="font-display text-lg font-bold text-white">
+            <h3 className="font-display text-lg font-bold text-[#272A27]">
               Comparative Impact: Without vs With AI Prescription
             </h3>
           </div>
@@ -77,7 +77,7 @@ export const WhatIfSimulation = () => {
 
               <div className="flex justify-between">
                 <span className="text-[#5F625C]">Fleet Availability:</span>
-                <strong className="text-white">{sim.withoutIntervention.fleetAvailability}</strong>
+                <strong className="text-[#272A27]">{sim.withoutIntervention.fleetAvailability}</strong>
               </div>
 
               <div className="flex justify-between">
@@ -126,7 +126,7 @@ export const WhatIfSimulation = () => {
               <div className="space-y-3">
                 <div className="flex justify-between">
                   <span className="text-[#5F625C]">Fleet Availability:</span>
-                  <strong className="text-white">{sim.withAiRecommendation.fleetAvailability}</strong>
+                  <strong className="text-[#272A27]">{sim.withAiRecommendation.fleetAvailability}</strong>
                 </div>
 
                 <div className="flex justify-between">
@@ -153,7 +153,7 @@ export const WhatIfSimulation = () => {
 
             <div>
               <div className="text-[10px] text-[#5F625C] uppercase">YIELD PROTECTED</div>
-              <div className="text-lg font-bold text-white mt-0.5">
+              <div className="text-lg font-bold text-[#272A27] mt-0.5">
                 +{sim.delta.productionProtectedTonnes.toLocaleString()} T
               </div>
             </div>

@@ -11,7 +11,7 @@ export const CommandDrawer = () => {
   return (
     <div className="fixed inset-0 z-50 flex justify-end bg-obsidian-950/80 backdrop-blur-md animate-fade-in">
       <div className="w-full max-w-2xl bg-obsidian-900 border-l border-obsidian-750 h-full overflow-y-auto p-6 sm:p-8 flex flex-col justify-between shadow-2xl no-scrollbar font-mono text-xs">
-        
+
         <div>
           {/* Header */}
           <div className="flex items-center justify-between pb-6 border-b border-obsidian-800 mb-6">
@@ -20,7 +20,7 @@ export const CommandDrawer = () => {
                 <SlidersHorizontal className="w-5 h-5 text-manganese-400" />
               </div>
               <div>
-                <h2 className="font-display text-xl font-bold text-white">
+                <h2 className="font-display text-xl font-bold text-[#272A27]">
                   Operational Scenario Lab
                 </h2>
                 <p className="text-[11px] text-zinc-400">
@@ -31,7 +31,7 @@ export const CommandDrawer = () => {
 
             <button
               onClick={() => setIsCommandDrawerOpen(false)}
-              className="p-2 rounded-lg bg-obsidian-800 text-zinc-400 hover:text-white transition-colors"
+              className="p-2 rounded-lg bg-obsidian-800 text-zinc-400 hover:text-[#272A27] transition-colors"
             >
               <X className="w-4 h-4" />
             </button>

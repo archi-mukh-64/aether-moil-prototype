@@ -20,7 +20,7 @@ export const PipelineInspector = () => {
     return (
       <div className="panel-surface p-8 border border-[#C8BFAF] font-mono text-xs text-center space-y-3">
         <Terminal className="w-8 h-8 text-[#85877E] mx-auto animate-pulse" />
-        <h4 className="font-bold text-white text-sm">INTELLIGENCE PIPELINE INSPECTOR</h4>
+        <h4 className="font-bold text-[#272A27] text-sm">INTELLIGENCE PIPELINE INSPECTOR</h4>
         <p className="text-[#85877E] max-w-md mx-auto">
           No stress anomaly injected. Select a scenario and stress level above to inspect the step-by-step causal derivation pipeline.
         </p>
@@ -56,7 +56,7 @@ export const PipelineInspector = () => {
             <div className="text-[10px] text-telemetry-400 font-bold uppercase tracking-wider">
               CAUSAL INFERENCE PIPELINE TRACER
             </div>
-            <h3 className="font-display text-lg font-bold text-white">
+            <h3 className="font-display text-lg font-bold text-[#272A27]">
               Deterministic Decision Pipeline: {mineName}
             </h3>
           </div>
@@ -77,7 +77,7 @@ export const PipelineInspector = () => {
             <Layers className="w-3 h-3 text-[#5F625C]" />
           </div>
           <div className="space-y-1 text-[11px]">
-            <div>Mine: <strong className="text-white">{mineName.split(' ')[0]}</strong></div>
+            <div>Mine: <strong className="text-[#272A27]">{mineName.split(' ')[0]}</strong></div>
             <div>Stress: <strong className="text-manganese-400">{scenarioSeverity || 'HIGH'}</strong></div>
             <div>Window: <strong className="text-[#272A27]">{scenarioTimeHorizon || '24 HOURS'}</strong></div>
             <div>Target: <strong className="text-[#272A27]">{activeMine?.dailyTarget?.toLocaleString() || 6200} TPD</strong></div>
@@ -148,7 +148,7 @@ export const PipelineInspector = () => {
       <div className="p-4 rounded-xl bg-[#F0EBE2]/90 border border-[#C8BFAF] flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 text-xs">
         <div className="flex items-center gap-2">
           <CheckCircle2 className="w-4 h-4 text-telemetry-400 flex-shrink-0" />
-          <span>Evaluation Rationale: <strong className="text-white">{thresholdSummary}</strong></span>
+          <span>Evaluation Rationale: <strong className="text-[#272A27]">{thresholdSummary}</strong></span>
         </div>
         <span className="text-[#85877E] text-[11px]">Calibrated with Mine Operational Constraints</span>
       </div>

@@ -1,27 +1,27 @@
 import React, { useState } from 'react';
 import { useApp } from '../context/AppContext.jsx';
-import { 
-  X, 
-  ShieldCheck, 
-  Zap, 
-  CheckCircle2, 
-  AlertTriangle, 
-  TrendingUp, 
-  TrendingDown, 
-  Clock, 
-  UserCheck, 
+import {
+  X,
+  ShieldCheck,
+  Zap,
+  CheckCircle2,
+  AlertTriangle,
+  TrendingUp,
+  TrendingDown,
+  Clock,
+  UserCheck,
   FileText,
   Sliders,
   Sparkles
 } from 'lucide-react';
 
 export const DecisionModal = () => {
-  const { 
-    isDecisionModalOpen, 
-    setIsDecisionModalOpen, 
-    activeScenario, 
-    approveDecision, 
-    modifyDecision, 
+  const {
+    isDecisionModalOpen,
+    setIsDecisionModalOpen,
+    activeScenario,
+    approveDecision,
+    modifyDecision,
     rejectDecision,
     t,
     lang
@@ -61,11 +61,11 @@ export const DecisionModal = () => {
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-obsidian-950/80 backdrop-blur-md animate-fade-in select-none">
       <div className="relative w-full max-w-4xl max-h-[90vh] overflow-y-auto panel-surface p-6 sm:p-8 border border-manganese-500/40 shadow-2xl bg-obsidian-900 no-scrollbar">
-        
+
         {/* Close Button */}
         <button
           onClick={() => setIsDecisionModalOpen(false)}
-          className="absolute top-6 right-6 p-2 rounded-lg bg-obsidian-800 text-zinc-400 hover:text-white transition-colors"
+          className="absolute top-6 right-6 p-2 rounded-lg bg-obsidian-800 text-zinc-400 hover:text-[#272A27] transition-colors"
         >
           <X className="w-4 h-4" />
         </button>
@@ -81,11 +81,11 @@ export const DecisionModal = () => {
               {lang === 'hi' ? 'डीजीएमएस वैधानिक प्रशासन' : lang === 'mr' ? 'डीजीएमएस वैधानिक नियमन' : 'DGMS STATUTORY GOVERNANCE'}
             </span>
           </div>
-          <h2 className="font-display text-2xl sm:text-3xl font-extrabold text-white">
+          <h2 className="font-display text-2xl sm:text-3xl font-extrabold text-[#272A27]">
             {lang === 'hi' ? 'मानव-इन-द-लूप निर्णय प्राधिकरण' : lang === 'mr' ? 'मानवी सहभाग निर्णय प्राधिकरण' : 'Human-in-the-Loop Decision Authority'}
           </h2>
           <p className="text-xs font-mono text-zinc-400 mt-1">
-            {lang === 'hi' ? 'निर्देशात्मक प्रोटोकॉल समीक्षा:' : lang === 'mr' ? 'निर्देशात्मक प्रोटोकॉल पुनरावलोकन:' : 'Reviewing Prescriptive Protocol for:'} <strong className="text-white">{activeScenario.title || activeScenario.detectionHeadline || activeScenario.scenarioId || 'Operational Scenario'}</strong>
+            {lang === 'hi' ? 'निर्देशात्मक प्रोटोकॉल समीक्षा:' : lang === 'mr' ? 'निर्देशात्मक प्रोटोकॉल पुनरावलोकन:' : 'Reviewing Prescriptive Protocol for:'} <strong className="text-[#272A27]">{activeScenario.title || activeScenario.detectionHeadline || activeScenario.scenarioId || 'Operational Scenario'}</strong>
           </p>
         </div>
 
@@ -132,7 +132,7 @@ export const DecisionModal = () => {
                 >
                   <div>
                     <div className="flex items-center justify-between mb-2">
-                      <span className="font-bold text-white text-[11px]">{optCategory}</span>
+                      <span className="font-bold text-[#272A27] text-[11px]">{optCategory}</span>
                       {isRecommended && (
                         <span className="px-1.5 py-0.5 rounded bg-telemetry-500/20 text-telemetry-400 text-[9px] font-bold border border-telemetry-500/30 flex items-center gap-1">
                           <Sparkles className="w-2.5 h-2.5" />

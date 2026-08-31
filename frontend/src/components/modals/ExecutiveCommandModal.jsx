@@ -39,7 +39,7 @@ export const ExecutiveCommandModal = ({ isOpen, onClose }) => {
               <div className="text-[10px] text-cyan-400 font-bold uppercase tracking-wider">
                 {lang === 'hi' ? 'पीएसयू कार्यकारी कमान // मॉयल लिमिटेड उद्यम नेटवर्क' : lang === 'mr' ? 'पीएसयू कार्यकारी कमांड // मॉयल लिमिटेड उपक्रम नेटवर्क' : 'PSU EXECUTIVE COMMAND // MOIL LTD ENTERPRISE NETWORK'}
               </div>
-              <h2 className="font-display text-lg font-bold text-white">
+              <h2 className="font-display text-lg font-bold text-[#272A27]">
                 {lang === 'hi' ? 'उद्यम खनन संचालन कमान दृश्य' : lang === 'mr' ? 'उपक्रम खाणकाम ऑपरेशन्स कमांड दृश्य' : 'Enterprise Mining Operations Command View'}
               </h2>
             </div>
@@ -47,7 +47,7 @@ export const ExecutiveCommandModal = ({ isOpen, onClose }) => {
 
           <button
             onClick={onClose}
-            className="w-8 h-8 rounded-lg bg-[#141b27] hover:bg-[#1f2c42] text-[#5F625C] hover:text-white flex items-center justify-center"
+            className="w-8 h-8 rounded-lg bg-[#141b27] hover:bg-[#1f2c42] text-[#5F625C] hover:text-[#272A27] flex items-center justify-center"
           >
             <X className="w-4 h-4" />
           </button>
@@ -59,7 +59,7 @@ export const ExecutiveCommandModal = ({ isOpen, onClose }) => {
             <span className="text-[#85877E] text-[10px] uppercase block">
               {lang === 'hi' ? 'कुल नेटवर्क उत्पादन लक्ष्य' : lang === 'mr' ? 'एकूण नेटवर्क उत्पादन उद्दिष्ट' : 'Total Network Output Target'}
             </span>
-            <div className="text-xl font-bold text-white">{totalTarget.toLocaleString()} T/day</div>
+            <div className="text-xl font-bold text-[#272A27]">{totalTarget.toLocaleString()} T/day</div>
             <span className="text-[10px] text-teal-400">{lang === 'hi' ? 'मध्य प्रदेश एवं महाराष्ट्र में 10 खदानें' : lang === 'mr' ? 'मध्य प्रदेश व महाराष्ट्रातील 10 खाणी' : '10 Mines in MP & MH'}</span>
           </div>
 
@@ -67,7 +67,7 @@ export const ExecutiveCommandModal = ({ isOpen, onClose }) => {
             <span className="text-[#85877E] text-[10px] uppercase block">
               {lang === 'hi' ? 'उद्यम एचईएमएम फ्लीट' : lang === 'mr' ? 'उपक्रम एचईएमएम फ्लीट' : 'Enterprise HEMM Fleet'}
             </span>
-            <div className="text-xl font-bold text-white">{totalFleet} Units</div>
+            <div className="text-xl font-bold text-[#272A27]">{totalFleet} Units</div>
             <span className="text-[10px] text-[#5F625C]">{lang === 'hi' ? '91% नेटवर्क उपलब्धता' : lang === 'mr' ? '91% नेटवर्क उपलब्धता' : '91% Network Availability'}</span>
           </div>
 
@@ -90,7 +90,7 @@ export const ExecutiveCommandModal = ({ isOpen, onClose }) => {
 
         {/* Network Asset Roster */}
         <div className="p-6 overflow-y-auto space-y-4 max-h-[420px]">
-          <div className="text-xs font-bold text-white uppercase tracking-wider">
+          <div className="text-xs font-bold text-[#272A27] uppercase tracking-wider">
             {lang === 'hi' ? 'सक्रिय परिसंपत्ति पोर्टफोलियो' : lang === 'mr' ? 'सक्रिय मालमत्ता पोर्टफोलिओ' : 'Active Asset Portfolio'}
           </div>
 
@@ -107,7 +107,7 @@ export const ExecutiveCommandModal = ({ isOpen, onClose }) => {
                 }`}
               >
                 <div>
-                  <div className="font-bold text-white text-xs">{m.name}</div>
+                  <div className="font-bold text-[#272A27] text-xs">{m.name}</div>
                   <div className="text-[10px] text-[#5F625C] mt-0.5">
                     {m.district}, {m.state} • {m.mineType}
                   </div>

@@ -13,12 +13,12 @@ export const MetricTile = ({
   className = ''
 }) => {
   return (
-    <div 
+    <div
       className={`p-4 sm:p-5 rounded-2xl bg-[#151B23] border border-[#222D3A] shadow-card-subtle hover:border-[#2D3A4B] hover:bg-[#18202B] hover:shadow-card-elevated transition-all flex flex-col justify-between relative overflow-hidden group ${className}`}
     >
       {/* Top Subtle Semantic Accent Pip */}
-      <div 
-        className="absolute top-0 left-0 right-0 h-[2.5px] opacity-75 group-hover:opacity-100 transition-opacity" 
+      <div
+        className="absolute top-0 left-0 right-0 h-[2.5px] opacity-75 group-hover:opacity-100 transition-opacity"
         style={{ backgroundColor: accentColor }}
       />
 
@@ -27,12 +27,12 @@ export const MetricTile = ({
           {label}
         </span>
         {Icon && (
-          <div 
+          <div
             className="p-1.5 rounded-lg border transition-colors"
-            style={{ 
+            style={{
               backgroundColor: `${accentColor}12`,
               borderColor: `${accentColor}30`,
-              color: accentColor 
+              color: accentColor
             }}
           >
             <Icon className="w-3.5 h-3.5" />
@@ -63,7 +63,7 @@ export const MetricTile = ({
           </span>
         )}
         {status && (
-          <span 
+          <span
             className="px-2 py-0.5 rounded-md text-[10px] font-semibold border ml-auto"
             style={{
               backgroundColor: `${accentColor}15`,

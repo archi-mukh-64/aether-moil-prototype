@@ -46,7 +46,7 @@ export const DecisionAudit = () => {
             <div className="text-[10px] text-[#85877E] font-bold uppercase tracking-wider">
               {dlog.stepLabel || 'STEP 7 // DECISION AUDIT & REGULATORY LEDGER'}
             </div>
-            <h3 className="font-display text-lg font-bold text-white">
+            <h3 className="font-display text-lg font-bold text-[#272A27]">
               {dlog.title || 'AI Decision Log & Regulatory Traceability'}
             </h3>
           </div>
@@ -96,7 +96,7 @@ export const DecisionAudit = () => {
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 text-[11px]">
                 <div>
                   <span className="text-[#85877E] block text-[10px] uppercase">{dlog.detectedEvent || 'Detected Event:'}</span>
-                  <strong className="text-white">{log.detectedEvent || log.scenario}</strong>
+                  <strong className="text-[#272A27]">{log.detectedEvent || log.scenario}</strong>
                 </div>
 
                 <div>

@@ -1,14 +1,14 @@
 import React from 'react';
 import { useApp } from '../context/AppContext.jsx';
-import { 
-  Radio, 
-  Search, 
-  TrendingDown, 
-  Sparkles, 
-  Zap, 
-  Sliders, 
-  TrendingUp, 
-  CheckCircle2, 
+import {
+  Radio,
+  Search,
+  TrendingDown,
+  Sparkles,
+  Zap,
+  Sliders,
+  TrendingUp,
+  CheckCircle2,
   Award,
   ChevronRight,
   ArrowRight,
@@ -103,7 +103,7 @@ export const DecisionLoopInfographic = () => {
 
   return (
     <section className="command-container py-12 select-none">
-      
+
       {/* Section Header */}
       <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-6 border-b border-obsidian-800 pb-8">
         <div>
@@ -111,11 +111,11 @@ export const DecisionLoopInfographic = () => {
             <Cpu className="w-3 h-3 text-manganese-400" />
             <span>{lang === 'hi' ? 'मुख्य वास्तुकला सिद्धांत' : lang === 'mr' ? 'मुख्य वास्तुकला तत्त्वज्ञान' : 'CORE ARCHITECTURAL PHILOSOPHY'}</span>
           </div>
-          <h2 className="font-display text-3xl sm:text-5xl font-extrabold tracking-tight text-white">
+          <h2 className="font-display text-3xl sm:text-5xl font-extrabold tracking-tight text-[#272A27]">
             {lang === 'hi' ? 'कच्चे संकेतों से परिचालन निर्णयों तक' : lang === 'mr' ? 'थेट संकेतांपासून ऑपरेशनल निर्णयांपर्यंत' : 'From Raw Signals to Operational Decisions'}
           </h2>
           <p className="text-sm sm:text-base text-zinc-400 mt-2 max-w-3xl font-normal">
-            {lang === 'hi' 
+            {lang === 'hi'
               ? 'मॉयल केवल एक निगरानी डैशबोर्ड नहीं है। यह एक संपूर्ण निर्देशात्मक निर्णय बुद्धिमत्ता लूप है जो उप-सतह विसंगतियों को ऑपरेटर-शासित उपायों में बदलता है।'
               : lang === 'mr'
               ? 'मॉयल केवळ एक देखरेख डॅशबोर्ड नाही. हे एक संपूर्ण निर्देशात्मक निर्णय बुद्धिमत्ता लूप आहे जे जमिनीखालील विसंगतींना ऑपरेटर-शासित उपायांमध्ये बदलते.'
@@ -180,7 +180,7 @@ export const DecisionLoopInfographic = () => {
           <div className="flex items-center gap-2.5">
             <span className="w-2 h-2 rounded-full bg-hazard-500 animate-ping" />
             <span>
-              {comm.active_mine || 'Active'}: <strong className="text-white">{activeScenario.title || activeScenario.detectionHeadline || activeScenario.scenarioId || 'Simulation State'}</strong> — {scen.decisionSupportTitle || 'AI recommends'} <strong className="text-manganese-400">{rec?.actionId || 'AP-04'}</strong> ({rec?.protectedYield || '+1,150 T'} Protected)
+              {comm.active_mine || 'Active'}: <strong className="text-[#272A27]">{activeScenario.title || activeScenario.detectionHeadline || activeScenario.scenarioId || 'Simulation State'}</strong> — {scen.decisionSupportTitle || 'AI recommends'} <strong className="text-manganese-400">{rec?.actionId || 'AP-04'}</strong> ({rec?.protectedYield || '+1,150 T'} Protected)
             </span>
           </div>
 

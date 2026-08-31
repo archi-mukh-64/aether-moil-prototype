@@ -81,7 +81,7 @@ export const ReportModal = ({ isOpen, onClose }) => {
               <FileText className="w-5 h-5" />
             </div>
             <div>
-              <h2 className="text-base font-bold text-white tracking-wide">
+              <h2 className="text-base font-bold text-[#272A27] tracking-wide">
                 {mod.reportTitle || 'MOIL MINING INTELLIGENCE REPORT'}
               </h2>
               <p className="text-xs text-[#5F625C]">
@@ -91,7 +91,7 @@ export const ReportModal = ({ isOpen, onClose }) => {
           </div>
           <button
             onClick={onClose}
-            className="p-1.5 rounded-lg text-[#5F625C] hover:text-white hover:bg-zinc-800 transition-colors"
+            className="p-1.5 rounded-lg text-[#5F625C] hover:text-[#272A27] hover:bg-zinc-800 transition-colors"
           >
             <X className="w-5 h-5" />
           </button>
@@ -186,7 +186,7 @@ export const ReportModal = ({ isOpen, onClose }) => {
                   className={`p-2 rounded-xl border text-center transition-all ${
                     selectedLanguage === l.code
                       ? 'bg-[#1e293b] border-sky-500 text-sky-300 font-bold'
-                      : 'bg-[#0b1220] border-zinc-800 text-[#5F625C] hover:text-white'
+                      : 'bg-[#0b1220] border-zinc-800 text-[#5F625C] hover:text-[#272A27]'
                   }`}
                 >
                   {l.label}

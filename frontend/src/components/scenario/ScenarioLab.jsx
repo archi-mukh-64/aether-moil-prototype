@@ -54,7 +54,7 @@ export const ScenarioLab = () => {
             <SlidersHorizontal className="w-3 h-3 text-manganese-400" />
             <span>{lang === 'hi' ? 'मॉयल प्रदर्शन एवं निर्णय इंजन' : lang === 'mr' ? 'मॉयल प्रात्यक्षिक व निर्णय इंजिन' : 'MOIL DEMONSTRATION & DECISION ENGINE'}</span>
           </div>
-          <h2 className="font-display text-3xl sm:text-5xl font-extrabold text-white">
+          <h2 className="font-display text-3xl sm:text-5xl font-extrabold text-[#272A27]">
             {scenT.pageTitle || 'Operational Scenario Lab'}
           </h2>
           <p className="text-sm sm:text-base text-[#5F625C] mt-2 max-w-3xl font-normal">

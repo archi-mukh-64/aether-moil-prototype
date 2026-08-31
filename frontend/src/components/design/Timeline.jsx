@@ -23,7 +23,7 @@ export const Timeline = ({ items = [], className = '' }) => {
           {/* Content Card */}
           <div className="flex-1 p-3.5 rounded-xl bg-[#151B23] border border-[#222D3A] hover:border-[#2D3A4B] transition-all font-mono">
             <div className="flex items-center justify-between gap-2">
-              <span className="text-xs font-bold text-white tracking-tight">
+              <span className="text-xs font-bold text-[#272A27] tracking-tight">
                 {item.title}
               </span>
               <span className="text-[10px] text-slate-400 flex items-center gap-1">

@@ -210,7 +210,7 @@ export const StaticEngineeringMap = ({ mine, scenarioResult, onSelectAsset }) =>
             </div>
             <button
               onClick={() => setSelectedAsset(null)}
-              className="text-[#5F625C] hover:text-white p-0.5"
+              className="text-[#5F625C] hover:text-[#272A27] p-0.5"
             >
               <X className="w-3.5 h-3.5" />
             </button>
@@ -221,7 +221,7 @@ export const StaticEngineeringMap = ({ mine, scenarioResult, onSelectAsset }) =>
               <span className="text-[#5F625C] block text-[9.5px]">
                 {lang === 'hi' ? 'संपत्ति प्रकार' : lang === 'mr' ? 'मालमत्ता प्रकार' : 'Asset Type'}
               </span>
-              <strong className="text-white">{selectedAsset.type}</strong>
+              <strong className="text-[#272A27]">{selectedAsset.type}</strong>
             </div>
             <div className="p-2 rounded-lg bg-[#121c2c] border border-[#1e2f4a]">
               <span className="text-[#5F625C] block text-[9.5px]">

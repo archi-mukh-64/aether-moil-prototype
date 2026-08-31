@@ -1,13 +1,13 @@
 import React from 'react';
 import { useApp } from '../context/AppContext.jsx';
-import { 
-  TrendingUp, 
-  TrendingDown, 
-  AlertTriangle, 
-  CheckCircle2, 
-  Truck, 
-  Layers, 
-  ShieldCheck, 
+import {
+  TrendingUp,
+  TrendingDown,
+  AlertTriangle,
+  CheckCircle2,
+  Truck,
+  Layers,
+  ShieldCheck,
   Zap,
   Activity,
   ArrowUpRight,

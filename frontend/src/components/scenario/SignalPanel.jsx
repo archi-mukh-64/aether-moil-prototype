@@ -22,7 +22,7 @@ export const SignalPanel = () => {
     return (
       <div className="panel-surface p-6 sm:p-8 border border-[#C8BFAF] font-mono text-xs text-center space-y-3 select-none">
         <Radio className="w-8 h-8 text-[#85877E] mx-auto animate-pulse" />
-        <h4 className="font-bold text-white text-sm">
+        <h4 className="font-bold text-[#272A27] text-sm">
           {lang === 'hi' ? 'चरण 1 // सिग्नल पहचान' : lang === 'mr' ? 'टप्पा 1 // सिग्नल शोध' : 'STEP 1 // SIGNAL DETECTION'}
         </h4>
         <p className="text-[#85877E] max-w-md mx-auto">
@@ -51,7 +51,7 @@ export const SignalPanel = () => {
             <div className="text-[10px] text-hazard-400 font-bold uppercase tracking-wider">
               {lang === 'hi' ? 'चरण 1 // सिग्नल पहचान एवं कारणात्मक प्रसार' : lang === 'mr' ? 'टप्पा 1 // सिग्नल शोध व कारणात्मक प्रसार' : 'STEP 1 // SIGNAL DETECTION & CAUSAL PROPAGATION'}
             </div>
-            <h3 className="font-display text-lg font-bold text-white">
+            <h3 className="font-display text-lg font-bold text-[#272A27]">
               {lang === 'hi' ? 'बहु-चर सेंसर ड्रिफ्ट - ' : lang === 'mr' ? 'बहु-चल सेन्सर ड्रिफ्ट - ' : 'Multi-Variate Sensor Drift at '}{activeScenario.mineName}
             </h3>
           </div>
@@ -59,7 +59,7 @@ export const SignalPanel = () => {
 
         <div className="flex items-center gap-2 text-[11px] text-[#5F625C]">
           <span className="badge-manganese text-[10px]">{activeScenario.appliedSeverity} {lang === 'hi' ? 'गंभीरता' : lang === 'mr' ? 'तीव्रता' : 'SEVERITY'}</span>
-          <span>{lang === 'hi' ? 'समय सीमा:' : lang === 'mr' ? 'कालावधी:' : 'Horizon:'} <strong className="text-white">{activeScenario.appliedHorizon}</strong></span>
+          <span>{lang === 'hi' ? 'समय सीमा:' : lang === 'mr' ? 'कालावधी:' : 'Horizon:'} <strong className="text-[#272A27]">{activeScenario.appliedHorizon}</strong></span>
         </div>
       </div>
 
@@ -103,7 +103,7 @@ export const SignalPanel = () => {
               }`}
             >
               <div className="flex items-center justify-between">
-                <span className="text-[11px] font-bold text-white truncate max-w-[220px]">
+                <span className="text-[11px] font-bold text-[#272A27] truncate max-w-[220px]">
                   {sig.name}
                 </span>
                 <span className={`px-2 py-0.5 rounded text-[9px] font-bold ${
@@ -129,7 +129,7 @@ export const SignalPanel = () => {
               </div>
 
               <div className="flex items-center justify-between pt-2 border-t border-[#C8BFAF] text-[10px] text-[#5F625C]">
-                <span className="text-[#85877E]">{lang === 'hi' ? 'विचलन:' : lang === 'mr' ? 'विचलन:' : 'Drift:'} <strong className="text-white">{sig.magnitude}</strong></span>
+                <span className="text-[#85877E]">{lang === 'hi' ? 'विचलन:' : lang === 'mr' ? 'विचलन:' : 'Drift:'} <strong className="text-[#272A27]">{sig.magnitude}</strong></span>
                 <span>{lang === 'hi' ? 'ताजगी:' : lang === 'mr' ? 'ताजेपणा:' : 'Freshness:'} <strong className="text-[#272A27]">{sig.freshness}</strong></span>
               </div>
             </div>

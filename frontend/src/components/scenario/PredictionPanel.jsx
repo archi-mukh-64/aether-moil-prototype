@@ -31,7 +31,7 @@ export const PredictionPanel = () => {
             <div className="text-[10px] text-hazard-400 font-bold uppercase tracking-wider">
               STEP 2 // QUANTITATIVE RISK PREDICTION
             </div>
-            <h3 className="font-display text-lg font-bold text-white">
+            <h3 className="font-display text-lg font-bold text-[#272A27]">
               Deterministic Shortfall &amp; Impact Projection
             </h3>
           </div>
@@ -76,7 +76,7 @@ export const PredictionPanel = () => {
           <div className="text-[10px] text-[#85877E] uppercase tracking-wider">
             TIME HORIZON
           </div>
-          <div className="text-2xl font-bold text-white tracking-tight">
+          <div className="text-2xl font-bold text-[#272A27] tracking-tight">
             {pred.horizon}
           </div>
           <div className="text-[11px] text-[#5F625C]">

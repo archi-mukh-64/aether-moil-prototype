@@ -33,7 +33,7 @@ export const OperationalPanel = ({
                 {category}
               </span>
             )}
-            <h4 className="text-sm font-bold text-white tracking-tight">
+            <h4 className="text-sm font-bold text-[#272A27] tracking-tight">
               {title}
             </h4>
           </div>

@@ -43,7 +43,7 @@ export const SatelliteIntelligenceCard = ({ mineId = 'balaghat' }) => {
             <Globe2 className="w-4 h-4" />
           </div>
           <div>
-            <h4 className="font-bold text-white text-xs">{geo.earthObservationIntel || 'Earth Observation Intelligence'}</h4>
+            <h4 className="font-bold text-[#272A27] text-xs">{geo.earthObservationIntel || 'Earth Observation Intelligence'}</h4>
             <div className="text-[10px] text-emerald-400 font-bold">Sentinel-2 MSI Level-2A • Landsat 8/9 OLI</div>
           </div>
         </div>
@@ -71,7 +71,7 @@ export const SatelliteIntelligenceCard = ({ mineId = 'balaghat' }) => {
               className={`py-1 px-1.5 rounded-lg border text-center text-[10px] font-bold transition-all ${
                 satelliteSpectralMode === m.id
                   ? 'bg-sky-950 text-sky-300 border-sky-500 shadow'
-                  : 'bg-[#0b121e] border-[#182436] text-[#5F625C] hover:text-white'
+                  : 'bg-[#0b121e] border-[#182436] text-[#5F625C] hover:text-[#272A27]'
               }`}
             >
               {m.label}
@@ -128,7 +128,7 @@ export const SatelliteIntelligenceCard = ({ mineId = 'balaghat' }) => {
       <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 text-[11px]">
         <div className="p-2 rounded-xl bg-[#0c1422] border border-[#182636]">
           <div className="text-[9px] text-[#85877E] uppercase">{geo.activeFootprint || 'ACTIVE FOOTPRINT'}</div>
-          <div className="text-sm font-bold text-white mt-0.5">{currentTimeline.areaHa.toFixed(1)} Ha</div>
+          <div className="text-sm font-bold text-[#272A27] mt-0.5">{currentTimeline.areaHa.toFixed(1)} Ha</div>
           <div className="text-[9px] text-emerald-400 mt-0.5">{geo.leaseBound || 'Lease Bound'}</div>
         </div>
 
@@ -147,7 +147,7 @@ export const SatelliteIntelligenceCard = ({ mineId = 'balaghat' }) => {
 
       <div className="p-2 rounded-xl bg-[#0b1320] border border-[#1c2e4a] flex items-center justify-between text-[10.5px]">
         <span className="text-[#5F625C]">{geo.demElevation || 'DEM ELEVATION RELIEF'}:</span>
-        <strong className="text-white">{mineConfig.elevation} (SRTM 30m Global)</strong>
+        <strong className="text-[#272A27]">{mineConfig.elevation} (SRTM 30m Global)</strong>
       </div>
     </div>
   );

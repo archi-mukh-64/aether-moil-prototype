@@ -54,7 +54,7 @@ export const HumanDecision = () => {
             <div className="text-[10px] text-telemetry-400 font-bold uppercase tracking-wider">
               {lang === 'hi' ? 'चरण 6 // ऑपरेटर निर्णय एवं प्रेषण प्राधिकरण' : lang === 'mr' ? 'टप्पा 6 // ऑपरेटर निर्णय व प्रेषण प्राधिकरण' : 'STEP 6 // OPERATOR DECISION & DISPATCH AUTHORITY'}
             </div>
-            <h3 className="font-display text-lg font-bold text-white">
+            <h3 className="font-display text-lg font-bold text-[#272A27]">
               {lang === 'hi' ? 'एआई सहायता करता है। मानव निर्णय लेते हैं।' : lang === 'mr' ? 'एआय सहाय्य करते. मानव निर्णय घेतात.' : 'AI Assists. Humans Decide.'}
             </h3>
           </div>
@@ -75,7 +75,7 @@ export const HumanDecision = () => {
           <div className="flex items-center gap-3">
             <CheckCircle2 className="w-5 h-5 flex-shrink-0" />
             <div>
-              <div className="font-bold text-white text-xs">
+              <div className="font-bold text-[#272A27] text-xs">
                 {isApproved && (lang === 'hi' ? 'प्रेषण अधिकृत एवं प्रमाणित' : lang === 'mr' ? 'प्रेषण अधिकृत व प्रमाणित' : 'DISPATCH AUTHORIZED & CERTIFIED')}
                 {isModified && (lang === 'hi' ? 'ऑपरेटर संशोधनों के साथ प्रेषण अधिकृत' : lang === 'mr' ? 'ऑपरेटर सुधारणेसह प्रेषण अधिकृत' : 'DISPATCH AUTHORIZED WITH OPERATOR MODIFICATIONS')}
                 {isRejected && (lang === 'hi' ? 'ऑपरेटर द्वारा एआई सिफारिश ओवरराइड' : lang === 'mr' ? 'ऑपरेटरद्वारे एआय शिफारस ओव्हरराइड' : 'AI RECOMMENDATION OVERRIDDEN BY OPERATOR')}
@@ -86,7 +86,7 @@ export const HumanDecision = () => {
             </div>
           </div>
 
-          <span className="px-3 py-1 rounded bg-[#F0EBE2] border border-[#C8BFAF] text-[10px] font-bold text-white">
+          <span className="px-3 py-1 rounded bg-[#F0EBE2] border border-[#C8BFAF] text-[10px] font-bold text-[#272A27]">
             {decisionStage}
           </span>
         </div>

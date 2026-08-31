@@ -31,7 +31,7 @@ export const EvidencePanel = () => {
             <div className="text-[10px] text-manganese-400 font-bold uppercase tracking-wider">
               {lang === 'hi' ? 'चरण 3 // साक्ष्य एवं व्याख्या' : lang === 'mr' ? 'टप्पा 3 // पुरावे व स्पष्टीकरण' : 'STEP 3 // EVIDENCE & EXPLANATION'}
             </div>
-            <h3 className="font-display text-lg font-bold text-white">
+            <h3 className="font-display text-lg font-bold text-[#272A27]">
               {lang === 'hi' ? `${activeMine.name} में मूल-कारण चालक` : lang === 'mr' ? `${activeMine.name} मधील मूळ-कारण घटक` : `Root-Cause Drivers at ${activeMine.name}`}
             </h3>
           </div>
@@ -65,7 +65,7 @@ export const EvidencePanel = () => {
                     {f.rank}
                   </span>
                   <div>
-                    <span className="font-bold text-white text-xs">{f.factor}</span>
+                    <span className="font-bold text-[#272A27] text-xs">{f.factor}</span>
                     <span className="text-[10px] text-[#85877E] ml-2">({f.category})</span>
                   </div>
                 </div>

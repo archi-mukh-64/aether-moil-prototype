@@ -69,7 +69,7 @@ export const OptimizationPanel = () => {
             <div className="text-[10px] text-cyan-400 font-bold uppercase tracking-wider">
               {lang === 'hi' ? 'चरण 5 // निर्देशात्मक अनुकूलन सॉल्वर' : lang === 'mr' ? 'टप्पा 5 // निर्देशात्मक इष्टतमीकरण सॉल्व्हर' : 'STEP 5 // PRESCRIPTIVE OPTIMIZATION SOLVER'}
             </div>
-            <h3 className="font-display text-lg font-bold text-white">
+            <h3 className="font-display text-lg font-bold text-[#272A27]">
               {lang === 'hi' ? 'बहु-विकल्प पैरेटो ट्रेड-ऑफ विश्लेषण' : lang === 'mr' ? 'बहु-पर्यायी पॅरेटो ट्रेड-ऑफ विश्लेषण' : 'Multi-Option Pareto Trade-Off Analysis'}
             </h3>
           </div>
@@ -113,7 +113,7 @@ export const OptimizationPanel = () => {
               <div>
                 {/* Option Badge */}
                 <div className="flex items-center justify-between mb-2">
-                  <span className="font-bold text-white text-xs">{prefix}</span>
+                  <span className="font-bold text-[#272A27] text-xs">{prefix}</span>
                   {isAiOptimal && (
                     <span className="px-2 py-0.5 rounded bg-telemetry-500/20 text-telemetry-300 text-[10px] font-bold border border-telemetry-500/40 flex items-center gap-1">
                       <Sparkles className="w-3 h-3" />

@@ -62,7 +62,7 @@ export const ScenarioDiffIndicator = () => {
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-3 border-b border-[#C8BFAF]">
         <div className="flex items-center gap-2">
           <span className="w-2.5 h-2.5 rounded-full bg-manganese-400 animate-ping" />
-          <span className="font-bold text-white uppercase text-xs">
+          <span className="font-bold text-[#272A27] uppercase text-xs">
             {lang === 'hi' ? 'डेल्टा अंतर तुलना:' : lang === 'mr' ? 'डेल्टा फरक तुलना:' : 'DELTA COMPARISON:'} {activeMine?.shortName || activeMine?.name || 'Mine'} ({lang === 'hi' ? 'आधारभूत बनाम परिदृश्य' : lang === 'mr' ? 'पायाभूत वि. परिस्थिती' : 'BASELINE vs SCENARIO'})
           </span>
         </div>
@@ -73,7 +73,7 @@ export const ScenarioDiffIndicator = () => {
           </span>
           <button
             onClick={resetBaseline}
-            className="px-2.5 py-1 rounded-lg bg-[#C8BFAF] hover:bg-obsidian-700 text-[#272A27] hover:text-white text-[10px] font-bold transition-colors flex items-center gap-1 border border-[#C8BFAF]"
+            className="px-2.5 py-1 rounded-lg bg-[#C8BFAF] hover:bg-obsidian-700 text-[#272A27] hover:text-[#272A27] text-[10px] font-bold transition-colors flex items-center gap-1 border border-[#C8BFAF]"
           >
             <RotateCcw className="w-3 h-3" />
             <span>{lang === 'hi' ? 'आधारभूत स्थिति रीसेट करें' : lang === 'mr' ? 'पायाभूत स्थिती रीसेट करा' : 'RESET BASELINE'}</span>

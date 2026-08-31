@@ -1,11 +1,11 @@
 import React from 'react';
 import { useApp } from '../context/AppContext.jsx';
-import { 
-  TrendingUp, 
-  Clock, 
-  ShieldCheck, 
-  Layers, 
-  CheckCircle2, 
+import {
+  TrendingUp,
+  Clock,
+  ShieldCheck,
+  Layers,
+  CheckCircle2,
   AlertTriangle,
   Award,
   Sparkles
@@ -65,7 +65,7 @@ export const ExecutiveImpactStrip = () => {
 
   return (
     <section className="command-container py-10">
-      
+
       {/* Header Banner */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-6 border-b border-obsidian-800 mb-8 gap-3">
         <div>
@@ -73,7 +73,7 @@ export const ExecutiveImpactStrip = () => {
             <Award className="w-3 h-3 text-telemetry-400" />
             <span>EXECUTIVE IMPACT &amp; VALUE REALIZATION</span>
           </div>
-          <h3 className="font-display text-2xl font-bold text-white">
+          <h3 className="font-display text-2xl font-bold text-[#272A27]">
             Cumulative Operational Protection Metrics
           </h3>
         </div>

@@ -506,8 +506,8 @@ export const MineSpatialRenderer = () => {
         {activeCard && (
           <div className="absolute top-4 right-4 w-80 p-4 rounded-xl bg-[#0c121d]/95 border border-[#1f2c42] shadow-2xl backdrop-blur-xl z-30 font-sans text-xs animate-scale-up">
             <div className="flex items-center justify-between pb-2 border-b border-[#182338]">
-              <span className="font-bold text-white uppercase text-xs">{activeCard.details.name}</span>
-              <button onClick={() => setActiveCard(null)} className="w-5 h-5 rounded hover:bg-[#182338] text-[#5F625C] hover:text-white flex items-center justify-center">
+              <span className="font-bold text-[#272A27] uppercase text-xs">{activeCard.details.name}</span>
+              <button onClick={() => setActiveCard(null)} className="w-5 h-5 rounded hover:bg-[#182338] text-[#5F625C] hover:text-[#272A27] flex items-center justify-center">
                 <X className="w-3.5 h-3.5" />
               </button>
             </div>

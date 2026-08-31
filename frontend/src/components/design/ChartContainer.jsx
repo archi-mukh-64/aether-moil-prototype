@@ -15,11 +15,11 @@ export const ChartContainer = ({
       <div className="flex flex-wrap items-center justify-between gap-3 pb-4 border-b border-[#222D3A]">
         <div>
           <div className="flex items-center gap-2">
-            <h3 className="text-base font-bold text-white tracking-tight font-sans">
+            <h3 className="text-base font-bold text-[#272A27] tracking-tight font-sans">
               {title}
             </h3>
             {badge && (
-              <span 
+              <span
                 className="px-2 py-0.5 rounded-md text-[10px] font-mono font-bold border"
                 style={{
                   backgroundColor: `${badgeColor}15`,

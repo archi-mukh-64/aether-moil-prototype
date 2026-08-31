@@ -1,29 +1,29 @@
 import React, { useState } from 'react';
 import { useApp } from '../context/AppContext.jsx';
 import { feedbackApi } from '../services/api/feedbackApi.js';
-import { 
-  HelpCircle, 
-  X, 
-  CheckCircle2, 
-  Activity, 
-  Cpu, 
-  Database, 
-  ShieldCheck, 
-  FileText, 
-  Terminal, 
-  Send, 
-  Info, 
-  AlertTriangle, 
-  Layers, 
-  Sparkles, 
-  Server 
+import {
+  HelpCircle,
+  X,
+  CheckCircle2,
+  Activity,
+  Cpu,
+  Database,
+  ShieldCheck,
+  FileText,
+  Terminal,
+  Send,
+  Info,
+  AlertTriangle,
+  Layers,
+  Sparkles,
+  Server
 } from 'lucide-react';
 
 export const SupportModal = () => {
-  const { 
-    isSupportModalOpen, 
-    setIsSupportModalOpen, 
-    activeMine, 
+  const {
+    isSupportModalOpen,
+    setIsSupportModalOpen,
+    activeMine,
     intelligenceMode,
     apiConnected,
     apiHealthData,
@@ -50,7 +50,7 @@ export const SupportModal = () => {
   const handleSendFeedback = async (e) => {
     e.preventDefault();
     if (!feedbackText.trim()) return;
-    
+
     setIsSubmitting(true);
     try {
       await feedbackApi.submitFeedback({
@@ -93,11 +93,11 @@ export const SupportModal = () => {
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-obsidian-950/80 backdrop-blur-xl animate-fade-in font-mono text-xs">
-      <div 
+      <div
         className="relative w-full max-w-4xl max-h-[88vh] rounded-2xl bg-obsidian-900 border border-obsidian-750 shadow-2xl flex flex-col overflow-hidden animate-scale-up"
         onClick={(e) => e.stopPropagation()}
       >
-        
+
         {/* Modal Header */}
         <div className="p-6 border-b border-obsidian-800 flex items-center justify-between bg-obsidian-950/60">
           <div className="flex items-center gap-3">
@@ -108,7 +108,7 @@ export const SupportModal = () => {
               <div className="text-[10px] text-manganese-400 font-bold uppercase tracking-wider">
                 MOIL INTELLIGENCE PLATFORM // KNOWLEDGE &amp; SUPPORT
               </div>
-              <h2 className="font-display text-xl font-bold text-white">
+              <h2 className="font-display text-xl font-bold text-[#272A27]">
                 Command Center Support &amp; Technical Operations
               </h2>
             </div>
@@ -116,7 +116,7 @@ export const SupportModal = () => {
 
           <button
             onClick={() => setIsSupportModalOpen(false)}
-            className="w-8 h-8 rounded-lg bg-obsidian-800 hover:bg-obsidian-700 text-zinc-400 hover:text-white flex items-center justify-center transition-colors"
+            className="w-8 h-8 rounded-lg bg-obsidian-800 hover:bg-obsidian-700 text-zinc-400 hover:text-[#272A27] flex items-center justify-center transition-colors"
           >
             <X className="w-4 h-4" />
           </button>
@@ -146,21 +146,21 @@ export const SupportModal = () => {
 
         {/* Tab Body */}
         <div className="p-6 overflow-y-auto max-h-[calc(88vh-140px)] space-y-6">
-          
+
           {/* TAB 1: SYSTEM & MODEL STATUS */}
           {activeTab === 'STATUS' && (
             <div className="space-y-6">
-              
+
               {/* API Connection Health Card */}
               <div className="p-5 rounded-xl bg-obsidian-950/80 border border-obsidian-800 space-y-3">
                 <div className="flex items-center justify-between">
-                  <div className="flex items-center gap-2 font-bold text-white text-sm">
+                  <div className="flex items-center gap-2 font-bold text-[#272A27] text-sm">
                     <Server className="w-4 h-4 text-manganese-400" />
                     <span>FastAPI Central Gateway Status</span>
                   </div>
                   <span className={`px-3 py-1 rounded-full text-[10px] font-bold border ${
-                    apiConnected 
-                      ? 'bg-telemetry-500/20 text-telemetry-300 border-telemetry-500/40' 
+                    apiConnected
+                      ? 'bg-telemetry-500/20 text-telemetry-300 border-telemetry-500/40'
                       : 'bg-hazard-500/20 text-hazard-300 border-hazard-500/40'
                   }`}>
                     {apiConnected ? '● LIVE REST API CONNECTED' : '○ OFFLINE DEMO MODE'}
@@ -169,7 +169,7 @@ export const SupportModal = () => {
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-3 text-xs pt-2">
                   <div>
                     <span className="text-zinc-500 block uppercase text-[10px]">Active Mine:</span>
-                    <strong className="text-white">{activeMine.name}</strong>
+                    <strong className="text-[#272A27]">{activeMine.name}</strong>
                   </div>
                   <div>
                     <span className="text-zinc-500 block uppercase text-[10px]">API Base URL:</span>
@@ -200,7 +200,7 @@ export const SupportModal = () => {
                   ].map((m, idx) => (
                     <div key={idx} className="p-3.5 rounded-xl bg-obsidian-950 border border-obsidian-800 flex items-center justify-between gap-3">
                       <div>
-                        <div className="font-bold text-white text-xs">{m.name}</div>
+                        <div className="font-bold text-[#272A27] text-xs">{m.name}</div>
                         <div className="text-[11px] text-zinc-400">{m.desc}</div>
                         <div className="text-[10px] text-zinc-500 font-mono mt-0.5">{m.acc}</div>
                       </div>
@@ -218,7 +218,7 @@ export const SupportModal = () => {
           {/* TAB 2: PLATFORM GUIDE */}
           {activeTab === 'GUIDE' && (
             <div className="space-y-4 text-xs text-zinc-300 leading-relaxed">
-              <h4 className="font-bold text-white text-sm">Interactive Command Center User Guide</h4>
+              <h4 className="font-bold text-[#272A27] text-sm">Interactive Command Center User Guide</h4>
               <p>
                 The MOIL Mining Intelligence Platform coordinates real-time mine telemetry, predictive machine learning models, and autonomous prescriptive dispatch solvers across all 10 official MOIL mining assets.
               </p>
@@ -240,12 +240,12 @@ export const SupportModal = () => {
           {/* TAB 3: EXPLAINABILITY & TRUST */}
           {activeTab === 'EXPLAIN' && (
             <div className="space-y-4 text-xs text-zinc-300 leading-relaxed">
-              <h4 className="font-bold text-white text-sm">Explainable AI (XAI) &amp; Governance Framework</h4>
+              <h4 className="font-bold text-[#272A27] text-sm">Explainable AI (XAI) &amp; Governance Framework</h4>
               <p>
                 Every model alert generated by the platform provides exact TreeSHAP (Shapley Additive Explanations) feature importance decompositions to ensure full compliance with Directorate General of Mines Safety (DGMS) accountability mandates.
               </p>
               <div className="p-4 rounded-xl bg-obsidian-950 border border-obsidian-800 space-y-2">
-                <div className="font-bold text-white">Five Pillars of Bayesian Governance:</div>
+                <div className="font-bold text-[#272A27]">Five Pillars of Bayesian Governance:</div>
                 <ul className="list-disc list-inside space-y-1 text-zinc-400 text-[11px]">
                   <li>Pillar 1: Bayesian Signal Calibration &amp; Divergence Bounding</li>
                   <li>Pillar 2: Sensor Completeness &amp; Multi-Node IoT Integrity</li>
@@ -260,7 +260,7 @@ export const SupportModal = () => {
           {/* TAB 4: DISCLAIMERS */}
           {activeTab === 'DISCLAIMERS' && (
             <div className="space-y-4 text-xs text-zinc-300 leading-relaxed">
-              <h4 className="font-bold text-white text-sm">Statutory Disclaimers &amp; Operational Policies</h4>
+              <h4 className="font-bold text-[#272A27] text-sm">Statutory Disclaimers &amp; Operational Policies</h4>
               <div className="p-4 rounded-xl bg-hazard-950/20 border border-hazard-500/40 text-hazard-300 space-y-2 text-xs">
                 <div className="flex items-center gap-2 font-bold text-hazard-400">
                   <AlertTriangle className="w-4 h-4" />

@@ -46,7 +46,7 @@ export class ErrorBoundary extends React.Component {
                 <div className="text-[10px] text-amber-400 font-bold uppercase tracking-widest">
                   AETHER RESILIENCE PROTOCOL // स्व-पुनर्प्राप्ती प्रणाली
                 </div>
-                <h3 className="font-display text-lg font-bold text-white">
+                <h3 className="font-display text-lg font-bold text-[#272A27]">
                   {this.props.title || 'Autonomous Subsystem Recovery'}
                 </h3>
               </div>

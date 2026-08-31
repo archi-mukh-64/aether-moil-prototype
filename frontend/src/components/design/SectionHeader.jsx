@@ -19,7 +19,7 @@ export const SectionHeader = ({
             {badge && (
               <>
                 <span className="text-slate-500">•</span>
-                <span 
+                <span
                   className="px-2 py-0.2 rounded text-[9px] border font-bold"
                   style={{
                     backgroundColor: `${badgeColor}15`,
@@ -33,7 +33,7 @@ export const SectionHeader = ({
             )}
           </div>
         )}
-        <h1 className="text-xl sm:text-2xl font-extrabold text-white tracking-tight font-sans">
+        <h1 className="text-xl sm:text-2xl font-extrabold text-[#272A27] tracking-tight font-sans">
           {title}
         </h1>
         {subtitle && (

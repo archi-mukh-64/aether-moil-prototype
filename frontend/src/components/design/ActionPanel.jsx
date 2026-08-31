@@ -24,7 +24,7 @@ export const ActionPanel = ({
             <span className="text-[9px] font-mono font-bold uppercase tracking-widest text-amber-400 block">
               PRESCRIPTIVE AI ACTION
             </span>
-            <h4 className="text-sm font-bold text-white tracking-tight">
+            <h4 className="text-sm font-bold text-[#272A27] tracking-tight">
               {title}
             </h4>
           </div>

@@ -82,7 +82,7 @@ export const ScenarioSelector = () => {
             <SlidersHorizontal className="w-4 h-4 text-manganese-400" />
           </div>
           <div>
-            <h3 className="font-display text-base font-bold text-white">
+            <h3 className="font-display text-base font-bold text-[#272A27]">
               {scenT.pageTitle || 'Operational Scenario Lab'}
             </h3>
             <span className="text-[10px] text-[#85877E]">
@@ -129,7 +129,7 @@ export const ScenarioSelector = () => {
         <div className="p-3 rounded-xl bg-manganese-950/20 border border-manganese-500/30 flex flex-wrap items-center justify-between gap-3 text-[11px] text-[#272A27] animate-fade-in">
           <div className="flex items-center gap-2">
             <BrainCircuit className="w-4 h-4 text-manganese-400" />
-            <span>{lang === 'hi' ? 'सक्रिय मॉडल:' : lang === 'mr' ? 'सक्रिय मॉडेल:' : 'Active Model:'} <strong className="text-white">SHORTFALL-GBM v1.0</strong> (140 Trees • 99.7% ROC-AUC)</span>
+            <span>{lang === 'hi' ? 'सक्रिय मॉडल:' : lang === 'mr' ? 'सक्रिय मॉडेल:' : 'Active Model:'} <strong className="text-[#272A27]">SHORTFALL-GBM v1.0</strong> (140 Trees • 99.7% ROC-AUC)</span>
           </div>
           <div className="flex items-center gap-4 text-[10px]">
             <span>{lang === 'hi' ? 'मोड:' : lang === 'mr' ? 'मोड:' : 'Mode:'} <strong className="text-telemetry-400">{lang === 'hi' ? 'एमएल मॉडल' : lang === 'mr' ? 'एमएल मॉडेल' : 'ML MODEL'}</strong></span>
@@ -188,7 +188,7 @@ export const ScenarioSelector = () => {
                   <Icon className="w-4 h-4" />
                 </div>
                 <div className="min-w-0">
-                  <div className="font-bold text-white text-xs truncate">{scen.title}</div>
+                  <div className="font-bold text-[#272A27] text-xs truncate">{scen.title}</div>
                   <div className="text-[10px] text-[#85877E] line-clamp-2 mt-0.5 font-sans">
                     {scen.shortDesc}
                   </div>

@@ -42,7 +42,7 @@ export const RecommendationPanel = () => {
             <div className="text-[10px] text-manganese-400 font-bold uppercase tracking-wider">
               {lang === 'hi' ? 'चरण 4 // निर्देशात्मक एआई कार्रवाई' : lang === 'mr' ? 'टप्पा 4 // निर्देशात्मक एआय कृती' : 'STEP 4 // PRESCRIPTIVE AI ACTION'}
             </div>
-            <h3 className="font-display text-lg font-bold text-white">
+            <h3 className="font-display text-lg font-bold text-[#272A27]">
               {scen.aiRecommendationsTitle || 'AI Recommended Operational Countermeasure'}
             </h3>
           </div>

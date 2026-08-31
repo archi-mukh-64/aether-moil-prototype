@@ -830,7 +830,7 @@ export const LivingMineSimulation = ({
               <span>2026</span>
             </div>
             <div className="p-2 rounded-xl bg-[#F5F1E9] border border-[#C8BFAF] text-[9.5px] text-[#272A27] space-y-0.5">
-              <div>{lang === 'hi' ? 'पदचिह्न:' : lang === 'mr' ? 'क्षेत्रफळ:' : 'Footprint:'} <strong className="text-white">{Math.round(140.8 + (historicalYear - 2018) * 4.8)} Ha</strong></div>
+              <div>{lang === 'hi' ? 'पदचिह्न:' : lang === 'mr' ? 'क्षेत्रफळ:' : 'Footprint:'} <strong className="text-[#272A27]">{Math.round(140.8 + (historicalYear - 2018) * 4.8)} Ha</strong></div>
               <div>{lang === 'hi' ? 'पुनर्प्राप्त:' : lang === 'mr' ? 'पुनर्प्राप्त:' : 'Reclaimed:'} <strong className="text-emerald-400">+{Math.round(1.9 * (historicalYear - 2018))} Ha</strong></div>
             </div>
           </div>
@@ -859,7 +859,7 @@ export const LivingMineSimulation = ({
             <button
               key={item.id}
               onClick={() => setActiveInspector(item)}
-              className="px-2.5 py-1 rounded-xl bg-[#121c2c] border border-[#1e2f4a] text-[#272A27] hover:text-white hover:border-amber-400 hover:bg-[#1a283e] transition flex items-center gap-1.5"
+              className="px-2.5 py-1 rounded-xl bg-[#121c2c] border border-[#1e2f4a] text-[#272A27] hover:text-[#272A27] hover:border-amber-400 hover:bg-[#1a283e] transition flex items-center gap-1.5"
             >
               <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
               <strong className="text-amber-400 font-bold">{item.id}</strong>
@@ -881,7 +881,7 @@ export const LivingMineSimulation = ({
               </div>
               <button
                 onClick={() => setActiveInspector(null)}
-                className="p-1 rounded-lg text-[#5F625C] hover:text-white"
+                className="p-1 rounded-lg text-[#5F625C] hover:text-[#272A27]"
               >
                 <X className="w-4 h-4" />
               </button>
@@ -890,7 +890,7 @@ export const LivingMineSimulation = ({
             <div className="grid grid-cols-2 gap-2.5 text-xs">
               <div className="p-2.5 rounded-xl bg-[#121c2c] border border-[#1e2f4a]">
                 <span className="text-[#5F625C] text-[10px] block">{lang === 'hi' ? 'परिचालन गति / क्षमता' : lang === 'mr' ? 'ऑपरेटिंग वेग / क्षमता' : 'Operating Speed / Capacity'}</span>
-                <strong className="text-white">{activeInspector.speed}</strong>
+                <strong className="text-[#272A27]">{activeInspector.speed}</strong>
               </div>
               <div className="p-2.5 rounded-xl bg-[#121c2c] border border-[#1e2f4a]">
                 <span className="text-[#5F625C] text-[10px] block">{lang === 'hi' ? 'लाइव पेलोड भरण' : lang === 'mr' ? 'थेट पेलोड भरणा' : 'Live Payload Fill'}</span>
@@ -902,7 +902,7 @@ export const LivingMineSimulation = ({
               </div>
               <div className="p-2.5 rounded-xl bg-[#121c2c] border border-[#1e2f4a]">
                 <span className="text-[#5F625C] text-[10px] block">{lang === 'hi' ? 'स्पेक्ट्रल कंपन' : lang === 'mr' ? 'स्पेक्ट्रल कंपन' : 'Spectral Vibration'}</span>
-                <strong className="text-white">{activeInspector.vibration}</strong>
+                <strong className="text-[#272A27]">{activeInspector.vibration}</strong>
               </div>
               <div className="p-2.5 rounded-xl bg-[#121c2c] border border-[#1e2f4a]">
                 <span className="text-[#5F625C] text-[10px] block">{lang === 'hi' ? 'अनुमानित आरयूएल' : lang === 'mr' ? 'अंदाजित आरयूएल' : 'Predictive RUL'}</span>

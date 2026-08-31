@@ -1,18 +1,18 @@
 import React from 'react';
 import { useApp } from '../context/AppContext.jsx';
-import { 
-  TrendingDown, 
-  TrendingUp, 
-  ShieldAlert, 
-  CheckCircle2, 
-  ArrowRight, 
-  Zap, 
-  Activity, 
-  Droplet, 
-  Truck, 
-  Layers, 
-  Sparkles, 
-  Info 
+import {
+  TrendingDown,
+  TrendingUp,
+  ShieldAlert,
+  CheckCircle2,
+  ArrowRight,
+  Zap,
+  Activity,
+  Droplet,
+  Truck,
+  Layers,
+  Sparkles,
+  Info
 } from 'lucide-react';
 
 export const BeforeAfterDelta = () => {
@@ -51,7 +51,7 @@ export const BeforeAfterDelta = () => {
   return (
     <section className="command-container py-6">
       <div className="panel-surface p-6 sm:p-8 border border-manganese-500/40 shadow-2xl relative overflow-hidden bg-gradient-to-b from-obsidian-900 via-obsidian-900/95 to-obsidian-950">
-        
+
         {/* Background Aura */}
         <div className="absolute top-0 right-1/4 w-96 h-96 bg-hazard-500/5 rounded-full blur-3xl pointer-events-none" />
 
@@ -66,7 +66,7 @@ export const BeforeAfterDelta = () => {
                 SYNTHETIC SIMULATION DATA
               </span>
             </div>
-            <h3 className="font-display text-2xl font-bold text-white mt-2">
+            <h3 className="font-display text-2xl font-bold text-[#272A27] mt-2">
               Live Decision Delta — {activeScenario.title || activeScenario.detectionHeadline || activeScenario.scenarioId || 'Simulation State'}
             </h3>
           </div>
@@ -74,13 +74,13 @@ export const BeforeAfterDelta = () => {
           <div className="flex items-center gap-2 font-mono text-xs text-zinc-400">
             <span>Confidence: <strong className="text-telemetry-400">{confidence}</strong></span>
             <span>•</span>
-            <span>Horizon: <strong className="text-white">{timeHorizon}</strong></span>
+            <span>Horizon: <strong className="text-[#272A27]">{timeHorizon}</strong></span>
           </div>
         </div>
 
         {/* 3-Column Progression: BEFORE BASELINE -> UNMITIGATED THREAT -> AI OPTIMIZED COUNTERMEASURE */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 items-stretch mb-8">
-          
+
           {/* Col 1: Baseline Before Scenario */}
           <div className="p-5 rounded-xl bg-obsidian-950/80 border border-obsidian-800 space-y-4 font-mono text-xs flex flex-col justify-between">
             <div>
@@ -88,14 +88,14 @@ export const BeforeAfterDelta = () => {
                 <span>01 // BEFORE BASELINE</span>
                 <span className="text-telemetry-400 font-bold">PRE-SHOCK</span>
               </div>
-              <div className="text-base font-bold text-white mb-4">
+              <div className="text-base font-bold text-[#272A27] mb-4">
                 Nominal Mining Rate
               </div>
 
               <div className="space-y-2 text-zinc-300">
                 <div className="flex justify-between">
                   <span className="text-zinc-500">Daily Target:</span>
-                  <strong className="text-white">{b.dailyProduction?.toLocaleString() || 6200} TPD</strong>
+                  <strong className="text-[#272A27]">{b.dailyProduction?.toLocaleString() || 6200} TPD</strong>
                 </div>
                 <div className="flex justify-between">
                   <span className="text-zinc-500">Shortfall Risk:</span>
@@ -103,7 +103,7 @@ export const BeforeAfterDelta = () => {
                 </div>
                 <div className="flex justify-between">
                   <span className="text-zinc-500">Fleet Availability:</span>
-                  <strong className="text-white">{b.fleetAvailability || '88.0%'}</strong>
+                  <strong className="text-[#272A27]">{b.fleetAvailability || '88.0%'}</strong>
                 </div>
                 <div className="flex justify-between">
                   <span className="text-zinc-500">Water Table Inflow:</span>
@@ -179,7 +179,7 @@ export const BeforeAfterDelta = () => {
                 </div>
                 <div className="flex justify-between">
                   <span className="text-zinc-400">Calculated ROI:</span>
-                  <strong className="text-white">{bestOpt.roi || '9.4x'}</strong>
+                  <strong className="text-[#272A27]">{bestOpt.roi || '9.4x'}</strong>
                 </div>
               </div>
             </div>

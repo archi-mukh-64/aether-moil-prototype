@@ -162,7 +162,7 @@ export const RealEarthMap = ({
             >
               <Popup className="custom-leaflet-popup">
                 <div className="p-2 font-mono text-xs text-[#272A27]">
-                  <div className="font-bold text-white">{asset.name}</div>
+                  <div className="font-bold text-[#272A27]">{asset.name}</div>
                   <div className="text-[10px] text-emerald-400">{t?.common?.health || 'Health'}: {asset.health}% • {t?.common?.temp || 'Temp'}: {asset.temp}</div>
                 </div>
               </Popup>

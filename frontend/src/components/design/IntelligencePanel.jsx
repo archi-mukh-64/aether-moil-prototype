@@ -31,7 +31,7 @@ export const IntelligencePanel = ({
                 </span>
               )}
             </div>
-            <h3 className="text-base font-bold text-white tracking-tight mt-0.5">
+            <h3 className="text-base font-bold text-[#272A27] tracking-tight mt-0.5">
               {title}
             </h3>
           </div>

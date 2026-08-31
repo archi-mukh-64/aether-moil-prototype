@@ -51,7 +51,7 @@ export const MineComparisonModal = ({ isOpen, onClose }) => {
               <div className="text-[10px] text-amber-400 font-bold uppercase tracking-wider">
                 {lang === 'hi' ? 'कार्यकारी बेंचमार्क // बहु-परिसंपत्ति तुलना' : lang === 'mr' ? 'कार्यकारी बेंचमार्क // बहु-मालमत्ता तुलना' : 'EXECUTIVE BENCHMARK // MULTI-ASSET COMPARISON'}
               </div>
-              <h2 className="font-display text-lg font-bold text-white">
+              <h2 className="font-display text-lg font-bold text-[#272A27]">
                 {lang === 'hi' ? 'मॉयल खदान नेटवर्क बहु-साइट तुलना' : lang === 'mr' ? 'मॉयल खाण नेटवर्क बहु-साइट तुलना' : 'MOIL Mine Network Multi-Site Comparison'}
               </h2>
             </div>
@@ -59,7 +59,7 @@ export const MineComparisonModal = ({ isOpen, onClose }) => {
 
           <button
             onClick={onClose}
-            className="w-8 h-8 rounded-lg bg-[#141b27] hover:bg-[#1f2c42] text-[#5F625C] hover:text-white flex items-center justify-center"
+            className="w-8 h-8 rounded-lg bg-[#141b27] hover:bg-[#1f2c42] text-[#5F625C] hover:text-[#272A27] flex items-center justify-center"
           >
             <X className="w-4 h-4" />
           </button>
@@ -79,7 +79,7 @@ export const MineComparisonModal = ({ isOpen, onClose }) => {
                 className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all flex items-center gap-1.5 ${
                   isSelected
                     ? 'bg-amber-500/20 text-amber-300 border border-amber-500/40 shadow-sm'
-                    : 'bg-[#0e141f] text-[#5F625C] border border-[#1a2538] hover:text-white'
+                    : 'bg-[#0e141f] text-[#5F625C] border border-[#1a2538] hover:text-[#272A27]'
                 }`}
               >
                 {isSelected && <Check className="w-3 h-3 text-amber-400" />}
