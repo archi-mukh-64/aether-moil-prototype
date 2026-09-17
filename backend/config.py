@@ -6,16 +6,27 @@ class Settings(BaseModel):
     app_name: str = "MOIL Mining Intelligence Platform API"
     app_version: str = "3.4.0"
     api_prefix: str = "/api"
-    debug: bool = os.getenv("DEBUG", "False").lower() in ("true", "1", "yes")
-    environment: str = os.getenv("ENVIRONMENT", "development")
-    secret_key: str = os.getenv("SECRET_KEY", "moil-aether-secure-production-key-2026")
+    debug: bool = False
+    environment: str = "development"
+    secret_key: str = ""
 
     def __init__(self, **data):
+        if "environment" not in data:
+            data["environment"] = os.getenv("ENVIRONMENT", "development")
+        if "debug" not in data:
+            data["debug"] = os.getenv("DEBUG", "False").lower() in ("true", "1", "yes")
+        if "secret_key" not in data:
+            data["secret_key"] = os.getenv("SECRET_KEY", "")
+
         super().__init__(**data)
+
         if self.environment.lower() == "production":
             insecure_defaults = {
+                "dev-insecure-local-only-key",
                 "moil-aether-secure-production-key-2026",
                 "dev-secret-key-change-in-production-12345",
+                "insecure-default-change-in-production",
+                "your-secret-key",
                 "secret",
                 "changeme"
             }
@@ -24,6 +35,9 @@ class Settings(BaseModel):
                     "Production deployment requires a cryptographically secure SECRET_KEY environment variable "
                     "(minimum 32 characters, non-default). Refusing to start."
                 )
+        else:
+            if not self.secret_key:
+                self.secret_key = "dev-insecure-local-only-key"
     
     # Render Port
     port: int = int(os.getenv("PORT", "8000"))
