@@ -4,7 +4,7 @@ Reports API Routes (PDF & PPTX with Multilingual EN/HI/MR Support)
 """
 
 from fastapi import APIRouter, Response, HTTPException, Query
-from backend.services.pdf_report_service import create_national_report_pdf
+from backend.services.pdf_report_service import create_national_report_pdf, create_mine_report_pdf
 from backend.services.ppt_report_service import create_national_presentation_pptx, create_mine_presentation_pptx
 
 router = APIRouter(prefix="/reports", tags=["Reports"])
@@ -18,7 +18,7 @@ async def get_national_pdf_report(language: str = Query(default="en", pattern="^
     try:
         pdf_bytes = create_national_report_pdf(language=language)
         filename = f"MOIL_National_Mining_Intelligence_Report_{language.upper()}.pdf"
-        
+
         return Response(
             content=pdf_bytes,
             media_type="application/pdf",
@@ -36,9 +36,9 @@ async def get_mine_pdf_report(mine_id: str, language: str = Query(default="en", 
     Generates and downloads an individual mine's operational and SCADA telemetry assessment PDF.
     """
     try:
-        pdf_bytes = create_national_report_pdf(language=language)
+        pdf_bytes = create_mine_report_pdf(mine_id=mine_id, language=language)
         filename = f"MOIL_{mine_id.upper()}_Mine_Assessment_{language.upper()}.pdf"
-        
+
         return Response(
             content=pdf_bytes,
             media_type="application/pdf",
@@ -59,7 +59,7 @@ async def get_national_ppt_report(language: str = Query(default="en", pattern="^
     try:
         ppt_bytes = create_national_presentation_pptx(language=language)
         filename = f"MOIL_National_Executive_Presentation_{language.upper()}.pptx"
-        
+
         return Response(
             content=ppt_bytes,
             media_type="application/vnd.openxmlformats-officedocument.presentationml.presentation",
@@ -79,7 +79,7 @@ async def get_mine_ppt_report(mine_id: str, language: str = Query(default="en", 
     try:
         ppt_bytes = create_mine_presentation_pptx(mine_id=mine_id, language=language)
         filename = f"MOIL_{mine_id.upper()}_Executive_Presentation_{language.upper()}.pptx"
-        
+
         return Response(
             content=ppt_bytes,
             media_type="application/vnd.openxmlformats-officedocument.presentationml.presentation",

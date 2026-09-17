@@ -254,5 +254,42 @@ class TestMOILBackend(unittest.TestCase):
         self.assertEqual(res_audit_list.status_code, 200)
         self.assertGreater(len(res_audit_list.json()), 0)
 
+    def test_19_invalid_mine_validation_404(self):
+        """Verifies that nonexistent mine IDs strictly return HTTP 404 across all endpoints."""
+        res_mine = self.client.get("/api/mines/invalid-mine-id-999")
+        self.assertEqual(res_mine.status_code, 404)
+
+        res_telem = self.client.get("/api/mines/invalid-mine-id-999/telemetry")
+        self.assertEqual(res_telem.status_code, 404)
+
+        res_forecast = self.client.get("/api/forecast/14-day/invalid-mine-id-999")
+        self.assertEqual(res_forecast.status_code, 404)
+
+        res_eo = self.client.get("/api/earth-observation/environmental/invalid-mine-id-999")
+        self.assertEqual(res_eo.status_code, 404)
+
+    def test_20_alert_actions_persistence(self):
+        """Verifies operator alert acknowledge and resolve actions are recorded and persistent."""
+        ack_res = self.client.post("/api/alert/acknowledge", json={
+            "alert_id": "ALT-BAL-101",
+            "operator": "DGMS Inspector Sharma",
+            "note": "Unit test verified audit log"
+        })
+        self.assertEqual(ack_res.status_code, 200)
+        self.assertEqual(ack_res.json()["alert"]["status"], "ACKNOWLEDGED")
+
+        # Query database directly to verify table persistence
+        from backend.database.database import get_all_alert_actions
+        actions = get_all_alert_actions()
+        self.assertTrue(any(a["alert_id"] == "ALT-BAL-101" and a["action_type"] == "ACKNOWLEDGE" for a in actions))
+
+        res_res = self.client.post("/api/alert/resolve", json={
+            "alert_id": "ALT-BAL-101",
+            "operator": "DGMS Inspector Sharma",
+            "note": "Bearing harmonic normalized"
+        })
+        self.assertEqual(res_res.status_code, 200)
+        self.assertEqual(res_res.json()["alert"]["status"], "RESOLVED")
+
 if __name__ == "__main__":
     unittest.main()

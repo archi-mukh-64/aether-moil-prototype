@@ -40,14 +40,17 @@ class AnomalyDetector:
             else:
                 anomaly_type = "MULTI_VARIATE_DEVIATION"
 
-        confidence = round(min(98.0, max(70.0, 70.0 + abs(score) * 60.0)), 1)
+        # Isolation Forest decision score distance from boundary (score < 0 => anomaly)
+        # Grounded certainty based on distance from decision threshold
+        certainty = round(min(99.0, max(50.0, 50.0 + abs(score) * 250.0)), 1)
 
         return {
             "is_anomaly": is_anomaly,
             "anomaly_score": round(score, 4),
             "anomaly_type": anomaly_type,
-            "confidence": f"{confidence}%",
-            "model_version": "ANOMALY-IFOREST v1.0"
+            "confidence": f"{certainty}%",
+            "confidence_basis": "Isolation Forest decision boundary distance",
+            "model_version": "ANOMALY-IFOREST v1.1"
         }
 
 if __name__ == "__main__":

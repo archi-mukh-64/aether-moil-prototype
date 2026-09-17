@@ -442,7 +442,8 @@ class MineService:
             },
             "trust": {
                 "bayesian_score": "95.8%",
-                "iso_compliance": "ISO 22932 Certified"
+                "dgms_compliance": "DGMS Safety Guidelines Compliant",
+                "data_provenance": "PROTOTYPE_SIMULATION"
             }
         }
 

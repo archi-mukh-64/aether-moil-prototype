@@ -3,6 +3,8 @@ from typing import Dict, Any, Optional, List
 import copy
 from ..utils.model_loader import model_registry
 from ..utils.validation import normalize_mine_id
+from ..utils.logging_config import logger
+from ..database.database import record_alert_action, get_all_alert_actions
 from .mine_service import mine_service, CANONICAL_MOIL_MINES
 
 # Exhaustive Canonical 10-Mine Threat Matrix Dataset
@@ -790,6 +792,49 @@ class AlertService:
             item["last_updated"] = now
             item["timestamp"] = now
             self._alerts[item["id"]] = item
+        self._sync_persisted_actions()
+
+    def _sync_persisted_actions(self):
+        """Loads and applies persisted operator actions (Acknowledge, Resolve, Escalate) from DB."""
+        try:
+            actions = get_all_alert_actions()
+            for act in actions:
+                alert_id = act.get("alert_id")
+                if alert_id in self._alerts:
+                    alert = self._alerts[alert_id]
+                    action_type = act.get("action_type")
+                    ts = act.get("timestamp")
+                    op = act.get("operator")
+                    note = act.get("note", "")
+                    target = act.get("target", "")
+
+                    if action_type == "ACKNOWLEDGE":
+                        alert["status"] = "ACKNOWLEDGED"
+                        alert["acknowledgement_state"] = True
+                        alert["acknowledged_at"] = ts
+                        alert["acknowledged_by"] = op
+                        alert["last_updated"] = ts
+                        if not alert.get("metadata"):
+                            alert["metadata"] = {}
+                        alert["metadata"]["acknowledgement_note"] = note
+                    elif action_type == "RESOLVE":
+                        alert["status"] = "RESOLVED"
+                        alert["resolved_at"] = ts
+                        alert["resolved_by"] = op
+                        alert["resolution_action"] = note
+                        alert["last_updated"] = ts
+                        if not alert.get("metadata"):
+                            alert["metadata"] = {}
+                        alert["metadata"]["resolution_note"] = note
+                    elif action_type == "ESCALATE":
+                        alert["status"] = "ESCALATED"
+                        alert["escalation_state"] = True
+                        alert["escalated_to"] = target
+                        alert["escalated_at"] = ts
+                        alert["escalated_by"] = op
+                        alert["last_updated"] = ts
+        except Exception as e:
+            logger.warning(f"[AlertService] Failed to load persisted alert actions: {e}")
 
     def set_scenario_context(self, scenario_type: str = "BASELINE", severity: str = "HIGH"):
         """Applies scenario stress shock to the canonical threat matrix."""
@@ -929,6 +974,11 @@ class AlertService:
             alert["metadata"] = {}
         alert["metadata"]["acknowledgement_note"] = note or "Verified telemetry anomaly and initiated operator watch."
 
+        try:
+            record_alert_action(alert_id=alert_id, action_type="ACKNOWLEDGE", operator=operator, note=note)
+        except Exception as e:
+            logger.warning(f"[AlertService] Failed to record acknowledge action in DB: {e}")
+
         return {
             "status": "success",
             "message": f"Alert {alert_id} acknowledged by {operator}",
@@ -950,6 +1000,11 @@ class AlertService:
             alert["metadata"] = {}
         alert["metadata"]["resolution_note"] = alert["resolution_action"]
 
+        try:
+            record_alert_action(alert_id=alert_id, action_type="RESOLVE", operator=operator, note=note)
+        except Exception as e:
+            logger.warning(f"[AlertService] Failed to record resolve action in DB: {e}")
+
         return {
             "status": "success",
             "message": f"Alert {alert_id} resolved with mitigation recorded",
@@ -968,6 +1023,11 @@ class AlertService:
         alert["escalated_at"] = now
         alert["escalated_by"] = operator
         alert["last_updated"] = now
+
+        try:
+            record_alert_action(alert_id=alert_id, action_type="ESCALATE", operator=operator, note="", target=target)
+        except Exception as e:
+            logger.warning(f"[AlertService] Failed to record escalate action in DB: {e}")
 
         return {
             "status": "success",

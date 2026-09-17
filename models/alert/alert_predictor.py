@@ -24,7 +24,10 @@ class ShortfallPredictor:
         # Convert to DataFrame
         row = {}
         for col in self.feature_cols:
-            row[col] = [input_data.get(col, 0.0)]
+            val = input_data.get(col)
+            if val is None and col == "lagged_target_deviation_1d":
+                val = input_data.get("target_deviation", -0.02)
+            row[col] = [float(val) if val is not None else 0.0]
         df = pd.DataFrame(row)
 
         prob = float(self.clf.predict_proba(df)[0, 1])
@@ -35,8 +38,8 @@ class ShortfallPredictor:
         shortfall_tonnes = max(0, planned - predicted_tonnage)
         shortfall_pct = round((shortfall_tonnes / max(1, planned)) * 100, 1)
 
-        # Confidence metric based on distance from decision boundary
-        confidence = round(min(98.5, max(75.0, 75.0 + abs(prob - 0.5) * 45.0)), 1)
+        # Honest classification confidence: margin from decision boundary max(p, 1-p)
+        certainty_pct = round(max(prob, 1.0 - prob) * 100, 1)
 
         # Top local driver attributions (TreeSHAP equivalent)
         drivers = {}
@@ -51,8 +54,9 @@ class ShortfallPredictor:
             "predicted_production_formatted": f"{predicted_tonnage:,} T",
             "predicted_shortfall_tonnes": shortfall_tonnes,
             "predicted_shortfall_percentage": f"{shortfall_pct}%",
-            "confidence": f"{confidence}%",
-            "model_version": "SHORTFALL-GBM v1.0",
+            "confidence": f"{certainty_pct}%",
+            "confidence_basis": "Classification certainty max(p, 1-p)",
+            "model_version": "SHORTFALL-GBM v1.1",
             "top_drivers": drivers
         }
 

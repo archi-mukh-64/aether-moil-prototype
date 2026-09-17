@@ -128,9 +128,13 @@ MINE_PHYSICAL_PROFILES = {
 class ForecastService:
     @staticmethod
     def calculate_14_day_forecast(req: ForecastRequest, include_comparisons: bool = True) -> Dict[str, Any]:
-        norm_id = (req.mine_id or "balaghat").lower().replace("_", "-")
-        phys = MINE_PHYSICAL_PROFILES.get(norm_id, MINE_PHYSICAL_PROFILES["balaghat"])
-        canonical_mine = CANONICAL_MOIL_MINES.get(norm_id, CANONICAL_MOIL_MINES.get("balaghat", {}))
+        from backend.utils.validation import normalize_mine_id
+        from fastapi import HTTPException
+        norm_id = normalize_mine_id(req.mine_id or "balaghat")
+        if norm_id not in MINE_PHYSICAL_PROFILES:
+            raise HTTPException(status_code=404, detail=f"Physical forecast profile for mine '{norm_id}' not found.")
+        phys = MINE_PHYSICAL_PROFILES[norm_id]
+        canonical_mine = CANONICAL_MOIL_MINES[norm_id]
         
         target = float(phys["targetTpd"])
         rainfall_sens = float(phys["rainSens"])

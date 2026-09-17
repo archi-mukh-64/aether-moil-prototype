@@ -12,7 +12,8 @@ class EnvironmentalEngine:
 
     @staticmethod
     def get_yearly_profile(mine_id: str = "balaghat", year: int = 2026) -> Dict[str, Any]:
-        m_id = mine_id if mine_id in CANONICAL_MOIL_MINES else "balaghat"
+        from backend.utils.validation import normalize_mine_id
+        m_id = normalize_mine_id(mine_id)
         mine = CANONICAL_MOIL_MINES[m_id]
         base_area = mine.get("leaseAreaHa", 180.5)
         yr = max(2018, min(2026, year))
@@ -30,9 +31,12 @@ class EnvironmentalEngine:
 
         return {
             "mineId": m_id,
+            "mineName": mine.get("name", m_id.capitalize()),
             "year": yr,
             "satelliteSource": "Copernicus Sentinel-2 Level-2A & Landsat 8/9 OLI",
             "provider": "SATELLITE_DEMONSTRATION_DATA",
+            "isLiveStream": False,
+            "dataProvenance": "SYNTHETIC_PROTOTYPE_BASELINE",
             "footprintHa": footprint_ha,
             "disturbedAreaHa": dist_ha,
             "afforestationVegetationHa": veg_ha,
@@ -40,7 +44,7 @@ class EnvironmentalEngine:
             "sumpWaterHa": sump_water_ha,
             "meanNdvi": ndvi,
             "meanNdwi": ndwi,
-            "statutoryCompliance": "LOW RISK (DGMS & SPCB Approved)" if ndvi >= 0.35 else "MODERATE ATTENTION",
+            "statutoryCompliance": "LOW RISK (DGMS & SPCB Monitored)" if ndvi >= 0.35 else "MODERATE ATTENTION",
             "activeDewateringPumps": "450kW Active Battery",
             "landCoverBreakdown": [
                 {"name": "Trees / Afforestation", "pct": 38, "color": "#16a34a"},
@@ -54,8 +58,10 @@ class EnvironmentalEngine:
 
     @staticmethod
     def compare_years(mine_id: str = "balaghat", year_before: int = 2018, year_after: int = 2026) -> Dict[str, Any]:
-        before = EnvironmentalEngine.get_yearly_profile(mine_id, year_before)
-        after = EnvironmentalEngine.get_yearly_profile(mine_id, year_after)
+        from backend.utils.validation import normalize_mine_id
+        m_id = normalize_mine_id(mine_id)
+        before = EnvironmentalEngine.get_yearly_profile(m_id, year_before)
+        after = EnvironmentalEngine.get_yearly_profile(m_id, year_after)
 
         delta_footprint = round(after["footprintHa"] - before["footprintHa"], 1)
         delta_disturbed = round(after["disturbedAreaHa"] - before["disturbedAreaHa"], 1)
@@ -64,7 +70,7 @@ class EnvironmentalEngine:
         delta_water = round(after["sumpWaterHa"] - before["sumpWaterHa"], 1)
 
         return {
-            "mineId": mine_id,
+            "mineId": m_id,
             "yearBefore": year_before,
             "yearAfter": year_after,
             "beforeProfile": before,

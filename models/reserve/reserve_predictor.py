@@ -35,20 +35,28 @@ class ReservePredictor:
         for feat, imp in list(self.feature_importances.items())[:5]:
             drivers[feat] = round(imp * 100, 1)
 
-        # Simplified UNFC label mapping
-        unfc = (
-            "UNFC-111 (Proved Mineral Reserve)" if "UNFC-111" in pred_class or pred_score >= 78.0
-            else "UNFC-122 (Probable Mineral Reserve)" if "UNFC-122" in pred_class or pred_score >= 52.0
-            else "UNFC-333 (Reconnaissance Target)"
+        # Exploration drilling target priority decoupled from statutory reserve classification
+        exploration_priority = (
+            "Priority-1 (High Prospectivity Drill Target)" if pred_score >= 75.0
+            else "Priority-2 (Moderate Prospectivity Target)" if pred_score >= 50.0
+            else "Priority-3 (Regional Reconnaissance Target)"
+        )
+
+        unfc_baseline = (
+            "UNFC-111 (Statutory Proved Reserve Baseline)" if "UNFC-111" in pred_class or pred_score >= 78.0
+            else "UNFC-122 (Statutory Probable Reserve Baseline)" if "UNFC-122" in pred_class or pred_score >= 52.0
+            else "UNFC-333 (Statutory Reconnaissance Baseline)"
         )
 
         return {
             "prospectivity_score": pred_score,
             "prospectivity_score_formatted": f"{pred_score}%",
             "prospectivity_class": pred_class,
-            "unfc_category": unfc,
+            "exploration_priority": exploration_priority,
+            "unfc_category": unfc_baseline,
+            "statutory_note": "UNFC classifications are official statutory baselines registered with DGMS/IBM. AI prospectivity score indicates geophysical & remote sensing drill target prioritization.",
             "confidence": f"{confidence}%",
-            "model_version": "RESERVE-RF v1.0",
+            "model_version": "RESERVE-RF v1.1",
             "top_drivers": drivers
         }
 

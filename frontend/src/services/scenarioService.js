@@ -49,8 +49,11 @@ export const ScenarioService = {
   },
 
   async recordDecision(decisionData) {
+    const mineStr = String(decisionData.mine || 'MOIL');
+    const scnStr = String(decisionData.scenario || 'SCN');
+    const hash = Array.from(mineStr + scnStr).reduce((acc, char) => (acc * 31 + char.charCodeAt(0)) % 9000, 1000);
     const logEntry = {
-      id: `LOG-${Math.floor(1000 + Math.random() * 9000)}`,
+      id: `LOG-${hash}`,
       timestamp: `${new Date().toLocaleDateString('en-GB')} ${new Date().toLocaleTimeString('en-US', { hour12: false })} IST`,
       mine: decisionData.mine,
       scenario: decisionData.scenario,

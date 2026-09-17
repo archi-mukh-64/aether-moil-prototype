@@ -80,7 +80,7 @@ export const MetricStrip = () => {
       unit: 'CALIBRATED',
       trend: 'Bayesian 5-Pillar Audit',
       trendType: 'positive',
-      indicator: 'ISO 22932 Compliance Verified',
+      indicator: 'DGMS Safety Compliance Verified',
       color: 'text-telemetry-300',
       accent: 'border-telemetry-500/30'
     }

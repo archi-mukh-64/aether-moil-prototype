@@ -3,6 +3,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useApp } from '../../context/AppContext.jsx';
 import { AetherLogo } from '../design-system/AetherLogo.jsx';
+import { EnvironmentalSidebarCard } from './EnvironmentalSidebarCard.jsx';
 import {
   Layers,
   Radio,
@@ -128,14 +129,14 @@ export const Sidebar = ({ isCollapsed, setIsCollapsed, isMobileOpen, setIsMobile
 
       {/* Main Sidebar Container */}
       <aside
-        className={`fixed top-0 left-0 bottom-0 z-50 bg-[#202522] border-r border-[#2E3731] shadow-2xl flex flex-col justify-between transition-all duration-300 select-none ${
+        className={`fixed top-0 left-0 bottom-0 z-50 bg-[#202522] border-r border-[#2E3731] shadow-2xl flex flex-col transition-all duration-300 select-none ${
           isCollapsed ? 'w-20' : 'w-64'
         } ${
           isMobileOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'
         }`}
       >
         {/* 1. Header / Brand Mark */}
-        <div className="h-16 px-4 flex items-center justify-between border-b border-[#2E3731] bg-[#202522]">
+        <div className="h-16 px-4 flex items-center justify-between border-b border-[#2E3731] bg-[#202522] flex-none">
           {!isCollapsed ? (
             <div className="flex items-center gap-3">
               <AetherLogo size="sm" showText={true} />
@@ -168,8 +169,8 @@ export const Sidebar = ({ isCollapsed, setIsCollapsed, isMobileOpen, setIsMobile
           </button>
         </div>
 
-        {/* 2. Categorized Navigation Sections */}
-        <div className="flex-1 overflow-y-auto px-3 py-4 space-y-4 scrollbar-thin">
+        {/* 2. Categorized Navigation Sections — independently scrollable */}
+        <div className="flex-1 min-h-0 overflow-y-auto px-3 py-4 space-y-4 scrollbar-thin">
           {navSections.map((sec) => (
             <div key={sec.id} className="space-y-1">
               {/* Section Header */}
@@ -248,10 +249,17 @@ export const Sidebar = ({ isCollapsed, setIsCollapsed, isMobileOpen, setIsMobile
               </div>
             </div>
           ))}
+
+          {/* 2b. Compact Environmental Intelligence Card — in natural scroll flow below all navigation */}
+          {!isCollapsed && (
+            <div className="pt-2 border-t border-[#2E3731]/60">
+              <EnvironmentalSidebarCard />
+            </div>
+          )}
         </div>
 
         {/* 3. System Operational Status Footer */}
-        <div className="p-3 border-t border-[#2E3731] bg-[#1C211E]">
+        <div className="flex-none p-3 border-t border-[#2E3731] bg-[#1C211E]">
           {!isCollapsed ? (
             <div className="p-2.5 rounded-xl bg-[#202522] border border-[#2E3731] space-y-2 text-[11px] font-mono">
               <div className="flex items-center justify-between text-[#A6A89F]">
@@ -277,6 +285,7 @@ export const Sidebar = ({ isCollapsed, setIsCollapsed, isMobileOpen, setIsMobile
           )}
         </div>
       </aside>
+
 
       {/* About AETHER Modal */}
       <AnimatePresence>

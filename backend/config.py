@@ -9,6 +9,21 @@ class Settings(BaseModel):
     debug: bool = os.getenv("DEBUG", "False").lower() in ("true", "1", "yes")
     environment: str = os.getenv("ENVIRONMENT", "development")
     secret_key: str = os.getenv("SECRET_KEY", "moil-aether-secure-production-key-2026")
+
+    def __init__(self, **data):
+        super().__init__(**data)
+        if self.environment.lower() == "production":
+            insecure_defaults = {
+                "moil-aether-secure-production-key-2026",
+                "dev-secret-key-change-in-production-12345",
+                "secret",
+                "changeme"
+            }
+            if not self.secret_key or self.secret_key in insecure_defaults or len(self.secret_key) < 32:
+                raise ValueError(
+                    "Production deployment requires a cryptographically secure SECRET_KEY environment variable "
+                    "(minimum 32 characters, non-default). Refusing to start."
+                )
     
     # Render Port
     port: int = int(os.getenv("PORT", "8000"))
@@ -18,6 +33,7 @@ class Settings(BaseModel):
     def allowed_origins(self) -> List[str]:
         raw = os.getenv("CORS_ORIGINS", "")
         defaults = [
+            "https://aether-moil-prototype.vercel.app",
             "http://localhost:5173",
             "http://127.0.0.1:5173",
             "http://localhost:3000",
@@ -33,8 +49,11 @@ class Settings(BaseModel):
 
     @property
     def allow_origin_regex(self) -> str:
-        # Allows Vercel preview deployments (e.g. https://*-archi-mukh-64.vercel.app)
-        return r"https://.*\.vercel\.app"
+        # Restricted regex for verified project previews; avoids opening CORS to all *.vercel.app
+        custom_regex = os.getenv("CORS_ORIGIN_REGEX", "")
+        if custom_regex:
+            return custom_regex
+        return r"^https://([a-zA-Z0-9_-]+\.)?(aether-moil|moil-aether).*\.vercel\.app$"
     
     # Database configuration (PostgreSQL / Supabase with SQLite fallback)
     database_url: str = os.getenv("DATABASE_URL", "")

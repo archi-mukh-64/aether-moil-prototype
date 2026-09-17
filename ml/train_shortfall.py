@@ -30,13 +30,11 @@ def train_shortfall_model():
         "recovery_rate",
         "crusher_utilization",
         "fleet_availability",
-        "operating_hours",
-        "downtime_hours",
         "rainfall_mm",
         "production_trend_7d",
         "production_trend_30d",
         "shortfall_rate",
-        "target_deviation",
+        "lagged_target_deviation_1d",
         "rolling_downtime_7d"
     ]
 

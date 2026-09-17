@@ -361,8 +361,12 @@ class EarthObservationService:
     @staticmethod
     def get_mine_observation(mine_id: str) -> Dict[str, Any]:
         """Retrieves authoritative Earth Observation data for a specific mine."""
-        mid = mine_id.lower()
-        base = MINE_EO_DATA.get(mid, MINE_EO_DATA["balaghat"]).copy()
+        from backend.utils.validation import normalize_mine_id
+        from fastapi import HTTPException
+        mid = normalize_mine_id(mine_id)
+        if mid not in MINE_EO_DATA:
+            raise HTTPException(status_code=404, detail=f"Earth Observation profile for mine '{mine_id}' not found.")
+        base = MINE_EO_DATA[mid].copy()
         mode_meta = EarthObservationService.get_mode_metadata()
         base.update(mode_meta)
         return base

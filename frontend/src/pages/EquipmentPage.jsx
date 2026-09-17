@@ -1002,67 +1002,378 @@ const EquipmentContent = () => {
         </div>
       )}
 
-      {/* 8. MACHINE COMPARISON VIEW */}
-      {fleetTab === 'COMPARISON' && (
-        <div className="p-5 rounded-2xl bg-[#F0EBE2] border border-[#C8BFAF] space-y-4">
-          <div className="flex items-center justify-between pb-3 border-b border-[#C8BFAF]">
-            <div>
-              <h3 className="text-base font-bold text-[#272A27]">Side-by-Side Machine Comparison</h3>
-              <p className="text-xs text-[#5F625C]">Evaluate telemetry, vibration metrics, thermodynamic profiles, and RUL between two assets.</p>
+      {/* 8. MACHINE COMPARISON VIEW (COMPREHENSIVE MULTI-VECTOR SUITE) */}
+      {fleetTab === 'COMPARISON' && (() => {
+        const a = compareAssetA;
+        const b = compareAssetB;
+        const healthDelta = (a.health - b.health).toFixed(1);
+        const rulDelta = a.rulHours - b.rulHours;
+        const vibDelta = (a.vibrationMms - b.vibrationMms).toFixed(2);
+        const tempDelta = a.engineTempC - b.engineTempC;
+        const utilDelta = (a.utilizationPct - b.utilizationPct).toFixed(1);
+        const failDelta = (a.failureProb - b.failureProb).toFixed(1);
+
+        // 5-Vector Risk Scores
+        const aRisk = {
+          bearing: Math.min(99, Math.max(5, Math.round(a.vibrationMms * 22 + (a.failureProb * 0.4)))),
+          thermal: Math.min(99, Math.max(5, Math.round((a.engineTempC - 45) * 1.8 + (a.health < 80 ? 20 : 0)))),
+          hydraulic: Math.min(99, Math.max(5, Math.round(a.hydraulicPressureBar > 200 ? (a.hydraulicPressureBar - 180) * 1.5 : 15))),
+          electrical: Math.min(99, Math.max(5, Math.round((100 - a.health) * 0.8 + (a.id.includes('HOIST') ? 25 : 12)))),
+          structural: Math.min(99, Math.max(5, Math.round((a.engineHours / 150) + (a.vibrationMms * 8))))
+        };
+
+        const bRisk = {
+          bearing: Math.min(99, Math.max(5, Math.round(b.vibrationMms * 22 + (b.failureProb * 0.4)))),
+          thermal: Math.min(99, Math.max(5, Math.round((b.engineTempC - 45) * 1.8 + (b.health < 80 ? 20 : 0)))),
+          hydraulic: Math.min(99, Math.max(5, Math.round(b.hydraulicPressureBar > 200 ? (b.hydraulicPressureBar - 180) * 1.5 : 15))),
+          electrical: Math.min(99, Math.max(5, Math.round((100 - b.health) * 0.8 + (b.id.includes('HOIST') ? 25 : 12)))),
+          structural: Math.min(99, Math.max(5, Math.round((b.engineHours / 150) + (b.vibrationMms * 8))))
+        };
+
+        const nextMaintA = a.rulHours > 2000 ? 'In 320 Hours (Routine 500h PM)' : a.rulHours > 1000 ? 'In 120 Hours (Shift Handover PM)' : 'Within 24-48 Hours (URGENT)';
+        const nextMaintB = b.rulHours > 2000 ? 'In 320 Hours (Routine 500h PM)' : b.rulHours > 1000 ? 'In 120 Hours (Shift Handover PM)' : 'Within 24-48 Hours (URGENT)';
+
+        const opStateA = a.health > 85 ? 'IN EXTRACTION CYCLE // NOMINAL' : a.health > 70 ? 'OPERATIONAL // ADVISORY ACTIVE' : 'CRITICAL DEFICIT // RESTRICTED LOAD';
+        const opStateB = b.health > 85 ? 'IN EXTRACTION CYCLE // NOMINAL' : b.health > 70 ? 'OPERATIONAL // ADVISORY ACTIVE' : 'CRITICAL DEFICIT // RESTRICTED LOAD';
+
+        return (
+          <div className="p-5 sm:p-6 rounded-2xl bg-[#F0EBE2] border border-[#C8BFAF] shadow-mineral-sm space-y-6">
+            {/* Header */}
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-4 border-b border-[#DDD4C5] gap-3">
+              <div>
+                <div className="flex items-center gap-2">
+                  <span className="px-2 py-0.5 rounded text-[10px] font-mono font-bold bg-[#C46A32]/15 text-[#C46A32] border border-[#C46A32]/30">
+                    DIAGNOSTIC COMPARATIVE INTELLIGENCE
+                  </span>
+                  <span className="text-xs text-[#85877E] font-mono">• {activeMine.name} Telemetry Mesh</span>
+                </div>
+                <h3 className="text-lg font-bold text-[#272A27] font-display mt-1">
+                  Side-by-Side Asset Health, SCADA Telemetry &amp; RUL Matrix
+                </h3>
+              </div>
+              <div className="flex items-center gap-2 font-mono text-xs">
+                <span className="text-[#5F625C]">Active Mine Asset Pool:</span>
+                <strong className="text-[#272A27] font-bold">{equipmentFleet.length} Monitored Units</strong>
+              </div>
             </div>
+
+            {/* Side-by-Side Distinct Asset Cards */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 font-mono text-xs">
+
+              {/* ASSET A CARD (Sage/Teal Theme) */}
+              <div className="rounded-2xl bg-[#F5F1E9] border-2 border-[#2D7A4D]/50 shadow-sm overflow-hidden flex flex-col justify-between">
+                <div className="p-4 bg-[#EEF5F0] border-b border-[#2D7A4D]/30 flex items-center justify-between">
+                  <div className="flex items-center gap-2">
+                    <span className="px-2.5 py-1 rounded-lg bg-[#2D7A4D] text-white text-[11px] font-bold tracking-wider uppercase">
+                      ASSET A
+                    </span>
+                    <div>
+                      <div className="font-bold text-[#272A27] text-sm">{a.id}</div>
+                      <div className="text-[10px] text-[#5F625C]">{a.name}</div>
+                    </div>
+                  </div>
+                  <select
+                    value={a.id}
+                    onChange={(e) => setCompareIdA(e.target.value)}
+                    className="px-3 py-1.5 rounded-lg bg-[#F0EBE2] border border-[#C8BFAF] text-xs font-bold text-[#272A27] cursor-pointer outline-none focus:border-[#2D7A4D]"
+                  >
+                    {equipmentFleet.map(item => (
+                      <option key={item.id} value={item.id}>{item.id} - {item.category} ({item.name.split(' ')[0]})</option>
+                    ))}
+                  </select>
+                </div>
+
+                <div className="p-5 space-y-3 divide-y divide-[#DDD4C5] text-[11.5px]">
+                  <div className="flex justify-between items-center pt-1">
+                    <span className="text-[#5F625C]">Operating Mine Location:</span>
+                    <strong className="text-[#272A27] font-bold">{activeMine.name} ({a.location})</strong>
+                  </div>
+                  <div className="flex justify-between items-center pt-2">
+                    <span className="text-[#5F625C]">Current Operating State:</span>
+                    <span className={`px-2 py-0.5 rounded text-[10px] font-bold ${a.health > 85 ? 'bg-[#2D7A4D]/15 text-[#2D7A4D] border border-[#2D7A4D]/30' : 'bg-[#C84B3F]/15 text-[#C84B3F] border border-[#C84B3F]/30'}`}>
+                      {opStateA}
+                    </span>
+                  </div>
+                  <div className="flex justify-between items-center pt-2">
+                    <span className="text-[#5F625C]">Composite Health Score:</span>
+                    <strong className="text-sm font-bold text-[#2D7A4D]">{a.health}% / 100</strong>
+                  </div>
+                  <div className="flex justify-between items-center pt-2">
+                    <span className="text-[#5F625C]">Remaining Useful Life (RUL):</span>
+                    <strong className="text-[#272A27] font-bold">{a.rulHours.toLocaleString()} Operating Hours ({a.rulConfidence}% Conf.)</strong>
+                  </div>
+                  <div className="flex justify-between items-center pt-2">
+                    <span className="text-[#5F625C]">Cumulative Engine / In-Service Hours:</span>
+                    <strong className="text-[#272A27]">{a.engineHours.toLocaleString()} hrs</strong>
+                  </div>
+                  <div className="flex justify-between items-center pt-2">
+                    <span className="text-[#5F625C]">Current Load / Payload Rating:</span>
+                    <strong className="text-[#272A27]">{a.payloadT}T ({Math.round((a.payloadT / a.ratedCapacityT) * 100)}% Rated Cap)</strong>
+                  </div>
+                  <div className="flex justify-between items-center pt-2">
+                    <span className="text-[#5F625C]">Tri-Axial Vibration RMS:</span>
+                    <strong className={`${a.vibrationMms > 2.5 ? 'text-[#C84B3F]' : 'text-[#2D7A4D]'} font-bold`}>{a.vibrationMms} mm/s</strong>
+                  </div>
+                  <div className="flex justify-between items-center pt-2">
+                    <span className="text-[#5F625C]">Thermal Telemetry (Engine / Hyd):</span>
+                    <strong className="text-[#272A27]">{a.engineTempC}°C Core • {a.hydraulicTempC}°C Hyd</strong>
+                  </div>
+                  <div className="flex justify-between items-center pt-2">
+                    <span className="text-[#5F625C]">Energy / Fuel Burn Rate:</span>
+                    <strong className="text-[#272A27]">{a.fuelRateLph > 0 ? `${a.fuelRateLph} L/h Diesel` : '420 kW Grid Feed'}</strong>
+                  </div>
+                  <div className="flex justify-between items-center pt-2">
+                    <span className="text-[#5F625C]">Shift Shift Utilization:</span>
+                    <strong className="text-[#272A27] font-bold">{a.utilizationPct}% (Idle: {a.idleRatioPct}%)</strong>
+                  </div>
+                  <div className="flex justify-between items-center pt-2">
+                    <span className="text-[#5F625C]">Predicted Failure Probability (24h):</span>
+                    <strong className={`${a.failureProb > 20 ? 'text-[#C84B3F]' : 'text-[#2D7A4D]'} font-bold`}>{a.failureProb}% Probability</strong>
+                  </div>
+                  <div className="flex justify-between items-center pt-2">
+                    <span className="text-[#5F625C]">Next Scheduled Maintenance:</span>
+                    <strong className="text-[#C46A32] font-bold">{nextMaintA}</strong>
+                  </div>
+                </div>
+
+                <div className="p-3.5 bg-[#EEF5F0] border-t border-[#2D7A4D]/20 text-[11px] text-[#272A27]">
+                  <strong className="text-[#2D7A4D]">Current Advisory:</strong> {a.prescription}
+                </div>
+              </div>
+
+              {/* ASSET B CARD (Copper/Terracotta Theme) */}
+              <div className="rounded-2xl bg-[#F5F1E9] border-2 border-[#C46A32]/50 shadow-sm overflow-hidden flex flex-col justify-between">
+                <div className="p-4 bg-[#FBF2EC] border-b border-[#C46A32]/30 flex items-center justify-between">
+                  <div className="flex items-center gap-2">
+                    <span className="px-2.5 py-1 rounded-lg bg-[#C46A32] text-white text-[11px] font-bold tracking-wider uppercase">
+                      ASSET B
+                    </span>
+                    <div>
+                      <div className="font-bold text-[#272A27] text-sm">{b.id}</div>
+                      <div className="text-[10px] text-[#5F625C]">{b.name}</div>
+                    </div>
+                  </div>
+                  <select
+                    value={b.id}
+                    onChange={(e) => setCompareIdB(e.target.value)}
+                    className="px-3 py-1.5 rounded-lg bg-[#F0EBE2] border border-[#C8BFAF] text-xs font-bold text-[#272A27] cursor-pointer outline-none focus:border-[#C46A32]"
+                  >
+                    {equipmentFleet.map(item => (
+                      <option key={item.id} value={item.id}>{item.id} - {item.category} ({item.name.split(' ')[0]})</option>
+                    ))}
+                  </select>
+                </div>
+
+                <div className="p-5 space-y-3 divide-y divide-[#DDD4C5] text-[11.5px]">
+                  <div className="flex justify-between items-center pt-1">
+                    <span className="text-[#5F625C]">Operating Mine Location:</span>
+                    <strong className="text-[#272A27] font-bold">{activeMine.name} ({b.location})</strong>
+                  </div>
+                  <div className="flex justify-between items-center pt-2">
+                    <span className="text-[#5F625C]">Current Operating State:</span>
+                    <span className={`px-2 py-0.5 rounded text-[10px] font-bold ${b.health > 85 ? 'bg-[#2D7A4D]/15 text-[#2D7A4D] border border-[#2D7A4D]/30' : 'bg-[#C84B3F]/15 text-[#C84B3F] border border-[#C84B3F]/30'}`}>
+                      {opStateB}
+                    </span>
+                  </div>
+                  <div className="flex justify-between items-center pt-2">
+                    <span className="text-[#5F625C]">Composite Health Score:</span>
+                    <strong className="text-sm font-bold text-[#C46A32]">{b.health}% / 100</strong>
+                  </div>
+                  <div className="flex justify-between items-center pt-2">
+                    <span className="text-[#5F625C]">Remaining Useful Life (RUL):</span>
+                    <strong className="text-[#272A27] font-bold">{b.rulHours.toLocaleString()} Operating Hours ({b.rulConfidence}% Conf.)</strong>
+                  </div>
+                  <div className="flex justify-between items-center pt-2">
+                    <span className="text-[#5F625C]">Cumulative Engine / In-Service Hours:</span>
+                    <strong className="text-[#272A27]">{b.engineHours.toLocaleString()} hrs</strong>
+                  </div>
+                  <div className="flex justify-between items-center pt-2">
+                    <span className="text-[#5F625C]">Current Load / Payload Rating:</span>
+                    <strong className="text-[#272A27]">{b.payloadT}T ({Math.round((b.payloadT / b.ratedCapacityT) * 100)}% Rated Cap)</strong>
+                  </div>
+                  <div className="flex justify-between items-center pt-2">
+                    <span className="text-[#5F625C]">Tri-Axial Vibration RMS:</span>
+                    <strong className={`${b.vibrationMms > 2.5 ? 'text-[#C84B3F]' : 'text-[#2D7A4D]'} font-bold`}>{b.vibrationMms} mm/s</strong>
+                  </div>
+                  <div className="flex justify-between items-center pt-2">
+                    <span className="text-[#5F625C]">Thermal Telemetry (Engine / Hyd):</span>
+                    <strong className="text-[#272A27]">{b.engineTempC}°C Core • {b.hydraulicTempC}°C Hyd</strong>
+                  </div>
+                  <div className="flex justify-between items-center pt-2">
+                    <span className="text-[#5F625C]">Energy / Fuel Burn Rate:</span>
+                    <strong className="text-[#272A27]">{b.fuelRateLph > 0 ? `${b.fuelRateLph} L/h Diesel` : '420 kW Grid Feed'}</strong>
+                  </div>
+                  <div className="flex justify-between items-center pt-2">
+                    <span className="text-[#5F625C]">Shift Shift Utilization:</span>
+                    <strong className="text-[#272A27] font-bold">{b.utilizationPct}% (Idle: {b.idleRatioPct}%)</strong>
+                  </div>
+                  <div className="flex justify-between items-center pt-2">
+                    <span className="text-[#5F625C]">Predicted Failure Probability (24h):</span>
+                    <strong className={`${b.failureProb > 20 ? 'text-[#C84B3F]' : 'text-[#2D7A4D]'} font-bold`}>{b.failureProb}% Probability</strong>
+                  </div>
+                  <div className="flex justify-between items-center pt-2">
+                    <span className="text-[#5F625C]">Next Scheduled Maintenance:</span>
+                    <strong className="text-[#C46A32] font-bold">{nextMaintB}</strong>
+                  </div>
+                </div>
+
+                <div className="p-3.5 bg-[#FBF2EC] border-t border-[#C46A32]/20 text-[11px] text-[#272A27]">
+                  <strong className="text-[#C46A32]">Current Advisory:</strong> {b.prescription}
+                </div>
+              </div>
+            </div>
+
+            {/* COMPARATIVE DELTA INDICATORS */}
+            <div className="p-4 rounded-xl bg-[#F5F1E9] border border-[#C8BFAF] space-y-3 font-mono text-xs">
+              <div className="flex items-center justify-between border-b border-[#DDD4C5] pb-2">
+                <span className="font-bold text-[#272A27] text-xs uppercase tracking-wider flex items-center gap-1.5">
+                  <ArrowLeftRight className="w-4 h-4 text-[#C46A32]" />
+                  Comparative Delta Vectors (Asset A vs Asset B)
+                </span>
+                <span className="text-[10px] text-[#85877E]">Deterministic Math Model</span>
+              </div>
+              <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
+                <div className="p-2.5 rounded-lg bg-[#F0EBE2] border border-[#C8BFAF]">
+                  <span className="text-[10px] text-[#5F625C] block">Health Differential</span>
+                  <strong className={`text-xs font-bold ${parseFloat(healthDelta) >= 0 ? 'text-[#2D7A4D]' : 'text-[#C84B3F]'}`}>
+                    {parseFloat(healthDelta) >= 0 ? `+${healthDelta}%` : `${healthDelta}%`}
+                  </strong>
+                  <span className="text-[9px] text-[#85877E] block">{parseFloat(healthDelta) >= 0 ? 'Asset A Leads' : 'Asset B Leads'}</span>
+                </div>
+                <div className="p-2.5 rounded-lg bg-[#F0EBE2] border border-[#C8BFAF]">
+                  <span className="text-[10px] text-[#5F625C] block">RUL Delta</span>
+                  <strong className={`text-xs font-bold ${rulDelta >= 0 ? 'text-[#2D7A4D]' : 'text-[#C84B3F]'}`}>
+                    {rulDelta >= 0 ? `+${rulDelta.toLocaleString()}h` : `${rulDelta.toLocaleString()}h`}
+                  </strong>
+                  <span className="text-[9px] text-[#85877E] block">{rulDelta >= 0 ? 'Asset A Longer' : 'Asset B Longer'}</span>
+                </div>
+                <div className="p-2.5 rounded-lg bg-[#F0EBE2] border border-[#C8BFAF]">
+                  <span className="text-[10px] text-[#5F625C] block">Vibration Variance</span>
+                  <strong className={`text-xs font-bold ${parseFloat(vibDelta) <= 0 ? 'text-[#2D7A4D]' : 'text-[#C84B3F]'}`}>
+                    {parseFloat(vibDelta) > 0 ? `+${vibDelta}` : vibDelta} mm/s
+                  </strong>
+                  <span className="text-[9px] text-[#85877E] block">{parseFloat(vibDelta) <= 0 ? 'Asset A Smoother' : 'Asset B Smoother'}</span>
+                </div>
+                <div className="p-2.5 rounded-lg bg-[#F0EBE2] border border-[#C8BFAF]">
+                  <span className="text-[10px] text-[#5F625C] block">Core Temp Gap</span>
+                  <strong className={`text-xs font-bold ${tempDelta <= 0 ? 'text-[#2D7A4D]' : 'text-[#C84B3F]'}`}>
+                    {tempDelta > 0 ? `+${tempDelta}` : tempDelta}°C
+                  </strong>
+                  <span className="text-[9px] text-[#85877E] block">{tempDelta <= 0 ? 'Asset A Cooler' : 'Asset B Cooler'}</span>
+                </div>
+                <div className="p-2.5 rounded-lg bg-[#F0EBE2] border border-[#C8BFAF]">
+                  <span className="text-[10px] text-[#5F625C] block">Utilization Delta</span>
+                  <strong className={`text-xs font-bold ${parseFloat(utilDelta) >= 0 ? 'text-[#2D7A4D]' : 'text-[#C84B3F]'}`}>
+                    {parseFloat(utilDelta) >= 0 ? `+${utilDelta}%` : `${utilDelta}%`}
+                  </strong>
+                  <span className="text-[9px] text-[#85877E] block">{parseFloat(utilDelta) >= 0 ? 'Asset A Higher' : 'Asset B Higher'}</span>
+                </div>
+                <div className="p-2.5 rounded-lg bg-[#F0EBE2] border border-[#C8BFAF]">
+                  <span className="text-[10px] text-[#5F625C] block">Failure Risk Spread</span>
+                  <strong className={`text-xs font-bold ${parseFloat(failDelta) <= 0 ? 'text-[#2D7A4D]' : 'text-[#C84B3F]'}`}>
+                    {parseFloat(failDelta) > 0 ? `+${failDelta}%` : `${failDelta}%`}
+                  </strong>
+                  <span className="text-[9px] text-[#85877E] block">{parseFloat(failDelta) <= 0 ? 'Asset A Safer' : 'Asset B Safer'}</span>
+                </div>
+              </div>
+            </div>
+
+            {/* MACHINE COMPARISON INSIGHT (DETERMINISTIC NATURAL LANGUAGE) */}
+            <div className="p-4 rounded-xl bg-[#F5F1E9] border border-[#C8BFAF] space-y-2 font-mono text-xs">
+              <div className="flex items-center gap-2 text-[#C46A32]">
+                <Sparkles className="w-4 h-4" />
+                <h4 className="font-bold text-xs uppercase tracking-wider text-[#272A27]">
+                  Machine Comparison Analytical Insight ({activeMine.name})
+                </h4>
+              </div>
+              <p className="text-[#272A27] font-sans text-xs leading-relaxed">
+                {parseFloat(healthDelta) >= 0
+                  ? `Asset A (${a.id} • ${a.name}) currently demonstrates a ${Math.abs(parseFloat(healthDelta))}% higher composite health rating and ${Math.abs(rulDelta).toLocaleString()} hours greater remaining useful life than Asset B (${b.id}). ${parseFloat(vibDelta) < 0 ? `Asset B's elevated vibration (${b.vibrationMms} mm/s vs ${a.vibrationMms} mm/s) indicates accelerating mechanical wear in ${activeMine.name} stope extraction, necessitating an inspection within ${nextMaintB}.` : `Both assets maintain stable mechanical equilibrium under active ${activeMine.name} duty cycles.`}`
+                  : `Asset B (${b.id} • ${b.name}) currently demonstrates a ${Math.abs(parseFloat(healthDelta))}% higher composite health rating and ${Math.abs(rulDelta).toLocaleString()} hours greater remaining useful life than Asset A (${a.id}). ${parseFloat(vibDelta) > 0 ? `Asset A's elevated vibration (${a.vibrationMms} mm/s vs ${b.vibrationMms} mm/s) indicates accelerating mechanical wear in ${activeMine.name} stope extraction, necessitating an inspection within ${nextMaintA}.` : `Both assets maintain stable mechanical equilibrium under active ${activeMine.name} duty cycles.`}`
+                }
+              </p>
+            </div>
+
+            {/* 5-VECTOR FAILURE RISK PROFILE COMPARISON */}
+            <div className="p-5 rounded-xl bg-[#F5F1E9] border border-[#C8BFAF] space-y-4 font-mono text-xs">
+              <div className="flex items-center justify-between pb-2 border-b border-[#DDD4C5]">
+                <div>
+                  <h4 className="font-bold text-[#272A27] text-xs uppercase tracking-wider">
+                    5-Vector Subsystem Failure Risk Comparison
+                  </h4>
+                  <p className="text-[10px] text-[#5F625C]">Relative degradation scores calibrated against ISO-10816 vibration &amp; DGMS mechanical standards.</p>
+                </div>
+                <div className="flex items-center gap-4 text-[10.5px]">
+                  <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded bg-[#2D7A4D]" /> Asset A ({a.id})</span>
+                  <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded bg-[#C46A32]" /> Asset B ({b.id})</span>
+                </div>
+              </div>
+
+              <div className="space-y-3">
+                {[
+                  { label: 'Bearing Harmonic Risk', aVal: aRisk.bearing, bVal: bRisk.bearing, desc: 'High-frequency vibration FFT and raceway spalling probability' },
+                  { label: 'Thermal Dissipation Risk', aVal: aRisk.thermal, bVal: bRisk.thermal, desc: 'Engine jacket & hydraulic manifold heat dissipation gradient' },
+                  { label: 'Hydraulic Pressure Integrity', aVal: aRisk.hydraulic, bVal: bRisk.hydraulic, desc: 'Pump circuit pressure differential and seal extrusion stress' },
+                  { label: 'Electrical Drive Influx Risk', aVal: aRisk.electrical, bVal: bRisk.electrical, desc: 'Motor winding resistance drift and harmonic stator distortion' },
+                  { label: 'Structural / Fatigue Stress', aVal: aRisk.structural, bVal: bRisk.structural, desc: 'Cumulative boom/chassis cycle fatigue under full payload' }
+                ].map(r => (
+                  <div key={r.label} className="p-2.5 rounded-lg bg-[#F0EBE2] border border-[#C8BFAF] space-y-1.5">
+                    <div className="flex justify-between items-center text-[11px]">
+                      <span className="font-bold text-[#272A27]">{r.label}</span>
+                      <span className="text-[10px] text-[#5F625C]">{r.desc}</span>
+                    </div>
+                    <div className="grid grid-cols-2 gap-4 pt-1">
+                      {/* Asset A Gauge */}
+                      <div className="space-y-1">
+                        <div className="flex justify-between text-[10px]">
+                          <span className="text-[#2D7A4D] font-bold">Asset A: {r.aVal}% Risk</span>
+                          <span className="text-[#85877E]">{r.aVal < 30 ? 'NOMINAL' : r.aVal < 60 ? 'WATCH' : 'HIGH'}</span>
+                        </div>
+                        <div className="w-full h-2 bg-[#DDD4C5] rounded-full overflow-hidden">
+                          <div className="h-full bg-[#2D7A4D] rounded-full" style={{ width: `${r.aVal}%` }} />
+                        </div>
+                      </div>
+
+                      {/* Asset B Gauge */}
+                      <div className="space-y-1">
+                        <div className="flex justify-between text-[10px]">
+                          <span className="text-[#C46A32] font-bold">Asset B: {r.bVal}% Risk</span>
+                          <span className="text-[#85877E]">{r.bVal < 30 ? 'NOMINAL' : r.bVal < 60 ? 'WATCH' : 'HIGH'}</span>
+                        </div>
+                        <div className="w-full h-2 bg-[#DDD4C5] rounded-full overflow-hidden">
+                          <div className="h-full bg-[#C46A32] rounded-full" style={{ width: `${r.bVal}%` }} />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* MINE & ASSET-SPECIFIC MAINTENANCE RECOMMENDATION */}
+            <div className="p-4 rounded-xl bg-[#EEF5F0] border border-[#2D7A4D]/40 space-y-2 font-mono text-xs text-[#272A27]">
+              <div className="flex items-center gap-2 text-[#2D7A4D]">
+                <Wrench className="w-4 h-4" />
+                <h4 className="font-bold text-xs uppercase tracking-wider">
+                  Prescriptive Engineering Recommendation ({activeMine.name} Duty Cycle)
+                </h4>
+              </div>
+              <div className="font-sans text-xs space-y-1 text-[#272A27]">
+                <p>
+                  <strong>Asset A Protocol:</strong> {a.health < 80 ? `Schedule immediate off-shift hydraulic filter flush and vibration accelerometer recalibration for ${a.id} at ${activeMine.name} workshop.` : `Maintain scheduled preventive lubrication roster for ${a.id}. Telemetry nominal.`}
+                </p>
+                <p>
+                  <strong>Asset B Protocol:</strong> {b.health < 80 ? `Schedule immediate off-shift hydraulic filter flush and vibration accelerometer recalibration for ${b.id} at ${activeMine.name} workshop.` : `Maintain scheduled preventive lubrication roster for ${b.id}. Telemetry nominal.`}
+                </p>
+                <p className="text-[#5F625C] text-[11px] pt-1">
+                  <strong>Stope Allocation Recommendation:</strong> Deploy {a.health >= b.health ? `${a.id} to primary high-throughput extraction faces` : `${b.id} to primary high-throughput extraction faces`} and allocate {a.health < b.health ? a.id : b.id} to secondary haulage buffer corridors.
+                </p>
+              </div>
+            </div>
+
           </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {/* Machine A */}
-            <div className="p-4 rounded-xl bg-[#F5F1E9] border border-sky-800/40 space-y-3">
-              <div className="flex items-center justify-between">
-                <span className="text-sky-400 font-bold text-xs">ASSET A</span>
-                <select
-                  value={compareAssetA.id}
-                  onChange={(e) => setCompareIdA(e.target.value)}
-                  className="px-2.5 py-1 rounded-lg bg-[#F0EBE2] border border-[#C8BFAF] text-xs text-white"
-                >
-                  {equipmentFleet.map(a => <option key={a.id} value={a.id}>{a.id} - {a.name}</option>)}
-                </select>
-              </div>
-
-              <div className="space-y-2 text-xs">
-                <div className="flex justify-between border-b border-zinc-800 pb-1"><span>Health Score:</span> <strong className="text-emerald-400">{compareAssetA.health}%</strong></div>
-                <div className="flex justify-between border-b border-zinc-800 pb-1"><span>Estimated RUL:</span> <strong className="text-amber-300">{compareAssetA.rulHours} hrs</strong></div>
-                <div className="flex justify-between border-b border-zinc-800 pb-1"><span>Failure Probability:</span> <strong className="text-rose-300">{compareAssetA.failureProb}%</strong></div>
-                <div className="flex justify-between border-b border-zinc-800 pb-1"><span>Vibration RMS:</span> <strong className="text-purple-300">{compareAssetA.vibrationMms} mm/s</strong></div>
-                <div className="flex justify-between border-b border-zinc-800 pb-1"><span>Engine Temp:</span> <strong className="text-amber-300">{compareAssetA.engineTempC}°C</strong></div>
-                <div className="flex justify-between border-b border-zinc-800 pb-1"><span>Hydraulic Pressure:</span> <strong className="text-sky-300">{compareAssetA.hydraulicPressureBar} Bar</strong></div>
-                <div className="flex justify-between"><span>Utilization:</span> <strong className="text-[#272A27]">{compareAssetA.utilizationPct}%</strong></div>
-              </div>
-            </div>
-
-            {/* Machine B */}
-            <div className="p-4 rounded-xl bg-[#F5F1E9] border border-amber-800/40 space-y-3">
-              <div className="flex items-center justify-between">
-                <span className="text-amber-400 font-bold text-xs">ASSET B</span>
-                <select
-                  value={compareAssetB.id}
-                  onChange={(e) => setCompareIdB(e.target.value)}
-                  className="px-2.5 py-1 rounded-lg bg-[#F0EBE2] border border-[#C8BFAF] text-xs text-white"
-                >
-                  {equipmentFleet.map(a => <option key={a.id} value={a.id}>{a.id} - {a.name}</option>)}
-                </select>
-              </div>
-
-              <div className="space-y-2 text-xs">
-                <div className="flex justify-between border-b border-zinc-800 pb-1"><span>Health Score:</span> <strong className="text-emerald-400">{compareAssetB.health}%</strong></div>
-                <div className="flex justify-between border-b border-zinc-800 pb-1"><span>Estimated RUL:</span> <strong className="text-amber-300">{compareAssetB.rulHours} hrs</strong></div>
-                <div className="flex justify-between border-b border-zinc-800 pb-1"><span>Failure Probability:</span> <strong className="text-rose-300">{compareAssetB.failureProb}%</strong></div>
-                <div className="flex justify-between border-b border-zinc-800 pb-1"><span>Vibration RMS:</span> <strong className="text-purple-300">{compareAssetB.vibrationMms} mm/s</strong></div>
-                <div className="flex justify-between border-b border-zinc-800 pb-1"><span>Engine Temp:</span> <strong className="text-amber-300">{compareAssetB.engineTempC}°C</strong></div>
-                <div className="flex justify-between border-b border-zinc-800 pb-1"><span>Hydraulic Pressure:</span> <strong className="text-sky-300">{compareAssetB.hydraulicPressureBar} Bar</strong></div>
-                <div className="flex justify-between"><span>Utilization:</span> <strong className="text-[#272A27]">{compareAssetB.utilizationPct}%</strong></div>
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
+        );
+      })()}
 
     </div>
   );

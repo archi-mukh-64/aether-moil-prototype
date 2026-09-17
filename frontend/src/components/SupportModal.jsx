@@ -191,11 +191,11 @@ export const SupportModal = () => {
                 <h4 className="text-xs uppercase font-bold text-manganese-400">Machine Learning Intelligence Services</h4>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                   {[
-                    { name: 'SHORTFALL-GBM v1.0', desc: 'Production Quota Forecaster & SHAP', status: modelStatus.shortfall ? 'DEPLOYED_ACTIVE' : 'FALLBACK', acc: '99.7% Acc • 0.96 AUC' },
-                    { name: 'RESERVE-RF v1.0', desc: 'Exploration Radar & UNFC Classifier', status: modelStatus.reserve ? 'DEPLOYED_ACTIVE' : 'FALLBACK', acc: '98.6% Acc • 0.91 R²' },
+                    { name: 'SHORTFALL-GBM v1.1', desc: 'Production Quota Forecaster & Driver Attribution', status: modelStatus.shortfall ? 'DEPLOYED_ACTIVE' : 'FALLBACK', acc: '94.7% Acc • 0.91 AUC • 76.6T MAE' },
+                    { name: 'RESERVE-RF v1.1', desc: 'Exploration Radar & Prospectivity Ranker', status: modelStatus.reserve ? 'DEPLOYED_ACTIVE' : 'FALLBACK', acc: 'Target Prioritization • R² 0.91' },
                     { name: 'EQUIPMENT-GBM v1.0', desc: 'HEMM Failure & RUL Diagnostics', status: modelStatus.equipment ? 'DEPLOYED_ACTIVE' : 'FALLBACK', acc: '99.6% Acc • 1.00 AUC' },
-                    { name: 'ANOMALY-IFOREST v1.0', desc: 'Operational Sensor Anomaly Detector', status: modelStatus.anomaly ? 'DEPLOYED_ACTIVE' : 'FALLBACK', acc: 'Contamination 0.08' },
-                    { name: 'TRUST-BAYESIAN v1.0', desc: '5-Pillar Uncertainty & Governance Engine', status: modelStatus.trust ? 'CALIBRATED' : 'STANDBY', acc: 'ISO 22932 Validated' },
+                    { name: 'ANOMALY-IFOREST v1.1', desc: 'Multi-Variate Operational Sensor Outlier Detector', status: modelStatus.anomaly ? 'DEPLOYED_ACTIVE' : 'FALLBACK', acc: '8% Contamination • 2,000 Samples' },
+                    { name: 'TRUST-BAYESIAN v1.0', desc: '5-Pillar Uncertainty & Governance Engine', status: modelStatus.trust ? 'CALIBRATED' : 'STANDBY', acc: 'DGMS Validated' },
                     { name: 'MULTI-RISK-COMPOSITE v1.0', desc: 'Multi-Objective Pareto Countermeasure Solver', status: modelStatus.multi_risk ? 'ACTIVE' : 'STANDBY', acc: 'Constrained LP' }
                   ].map((m, idx) => (
                     <div key={idx} className="p-3.5 rounded-xl bg-obsidian-950 border border-obsidian-800 flex items-center justify-between gap-3">
@@ -250,7 +250,7 @@ export const SupportModal = () => {
                   <li>Pillar 1: Bayesian Signal Calibration &amp; Divergence Bounding</li>
                   <li>Pillar 2: Sensor Completeness &amp; Multi-Node IoT Integrity</li>
                   <li>Pillar 3: Local TreeSHAP Explainability Faithfulness</li>
-                  <li>Pillar 4: DGMS &amp; ISO 22932 Statutory Compliance</li>
+                  <li>Pillar 4: DGMS Safety Guidelines &amp; Operator Governance</li>
                   <li>Pillar 5: Historical Shift Quota Verification</li>
                 </ul>
               </div>
@@ -268,6 +268,16 @@ export const SupportModal = () => {
                 </div>
                 <p className="text-[11px] text-zinc-300">
                   Exploration radar predictions represent remote sensing SWIR band spectral prospectivity indicators and unconfirmed sub-surface anomalies. They must NOT be treated as commercial proved reserves under UNFC-111 without exploratory core drilling verification.
+                </p>
+              </div>
+
+              <div className="p-4 rounded-xl bg-cyan-950/20 border border-cyan-500/40 text-cyan-300 space-y-2 text-xs">
+                <div className="flex items-center gap-2 font-bold text-cyan-400">
+                  <Info className="w-4 h-4" />
+                  <span>PROTOTYPE DEMONSTRATION &amp; DATA PROVENANCE</span>
+                </div>
+                <p className="text-[11px] text-zinc-300">
+                  This platform operates in demonstration mode using calibrated historical MOIL operational baselines and simulated telemetry. Sensor feeds and satellite indices represent high-fidelity prototype simulation data.
                 </p>
               </div>
             </div>

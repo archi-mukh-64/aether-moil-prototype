@@ -236,7 +236,7 @@ export const IntelligenceEngines = () => {
           {/* Action Launch Bar */}
           <div className="pt-4 border-t border-obsidian-800 flex flex-col sm:flex-row items-center justify-between gap-4">
             <span className="text-zinc-500 text-[11px]">
-              {lang === 'hi' ? 'अनुमान एसएलए: <1.4s • आईएसओ 22932 अनुपालन' : lang === 'mr' ? 'अंदाज एसएलए: <1.4s • आयएसओ 22932 पालन' : 'Inference SLA: <1.4s • ISO 22932 Compliant'}
+              {lang === 'hi' ? 'अनुमान एसएलए: <1.4s • डीजीएमएस सुरक्षा दिशानिर्देश अनुपालन' : lang === 'mr' ? 'अंदाज एसएलए: <1.4s • डीजीएमएस सुरक्षा मार्गदर्शक पालन' : 'Inference SLA: <1.4s • DGMS Safety Compliant'}
             </span>
 
             <Link

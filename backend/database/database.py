@@ -20,6 +20,8 @@ def get_db_connection():
             return conn
         except Exception as pg_err:
             logger.warning(f"[DB] PostgreSQL/Supabase connection failed ({pg_err}). Falling back to local SQLite.")
+            if settings.environment.lower() == "production":
+                raise RuntimeError(f"Database connection to PostgreSQL failed in production environment: {pg_err}")
 
     # SQLite Resilient Fallback
     db_path = settings.database_path
@@ -77,6 +79,18 @@ def init_db():
                 dgms_compliance_code TEXT
             );
             """)
+
+            cursor.execute("""
+            CREATE TABLE IF NOT EXISTS alert_actions (
+                id TEXT PRIMARY KEY,
+                alert_id TEXT NOT NULL,
+                action_type TEXT NOT NULL,
+                timestamp TEXT NOT NULL,
+                operator TEXT NOT NULL,
+                note TEXT,
+                target TEXT
+            );
+            """)
         else:
             cursor.execute("""
             CREATE TABLE IF NOT EXISTS operator_feedback (
@@ -111,6 +125,18 @@ def init_db():
                 operator_notes TEXT,
                 realized_impact TEXT,
                 dgms_compliance_code TEXT
+            );
+            """)
+
+            cursor.execute("""
+            CREATE TABLE IF NOT EXISTS alert_actions (
+                id TEXT PRIMARY KEY,
+                alert_id TEXT NOT NULL,
+                action_type TEXT NOT NULL,
+                timestamp TEXT NOT NULL,
+                operator TEXT NOT NULL,
+                note TEXT,
+                target TEXT
             );
             """)
         
@@ -205,25 +231,91 @@ def record_feedback(
         ts = datetime.now(timezone.utc).isoformat()
         placeholder = "%s" if is_postgres(conn) else "?"
         
-        cursor.execute(f"""
-        INSERT INTO operator_feedback (
-            timestamp, mine_id, prediction_type, model_version,
-            predicted_value, actual_observed_value, operator_rating,
-            operator_comment, operator_name, shift_id
-        ) VALUES ({placeholder}, {placeholder}, {placeholder}, {placeholder}, {placeholder}, {placeholder}, {placeholder}, {placeholder}, {placeholder}, {placeholder})
-        """, (
-            ts, mine_id, prediction_type, model_version,
-            predicted_value, actual_observed_value, operator_rating,
-            operator_comment, operator_name, shift_id
-        ))
+        if is_postgres(conn):
+            cursor.execute(f"""
+            INSERT INTO operator_feedback (
+                timestamp, mine_id, prediction_type, model_version,
+                predicted_value, actual_observed_value, operator_rating,
+                operator_comment, operator_name, shift_id
+            ) VALUES ({placeholder}, {placeholder}, {placeholder}, {placeholder}, {placeholder}, {placeholder}, {placeholder}, {placeholder}, {placeholder}, {placeholder})
+            RETURNING id;
+            """, (
+                ts, mine_id, prediction_type, model_version,
+                predicted_value, actual_observed_value, operator_rating,
+                operator_comment, operator_name, shift_id
+            ))
+            row = cursor.fetchone()
+            inserted_id = row[0] if row else 1
+        else:
+            cursor.execute(f"""
+            INSERT INTO operator_feedback (
+                timestamp, mine_id, prediction_type, model_version,
+                predicted_value, actual_observed_value, operator_rating,
+                operator_comment, operator_name, shift_id
+            ) VALUES ({placeholder}, {placeholder}, {placeholder}, {placeholder}, {placeholder}, {placeholder}, {placeholder}, {placeholder}, {placeholder}, {placeholder})
+            """, (
+                ts, mine_id, prediction_type, model_version,
+                predicted_value, actual_observed_value, operator_rating,
+                operator_comment, operator_name, shift_id
+            ))
+            inserted_id = cursor.lastrowid
         conn.commit()
-        inserted_id = cursor.lastrowid if not is_postgres(conn) else 1
         return {
             "id": inserted_id,
             "timestamp": ts,
             "status": "FEEDBACK_STORED",
             "mine_id": mine_id
         }
+    finally:
+        conn.close()
+
+def record_alert_action(
+    alert_id: str,
+    action_type: str,
+    operator: str,
+    note: Optional[str] = None,
+    target: Optional[str] = None
+) -> Dict[str, Any]:
+    import uuid
+    action_id = f"act-{uuid.uuid4().hex[:10]}"
+    conn = get_db_connection()
+    try:
+        cursor = conn.cursor()
+        ts = datetime.now(timezone.utc).isoformat()
+        placeholder = "%s" if is_postgres(conn) else "?"
+        cursor.execute(f"""
+        INSERT INTO alert_actions (
+            id, alert_id, action_type, timestamp, operator, note, target
+        ) VALUES ({placeholder}, {placeholder}, {placeholder}, {placeholder}, {placeholder}, {placeholder}, {placeholder})
+        """, (
+            action_id, alert_id, action_type, ts, operator, note or "", target or ""
+        ))
+        conn.commit()
+        return {
+            "id": action_id,
+            "alert_id": alert_id,
+            "action_type": action_type,
+            "timestamp": ts,
+            "operator": operator,
+            "status": "RECORDED"
+        }
+    finally:
+        conn.close()
+
+def get_all_alert_actions() -> List[Dict[str, Any]]:
+    conn = get_db_connection()
+    try:
+        cursor = conn.cursor()
+        cursor.execute("SELECT * FROM alert_actions ORDER BY timestamp ASC")
+        if is_postgres(conn):
+            columns = [desc[0] for desc in cursor.description]
+            rows = [dict(zip(columns, row)) for row in cursor.fetchall()]
+        else:
+            rows = [dict(r) for r in cursor.fetchall()]
+        return rows
+    except Exception as e:
+        logger.warning(f"[DB] Error fetching alert actions: {e}")
+        return []
     finally:
         conn.close()
 

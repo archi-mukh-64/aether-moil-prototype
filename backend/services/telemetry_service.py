@@ -63,7 +63,11 @@ class TelemetryService:
             "water_table_depth": mine["waterTableDepth"],
             "active_fleet_status": f"{int(mine['fleetCount'] * (mine['fleetAvailabilityBase']/100))}/{mine['fleetCount']} Units Online",
             "hoist_status": "Cycle #184 Nominal Throughput",
-            "sensor_nodes": sensor_nodes
+            "sensor_nodes": sensor_nodes,
+            "data_source": "PROTOTYPE_SIMULATION",
+            "is_live_scada": False,
+            "simulation_fidelity": "HIGH_CALIBRATED",
+            "provenance_note": "Calibrated historical operational baseline with stochastic micro-drift simulation."
         }
 
 telemetry_service = TelemetryService()

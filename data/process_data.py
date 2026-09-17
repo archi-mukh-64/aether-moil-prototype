@@ -28,12 +28,15 @@ def process_and_engineer_features():
     prod_df["date"] = pd.to_datetime(prod_df["date"])
     prod_df = prod_df.sort_values(by=["mine_id", "date"]).reset_index(drop=True)
 
-    # Groupby mine rolling calculations
-    prod_df["production_trend_7d"] = prod_df.groupby("mine_id")["actual_tonnage"].transform(lambda s: s.rolling(7, min_periods=1).mean()).round(1)
-    prod_df["production_trend_30d"] = prod_df.groupby("mine_id")["actual_tonnage"].transform(lambda s: s.rolling(30, min_periods=1).mean()).round(1)
-    prod_df["shortfall_rate"] = prod_df.groupby("mine_id")["shortfall_percentage"].transform(lambda s: s.ewm(span=7).mean()).round(2)
+    # Groupby mine rolling calculations with 1-day lag to strictly avoid target leakage
+    prod_df["production_trend_7d"] = prod_df.groupby("mine_id")["actual_tonnage"].transform(lambda s: s.shift(1).rolling(7, min_periods=1).mean()).fillna(prod_df["planned_tonnage"]).round(1)
+    prod_df["production_trend_30d"] = prod_df.groupby("mine_id")["actual_tonnage"].transform(lambda s: s.shift(1).rolling(30, min_periods=1).mean()).fillna(prod_df["planned_tonnage"]).round(1)
+    prod_df["shortfall_rate"] = prod_df.groupby("mine_id")["shortfall_percentage"].transform(lambda s: s.shift(1).ewm(span=7).mean()).fillna(0.0).round(2)
+    # Current day target deviation (for retrospective analytics)
     prod_df["target_deviation"] = ((prod_df["actual_tonnage"] - prod_df["planned_tonnage"]) / prod_df["planned_tonnage"]).round(4)
-    prod_df["rolling_downtime_7d"] = prod_df.groupby("mine_id")["downtime_hours"].transform(lambda s: s.rolling(7, min_periods=1).sum()).round(1)
+    # Pre-shift lagged target deviation (strictly pre-shift feature for ML forecasting)
+    prod_df["lagged_target_deviation_1d"] = prod_df.groupby("mine_id")["target_deviation"].shift(1).fillna(0.0).round(4)
+    prod_df["rolling_downtime_7d"] = prod_df.groupby("mine_id")["downtime_hours"].transform(lambda s: s.shift(1).rolling(7, min_periods=1).sum()).fillna(0.0).round(1)
 
     prod_out = "data/processed/production_features.csv"
     prod_df.to_csv(prod_out, index=False)

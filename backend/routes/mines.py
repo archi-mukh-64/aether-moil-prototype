@@ -77,6 +77,6 @@ def get_mine_trust(
     mine_id: str = Path(..., description="Unique mine slug, e.g. balaghat, tirodi, ukwa")
 ):
     """
-    Returns Bayesian 5-pillar trust score, ISO 22932 calibration, and data quality metrics.
+    Returns Bayesian 5-pillar trust score, uncertainty calibration, and data quality metrics.
     """
     return trust_service.get_mine_trust_profile(mine_id)

@@ -54,8 +54,10 @@ class ReserveService:
                 "prediction": {
                     "prospectivity_score": score,
                     "prospectivity_score_formatted": f"{score}%",
-                    "prospectivity_class": "UNFC-111 (Proved Mineral Reserve)",
-                    "unfc_category": "UNFC-111 (Proved Mineral Reserve)",
+                    "prospectivity_class": "Geophysical Anomaly Zone",
+                    "exploration_priority": "Priority-1 (High Prospectivity Drill Target)" if score >= 75 else "Priority-2 (Moderate Target)",
+                    "unfc_category": mine.get("unfcStatus", "UNFC-111 (Statutory Baseline)"),
+                    "statutory_note": "UNFC classifications are statutory baselines registered with DGMS/IBM. AI prospectivity index reflects non-statutory geophysical exploration prioritization.",
                     "confidence": "88.0%",
                     "top_drivers": {
                         "SWIR Band 11/12 Mineral Absorption": 45.0,

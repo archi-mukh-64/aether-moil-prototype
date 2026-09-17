@@ -20,14 +20,19 @@ def train_anomaly_detector():
     prod_df = pd.read_csv("data/processed/production_features.csv")
     eq_df = pd.read_csv("data/processed/equipment_features.csv")
 
-    # Construct unified operational feature matrix
-    min_len = min(len(prod_df), len(eq_df))
+    # Format dates for relational merge to ensure true physical alignment of mine & equipment
+    prod_df["date"] = pd.to_datetime(prod_df["date"]).dt.strftime("%Y-%m-%d")
+    eq_df["date"] = pd.to_datetime(eq_df["timestamp"]).dt.strftime("%Y-%m-%d")
+
+    # Relational merge on [mine_id, date] guarantees physical alignment
+    merged = pd.merge(eq_df, prod_df, on=["mine_id", "date"], suffixes=("_eq", "_prod"))
+
     features_df = pd.DataFrame({
-        "rainfall_mm": prod_df["rainfall_mm"].iloc[:min_len],
-        "vibration_rms": eq_df["vibration_rms"].iloc[:min_len],
-        "engine_temperature": eq_df["engine_temperature"].iloc[:min_len],
-        "downtime_hours": prod_df["downtime_hours"].iloc[:min_len],
-        "shortfall_percentage": prod_df["shortfall_percentage"].iloc[:min_len]
+        "rainfall_mm": merged["rainfall_mm"],
+        "vibration_rms": merged["vibration_rms"],
+        "engine_temperature": merged["engine_temperature"],
+        "downtime_hours": merged["downtime_hours"],
+        "shortfall_percentage": merged["shortfall_percentage"]
     })
 
     model = IsolationForest(

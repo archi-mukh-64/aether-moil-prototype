@@ -696,7 +696,7 @@ const ReserveRadarContent = () => {
           <div className="lg:col-span-6 panel-surface p-6 sm:p-8 border border-manganese-500/40 shadow-2xl space-y-4">
             <div className="flex justify-between items-center pb-3 border-b border-[#C8BFAF]">
               <h3 className="font-display text-xl font-bold text-[#272A27]">AI Mineral Prospectivity Score</h3>
-              <span className="px-2 py-0.5 rounded bg-emerald-950 text-emerald-300 border border-emerald-800 text-[10px] font-bold">
+              <span className="px-2 py-0.5 rounded bg-[#2D7A4D]/15 text-[#2D7A4D] border border-[#2D7A4D]/30 text-[10px] font-bold">
                 HIGH PROBABILITY
               </span>
             </div>
@@ -788,39 +788,70 @@ const ReserveRadarContent = () => {
           </div>
 
           {/* Target Cards */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 font-mono text-xs">
-            {explorationTargets.map(t => (
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5 font-mono text-xs">
+            {explorationTargets.map((t, idx) => (
               <div
                 key={t.id}
                 onClick={() => setActiveTargetId(t.id)}
-                className={`p-5 rounded-2xl border cursor-pointer transition-all space-y-3 ${
+                className={`p-5 rounded-2xl border cursor-pointer transition-all space-y-3.5 ${
                   activeTarget.id === t.id
-                    ? 'bg-[#F0EBE2] border-2 border-[#C46A32] text-[#272A27] shadow-xl'
-                    : 'bg-[#F0EBE2] border-[#C8BFAF] text-[#5F625C] hover:border-zinc-700'
+                    ? 'bg-[#F5F1E9] border-2 border-[#C46A32] text-[#272A27] shadow-mineral-md ring-1 ring-[#C46A32]/30'
+                    : 'bg-[#F0EBE2] border-[#C8BFAF] text-[#5F625C] hover:border-[#85877E] hover:bg-[#F5F1E9]'
                 }`}
               >
-                <div className="flex justify-between items-center pb-2 border-b border-obsidian-850">
-                  <strong className="text-[#272A27] text-sm">{t.name}</strong>
-                  <span className="px-2 py-0.5 rounded bg-emerald-950 text-emerald-300 border border-emerald-800 text-[10px] font-bold">
-                    {t.prospectivity}% Score
+                <div className="flex justify-between items-center pb-2.5 border-b border-[#DDD4C5]">
+                  <div>
+                    <span className="text-[10px] text-[#C46A32] font-bold tracking-wider block">
+                      AI CANDIDATE TARGET T-0{idx + 1}
+                    </span>
+                    <strong className="text-[#272A27] text-sm font-display">{t.name}</strong>
+                  </div>
+                  <span className="px-2 py-0.5 rounded bg-[#2D7A4D]/15 text-[#2D7A4D] border border-[#2D7A4D]/30 text-[10px] font-bold">
+                    {t.confidence} Conf.
                   </span>
                 </div>
-                <div className="flex justify-between text-[#5F625C]">
-                  <span>Estimated Grade:</span>
-                  <strong className="text-manganese-400">{t.gradeEst}</strong>
+
+                <div className="grid grid-cols-2 gap-2 text-[11px] bg-[#F5F1E9] p-2.5 rounded-xl border border-[#DDD4C5]">
+                  <div>
+                    <span className="text-[#85877E] text-[10px] block">Coordinates</span>
+                    <strong className="text-[#272A27] font-bold">{t.coords}</strong>
+                  </div>
+                  <div>
+                    <span className="text-[#85877E] text-[10px] block">Mn Probability</span>
+                    <strong className="text-[#2D7A4D] font-bold">{t.prospectivity}% Match</strong>
+                  </div>
+                  <div>
+                    <span className="text-[#85877E] text-[10px] block">Depth Horizon</span>
+                    <strong className="text-[#272A27]">{t.depthRange}</strong>
+                  </div>
+                  <div>
+                    <span className="text-[#85877E] text-[10px] block">Estimated Grade</span>
+                    <strong className="text-[#8F4418] font-bold">{t.gradeEst}</strong>
+                  </div>
                 </div>
-                <div className="flex justify-between text-[#5F625C]">
-                  <span>Depth Horizon:</span>
-                  <strong className="text-[#272A27]">{t.depthRange}</strong>
+
+                <div className="space-y-1.5 text-[11px] text-[#272A27]">
+                  <div className="flex justify-between">
+                    <span className="text-[#5F625C]">Structural Correlation:</span>
+                    <strong className="text-[#8F4418]">HIGH (Sausar Shear Axis)</strong>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="text-[#5F625C]">Spectral SWIR Match:</span>
+                    <strong className="text-[#3D8C8A]">92% Braunite Peak</strong>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="text-[#5F625C]">Environmental Context:</span>
+                    <strong className="text-[#2D7A4D]">LOW RISK (Buffer Corridor)</strong>
+                  </div>
                 </div>
-                <div className="text-[11px] text-[#272A27] pt-1 font-sans">
-                  <strong>Satellite Evidence:</strong> {t.satelliteEvidence}
-                </div>
-                <div className="text-[11px] text-emerald-400 font-sans">
-                  <strong>Drilling Support:</strong> {t.drillingEvidence}
-                </div>
-                <div className="pt-2 border-t border-obsidian-850 text-[10.5px] text-amber-300 font-sans">
-                  <strong>Recommended Action:</strong> {t.recommendation}
+
+                <div className="p-2.5 rounded-xl bg-[#E8E1D5] border border-[#C8BFAF] text-[10.5px] text-[#272A27] space-y-1">
+                  <div className="text-[10px] font-bold text-[#C46A32] uppercase tracking-wider">
+                    EXPLORATION PRIORITY: {t.status}
+                  </div>
+                  <p className="font-sans leading-relaxed text-[#272A27]">
+                    <strong>Recommended:</strong> {t.recommendation}
+                  </p>
                 </div>
               </div>
             ))}
@@ -829,13 +860,13 @@ const ReserveRadarContent = () => {
           {/* Multi-Target Comparison Modal/Table */}
           {isCompareTargetsOpen && (
             <div className="p-6 rounded-2xl bg-[#F0EBE2] border border-[#C8BFAF] space-y-4 font-mono text-xs">
-              <div className="flex justify-between items-center pb-3 border-b border-obsidian-850">
+              <div className="flex justify-between items-center pb-3 border-b border-[#DDD4C5]">
                 <h4 className="font-bold text-[#272A27] text-sm">Target-to-Target Comparative Decision Matrix</h4>
                 <span className="text-[10px] text-[#85877E]">3 Candidate Prospects Identified</span>
               </div>
               <div className="overflow-x-auto">
                 <table className="w-full text-left text-xs">
-                  <thead className="bg-[#0f172a] text-[#5F625C] border-b border-[#C8BFAF] uppercase text-[10px]">
+                  <thead className="bg-[#E8E1D5] text-[#5F625C] border-b border-[#C8BFAF] uppercase text-[10px]">
                     <tr>
                       <th className="py-2.5 px-3">Target ID</th>
                       <th className="py-2.5 px-3">Prospectivity</th>
@@ -846,16 +877,16 @@ const ReserveRadarContent = () => {
                       <th className="py-2.5 px-3">Exploration Priority</th>
                     </tr>
                   </thead>
-                  <tbody className="divide-y divide-obsidian-800 text-[#272A27]">
+                  <tbody className="divide-y divide-[#DDD4C5] text-[#272A27]">
                     {explorationTargets.map(tgt => (
                       <tr key={tgt.id} className="hover:bg-[#C8BFAF]/50">
                         <td className="py-2.5 px-3 font-bold text-[#272A27]">{tgt.id}</td>
                         <td className="py-2.5 px-3 text-emerald-400 font-bold">{tgt.prospectivity}%</td>
-                        <td className="py-2.5 px-3 text-manganese-400 font-bold">{tgt.gradeEst}</td>
+                        <td className="py-2.5 px-3 text-[#8F4418] font-bold">{tgt.gradeEst}</td>
                         <td className="py-2.5 px-3">{tgt.depthRange}</td>
                         <td className="py-2.5 px-3">{tgt.areaHa}</td>
                         <td className="py-2.5 px-3 text-[#3D8C8A] font-bold">{tgt.confidence}</td>
-                        <td className="py-2.5 px-3 font-bold text-amber-300">{tgt.status}</td>
+                        <td className="py-2.5 px-3 font-bold text-[#C46A32]">{tgt.status}</td>
                       </tr>
                     ))}
                   </tbody>
@@ -984,7 +1015,7 @@ const ReserveRadarContent = () => {
                       activeBlock.id === block.id
                         ? 'border-white scale-105 shadow-xl bg-[#17263f]'
                         : block.level === 'HIGH'
-                        ? 'bg-emerald-950/40 border-emerald-500/40 hover:border-emerald-400'
+                        ? 'bg-[#2D7A4D]/15/40 border-emerald-500/40 hover:border-emerald-400'
                         : block.level === 'MEDIUM'
                         ? 'bg-amber-950/40 border-amber-500/40 hover:border-amber-400'
                         : 'bg-rose-950/40 border-rose-500/40 hover:border-rose-400'
@@ -1004,14 +1035,14 @@ const ReserveRadarContent = () => {
 
             {/* Block Inspector Drawer */}
             <div className="lg:col-span-4 p-6 rounded-2xl bg-[#F0EBE2] border border-[#C8BFAF] space-y-4">
-              <div className="flex justify-between items-center pb-3 border-b border-obsidian-850">
+              <div className="flex justify-between items-center pb-3 border-b border-[#DDD4C5]">
                 <div>
                   <h4 className="font-bold text-[#272A27] text-base">BLOCK {activeBlock.id}</h4>
                   <span className="text-[10px] text-[#85877E]">Resource Confidence Dossier</span>
                 </div>
                 <span className={`px-2 py-0.5 rounded text-[10px] font-bold ${
-                  activeBlock.level === 'HIGH' ? 'bg-emerald-950 text-emerald-300 border border-emerald-800' :
-                  activeBlock.level === 'MEDIUM' ? 'bg-amber-950 text-amber-300 border border-amber-800' :
+                  activeBlock.level === 'HIGH' ? 'bg-[#2D7A4D]/15 text-[#2D7A4D] border border-[#2D7A4D]/30' :
+                  activeBlock.level === 'MEDIUM' ? 'bg-amber-950 text-[#C46A32] border border-amber-800' :
                   'bg-rose-950 text-rose-300 border border-rose-800'
                 }`}>
                   {activeBlock.level} CONFIDENCE
@@ -1019,27 +1050,27 @@ const ReserveRadarContent = () => {
               </div>
 
               <div className="space-y-2.5 text-xs">
-                <div className="flex justify-between pb-1.5 border-b border-obsidian-850">
+                <div className="flex justify-between pb-1.5 border-b border-[#DDD4C5]">
                   <span className="text-[#5F625C]">Model Confidence:</span>
                   <strong className="text-emerald-400 font-bold">{activeBlock.conf}%</strong>
                 </div>
-                <div className="flex justify-between pb-1.5 border-b border-obsidian-850">
+                <div className="flex justify-between pb-1.5 border-b border-[#DDD4C5]">
                   <span className="text-[#5F625C]">Assayed Mn Estimate:</span>
-                  <strong className="text-manganese-400 font-bold">{activeBlock.grade}% Mn</strong>
+                  <strong className="text-[#8F4418] font-bold">{activeBlock.grade}% Mn</strong>
                 </div>
-                <div className="flex justify-between pb-1.5 border-b border-obsidian-850">
+                <div className="flex justify-between pb-1.5 border-b border-[#DDD4C5]">
                   <span className="text-[#5F625C]">Uncertainty Bounds:</span>
                   <strong className="text-[#272A27]">±{activeBlock.uncert}%</strong>
                 </div>
-                <div className="flex justify-between pb-1.5 border-b border-obsidian-850">
+                <div className="flex justify-between pb-1.5 border-b border-[#DDD4C5]">
                   <span className="text-[#5F625C]">Diamond Borehole Support:</span>
                   <strong className="text-[#3D8C8A] font-bold">{activeBlock.drillHoles} Core Holes</strong>
                 </div>
-                <div className="flex justify-between pb-1.5 border-b border-obsidian-850">
+                <div className="flex justify-between pb-1.5 border-b border-[#DDD4C5]">
                   <span className="text-[#5F625C]">Satellite SWIR Support:</span>
                   <strong className="text-[#272A27] font-bold">{activeBlock.satSupport}</strong>
                 </div>
-                <div className="flex justify-between pb-1.5 border-b border-obsidian-850">
+                <div className="flex justify-between pb-1.5 border-b border-[#DDD4C5]">
                   <span className="text-[#5F625C]">Sausar Geological Support:</span>
                   <strong className="text-[#272A27] font-bold">{activeBlock.geoSupport}</strong>
                 </div>
@@ -1065,7 +1096,7 @@ const ReserveRadarContent = () => {
                 Multi-Temporal Afforestation, Disturbance &amp; Sump Water Tracking ({timeMachineYear})
               </h3>
             </div>
-            <span className="px-3 py-1 rounded-xl bg-emerald-950 text-emerald-300 border border-emerald-800 font-bold">
+            <span className="px-3 py-1 rounded-xl bg-[#2D7A4D]/15 text-[#2D7A4D] border border-[#2D7A4D]/30 font-bold">
               STATUTORY COMPLIANCE: {activeEnvScene.risk}
             </span>
           </div>
@@ -1215,7 +1246,7 @@ const ReserveRadarContent = () => {
             {/* Mode-Specific Ranked Table */}
             <div className="overflow-x-auto">
               <table className="w-full text-left text-xs">
-                <thead className="bg-[#0f172a] text-[#5F625C] border-b border-[#C8BFAF] uppercase text-[10px]">
+                <thead className="bg-[#E8E1D5] text-[#5F625C] border-b border-[#C8BFAF] uppercase text-[10px]">
                   <tr>
                     <th className="py-3 px-4">Rank</th>
                     <th className="py-3 px-4">Mine Asset</th>
@@ -1227,7 +1258,7 @@ const ReserveRadarContent = () => {
                     <th className="py-3 px-4">Mode Score</th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-obsidian-800 text-[#272A27]">
+                <tbody className="divide-y divide-[#DDD4C5] text-[#272A27]">
                   {nationalAnalysis.map((m) => (
                     <tr
                       key={m.id}
@@ -1311,14 +1342,14 @@ const ReserveRadarContent = () => {
                   Top 5 Priority Interventions Across MOIL Portfolio
                 </h3>
               </div>
-              <span className="text-xs text-manganese-400 font-bold">Portfolio Optimization</span>
+              <span className="text-xs text-[#8F4418] font-bold">Portfolio Optimization</span>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 text-xs">
               {top5Actions.map(act => (
                 <div key={act.priority} className="p-4 rounded-xl bg-[#F0EBE2] border border-[#C8BFAF] space-y-2">
                   <div className="flex justify-between items-center text-[10px]">
-                    <span className="px-2 py-0.5 rounded bg-manganese-950 text-manganese-300 border border-manganese-800 font-bold">
+                    <span className="px-2 py-0.5 rounded bg-manganese-950 text-[#C46A32] border border-manganese-800 font-bold">
                       {act.priority}
                     </span>
                     <strong className="text-[#272A27]">{act.mine}</strong>
@@ -1330,7 +1361,7 @@ const ReserveRadarContent = () => {
                   <div className="text-emerald-400 text-[10.5px] font-sans">
                     <strong>Impact:</strong> {act.impact}
                   </div>
-                  <div className="pt-1.5 border-t border-obsidian-850 text-amber-300 text-[10.5px] font-sans">
+                  <div className="pt-1.5 border-t border-[#DDD4C5] text-[#C46A32] text-[10.5px] font-sans">
                     <strong>Action:</strong> {act.action}
                   </div>
                 </div>
@@ -1349,7 +1380,7 @@ const ReserveRadarContent = () => {
                 <div key={c.pair} className="p-4 rounded-xl bg-[#F0EBE2] border border-[#C8BFAF] space-y-1.5">
                   <div className="flex justify-between items-center text-[11px]">
                     <strong className="text-[#272A27]">{c.pair}</strong>
-                    <span className="px-2 py-0.5 rounded bg-emerald-950 text-emerald-300 border border-emerald-800 font-bold">{c.r}</span>
+                    <span className="px-2 py-0.5 rounded bg-[#2D7A4D]/15 text-[#2D7A4D] border border-[#2D7A4D]/30 font-bold">{c.r}</span>
                   </div>
                   <p className="text-[#5F625C] text-[10.5px] font-sans leading-relaxed">{c.desc}</p>
                 </div>
@@ -1366,13 +1397,13 @@ const ReserveRadarContent = () => {
                   What If MOIL Invests ₹{nationalInvestCr} Crore Capital?
                 </h3>
               </div>
-              <span className="text-xs text-manganese-400 font-bold">10-Mine Portfolio ROI Projection</span>
+              <span className="text-xs text-[#8F4418] font-bold">10-Mine Portfolio ROI Projection</span>
             </div>
 
             <div className="space-y-3">
               <div className="flex justify-between text-[#272A27]">
                 <span>Select Capital Deployment:</span>
-                <strong className="text-manganese-400 font-bold text-base">₹{nationalInvestCr} Crore Budget</strong>
+                <strong className="text-[#8F4418] font-bold text-base">₹{nationalInvestCr} Crore Budget</strong>
               </div>
               <input
                 type="range"
@@ -1433,7 +1464,7 @@ const ReserveRadarContent = () => {
                 Depth-Dependent Stratigraphy &amp; Assayed Grade Curve
               </h3>
             </div>
-            <span className="text-xs text-manganese-400 font-bold">{drillDepth}m Current Depth</span>
+            <span className="text-xs text-[#8F4418] font-bold">{drillDepth}m Current Depth</span>
           </div>
 
           <div className="p-5 rounded-2xl bg-[#F5F1E9] border border-[#C8BFAF] space-y-4">
@@ -1491,7 +1522,7 @@ const ReserveRadarContent = () => {
             </div>
             <div className="p-4 rounded-xl bg-[#F0EBE2] border border-[#C8BFAF]">
               <span className="text-[10px] text-[#85877E] uppercase">Assayed Grade</span>
-              <div className="text-base font-bold text-manganese-400 mt-1">{geology.mnGrade}% Mn</div>
+              <div className="text-base font-bold text-[#8F4418] mt-1">{geology.mnGrade}% Mn</div>
             </div>
             <div className="p-4 rounded-xl bg-[#F0EBE2] border border-[#C8BFAF]">
               <span className="text-[10px] text-[#85877E] uppercase">SiO₂ Content</span>
